@@ -2,47 +2,184 @@
 <html lang="fi">
 <head>
   <meta charset="utf-8">
-  <title>Kodin Digiapu – Rauhallista digiapua Järvenpäässä ja lähialueilla</title>
+  <title>Kodin Digiapu – Luotettavaa digiapua Järvenpäässä ja lähialueilla</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Luotettavaa digiapua Järvenpäässä, Tuusulassa, Keravalla ja Hyvinkäällä. Puhelin, tietokone, tv ja wifi – kotitalousvähennys 60 % työn osuudesta.">
+  <meta name="description" content="Luotettavaa digiapua Järvenpäässä ja lähialueilla. Puhelin, tietokone, tv ja wifi – kotitalousvähennys 60 % työn osuudesta.">
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <style>
     :root{
-      --main:#1f2937; --accent:#0ea5e9; --bg:#f9fafb; --card:white;
+      --main:#1f2937;
+      --accent:#0ea5e9;
+      --bg:#f9fafb;
+      --card:white;
     }
     *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:#111;line-height:1.6;}
-    header{background:white;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.06);}
-    .container{max-width:1100px;margin:auto;padding:0 20px;}
-    .nav{display:flex;justify-content:space-between;align-items:center;padding:18px 0;}
-    .nav a{color:#111;text-decoration:none;margin-left:24px;font-weight:500;}
-    .nav a:hover{color:var(--accent);}
-    .hero{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;
-          padding:120px 20px;background:white;}
-    .hero h1{font-size:clamp(32px,5vw,56px);margin-bottom:20px;color:var(--main);}
-    .hero p{max-width:700px;margin-bottom:32px;font-size:18px;}
-    .btn{background:var(--accent);color:white;padding:16px 34px;border-radius:8px;font-weight:600;
-         text-decoration:none;transition:background .2s;}
+    body{
+      font-family:Inter,system-ui,sans-serif;
+      background:var(--bg);
+      color:#111;
+      line-height:1.6;
+    }
+
+    /* ====== NAVIGATION ====== */
+    header{
+      background:white;
+      position:sticky;
+      top:0;
+      z-index:100;
+      box-shadow:0 2px 8px rgba(0,0,0,.06);
+    }
+    .container{
+      max-width:1100px;
+      margin:auto;
+      padding:0 20px;
+    }
+    .nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:18px 0;
+      position:relative;
+    }
+    .logo{
+      font-weight:700;
+      font-size:20px;
+      color:var(--main);
+    }
+    .nav-toggle{
+      display:none;
+      background:none;
+      border:none;
+      font-size:30px;
+      cursor:pointer;
+    }
+    .nav-links{
+      display:flex;
+      gap:24px;
+      align-items:center;
+    }
+    .nav-links a{
+      color:#111;
+      text-decoration:none;
+      font-weight:500;
+    }
+    .nav-links a:hover{
+      color:var(--accent);
+    }
+
+    /* Mobile nav */
+    @media (max-width:768px){
+      .nav-toggle{display:block;}
+      .nav-links{
+        display:none;
+        flex-direction:column;
+        width:100%;
+        background:white;
+        position:absolute;
+        top:70px;
+        left:0;
+        padding:20px 0;
+        border-top:1px solid #eee;
+      }
+      .nav-links.show{display:flex;}
+      .nav-links a{padding:10px 0;}
+    }
+
+    /* ====== HERO ====== */
+    .hero{
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding:120px 20px;
+      background:white;
+    }
+    .hero h1{
+      font-size:clamp(32px,5vw,56px);
+      margin-bottom:20px;
+      color:var(--main);
+      max-width:800px;
+    }
+    .hero p{
+      max-width:700px;
+      margin-bottom:32px;
+      font-size:18px;
+    }
+    .btn{
+      background:var(--accent);
+      color:white;
+      padding:16px 34px;
+      border-radius:8px;
+      font-weight:600;
+      text-decoration:none;
+      transition:background .2s;
+    }
     .btn:hover{background:#0284c7;}
+
+    /* ====== SECTIONS ====== */
     section{padding:80px 20px;}
-    h2{font-size:34px;margin-bottom:40px;text-align:center;color:var(--main);}
-    .grid{display:grid;gap:40px;}
-    @media(min-width:768px){.grid{grid-template-columns:repeat(3,1fr);}}
-    .card{background:var(--card);border-radius:12px;padding:30px;text-align:center;
-          box-shadow:0 4px 16px rgba(0,0,0,.05);}
-    .card img{height:80px;margin-bottom:20px;}
-    .price{font-size:36px;font-weight:700;color:var(--accent);margin:20px 0;}
-    .contact{background:var(--main);color:white;text-align:center;padding:80px 20px;}
-    .contact a{color:white;font-weight:600;text-decoration:none;}
-    footer{background:#e5e7eb;text-align:center;padding:25px;font-size:14px;color:#4b5563;}
+    h2{
+      font-size:34px;
+      margin-bottom:40px;
+      text-align:center;
+      color:var(--main);
+    }
+    .grid{
+      display:grid;
+      gap:40px;
+    }
+    @media(min-width:768px){
+      .grid{grid-template-columns:repeat(3,1fr);}
+    }
+    .card{
+      background:var(--card);
+      border-radius:12px;
+      padding:30px;
+      text-align:center;
+      box-shadow:0 4px 16px rgba(0,0,0,.05);
+    }
+    .card img{
+      height:80px;
+      margin-bottom:20px;
+    }
+    .price{
+      font-size:36px;
+      font-weight:700;
+      color:var(--accent);
+      margin:20px 0;
+    }
+
+    /* ====== CONTACT ====== */
+    .contact{
+      background:var(--main);
+      color:white;
+      text-align:center;
+      padding:80px 20px;
+    }
+    .contact a{
+      color:white;
+      font-weight:600;
+      text-decoration:none;
+    }
+
+    /* ====== FOOTER ====== */
+    footer{
+      background:#e5e7eb;
+      text-align:center;
+      padding:25px;
+      font-size:14px;
+      color:#4b5563;
+    }
   </style>
 </head>
 <body>
 
 <header>
   <div class="container nav">
-    <strong>Kodin Digiapu</strong>
-    <nav>
+    <div class="logo">Kodin Digiapu</div>
+    <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+    <nav class="nav-links">
       <a href="#palvelut">Palvelut</a>
       <a href="#hinnat">Hinnat</a>
       <a href="#yhteys">Yhteys</a>
@@ -113,6 +250,14 @@
 <footer>
   © 2025 Kodin Digiapu – Järvenpää, Tuusula, Kerava, Hyvinkää
 </footer>
+
+<script>
+  const toggleBtn = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  toggleBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+  });
+</script>
 
 </body>
 </html>
