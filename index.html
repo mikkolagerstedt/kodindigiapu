@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="fi" style="scroll-behavior: smooth;">
 <head>
@@ -56,12 +55,12 @@
       padding:0 20px;
     }
     section{
-      padding: 100px 0;
+      padding: 120px 0;
     }
     h2{
       font-size: clamp(28px, 4vw, 36px);
       margin-bottom:50px;
-      margin-top:50px;
+	  margin-top:50px;
       text-align:center;
       color:var(--main);
     }
@@ -154,7 +153,6 @@
     .hero h1{
       font-size:clamp(32px, 5vw, 52px);
       margin-bottom:24px;
-      margin-top:30px;
       color:var(--main);
       max-width:800px;
     }
@@ -218,14 +216,22 @@
         display: grid;
         gap: 40px;
         align-items: center;
+        text-align: center; /* Keskittää kuvan ja tekstin */
     }
     @media(min-width: 900px) {
-        .contact-wrapper { grid-template-columns: 1fr 1.2fr; }
+        .contact-wrapper { grid-template-columns: 1fr 1.2fr; text-align: left; }
+        .contact-wrapper .contact-info { text-align: left; }
     }
     .contact-info p { margin-bottom: 20px; font-size: 18px;}
     .contact-info a { color: var(--main); font-weight: 600; text-decoration: none; }
     .contact-info a:hover { text-decoration: underline; }
     .contact-info i { color: var(--accent); margin-right: 10px; }
+    .contact-info img { 
+        max-width: 180px; /* Säädä kuvakokoa tarpeen mukaan */
+        border-radius: 50%; /* Pyöreä kuva */
+        margin-bottom: 25px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
     
     .form-group { margin-bottom: 20px; }
     .form-group input, .form-group textarea {
@@ -292,7 +298,7 @@
 
   <section class="hero">
     <h1>Luotettavaa digiapua kotiin Järvenpäässä ja lähialueilla</h1>
-    <p>Autan puhelimen, tietokoneen, television ja wifin kanssa – rauhallisesti ja selkeästi. Muista kotitalousvähennys 60% työn osuudesta.</p>
+    <p>Autan puhelimen, tietokoneen, television ja wifin kanssa – rauhallisesti ja selkeästi. Muista kotitalousvähennys 60 % työn osuudesta.</p>
     <a href="#yhteys" class="btn">Varaa kotikäynti</a>
   </section>
 
@@ -332,8 +338,8 @@
     </div>
   </section>
   
-  <section id="luottamus" class="container">
-      <h2>Miksi valita Kodin Digiapu?</h2>
+  <section id="luottamus" class="container" style="margin-top:10px margin-bottom:20px;">
+      <h2 style="padding-top:20px;">Miksi valita Kodin Digiapu?</h2>
       <div class="grid grid-2">
           <div class="card testimonial">
             <p>"Sain vihdoin uuden puhelimeni kunnolla käyttöön. Palvelu oli todella kärsivällistä ja ystävällistä. Suuri kiitos avusta!"</p>
@@ -350,7 +356,7 @@
     <h2>Hinnat ja kotitalousvähennys</h2>
     <div class="card price-card">
       <div class="price">60 € <span style="font-size: 20px; color: #555;">/ tunti</span></div>
-      <p>Muista hyödyntää <strong>kotitalousvähennys 60%</strong> työn osuudesta. Verovähennyksen jälkeen maksettavaksesi jää vain noin <strong>24 € / tunti</strong>.</p>
+      <p>Muista hyödyntää <strong>kotitalousvähennys 60 %</strong> työn osuudesta. Verovähennyksen jälkeen maksettavaksesi jää vain noin <strong>24 € / tunti</strong>.</p>
       <p>Toimialue: Järvenpää, Tuusula, Kerava, Hyvinkää ja lähialueet. Ei matkakuluja Järvenpään alueella.</p>
     </div>
   </section>
@@ -359,6 +365,7 @@
     <h2>Ota yhteyttä ja varaa aika</h2>
     <div class="contact-wrapper">
         <div class="contact-info">
+            <img src="/images/mikko-digiapu.webp" alt="Mikko, Kodin Digiapu" loading="lazy">
             <h3>Soita tai lähetä viesti</h3>
             <p>Nopein tapa saada apua on soittaa. Jos en pääse vastaamaan, soitan sinulle takaisin mahdollisimman pian.</p>
             <p><i class="fas fa-phone-alt"></i><strong>Puhelin:</strong> <a href="tel:+358405724113">040 572 4113</a></p>
