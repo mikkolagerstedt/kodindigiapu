@@ -2,219 +2,113 @@
 <html lang="fi">
 <head>
   <meta charset="utf-8">
-  <title>Kodin Digiapu – Rauhallista tekniikka-apua kotiin (Järvenpää, Tuusula, Kerava)</title>
+  <title>Kodin Digiapu – Luotettavaa digiapua Järvenpäässä ja lähialueilla</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Kodin Digiapu tarjoaa selkeää ja rauhallista tekniikka-apua kotiin: puhelin, tietokone, tv, netti, viestittely ja tulostimet. Kotitalousvähennys 60 %. Hinta 60 €/h.">
-  <!-- Open Graph -->
-  <meta property="og:title" content="Kodin Digiapu – Tekniikka-apua kotiin">
-  <meta property="og:description" content="Rauhallinen opastus kotiin Järvenpäässä ja lähialueilla. Kotitalousvähennys 60 %. Hinta 60 €/h.">
+  <meta name="description" content="Kodin Digiapu tarjoaa rauhallista ja luotettavaa digiapua kotiin Järvenpäässä, Tuusulassa, Keravalla ja Hyvinkäällä. Puhelin, tietokone, tv, wifi. Kotitalousvähennys 60 %. Hinta 60 €/h.">
+  <meta name="keywords" content="digiapu Järvenpää, kotitalousvähennys digiapu, tietokoneapu kotiin, älypuhelin opastus, tv ja wifi asennus, rauhallinen digiapu, kodin tekninen tuki, kotikäynti tietokoneapu">
+  <meta property="og:title" content="Kodin Digiapu – Digihuolto ja opastus kotiin">
+  <meta property="og:description" content="Rauhallinen ja selkeä digiapu kotiin. Puhelin, tietokone, tv ja wifi. Kotitalousvähennys 60 %.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://kodindigiapu.fi/">
-  <meta property="og:image" content="https://kodindigiapu.fi/og.jpg">
+  <meta property="og:url" content="https://kodindigiapu.fi">
   <meta name="format-detection" content="telephone=no">
   <style>
     :root{
-      --bg:#0f1215; --card:#171b20; --muted:#94a3b8; --text:#e6edf3; --brand:#59c; --brand-2:#7fd; --ok:#4ade80;
-      --max: 980px; --radius:16px;
+      --main:#1f2937; --text:#111; --accent:#0ea5e9; --bg:#f9fafb;
     }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:linear-gradient(180deg,#0c0f12, #12161b 40%, #0f1215);color:var(--text);}
-    body{font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, sans-serif; line-height:1.6}
-    a{color:var(--brand);text-decoration:none}
-    a:hover{opacity:.9}
-    .wrap{max-width:var(--max);margin:0 auto;padding:24px}
-    header{padding:20px 0 0}
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.2px}
-    .badge{font-size:12px;padding:4px 8px;border-radius:999px;background:rgba(127,255,221,.08);border:1px solid rgba(127,255,221,.25);color:#bff}
-    .cta{display:inline-block;padding:14px 18px;border-radius:12px;background:linear-gradient(90deg,var(--brand),var(--brand-2));color:#001014;font-weight:700;box-shadow:0 6px 30px rgba(127,255,221,.2)}
-    .cta.secondary{background:transparent;color:var(--text);border:1px solid rgba(148,163,184,.3)}
-    .hero{padding:56px 0 24px}
-    .hero h1{font-size:clamp(28px,5vw,44px);line-height:1.15;margin:0 0 12px}
-    .lead{color:var(--muted);max-width:64ch}
-    .pill{display:inline-flex;align-items:center;gap:8px;background:rgba(73,94,120,.25);border:1px solid rgba(148,163,184,.25);color:#cfe6ff;padding:6px 10px;border-radius:999px;font-size:13px}
-    .grid{display:grid;gap:18px}
-    @media(min-width:860px){ .grid.cols-3{grid-template-columns:repeat(3,1fr)} .grid.cols-2{grid-template-columns:repeat(2,1fr)} }
-    .card{background:linear-gradient(180deg,rgba(23,27,32,.9),rgba(23,27,32,.6));border:1px solid rgba(148,163,184,.18);border-radius:var(--radius);padding:20px}
-    .card h3{margin:0 0 8px}
-    .muted{color:var(--muted)}
-    .list{margin:0;padding-left:18px}
-    .price{font-size:28px;font-weight:800}
-    .section{padding:28px 0}
-    .check{color:var(--ok);margin-right:8px}
-    .foot{color:#9fb0c6;font-size:13px}
-    .bar{margin:18px 0 0;height:1px;background:linear-gradient(90deg,transparent, rgba(127,255,221,.5), transparent)}
-    .callout{background:linear-gradient(180deg, #0f1818, #121f1c);border:1px solid rgba(127,255,221,.25)}
-    .row{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
-    button,input,textarea{font:inherit}
-    .contact{display:grid;gap:10px}
-    input, textarea{width:100%;padding:12px 14px;border-radius:12px;background:#0e1318;border:1px solid rgba(148,163,184,.28);color:var(--text)}
-    .note{font-size:13px;color:#b9c6d8}
-    .kicker{font-size:13px;color:#9fb0c6;text-transform:uppercase;letter-spacing:.2em}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;background:var(--bg);color:var(--text);}
+    header{background:white;position:sticky;top:0;z-index:100;box-shadow:0 2px 6px rgba(0,0,0,.06);}
+    .container{max-width:1000px;margin:0 auto;padding:0 20px;}
+    .nav{display:flex;justify-content:space-between;align-items:center;padding:16px 0;}
+    .nav a{color:var(--text);margin-left:20px;text-decoration:none;font-weight:500;}
+    .nav a:hover{color:var(--accent);}
+    .hero{padding:60px 20px;text-align:center;background:white;}
+    .hero h1{font-size:clamp(28px,5vw,48px);margin-bottom:20px;color:var(--main);}
+    .hero p{max-width:700px;margin:0 auto 30px;font-size:18px;}
+    .btn{display:inline-block;background:var(--accent);color:white;padding:14px 28px;border-radius:8px;text-decoration:none;font-weight:600;}
+    .btn:hover{opacity:.9;}
+    section{padding:60px 20px;}
+    h2{font-size:30px;margin-bottom:20px;color:var(--main);}
+    .grid{display:grid;gap:30px;}
+    @media(min-width:768px){.grid{grid-template-columns:repeat(3,1fr);}}
+    .card{background:white;border-radius:10px;padding:24px;box-shadow:0 4px 14px rgba(0,0,0,.05);}
+    .price{font-size:32px;font-weight:700;color:var(--accent);margin:10px 0;}
+    .contact{text-align:center;background:var(--main);color:white;padding:60px 20px;}
+    .contact a{color:white;font-weight:600;text-decoration:none;}
+    footer{background:#e5e7eb;text-align:center;padding:20px;font-size:14px;color:#4b5563;}
+    .cta-bar{background:var(--accent);color:white;text-align:center;padding:10px;font-weight:600;}
   </style>
-  <!-- LocalBusiness JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"LocalBusiness",
-    "name":"Kodin Digiapu",
-    "image":"https://kodindigiapu.fi/og.jpg",
-    "description":"Rauhallista tekniikka-apua kotiin: puhelin, tietokone, tv, netti ja viestintäsovellukset. Kotitalousvähennys 60 %. Hinta 60 €/h.",
-    "areaServed":["Järvenpää","Tuusula","Kerava","Hyvinkää","Sipoo"],
-    "priceRange":"€€",
-    "url":"https://kodindigiapu.fi/",
-    "telephone":"+358 40 572 4113",
-    "email":"info@kodindigiapu.fi",
-    "address":{
-      "@type":"PostalAddress",
-      "addressLocality":"Järvenpää",
-      "addressRegion":"Uusimaa",
-      "addressCountry":"FI"
-    },
-    "offers":{
-      "@type":"Offer",
-      "price":"60",
-      "priceCurrency":"EUR",
-      "category":"HomeService",
-      "description":"Kotikäynti 60 €/h. Kotitalousvähennys 60 % työn osuudesta."
-    },
-    "founder":"Mikko Lagerstedt"
-  }
-  </script>
 </head>
 <body>
-  <header class="wrap">
-    <div class="nav">
-      <div class="brand">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <circle cx="12" cy="12" r="10" stroke="#7fffd4" stroke-opacity=".7"/>
-          <path d="M7 12h10M12 7v10" stroke="#7fffd4" stroke-width="1.6" stroke-linecap="round" stroke-opacity=".9"/>
-        </svg>
-        <span>Kodin Digiapu</span>
-        <span class="badge">Kotikäynnit</span>
-      </div>
-      <div class="row">
-        <a class="cta secondary" href="#yhteys">Ota yhteyttä</a>
-        <a class="cta" href="tel:+3584XXXXXXXX">Soita: 04X XXX XXXX</a>
-      </div>
+
+<header>
+  <div class="container nav">
+    <div><strong>Kodin Digiapu</strong></div>
+    <nav>
+      <a href="#palvelut">Palvelut</a>
+      <a href="#hinnat">Hinnat</a>
+      <a href="#yhteys">Yhteys</a>
+      <a href="tel:+358405724113">📞 040 572 4113</a>
+      <a href="mailto:mikko@kodindigiapu.fi">✉ mikko@kodindigiapu.fi</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>Luotettavaa digiapua kotiin Järvenpäässä ja lähialueilla</h1>
+  <p>Autan puhelimen, tietokoneen, television, wifin ja muiden laitteiden kanssa – rauhallisesti ja selkeästi. Kotitalousvähennys 60 % työn osuudesta.</p>
+  <a href="#yhteys" class="btn">Varaa kotikäynti</a>
+</section>
+
+<section id="palvelut" class="container">
+  <h2>Palvelut</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Puhelin & tabletit</h3>
+      <p>Uuden laitteen käyttöönotto, WhatsApp, sähköposti, kuvat ja varmuuskopiointi.</p>
     </div>
-  </header>
+    <div class="card">
+      <h3>Netti & wifi</h3>
+      <p>Wifin ja reitittimen asennus ja optimointi, yhteysongelmien ratkaisu.</p>
+    </div>
+    <div class="card">
+      <h3>TV & suoratoisto</h3>
+      <p>Television, digiboksin ja suoratoistopalvelujen (Netflix, Yle Areena jne.) asetukset.</p>
+    </div>
+    <div class="card">
+      <h3>Tietokoneapu</h3>
+      <p>Windows- ja Mac-perusasetukset, tiedostojen varmuuskopiointi, virustarkistus.</p>
+    </div>
+    <div class="card">
+      <h3>Tietoturva & huijausviestit</h3>
+      <p>Neuvon turvalliseen käyttöön ja autan tunnistamaan huijausviestit ja -puhelut.</p>
+    </div>
+    <div class="card">
+      <h3>Selkeät ohjeet</h3>
+      <p>Käydään yhdessä läpi ja jätän kirjalliset ohjeet, jotta käyttö on helppoa jatkossakin.</p>
+    </div>
+  </div>
+</section>
 
-  <main class="wrap">
-    <section class="hero">
-      <div class="pill">Rauhallista tekniikka-apua kotiin • Järvenpää + lähialueet</div>
-      <h1>Kodin digiapu ilman kiirettä.<br> Selkeä opastus sinun laitteillasi, kotona.</h1>
-      <p class="lead">
-        Autan laittamaan puhelimen, tietokoneen, tv:n ja netin kuntoon sekä opastan viestittelyn, videopuhelut, kuvien siirron ja tulostimet. Kaikki selkeästi, omaan tahtiin.
-      </p>
-      <div class="row">
-        <a class="cta" href="#yhteys">Varaa kotikäynti</a>
-        <a class="cta secondary" href="#hinnat">Hinnat & kotitalousvähennys</a>
-      </div>
-      <div class="bar"></div>
-    </section>
+<section id="hinnat" class="container">
+  <h2>Hinnat ja kotitalousvähennys</h2>
+  <div class="card">
+    <div class="price">60 € / tunti</div>
+    <p>Kotitalousvähennys 60 % työn osuudesta → asiakkaalle vain n. <strong>24 € / tunti</strong> verovähennysten jälkeen.</p>
+    <p>Toimialue: Järvenpää, Tuusula, Kerava, Hyvinkää ja lähialueet.</p>
+  </div>
+</section>
 
-    <section class="section grid cols-3">
-      <div class="card">
-        <h3>Arjen digiapu</h3>
-        <p class="muted">Puhelin &amp; tabletit, WhatsApp, sähköposti, videopuhelut, kuvien siirto, tulostimet.</p>
-      </div>
-      <div class="card">
-        <h3>Laitteet kuntoon</h3>
-        <p class="muted">Wifi ja tv, tietokoneen perusasetukset, turva-asetukset ja varmuuskopiot.</p>
-      </div>
-      <div class="card">
-        <h3>Rauhallinen opastus</h3>
-        <p class="muted">Ei jargonia. Näytän vieressä ja jätän selkeät muistiinpanot mukaan.</p>
-      </div>
-    </section>
+<section id="yhteys" class="contact">
+  <h2>Ota yhteyttä</h2>
+  <p>Soita tai lähetä sähköpostia ja sovi kotikäynti:</p>
+  <p><strong>Puhelin:</strong> <a href="tel:+358405724113">040 572 4113</a></p>
+  <p><strong>Sähköposti:</strong> <a href="mailto:mikko@kodindigiapu.fi">mikko@kodindigiapu.fi</a></p>
+</section>
 
-    <section id="hinnat" class="section grid cols-2">
-      <div class="card callout">
-        <div class="kicker">Hinta</div>
-        <div class="price">60 € / h</div>
-        <p class="muted">Kotitalousvähennys 60 % työn osuudesta → <strong>sinulle noin 24 € / h</strong> verovähennysten jälkeen.</p>
-        <ul class="list muted">
-          <li><span class="check">✔</span> Kotikäynnit: Järvenpää, Tuusula, Kerava</li>
-          <li><span class="check">✔</span> Ei erillistä aloittamismaksua</li>
-          <li><span class="check">✔</span> Selkeä lasku: työn osuus eritelty vähennystä varten</li>
-        </ul>
-        <div class="row">
-          <a class="cta" href="#yhteys">Pyydä aika</a>
-          <a class="cta secondary" href="#usein">Usein kysyttyä</a>
-        </div>
-      </div>
-      <div class="card">
-        <h3>Kotitalousvähennys pähkinänkuoressa</h3>
-        <p class="muted">Työ tehdään asiakkaan kotona ja vähennys koskee työn osuutta (ei matkakuluja). Merkitsemme laskuun erittelyn – ilmoitat vähennyksen OmaVerossa.</p>
-        <ul class="list muted">
-          <li><span class="check">✔</span> Vähennys: <strong>60 %</strong> työn osuudesta</li>
-          <li><span class="check">✔</span> Enimmäismäärä: <strong>3 500 € / hlö / vuosi</strong></li>
-          <li><span class="check">✔</span> Omavastuu verottajan mukaan</li>
-        </ul>
-      </div>
-    </section>
+<footer>
+  © 2025 Kodin Digiapu – Järvenpää, Tuusula, Kerava, Hyvinkää
+</footer>
 
-    <section class="section grid cols-2">
-      <div class="card">
-        <h3>Miten kotikäynti etenee?</h3>
-        <ol class="muted">
-          <li>Soita tai lähetä viestin – sovitaan aika.</li>
-          <li>Tulen kotiin ja käydään läpi tarpeesi rauhassa.</li>
-          <li>Näytän vaihe kerrallaan – kirjoitan ohjeet talteen.</li>
-          <li>Saat selkeän laskun (työn osuus eritelty).</li>
-        </ol>
-      </div>
-      <div class="card">
-        <h3>Tyypillisiä pyyntöjä</h3>
-        <ul class="list muted">
-          <li>Uuden puhelimen käyttöönotto, yhteystiedot ja viestit</li>
-          <li>WhatsApp, FaceTime, sähköposti ja videopuhelut</li>
-          <li>Wifi, tv ja suoratoistot kuntoon</li>
-          <li>Kuvien talteenotto ja tulostus</li>
-          <li>Huijausviestien tunnistaminen ja perus­tietoturva</li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="usein" class="section">
-      <div class="card">
-        <h3>Usein kysyttyä</h3>
-        <p class="muted"><strong>Voinko antaa pankkitunnukseni?</strong> – Et. Opastan turvallisesti, mutta sinä teet kirjautumiset itse.</p>
-        <p class="muted"><strong>Onko palvelu yrityksille?</strong> – Ei. Tämä on yksityisasiakkaille ja koteihin suunnattu palvelu.</p>
-        <p class="muted"><strong>Kuinka laskutus toimii?</strong> – Lasku sähköpostiin tai paperilla. Työn osuus eritelty kotitalousvähennystä varten.</p>
-      </div>
-    </section>
-
-    <section id="yhteys" class="section grid cols-2">
-      <div class="card">
-        <h3>Ota yhteyttä</h3>
-        <p class="muted">Nopea yhteydenotto: soita tai lähetä sähköpostia. Voit myös jättää viestin lomakkeella.</p>
-        <p><strong>Puhelin:</strong> <a href="tel:+358405724113">040 572 4113</a><br>
-           <strong>Sähköposti:</strong> <a href="mailto:info@kodindigiapu.fi">info@kodindigiapu.fi</a></p>
-        <div class="row">
-          <a class="cta" href="tel:+3584XXXXXXXX">Soita nyt</a>
-          <a class="cta secondary" href="mailto:info@kodindigiapu.fi?subject=Kodin%20Digiapu%20-%20ajanvaraus">Sähköposti</a>
-        </div>
-        <p class="note">Voin tarvittaessa jättää vierailun jälkeen lyhyet ohjeet paperille tai sähköpostiin.</p>
-      </div>
-      <div class="card">
-        <h3>Viestilomake</h3>
-        <!-- Ilmainen Formspree: korvaa action omalla endpointillasi, kun luot lomakkeen -->
-        <form class="contact" action="https://formspree.io/f/your-id" method="POST">
-          <input type="text" name="name" placeholder="Nimi" required>
-          <input type="tel" name="phone" placeholder="Puhelin" required>
-          <input type="email" name="email" placeholder="Sähköposti" required>
-          <textarea name="message" rows="4" placeholder="Kerro, missä kaipaat apua" required></textarea>
-          <button class="cta" type="submit">Lähetä viesti</button>
-          <span class="note">Lähettämällä viestin hyväksyt, että käsittelemme yhteystietojasi yhteydenottoa varten.</span>
-        </form>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="foot">Kodin Digiapu • Järvenpää, Tuusula, Kerava • Ei evästeitä, ei seurantaa.</div>
-    </section>
-  </main>
 </body>
 </html>
