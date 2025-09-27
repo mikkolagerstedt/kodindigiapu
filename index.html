@@ -2,48 +2,46 @@
 <html lang="fi">
 <head>
   <meta charset="utf-8">
-  <title>Kodin Digiapu – Luotettavaa digiapua Järvenpäässä ja lähialueilla</title>
+  <title>Kodin Digiapu – Rauhallista digiapua Järvenpäässä ja lähialueilla</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Kodin Digiapu tarjoaa rauhallista ja luotettavaa digiapua kotiin Järvenpäässä, Tuusulassa, Keravalla ja Hyvinkäällä. Puhelin, tietokone, tv, wifi. Kotitalousvähennys 60 %. Hinta 60 €/h.">
-  <meta name="keywords" content="digiapu Järvenpää, kotitalousvähennys digiapu, tietokoneapu kotiin, älypuhelin opastus, tv ja wifi asennus, rauhallinen digiapu, kodin tekninen tuki, kotikäynti tietokoneapu">
-  <meta property="og:title" content="Kodin Digiapu – Digihuolto ja opastus kotiin">
-  <meta property="og:description" content="Rauhallinen ja selkeä digiapu kotiin. Puhelin, tietokone, tv ja wifi. Kotitalousvähennys 60 %.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://kodindigiapu.fi">
-  <meta name="format-detection" content="telephone=no">
+  <meta name="description" content="Luotettavaa digiapua Järvenpäässä, Tuusulassa, Keravalla ja Hyvinkäällä. Puhelin, tietokone, tv ja wifi – kotitalousvähennys 60 % työn osuudesta.">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <style>
     :root{
-      --main:#1f2937; --text:#111; --accent:#0ea5e9; --bg:#f9fafb;
+      --main:#1f2937; --accent:#0ea5e9; --bg:#f9fafb; --card:white;
     }
     *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;background:var(--bg);color:var(--text);}
-    header{background:white;position:sticky;top:0;z-index:100;box-shadow:0 2px 6px rgba(0,0,0,.06);}
-    .container{max-width:1000px;margin:0 auto;padding:0 20px;}
-    .nav{display:flex;justify-content:space-between;align-items:center;padding:16px 0;}
-    .nav a{color:var(--text);margin-left:20px;text-decoration:none;font-weight:500;}
+    body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:#111;line-height:1.6;}
+    header{background:white;position:sticky;top:0;z-index:100;box-shadow:0 2px 8px rgba(0,0,0,.06);}
+    .container{max-width:1100px;margin:auto;padding:0 20px;}
+    .nav{display:flex;justify-content:space-between;align-items:center;padding:18px 0;}
+    .nav a{color:#111;text-decoration:none;margin-left:24px;font-weight:500;}
     .nav a:hover{color:var(--accent);}
-    .hero{padding:60px 20px;text-align:center;background:white;}
-    .hero h1{font-size:clamp(28px,5vw,48px);margin-bottom:20px;color:var(--main);}
-    .hero p{max-width:700px;margin:0 auto 30px;font-size:18px;}
-    .btn{display:inline-block;background:var(--accent);color:white;padding:14px 28px;border-radius:8px;text-decoration:none;font-weight:600;}
-    .btn:hover{opacity:.9;}
-    section{padding:60px 20px;}
-    h2{font-size:30px;margin-bottom:20px;color:var(--main);}
-    .grid{display:grid;gap:30px;}
+    .hero{display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;
+          padding:120px 20px;background:white;}
+    .hero h1{font-size:clamp(32px,5vw,56px);margin-bottom:20px;color:var(--main);}
+    .hero p{max-width:700px;margin-bottom:32px;font-size:18px;}
+    .btn{background:var(--accent);color:white;padding:16px 34px;border-radius:8px;font-weight:600;
+         text-decoration:none;transition:background .2s;}
+    .btn:hover{background:#0284c7;}
+    section{padding:80px 20px;}
+    h2{font-size:34px;margin-bottom:40px;text-align:center;color:var(--main);}
+    .grid{display:grid;gap:40px;}
     @media(min-width:768px){.grid{grid-template-columns:repeat(3,1fr);}}
-    .card{background:white;border-radius:10px;padding:24px;box-shadow:0 4px 14px rgba(0,0,0,.05);}
-    .price{font-size:32px;font-weight:700;color:var(--accent);margin:10px 0;}
-    .contact{text-align:center;background:var(--main);color:white;padding:60px 20px;}
+    .card{background:var(--card);border-radius:12px;padding:30px;text-align:center;
+          box-shadow:0 4px 16px rgba(0,0,0,.05);}
+    .card img{height:80px;margin-bottom:20px;}
+    .price{font-size:36px;font-weight:700;color:var(--accent);margin:20px 0;}
+    .contact{background:var(--main);color:white;text-align:center;padding:80px 20px;}
     .contact a{color:white;font-weight:600;text-decoration:none;}
-    footer{background:#e5e7eb;text-align:center;padding:20px;font-size:14px;color:#4b5563;}
-    .cta-bar{background:var(--accent);color:white;text-align:center;padding:10px;font-weight:600;}
+    footer{background:#e5e7eb;text-align:center;padding:25px;font-size:14px;color:#4b5563;}
   </style>
 </head>
 <body>
 
 <header>
   <div class="container nav">
-    <div><strong>Kodin Digiapu</strong></div>
+    <strong>Kodin Digiapu</strong>
     <nav>
       <a href="#palvelut">Palvelut</a>
       <a href="#hinnat">Hinnat</a>
@@ -56,7 +54,7 @@
 
 <section class="hero">
   <h1>Luotettavaa digiapua kotiin Järvenpäässä ja lähialueilla</h1>
-  <p>Autan puhelimen, tietokoneen, television, wifin ja muiden laitteiden kanssa – rauhallisesti ja selkeästi. Kotitalousvähennys 60 % työn osuudesta.</p>
+  <p>Autan puhelimen, tietokoneen, television ja wifin kanssa – rauhallisesti ja selkeästi. Kotitalousvähennys 60 % työn osuudesta.</p>
   <a href="#yhteys" class="btn">Varaa kotikäynti</a>
 </section>
 
@@ -64,28 +62,34 @@
   <h2>Palvelut</h2>
   <div class="grid">
     <div class="card">
+      <img src="images/phone.svg" alt="Puhelin ja tabletit">
       <h3>Puhelin & tabletit</h3>
-      <p>Uuden laitteen käyttöönotto, WhatsApp, sähköposti, kuvat ja varmuuskopiointi.</p>
+      <p>Käyttöönotto, WhatsApp, sähköposti, kuvat ja varmuuskopiointi.</p>
     </div>
     <div class="card">
+      <img src="images/wifi.svg" alt="Netti ja wifi">
       <h3>Netti & wifi</h3>
       <p>Wifin ja reitittimen asennus ja optimointi, yhteysongelmien ratkaisu.</p>
     </div>
     <div class="card">
+      <img src="images/tv.svg" alt="TV ja suoratoisto">
       <h3>TV & suoratoisto</h3>
-      <p>Television, digiboksin ja suoratoistopalvelujen (Netflix, Yle Areena jne.) asetukset.</p>
+      <p>Television, digiboksin ja suoratoistopalvelujen asetukset.</p>
     </div>
     <div class="card">
+      <img src="images/computer.svg" alt="Tietokoneapu">
       <h3>Tietokoneapu</h3>
-      <p>Windows- ja Mac-perusasetukset, tiedostojen varmuuskopiointi, virustarkistus.</p>
+      <p>Windows- ja Mac-perusasetukset, varmuuskopiointi ja virustarkistus.</p>
     </div>
     <div class="card">
+      <img src="images/security.svg" alt="Tietoturva">
       <h3>Tietoturva & huijausviestit</h3>
-      <p>Neuvon turvalliseen käyttöön ja autan tunnistamaan huijausviestit ja -puhelut.</p>
+      <p>Neuvon turvalliseen käyttöön ja huijausviestien tunnistamiseen.</p>
     </div>
     <div class="card">
+      <img src="images/guide.svg" alt="Selkeät ohjeet">
       <h3>Selkeät ohjeet</h3>
-      <p>Käydään yhdessä läpi ja jätän kirjalliset ohjeet, jotta käyttö on helppoa jatkossakin.</p>
+      <p>Käymme asiat läpi yhdessä ja jätän kirjalliset ohjeet jatkoa varten.</p>
     </div>
   </div>
 </section>
@@ -94,7 +98,7 @@
   <h2>Hinnat ja kotitalousvähennys</h2>
   <div class="card">
     <div class="price">60 € / tunti</div>
-    <p>Kotitalousvähennys 60 % työn osuudesta → asiakkaalle vain n. <strong>24 € / tunti</strong> verovähennysten jälkeen.</p>
+    <p>Kotitalousvähennys 60 % → asiakkaalle vain n. <strong>24 € / tunti</strong> verovähennysten jälkeen.</p>
     <p>Toimialue: Järvenpää, Tuusula, Kerava, Hyvinkää ja lähialueet.</p>
   </div>
 </section>
