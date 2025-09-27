@@ -352,30 +352,47 @@
     </div>
   </section>
 
-  <section id="yhteys" class="container">
-    <h2>Ota yhteyttä ja varaa aika</h2>
-    <div class="contact-wrapper">
-        <div class="contact-info">
-            <h3>Soita tai lähetä viesti</h3>
-            <p>Nopein tapa saada apua on soittaa. Jos en pääse vastaamaan, soitan sinulle takaisin mahdollisimman pian.</p>
-            <p><i class="fas fa-phone"></i> <strong>Puhelin:</strong> <a href="tel:+358405724113">040 572 4113</a></p>
-            <p><i class="fas fa-envelope"></i> <strong>Sähköposti:</strong> <a href="mailto:mikko@kodindigiapu.fi">mikko@kodindigiapu.fi</a></p>
-        </div>
-        <form action="https://formspree.io/f/mnngjdyr" method="POST" class="card">
-            <h3>Tai täytä lomake:</h3>
-            <div class="form-group">
-                <input type="text" name="name" placeholder="Nimesi" required>
-            </div>
-            <div class="form-group">
-                <input type="tel" name="phone" placeholder="Puhelinnumerosi" required>
-            </div>
-            <div class="form-group">
-                <textarea name="message" rows="4" placeholder="Kerro lyhyesti, missä tarvitset apua" required></textarea>
-            </div>
-            <button type="submit" class="btn">Lähetä viesti</button>
-        </form>
+  <section id="yhteys" class="container contact-section">
+  <h2>Ota yhteyttä ja varaa aika</h2>
+
+  <div class="contact-wrapper">
+    <!-- Yhteystiedot -->
+    <div class="contact-info">
+      <h3>Soita tai lähetä viesti</h3>
+      <p>Nopein tapa saada apua on soittaa. Jos en pääse vastaamaan, soitan sinulle takaisin mahdollisimman pian.</p>
+      <p>
+        <img src="images/phone.svg" alt="Puhelin" class="icon">
+        <strong>Puhelin:</strong>
+        <a href="tel:+358405724113">040 572 4113</a>
+      </p>
+      <p>
+        <img src="images/mail.svg" alt="Sähköposti" class="icon">
+        <strong>Sähköposti:</strong>
+        <a href="mailto:mikko@kodindigiapu.fi">mikko@kodindigiapu.fi</a>
+      </p>
     </div>
-  </section>
+
+    <!-- Lomake -->
+    <form action="https://formspree.io/f/mnngjdyr" method="POST" class="contact-form card">
+      <input type="hidden" name="_redirect" value="https://kodindigiapu.fi/kiitos.html">
+
+      <h3>Tai täytä lomake:</h3>
+
+      <div class="form-group">
+        <input type="text" name="name" placeholder="Nimesi" required>
+      </div>
+      <div class="form-group">
+        <input type="tel" name="phone" placeholder="Puhelinnumerosi" required>
+      </div>
+      <div class="form-group">
+        <textarea name="message" rows="4" placeholder="Kerro lyhyesti, missä tarvitset apua" required></textarea>
+      </div>
+
+      <button type="submit" class="btn">Lähetä viesti</button>
+    </form>
+  </div>
+</section>
+
 
 </main>
 
