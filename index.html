@@ -98,6 +98,16 @@
     .testimonial-card .text { font-style: italic; color: var(--text-dark); margin-bottom: 1rem; }
     .testimonial-card .author { font-weight: 700; color: var(--text-light); text-align: right; }
 
+    /* LISÄTTY KUVALLE TYYLIT */
+    .trust-image {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 2rem auto 3rem auto;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
     /* ===== HINNASTO-OSIO ===== */
     .price-card { text-align: center; background: var(--card); border-radius: 12px; padding: 2.5rem; box-shadow:0 4px 16px rgba(0,0,0,.05); max-width: 700px; margin: 0 auto; }
     .price { font-size: clamp(36px, 5vw, 48px); font-weight: 700; color: var(--accent); margin-bottom: 0.5rem; }
@@ -230,6 +240,9 @@
   <section id="luottamus" class="section">
     <div class="container">
       <h2 class="section-title">Mitä asiakkaat sanovat?</h2>
+      
+      <img src="images/kodin-digiapu-auttamassa.webp" alt="Kodin Digiapu auttamassa senioria tietokoneen kanssa" class="trust-image" loading="lazy">
+
       <div class="testimonials-grid">
         <div class="testimonial-card">
           <p class="text">"Sain vihdoin uuden puhelimeni kunnolla käyttöön. Palvelu oli todella kärsivällistä ja ystävällistä. Suuri kiitos avusta!"</p>
