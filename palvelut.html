@@ -1,112 +1,144 @@
 <!doctype html>
 <html lang="fi">
 <head>
-  <meta charset="utf-8">
-  <title>Palvelut ja esimerkit – Kodin Digiapu Järvenpää</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Tutustu Kodin Digiavun palveluihin ja esimerkkitöihin. Saat ystävällistä ja selkeää digiapua kotiisi Järvenpäässä ja lähialueilla.">
+  <meta charset="utf-8">
+  <title>Palvelut ja esimerkit – Kodin Digiapu Järvenpää</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Tutustu Kodin Digiavun palveluihin ja esimerkkitöihin. Saat ystävällistä ja selkeää digiapua kotiisi Järvenpäässä ja lähialueilla.">
 
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-  <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background:#f9fafb; color:#333; line-height:1.6; padding-top:76px; }
-    header { background: white; position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-    .nav { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; }
-    .logo { font-weight: 700; font-size: 20px; color: #1f2937; text-decoration: none; }
-    .nav-links { display: flex; gap: 24px; list-style: none; }
-    .nav-links a { color: #333; text-decoration: none; font-weight: 500; }
-    .nav-links a:hover { color: #0ea5e9; }
-    h1,h2 { color:#1f2937; margin-bottom:1rem; text-align:center; }
-    .section { padding:80px 0; }
-    .service-list { display:grid; grid-template-columns:1fr; gap:2rem; max-width:900px; margin:0 auto; }
-    .service-card { background:white; padding:2rem; border-radius:8px; box-shadow:0 4px 15px rgba(0,0,0,0.05); text-align:center; }
-    .service-card .icon { font-size:2.5rem; color:#0ea5e9; margin-bottom:1rem; }
-    .examples { max-width:900px; margin:0 auto; }
-    .example { background:white; padding:1.5rem; border-left:4px solid #0ea5e9; border-radius:8px; margin-bottom:1.5rem; }
-    footer { background:#e5e7eb; text-align:center; padding:25px; font-size:14px; color:#4b5563; }
-    @media (min-width:768px){ .service-list{grid-template-columns:repeat(2,1fr);} }
-  </style>
+  <style>
+    :root {
+      --main: #1f2937;
+      --accent: #0ea5e9;
+      --success: #28a745;
+      --bg: #f9fafb;
+      --card: white;
+      --text-dark: #333;
+      --text-light: #555;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: var(--bg); color: var(--text-dark); line-height:1.6; padding-top:76px; }
+    header { background: white; position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+    .nav { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; }
+    .logo { font-weight: 700; font-size: 20px; color: var(--main); text-decoration: none; }
+    .nav-links { display: flex; gap: 24px; list-style: none; }
+    .nav-links a { color: var(--text-dark); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--accent); }
+    .page-header h1 { font-size: clamp(32px, 5vw, 48px); color: var(--main); margin-bottom: 1rem; text-align:center; }
+    .page-header p { text-align:center; max-width:700px; margin:0 auto 3rem; font-size: 1.1rem; color: var(--text-light); }
+    .section { padding:80px 0; }
+    .grid { display:grid; gap:2rem; max-width:900px; margin:0 auto; }
+    .grid-2-cols { grid-template-columns: 1fr; }
+    .service-card { background:var(--card); padding:2.5rem; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,0.06); text-align:center; }
+    .service-card .icon { font-size:2.5rem; color:var(--accent); margin-bottom:1rem; }
+    .service-card h2 { font-size: 1.5rem; }
+    .example-card { background:var(--card); padding:2rem; border-radius:12px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); display: flex; flex-direction: column; align-items: center; text-align: center; }
+    .example-card .icon { font-size: 2rem; color: var(--success); margin-bottom: 1rem; width: 50px; height: 50px; background-color: #eafaf1; border-radius: 50%; display: grid; place-items: center; }
+    .example-card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; }
+    .cta-section { background: var(--main); color: white; padding: 4rem 2rem; border-radius: 16px; text-align: center; margin-top: 4rem; }
+    .cta-section h2 { color: white; }
+    .cta-section p { max-width: 600px; margin: 0 auto 1.5rem auto; opacity: 0.9; }
+    .cta-button { padding: 0.9rem 1.8rem; border-radius: 8px; font-size: 1.1rem; font-weight: 700; text-decoration: none; background-color: var(--accent); color: white; display: inline-block; transition: background-color 0.2s; }
+    .cta-button:hover { background-color: #0c8ac1; }
+    footer { background:#e5e7eb; text-align:center; padding:25px; font-size:14px; color:#4b5563; }
+    @media (min-width:768px){ .grid-2-cols { grid-template-columns:repeat(2,1fr); } }
+  </style>
 </head>
 <body>
 
 <header>
-  <div class="container nav">
-    <a href="/" class="logo">Kodin Digiapu</a>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="/">Etusivu</a></li>
-        <li><a href="/palvelut.html">Palvelut & esimerkit</a></li>
-        <li><a href="/#hinnat">Hinnat</a></li>
-        <li><a href="/#yhteys">Ota yhteyttä</a></li>
-      </ul>
-    </nav>
-  </div>
+  <div class="container nav">
+    <a href="/" class="logo">Kodin Digiapu</a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="/">Etusivu</a></li>
+        <li><a href="/palvelut.html">Palvelut & esimerkit</a></li>
+        <li><a href="/#hinnat">Hinnat</a></li>
+        <li><a href="/#yhteys">Ota yhteyttä</a></li>
+      </ul>
+    </nav>
+  </div>
 </header>
 
 <main>
-  <section class="section">
-    <div class="container">
-      <h1>Palvelut ja käytännön esimerkit</h1>
-      <p style="text-align:center; max-width:700px; margin:0 auto 3rem;">
-        Kodin Digiapu tarjoaa monipuolista tukea laitteillesi. Tältä sivulta löydät selkeän kuvan siitä, miten eri tilanteet hoituvat ja mitä voit odottaa kotikäynniltä.
-      </p>
-
-      <div class="service-list">
-        <div class="service-card">
-          <i class="fas fa-desktop icon"></i>
-          <h2>Kodin laitteet</h2>
-          <p>Asennan ja säädän tietokoneet, tulostimet, reitittimet ja televisiot. Käymme yhdessä läpi laitteen peruskäytön ja huolehdimme tietoturvasta.</p>
-        </div>
-        <div class="service-card">
-          <i class="fas fa-mobile-alt icon"></i>
-          <h2>Puhelin & Tabletti</h2>
-          <p>Selkeä opastus sovellusten asennuksiin, sähköpostiin, varmuuskopiointiin ja asetuksiin. Opit itsevarmasti käyttämään laitteitasi.</p>
-        </div>
-        <div class="service-card">
-          <i class="fas fa-wifi icon"></i>
-          <h2>Verkko & yhteydet</h2>
-          <p>Korjaan ja optimoin langattomat verkot, varmistan että internet toimii sujuvasti koko kodissa ja autan laitteiden liittämisessä verkkoon.</p>
-        </div>
-        <div class="service-card">
-          <i class="fas fa-user-friends icon"></i>
-          <h2>Räätälöity opastus</h2>
-          <p>Voimme keskittyä juuri siihen, mikä sinulle on tärkeää. Saat halutessasi kirjalliset ohjeet mukaan jatkoa varten.</p>
-        </div>
+  <section class="section">
+    <div class="container">
+      <div class="page-header">
+        <h1>Miten voin auttaa?</h1>
+        <p>
+          Tarjoan selkeää ja ystävällistä digiapua kaikkiin kodin laitteisiin. Tavoitteeni on tehdä tekniikasta sinulle helppoa ja poistaa turha stressi.
+        </p>
       </div>
-    </div>
-  </section>
 
-  <section class="section" style="background:white;">
-    <div class="container">
-      <h2>Käytännön esimerkit</h2>
-      <div class="examples">
-        <div class="example">
-          <h3>Uuden tietokoneen käyttöönotto</h3>
-          <p>Tuon laitteen toimintakuntoon, siirrän tärkeät tiedot vanhalta koneelta ja asennan suojausohjelmat. Lopuksi käymme yhdessä perusasetukset läpi.</p>
-        </div>
-        <div class="example">
-          <h3>Hitaasti toimiva verkko</h3>
-          <p>Tarkistan reitittimen, vaihdan kanavat ja parannan langattoman verkon kuuluvuutta. Tarvittaessa suosittelen lisälaitteita.</p>
-        </div>
-        <div class="example">
-          <h3>Älypuhelimen peruskoulutus</h3>
-          <p>Opetan kuvien siirron, viestintäsovellusten käytön ja sähköpostin hallinnan. Saat varmuutta jokapäiväiseen käyttöön.</p>
-        </div>
-        <div class="example">
-          <h3>Television ja digiboksin säätö</h3>
-          <p>Asennan kanavat, säädän ääni- ja kuva-asetukset sekä neuvon suoratoistopalveluiden (esim. Netflix, Yle Areena) käytössä.</p>
-        </div>
+      <div class="grid grid-2-cols">
+        <div class="service-card">
+          <i class="fas fa-desktop icon"></i>
+          <h2>Kodin laitteet</h2>
+          <p>Asennan ja säädän tietokoneet, tulostimet, reitittimet ja televisiot. Käymme yhdessä läpi laitteen peruskäytön ja huolehdimme tietoturvasta.</p>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-mobile-alt icon"></i>
+          <h2>Puhelin & Tabletti</h2>
+          <p>Selkeä opastus sovellusten asennuksiin, sähköpostiin, varmuuskopiointiin ja asetuksiin. Opit itsevarmasti käyttämään laitteitasi.</p>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-wifi icon"></i>
+          <h2>Verkko & yhteydet</h2>
+          <p>Korjaan ja optimoin langattomat verkot, varmistan että internet toimii sujuvasti koko kodissa ja autan laitteiden liittämisessä verkkoon.</p>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-user-friends icon"></i>
+          <h2>Opastus sinun ehdoillasi</h2>
+          <p>Keskitymme juuri siihen, mikä sinulle on tärkeää. Saat halutessasi mukaan selkeät, käsinkirjoitetut muistiinpanot jatkoa varten.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:white;">
+    <div class="container">
+      <h2>Käytännön esimerkkejä tyypillisistä kotikäynneistä</h2>
+      <div class="grid grid-2-cols" style="margin-top: 3rem;">
+        <div class="example-card">
+          <div class="icon"><i class="fas fa-laptop-medical"></i></div>
+          <h3>Uuden tietokoneen käyttöönotto</h3>
+          <p>Teen uudesta koneesta käyttövalmiin, siirrän tärkeät tiedostot vanhalta laitteelta ja asennan tietoturvan. Lopuksi opastan peruskäytössä.</p>
+        </div>
+        <div class="example-card">
+          <div class="icon"><i class="fas fa-wifi-slash"></i></div>
+          <h3>Hitaasti toimiva nettiyhteys</h3>
+          <p>Tarkistan modeemin ja reitittimen asetukset, optimoin langattoman verkon kanavat ja parannan sen kuuluvuutta asunnossasi.</p>
+        </div>
+        <div class="example-card">
+          <div class="icon"><i class="fas fa-mobile-screen-button"></i></div>
+          <h3>Älypuhelimen opastus</h3>
+          <p>Opetan kuvien siirron, WhatsAppin käytön ja sähköpostin hallinnan. Saat varmuutta ja iloa laitteesi käyttöön.</p>
+        </div>
+        <div class="example-card">
+          <div class="icon"><i class="fas fa-tv"></i></div>
+          <h3>Television ja suoratoiston apu</h3>
+          <p>Viritän kanavat, säädän kuvan ja äänen sekä opastan suoratoistopalveluiden (esim. Netflix, Yle Areena) käytössä.</p>
+        </div>
+      </div>
+
+      <div class="cta-section">
+        <h2>Etkö löytänyt omaa pulmaasi?</h2>
+        <p>Ei hätää. Jos sinulla on mikä tahansa kodin tekniikkaan liittyvä ongelma, soita tai laita viestiä, niin katsotaan yhdessä, miten voin auttaa.</p>
+        <a href="/#yhteys" class="cta-button">Ota yhteyttä</a>
       </div>
-    </div>
-  </section>
+    </div>
+  </section>
 </main>
 
 <footer>
-  <div class="container">
-    <p>&copy; 2025 Kodin Digiapu | Palvelualue: Järvenpää, Tuusula, Kerava, Hyvinkää ja lähialueet</p>
-  </div>
+  <div class="container">
+    <p>&copy; 2025 Kodin Digiapu | Palvelualue: Järvenpää, Tuusula, Kerava, Hyvinkää ja lähialueet</p>
+  </div>
 </footer>
 
 </body>
