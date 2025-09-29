@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="fi" style="scroll-behavior: smooth;">
+<html lang="fi">
 <head>
   <meta charset="utf-8">
-  <title>Kodin Digiapu – Luotettavaa digiapua Järvenpäässä ja lähialueilla</title>
+  <title>Kodin Digiapu – Kärsivällistä ja selkeää digiapua kotiisi Järvenpäässä</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Luotettavaa digiapua Järvenpäässä, Tuusulassa, Keravalla ja Hyvinkäällä. Puhelin, tietokone, tv ja wifi – kotitalousvähennys 60 % työn osuudesta.">
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <meta name="description" content="Kun tekniikka turhauttaa, apu on lähellä. Tarjoan luotettavaa ja kärsivällistä apua tietokoneiden, puhelimien ja muiden laitteiden kanssa Järvenpäässä ja lähialueilla.">
   
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
   <script type="application/ld+json">
@@ -16,267 +16,146 @@
     "name": "Kodin Digiapu",
     "telephone": "+358405724113",
     "email": "mikko@kodindigiapu.fi",
+    "priceRange": "€",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Järvenpää",
       "addressCountry": "FI"
     },
     "url": "https://www.kodindigiapu.fi/",
-    "description": "Luotettavaa digiapua kotiin Järvenpään ja lähikuntien alueella. Apua puhelimen, tietokoneen, television ja wifin kanssa.",
+    "description": "Kärsivällistä ja ammattitaitoista digiapua kotiin Järvenpään, Tuusulan, Keravan ja lähikuntien alueella. Apua tietokoneen, puhelimen, television ja muiden laitteiden kanssa.",
     "areaServed": [
       {"@type": "City", "name": "Järvenpää"},
       {"@type": "City", "name": "Tuusula"},
       {"@type": "City", "name": "Kerava"},
-      {"@type": "City", "name": "Hyvinkää"}
+      {"@type": "City", "name": "Hyvinkää"},
+      {"@type": "City", "name": "Sipoo"},
+      {"@type": "City", "name": "Mäntsälä"}
     ]
   }
   </script>
 
   <style>
-    :root{
-      --main:#1f2937;
-      --accent:#0ea5e9;
-      --bg:#f9fafb;
-      --card:white;
+    :root {
+      --main: #1f2937;
+      --accent: #0ea5e9; /* Sininen tehosteväri */
+      --success: #28a745; /* Vihreä onnistumista varten */
+      --bg: #f9fafb;
+      --card: white;
+      --text-dark: #333;
+      --text-light: #555;
     }
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{
-      font-family: Inter, system-ui, sans-serif;
-      background:var(--bg);
-      color:#333;
-      line-height:1.6;
-      padding-top:76px;
-    }
-
-    /* ===== YLEISET ELEMENTIT ===== */
-    .container{
-      max-width:1100px;
-      margin:auto;
-      padding:0 20px;
-    }
-    section{
-      padding: 120px 0;
-    }
-    h2{
-      font-size: clamp(28px, 4vw, 36px);
-      margin-bottom:50px;
-	  margin-top:50px;
-      text-align:center;
-      color:var(--main);
-    }
-    .btn{
-      background:var(--accent);
-      color:white;
-      padding:16px 34px;
-      border-radius:8px;
-      font-weight:600;
-      text-decoration:none;
-      transition:background .2s;
-      border: none;
-      cursor: pointer;
-      display: inline-block;
-    }
-    .btn:hover{background:#0284c7;}
     
+    /* ===== YLEISET ASETUKSET ===== */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text-dark);
+      line-height: 1.6;
+      padding-top: 76px;
+    }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+    .section { padding: 80px 0; }
+    .section-title { font-size: clamp(28px, 4vw, 36px); margin-bottom: 1rem; text-align: center; color: var(--main); }
+    .section-subtitle { max-width: 650px; margin: 0 auto 3rem auto; text-align: center; color: var(--text-light); font-size: 1.1rem; }
+
     /* ===== NAVIGAATIO ===== */
-    header{
-      background:white;
-      position:fixed;
-      top:0;
-      left:0;
-      width:100%;
-      z-index:1000;
-      box-shadow:0 2px 8px rgba(0,0,0,.06);
-    }
-    .nav{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      padding:18px 0;
-	  padding-left:10px;
-      position:relative;
-    }
-    .logo{
-      font-weight:700;
-      font-size:20px;
-      color:var(--main);
-      text-decoration: none;
-    }
-    .nav-toggle{
-      display:none;
-      background:none;
-      border:none;
-      font-size:30px;
-      cursor:pointer;
-    }
-    .nav-links{
-      display:flex;
-      gap:24px;
-      align-items:center;
-    }
-    .nav-links a{
-      color:#333;
-      text-decoration:none;
-      font-weight:500;
-    }
-    .nav-links a:hover{color:var(--accent);}
-    
-    /* Mobiilinavigaatio */
-    @media (max-width:768px){
-      body { padding-top: 70px; }
-      .nav-toggle{display:block;}
-      .nav-links{
-        display:none;
-        flex-direction:column;
-        width:100%;
-        background:white;
-        position:absolute;
-        top:70px;
-        left:0;
-        padding:20px 0;
-        box-shadow: 0 8px 16px rgba(0,0,0,.05);
-        border-top:1px solid #eee;
-      }
-      .nav-links.show{display:flex;}
-      .nav-links a{padding:10px 0;}
-    }
+    header { background: white; position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
+    .nav { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; }
+    .logo { font-weight: 700; font-size: 20px; color: var(--main); text-decoration: none; }
+    .nav-toggle { display: none; background: none; border: none; font-size: 30px; cursor: pointer; color: var(--main); }
+    .nav-links { display: flex; gap: 24px; align-items: center; list-style: none; }
+    .nav-links a { color: var(--text-dark); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--accent); }
 
-    /* ===== HERO ===== */
-    .hero{
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      align-items:center;
-      text-align:center;
-      padding: 80px 20px;
-      background:white;
-    }
-    .hero h1{
-      font-size:clamp(32px, 5vw, 52px);
-      margin-bottom:24px;
-      color:var(--main);
-      max-width:800px;
-    }
-    .hero p{
-      max-width:700px;
-      margin-bottom:36px;
-      font-size:18px;
-    }
+    /* ===== HERO-OSIO ===== */
+    .hero { background: white; text-align: center; padding: 60px 20px 80px 20px; }
+    .hero-title { font-size: clamp(32px, 5vw, 48px); font-weight: 700; line-height: 1.3; color: var(--main); max-width: 800px; margin: 0 auto 1.5rem auto; }
+    .hero .problem-checklist { margin: 1.5rem auto 2rem auto; max-width: 550px; text-align: left; }
+    .hero .problem-checklist p { font-size: 1.1rem; color: var(--text-dark); margin-bottom: 0.75rem; font-weight: 500; display: flex; align-items: center; }
+    .hero .problem-checklist .fa-check-circle { color: var(--success); margin-right: 0.75rem; font-size: 1.2rem; }
+    .hero .hero-subtitle { font-size: 1.1rem; max-width: 700px; margin: 0 auto 2.5rem auto; color: var(--text-light); line-height: 1.7; }
+    .hero-cta-buttons { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+    .cta-button { padding: 0.9rem 1.8rem; border-radius: 8px; font-size: 1.1rem; font-weight: 700; text-decoration: none; transition: all 0.2s ease; border: 2px solid transparent; width: 100%; max-width: 300px; text-align: center; }
+    .cta-button.primary { background-color: var(--accent); color: white; }
+    .cta-button.primary:hover { background-color: #0284c7; transform: translateY(-2px); }
+    .cta-button.secondary { background-color: white; color: var(--accent); border-color: var(--accent); }
+    .cta-button.secondary:hover { background-color: #f0f8ff; transform: translateY(-2px); }
 
-    /* ===== PALVELUT & LUOTTAMUS GRID ===== */
-    .grid{
-      display:grid;
-      gap:30px;
-    }
-    @media(min-width:600px){
-      .grid-3{grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));}
-    }
-    @media(min-width:768px){
-        .grid-2{grid-template-columns: 1fr 1fr;}
-    }
-    
-    .card{
-      background:var(--card);
-      border-radius:12px;
-      padding:30px;
-      text-align:center;
-      box-shadow:0 4px 16px rgba(0,0,0,.05);
-    }
-    .card .icon{
-      font-size: 40px;
-      color: var(--accent);
-      margin-bottom: 20px;
-    }
-    
-    /* ===== LUOTTAMUS/PALAUTE-OSIO ===== */
+    /* ===== PALVELUT-OSIO ===== */
+    .services-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+    .service-card { background-color: var(--card); border: 1px solid #eee; padding: 2rem; border-radius: 8px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; }
+    .service-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+    .service-card .icon { font-size: 2.5rem; color: var(--accent); margin-bottom: 1rem; }
+    .service-card h3 { font-size: 1.3rem; margin-bottom: 0.75rem; color: var(--main); }
+
+    /* ===== ASIAKASPALAUTTEET-OSIO ===== */
     #luottamus { background: white; }
-    .testimonial p {
-        font-style: italic;
-        margin-bottom: 15px;
-    }
-    .testimonial .author {
-        font-weight: 600;
-        color: var(--main);
-    }
+    .testimonials-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+    .testimonial-card { background-color: var(--bg); border-left: 4px solid var(--accent); padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+    .testimonial-card .text { font-style: italic; color: var(--text-dark); margin-bottom: 1rem; }
+    .testimonial-card .author { font-weight: 700; color: var(--text-light); text-align: right; }
 
-    /* ===== HINNAT ===== */
-    .price-card { text-align: center; }
-    .price{
-      font-size:clamp(36px, 5vw, 48px);
-      font-weight:700;
-      color:var(--accent);
-      margin:10px 0;
-    }
-    .price-card p {
-        max-width: 500px;
-        margin: 15px auto;
-    }
+    /* ===== HINNASTO-OSIO ===== */
+    .price-card { text-align: center; background: var(--card); border-radius: 12px; padding: 2.5rem; box-shadow:0 4px 16px rgba(0,0,0,.05); max-width: 700px; margin: 0 auto; }
+    .price { font-size: clamp(36px, 5vw, 48px); font-weight: 700; color: var(--accent); margin-bottom: 0.5rem; }
+    .price span { font-size: 1.2rem; color: var(--text-light); }
+    .price-card p { margin-bottom: 1rem; }
+    .tax-deduction-box { background-color: #eef8ff; border: 1px solid #cce9ff; padding: 1rem; border-radius: 8px; margin-top: 1.5rem; }
+    .tax-deduction-box h4 { color: var(--main); margin-bottom: 0.5rem; }
 
-    /* ===== YHTEYDENOTTO ===== */
-    .contact-wrapper {
-        display: grid;
-        gap: 40px;
-        align-items: center;
-        text-align: center; /* Keskittää kuvan ja tekstin */
-    }
-    @media(min-width: 900px) {
-        .contact-wrapper { grid-template-columns: 1fr 1.2fr; text-align: left; }
-        .contact-wrapper .contact-info { text-align: left; }
-    }
-    .contact-info p { margin-bottom: 20px; font-size: 18px;}
+    /* ===== YHTEYDENOTTO-OSIO ===== */
+    #yhteys { background: white; }
+    .contact-wrapper { display: grid; gap: 40px; align-items: center; }
+    .contact-info { text-align: center; }
+    .contact-info img { max-width: 180px; border-radius: 50%; margin-bottom: 1.5rem; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+    .contact-info h3 { font-size: 1.5rem; color: var(--main); margin-bottom: 1rem; }
+    .contact-info p { margin-bottom: 1rem; font-size: 1.1rem; }
     .contact-info a { color: var(--main); font-weight: 600; text-decoration: none; }
     .contact-info a:hover { text-decoration: underline; }
-    .contact-info i { color: var(--accent); margin-right: 10px; }
-    .contact-info img { 
-        max-width: 180px; /* Säädä kuvakokoa tarpeen mukaan */
-        border-radius: 50%; /* Pyöreä kuva */
-        margin-bottom: 25px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-    
-    .form-group { margin-bottom: 20px; }
-    .form-group input, .form-group textarea {
-        width: 100%;
-        padding: 12px;
-        border: 1px solid #ccc;
-        border-radius: 8px;
-        font-size: 1rem;
-        font-family: inherit;
-    }
+    .contact-info .icon { color: var(--accent); margin-right: 10px; }
+    .contact-form { background: var(--card); border-radius: 12px; padding: 2rem; box-shadow: 0 4px 16px rgba(0,0,0,.05); }
+    .form-group { margin-bottom: 1rem; }
+    .form-group input, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-size: 1rem; font-family: inherit; }
+    .btn-submit { background: var(--accent); color: white; padding: 16px 34px; border-radius: 8px; font-weight: 600; text-decoration: none; transition: background .2s; border: none; cursor: pointer; display: inline-block; width: 100%; font-size: 1.1rem; }
+    .btn-submit:hover { background: #0284c7; }
 
     /* ===== FOOTER ===== */
-    footer{
-      background:#e5e7eb;
-      text-align:center;
-      padding:25px;
-      font-size:14px;
-      color:#4b5563;
-    }
+    footer { background: #e5e7eb; text-align: center; padding: 25px; font-size: 14px; color: #4b5563; }
     
-    /* ===== MOBIILIN STICKY FOOTER (KONVERSIO) ===== */
+    /* ===== MOBIILIN STICKY CTA ===== */
     .mobile-sticky-cta { display: none; }
+    
+    /* ===== MEDIAMURSUSTEET (Responsiivisuus) ===== */
     @media (max-width: 768px) {
-        body { padding-bottom: 70px; }
-        .mobile-sticky-cta {
-            display: flex;
-            position: fixed;
-            bottom: 0; left: 0;
-            width: 100%;
-            background-color: white;
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
-            z-index: 1001;
-        }
-        .sticky-btn {
-            flex: 1;
-            padding: 15px 10px;
-            text-align: center;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            color: #333;
-        }
-        .sticky-btn.call { color: var(--accent); }
-        .sticky-btn.whatsapp { color: #25D366; }
+      body { padding-top: 70px; padding-bottom: 70px; }
+      .section { padding: 60px 0; }
+      .nav-toggle { display: block; }
+      .nav-links { display: none; flex-direction: column; width: 100%; background: white; position: absolute; top: 70px; /* Navin korkeus */ left: 0; padding: 20px 0; box-shadow: 0 8px 16px rgba(0,0,0,.05); border-top: 1px solid #eee; }
+      .nav-links.show { display: flex; }
+      .nav-links a { padding: 10px 0; text-align: center; width: 100%; }
+      .hero-cta-buttons { flex-direction: column; }
+      .cta-button { width: 100%; max-width: 320px; }
+      .mobile-sticky-cta { display: flex; position: fixed; bottom: 0; left: 0; width: 100%; background-color: white; box-shadow: 0 -2px 10px rgba(0,0,0,0.1); z-index: 1001; }
+      .sticky-btn { flex: 1; padding: 15px 10px; text-align: center; text-decoration: none; font-weight: 600; font-size: 1rem; color: #333; }
+      .sticky-btn.call { color: var(--accent); }
+      .sticky-btn.whatsapp { color: #25D366; }
+    }
+
+    @media (min-width: 576px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 768px) {
+      .hero-cta-buttons { flex-direction: row; justify-content: center; }
+      .cta-button { width: auto; }
+      .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (min-width: 992px) {
+      .services-grid { grid-template-columns: repeat(4, 1fr); }
+      .contact-wrapper { grid-template-columns: 1fr 1.2fr; }
+      .contact-info { text-align: left; }
     }
   </style>
 </head>
@@ -285,12 +164,16 @@
 <header>
   <div class="container nav">
     <a href="#" class="logo">Kodin Digiapu</a>
-    <button class="nav-toggle" aria-label="Toggle menu">☰</button>
-    <nav class="nav-links">
-      <a href="#palvelut">Palvelut</a>
-      <a href="#luottamus">Asiakkaiden kokemuksia</a>
-      <a href="#hinnat">Hinnat</a>
-      <a href="#yhteys">Ota yhteyttä</a>
+    <button class="nav-toggle" aria-label="Avaa valikko">
+      <i class="fas fa-bars"></i>
+    </button>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#palvelut">Palvelut</a></li>
+        <li><a href="#luottamus">Asiakkaiden kokemuksia</a></li>
+        <li><a href="#hinnat">Hinnat</a></li>
+        <li><a href="#yhteys">Ota yhteyttä</a></li>
+      </ul>
     </nav>
   </div>
 </header>
@@ -298,123 +181,139 @@
 <main>
 
   <section class="hero">
-    <h1>Luotettavaa digiapua kotiin Järvenpäässä ja lähialueilla</h1>
-    <p>Autan puhelimen, tietokoneen, television ja wifin kanssa – rauhallisesti ja selkeästi. Muista kotitalousvähennys 60 % työn osuudesta.</p>
-    <a href="#yhteys" class="btn">Varaa kotikäynti</a>
-  </section>
-
-  <section id="palvelut" class="container">
-    <h2>Miten voin auttaa?</h2>
-    <div class="grid grid-3">
-      <div class="card">
-        <div class="icon"><i class="fas fa-mobile-alt"></i></div>
-        <h3>Puhelin & Tabletit</h3>
-        <p>Käyttöönotto, WhatsApp, sähköposti, kuvat ja varmuuskopiointi.</p>
+    <div class="container">
+      <h1 class="hero-title">Kun tekniikka kotona turhauttaa, apu on lähellä.</h1>
+      <div class="problem-checklist">
+        <p><i class="fas fa-check-circle"></i> Hidasteleeko tietokone tai eikö jokin ohjelma toimi?</p>
+        <p><i class="fas fa-check-circle"></i> Tuntuuko puhelimen tai tabletin käyttö hankalalta?</p>
+        <p><i class="fas fa-check-circle"></i> Aiheuttaako uusi laite, kuten tulostin tai televisio, päänvaivaa?</p>
       </div>
-      <div class="card">
-        <div class="icon"><i class="fas fa-wifi"></i></div>
-        <h3>Netti & Wifi</h3>
-        <p>Wifin ja reitittimen asennus ja optimointi, yhteysongelmien ratkaisu.</p>
-      </div>
-      <div class="card">
-        <div class="icon"><i class="fas fa-tv"></i></div>
-        <h3>TV & Suoratoisto</h3>
-        <p>Television, digiboksin ja suoratoistopalvelujen (esim. Yle Areena) asetukset.</p>
-      </div>
-      <div class="card">
-        <div class="icon"><i class="fas fa-laptop"></i></div>
-        <h3>Tietokoneapu</h3>
-        <p>Windows- ja Mac-perusasetukset, varmuuskopiointi ja virustarkistus.</p>
-      </div>
-      <div class="card">
-        <div class="icon"><i class="fas fa-shield-alt"></i></div>
-        <h3>Tietoturva</h3>
-        <p>Neuvon turvalliseen käyttöön ja autan tunnistamaan huijausviestit.</p>
-      </div>
-      <div class="card">
-        <div class="icon"><i class="fas fa-file-alt"></i></div>
-        <h3>Selkeät ohjeet</h3>
-        <p>Käymme asiat läpi yhdessä ja jätän sinulle selkeät, kirjalliset ohjeet.</p>
+      <p class="hero-subtitle">
+        Tarjoan luotettavaa ja kärsivällistä apua tietokoneiden, puhelimien, tablettien ja verkkoyhteyksien kanssa <strong>Järvenpään ja lähialueiden kotitalouksille</strong>. Unohda tekninen stressi – hoidan digipulmasi kuntoon luonasi, selkeällä suomen kielellä.
+      </p>
+      <div class="hero-cta-buttons">
+        <a href="tel:0405724113" class="cta-button primary"><i class="fas fa-phone-alt"></i> Soita 040 572 4113</a>
+        <a href="#yhteys" class="cta-button secondary">Varaa kotikäynti</a>
       </div>
     </div>
   </section>
-  
-  <section id="luottamus" class="container" style="margin-top:10px margin-bottom:20px;">
-      <h2 style="padding-top:20px;">Miksi valita Kodin Digiapu?</h2>
-      <div class="grid grid-2">
-          <div class="card testimonial">
-            <p>"Sain vihdoin uuden puhelimeni kunnolla käyttöön. Palvelu oli todella kärsivällistä ja ystävällistä. Suuri kiitos avusta!"</p>
-            <div class="author">- Leena, Järvenpää</div>
-          </div>
-          <div class="card testimonial">
-            <p>"Tietokoneeni hidasteli vuosia, mutta nyt se toimii kuin uusi. Ammattitaitoista ja nopeaa palvelua suoraan kotiin."</p>
-            <div class="author">- Matti, Tuusula</div>
-          </div>
-      </div>
-  </section>
 
-  <section id="hinnat" class="container">
-    <h2>Hinnat ja kotitalousvähennys</h2>
-    <div class="card price-card">
-      <div class="price">60 € <span style="font-size: 20px; color: #555;">/ tunti</span></div>
-      <p>Muista hyödyntää <strong>kotitalousvähennys 60 %</strong> työn osuudesta. Verovähennyksen jälkeen maksettavaksesi jää vain noin <strong>24 € / tunti</strong>.</p>
-      <p>Toimialue: Järvenpää, Tuusula, Kerava, Hyvinkää ja lähialueet. Ei matkakuluja Järvenpään alueella.</p>
-    </div>
-  </section>
-
-  <section id="yhteys" class="container">
-    <h2>Ota yhteyttä ja varaa aika</h2>
-    <div class="contact-wrapper">
-        <div class="contact-info">
-            <img src="/images/mikko-digiapu.webp" alt="Mikko, Kodin Digiapu" loading="lazy">
-            <h3>Soita tai lähetä viesti</h3>
-            <p>Nopein tapa saada apua on soittaa. Jos en pääse vastaamaan, soitan sinulle takaisin mahdollisimman pian.</p>
-            <p><i class="fas fa-phone-alt"></i><strong>Puhelin:</strong> <a href="tel:+358405724113">040 572 4113</a></p>
-            <p><i class="fas fa-envelope"></i><strong>Sähköposti:</strong> <a href="mailto:mikko@kodindigiapu.fi">mikko@kodindigiapu.fi</a></p>
+  <section id="palvelut" class="section">
+    <div class="container">
+      <h2 class="section-title">Selkeää digiapua kotiisi</h2>
+      <p class="section-subtitle">Ratkaisen digiarkesi pulmat kärsivällisesti ja ammattitaidolla. Tavoitteenani on antaa sinulle mielenrauha ja varmuus laitteidesi käyttöön.</p>
+      <div class="services-grid">
+        <div class="service-card">
+          <i class="fas fa-desktop icon"></i>
+          <h3>Kodin laitteet</h3>
+          <p>Saat uudet ja vanhat laitteesi – tietokoneet, televisiot, tulostimet – käyttövalmiiksi ja toimimaan saumattomasti yhdessä.</p>
         </div>
-        
-        <form action="https://formspree.io/f/mnngjdyr" method="POST" class="card">
-            <input type="hidden" name="_next" value="https://www.kodindigiapu.fi/kiitos.html">
+        <div class="service-card">
+          <i class="fas fa-mobile-alt icon"></i>
+          <h3>Puhelin & Tabletti</h3>
+          <p>Opastan laitteen käytössä, sovelluksissa, sähköpostissa ja tietojen varmuuskopioinnissa selkeästi ja ilman kiirettä.</p>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-shield-alt icon"></i>
+          <h3>Tietoturva</h3>
+          <p>Nuku yösi rauhassa. Puhdistan haittaohjelmat, asennan suojaukset ja opastan sinua välttämään verkon huijaukset.</p>
+        </div>
+        <div class="service-card">
+          <i class="fas fa-user-friends icon"></i>
+          <h3>Henkilökohtainen opastus</h3>
+          <p>Kysy mitä vain. Käymme asiat läpi kärsivällisesti ja saat halutessasi mukaan selkeät muistiinpanot.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-            <h3>Tai täytä lomake:</h3>
-            <div class="form-group">
-                <input type="text" name="name" placeholder="Nimesi" required>
-            </div>
-            <div class="form-group">
-                <input type="tel" name="phone" placeholder="Puhelinnumerosi" required>
-            </div>
-            <div class="form-group">
-                <textarea name="message" rows="4" placeholder="Kerro lyhyesti, missä tarvitset apua" required></textarea>
-            </div>
-            <button type="submit" class="btn">Lähetä viesti</button>
+  <section id="luottamus" class="section">
+    <div class="container">
+      <h2 class="section-title">Mitä asiakkaat sanovat?</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <p class="text">"Sain vihdoin uuden puhelimeni kunnolla käyttöön. Palvelu oli todella kärsivällistä ja ystävällistä. Suuri kiitos avusta!"</p>
+          <p class="author">– Leena, Järvenpää</p>
+        </div>
+        <div class="testimonial-card">
+          <p class="text">"Tietokoneeni hidasteli vuosia, mutta nyt se toimii kuin uusi. Ammattitaitoista ja nopeaa palvelua suoraan kotiin."</p>
+          <p class="author">– Matti, Tuusula</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="hinnat" class="section">
+    <div class="container">
+      <h2 class="section-title">Hinnat</h2>
+      <div class="price-card">
+        <div class="price">60 € <span>/ tunti</span></div>
+        <p>Ei matkakuluja Järvenpään alueella. Lähialueille (Kerava, Tuusula jne.) pieni, erikseen sovittava matkakorvaus.</p>
+        <div class="tax-deduction-box">
+          <h4>Hyödynnä kotitalousvähennys!</h4>
+          <p>Vuonna 2025 kotitalousvähennys on <strong>35 % työn osuudesta</strong>. Omavastuu on 150 €/vuosi. Esimerkiksi 3 tunnin (180 €) käynnistä saat 63 € verovähennystä, kun omavastuu on täyttynyt.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="yhteys" class="section">
+    <div class="container">
+      <h2 class="section-title">Ota yhteyttä ja varaa aika</h2>
+      <div class="contact-wrapper">
+        <div class="contact-info">
+          <img src="/images/mikko-digiapu.webp" alt="Mikko Lagerstedt, Kodin Digiapu" loading="lazy">
+          <h3>Soita tai lähetä viesti</h3>
+          <p>Nopein tapa saada apua on soittaa. Jos en pääse vastaamaan, soitan sinulle takaisin mahdollisimman pian.</p>
+          <p><i class="fas fa-phone-alt icon"></i><strong>Puhelin:</strong> <a href="tel:+358405724113">040 572 4113</a></p>
+          <p><i class="fas fa-envelope icon"></i><strong>Sähköposti:</strong> <a href="mailto:mikko@kodindigiapu.fi">mikko@kodindigiapu.fi</a></p>
+        </div>
+        <form action="https://formspree.io/f/mnngjdyr" method="POST" class="contact-form">
+          <input type="hidden" name="_next" value="https://www.kodindigiapu.fi/kiitos.html">
+          <h3>Tai täytä lomake:</h3>
+          <div class="form-group">
+            <input type="text" name="name" placeholder="Nimesi" required>
+          </div>
+          <div class="form-group">
+            <input type="tel" name="phone" placeholder="Puhelinnumerosi" required>
+          </div>
+          <div class="form-group">
+            <textarea name="message" rows="4" placeholder="Kerro lyhyesti, missä tarvitset apua" required></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Lähetä viesti</button>
         </form>
+      </div>
     </div>
   </section>
 </main>
 
 <footer>
-  © 2025 Kodin Digiapu | Järvenpää, Tuusula, Kerava, Hyvinkää
+  <div class="container">
+    <p>&copy; 2025 Kodin Digiapu | Y-tunnus: XXXXXXX-X | Palvelualue: Järvenpää, Tuusula, Kerava, Hyvinkää ja lähialueet</p>
+  </div>
 </footer>
 
 <div class="mobile-sticky-cta">
-    <a href="tel:+358405724113" class="sticky-btn call"><i class="fas fa-phone-alt"></i> Soita</a>
-    <a href="https://wa.me/358405724113" target="_blank" class="sticky-btn whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+  <a href="tel:+358405724113" class="sticky-btn call"><i class="fas fa-phone-alt"></i> Soita</a>
+  <a href="https://wa.me/358405724113" target="_blank" class="sticky-btn whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
 </div>
 
 <script>
-  const toggleBtn = document.querySelector('.nav-toggle');
-  const navLinks = document.querySelector('.nav-links');
-  toggleBtn.addEventListener('click', () => {
-    navLinks.classList.toggle('show');
-  });
-  
-  // Sulje mobiilivalikko kun linkkiä klikataan
-  document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        if (navLinks.classList.contains('show')) {
+  document.addEventListener('DOMContentLoaded', function() {
+    const toggleBtn = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (toggleBtn && navLinks) {
+      toggleBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('show');
+      });
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+          if (navLinks.classList.contains('show')) {
             navLinks.classList.remove('show');
-        }
-    });
+          }
+        });
+      });
+    }
   });
 </script>
 
