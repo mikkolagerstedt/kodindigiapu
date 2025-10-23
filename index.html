@@ -127,66 +127,66 @@
         min-height: 25px;
     }
     .toggle-container {
-	  display: flex;
-	  justify-content: center;
-	  align-items: center;
-	  gap: 1.5rem;
-	  margin-bottom: 2rem;
-	  font-weight: 500;
-	  color: #333;
-	}
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      font-weight: 500;
+      color: #333;
+    }
 
-	.toggle-switch {
-	  position: relative;
-	  width: 60px;
-	  height: 30px;
-	  cursor: pointer;
-	  touch-action: manipulation;
-	  -webkit-tap-highlight-color: transparent;
-	}
+    .toggle-switch {
+      position: relative;
+      width: 60px;
+      height: 30px;
+      cursor: pointer;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
 
-	.toggle-switch input {
-	  position: absolute;
-	  top: 0;
-	  left: 0;
-	  width: 100%;
-	  height: 100%;
-	  opacity: 0;
-	  margin: 0;
-	  z-index: 2;
-	  cursor: pointer;
-	}
+    .toggle-switch input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      margin: 0;
+      z-index: 2;
+      cursor: pointer;
+    }
 
-	.slider {
-	  position: absolute;
-	  top: 0;
-	  left: 0;
-	  right: 0;
-	  bottom: 0;
-	  background-color: #ccc;
-	  border-radius: 34px;
-	  transition: background-color 0.3s ease;
-	}
+    .slider {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      border-radius: 34px;
+      transition: background-color 0.3s ease;
+    }
 
-	.slider::before {
-	  content: "";
-	  position: absolute;
-	  height: 22px;
-	  width: 22px;
-	  left: 4px;
-	  bottom: 4px;
-	  background-color: white;
-	  border-radius: 50%;
-	  transition: transform 0.3s ease;
-	}
+    .slider::before {
+      content: "";
+      position: absolute;
+      height: 22px;
+      width: 22px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      border-radius: 50%;
+      transition: transform 0.3s ease;
+    }
 
-	.toggle-switch input:checked + .slider {
-	  background-color: var(--accent);
-	}
+    .toggle-switch input:checked + .slider {
+      background-color: var(--accent);
+    }
 
-	.toggle-switch input:checked + .slider::before {
-	  transform: translateX(28px);
-	}
+    .toggle-switch input:checked + .slider::before {
+      transform: translateX(28px);
+    }
 
     .explanation-box {
         background-color: #f0f9ff;
@@ -353,13 +353,13 @@
       <p id="price-description" class="price-description">/ tunti</p>
 
       <div class="toggle-container">
-	  <span>Normaalihinta</span>
-	  <div class="toggle-switch">
-		<input type="checkbox" id="price-toggle" aria-label="Näytä hinta kotitalousvähennyksellä">
-		<span class="slider"></span>
-	  </div>
-	  <span>Kotitalousvähennyksellä</span>
-	</div>
+        <span>Normaalihinta</span>
+        <div class="toggle-switch">
+          <input type="checkbox" id="price-toggle" aria-label="Näytä hinta kotitalousvähennyksellä">
+          <span class="slider"></span>
+        </div>
+        <span>Kotitalousvähennyksellä</span>
+      </div>
 
 
       <div id="explanation-with-deduction" class="explanation-box">
@@ -377,26 +377,26 @@
   <div class="container">
     <h2 class="section-title">Usein kysyttyä</h2>
     <div class="faq">
-       <details>
-        <summary>Kuinka nopeasti voin saada apua – ja voiko sen tehdä etänä?</summary>
-        <p>Useimmiten samana tai seuraavana arkipäivänä. Sovimme sinulle sopivan ajankohdan ja käymme etukäteen läpi ongelman tai avun tarpeen, jotta käynti sujuu mahdollisimman tehokkaasti. Monet asiat voimme hoitaa myös etäyhteydellä, jos se sopii tilanteeseen.</p>
-      </details>
-      <details>
-        <summary>Miten voin valmistautua kotikäyntiin ja onko matkakuluja?</summary>
-        <p>Pidä laitteiden salasanat ja mahdolliset ongelmakuvaukset valmiina – se säästää aikaa. Järvenpäässä ei ole matkakuluja. Lähialueille, kuten Keravaan ja Tuusulaan, sovitaan pienestä matkakorvauksesta.</p>
-      </details>
-      <details>
-        <summary>Mitä jos ongelmaa ei saada kuntoon?</summary>
-        <p>Kerron tilanteen rehellisesti ja sovimme järkevimmän ratkaisun. Maksu perustuu käytettyyn aikaan ja tehtyyn työhön, vaikka ongelmaa ei saataisi kokonaan ratkaistua.</p>
-      </details>
-      <details>
-        <summary>Mitä maksutapoja voin käyttää?</summary>
-        <p>Käteinen, MobilePay tai tilisiirto sopimuksen mukaan. Kuitin saat aina sähköisesti.</p>
-      </details>
-      <details>
-        <summary>Miten kotitalousvähennys toimii ja paljonko maksu on sen jälkeen?</summary>
-        <p>Digiapu on kotitalousvähennyskelpoista työtä. Vuonna 2025 voit vähentää 35 % työn osuudesta, kun 150 € omavastuu on täyttynyt. Käytännössä 60 €/h hinnasta jää maksettavaksesi noin <strong>39 €/h</strong>. Vähennys haetaan veroilmoituksella.</p>
-      </details>
+        <details>
+          <summary>Kuinka nopeasti voin saada apua – ja voiko sen tehdä etänä?</summary>
+          <p>Useimmiten samana tai seuraavana arkipäivänä. Sovimme sinulle sopivan ajankohdan ja käymme etukäteen läpi ongelman tai avun tarpeen, jotta käynti sujuu mahdollisimman tehokkaasti. Monet asiat voimme hoitaa myös etäyhteydellä, jos se sopii tilanteeseen.</p>
+        </details>
+        <details>
+          <summary>Miten voin valmistautua kotikäyntiin ja onko matkakuluja?</summary>
+          <p>Pidä laitteiden salasanat ja mahdolliset ongelmakuvaukset valmiina – se säästää aikaa. Järvenpäässä ei ole matkakuluja. Lähialueille, kuten Keravaan ja Tuusulaan, sovitaan pienestä matkakorvauksesta.</p>
+        </details>
+        <details>
+          <summary>Mitä jos ongelmaa ei saada kuntoon?</summary>
+          <p>Kerron tilanteen rehellisesti ja sovimme järkevimmän ratkaisun. Maksu perustuu käytettyyn aikaan ja tehtyyn työhön, vaikka ongelmaa ei saataisi kokonaan ratkaistua.</p>
+        </details>
+        <details>
+          <summary>Mitä maksutapoja voin käyttää?</summary>
+          <p>Käteinen, MobilePay tai tilisiirto sopimuksen mukaan. Kuitin saat aina sähköisesti.</p>
+        </details>
+        <details>
+          <summary>Miten kotitalousvähennys toimii ja paljonko maksu on sen jälkeen?</summary>
+          <p>Digiapu on kotitalousvähennyskelpoista työtä. Vuonna 2025 voit vähentää 35 % työn osuudesta, kun 150 € omavastuu on täyttynyt. Käytännössä 60 €/h hinnasta jää maksettavaksesi noin <strong>39 €/h</strong>. Vähennys haetaan veroilmoituksella.</p>
+        </details>
     </div>
   </div>
 </section>
@@ -468,7 +468,7 @@
       const explanationWith = document.getElementById('explanation-with-deduction');
       const explanationWithout = document.getElementById('explanation-without-deduction');
 
-       // Vaihtotapahtuma
+      // Vaihtotapahtuma
       priceToggle.addEventListener('change', function() {
         if (this.checked) {
           // Kotitalousvähennyksellä
