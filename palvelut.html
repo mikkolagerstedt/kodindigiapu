@@ -6,7 +6,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Tutustu Kodin Digiavun palveluihin ja esimerkkitöihin. Saat ystävällistä ja selkeää digiapua kotiisi Järvenpäässä ja lähialueilla.">
 
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <meta property="og:title" content="Palvelut ja esimerkit – Kodin Digiapu Järvenpää">
+  <meta property="og:description" content="Tutustu Kodin Digiavun palveluihin: tietokoneet, puhelimet, verkot ja henkilökohtainen opastus.">
+  <meta property="og:image" content="https://www.kodindigiapu.fi/images/Kodin-Digiapu-Link.webp">
+  <meta property="og:image:alt" content="Kodin Digiapu - Ystävällistä digiapua kotiisi">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://www.kodindigiapu.fi/palvelut.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Palvelut ja esimerkit – Kodin Digiapu Järvenpää">
+  <meta name="twitter:description" content="Tutustu Kodin Digiavun palveluihin: tietokoneet, puhelimet, verkot ja henkilökohtainen opastus.">
+  <meta name="twitter:image" content="https://www.kodindigiapu.fi/images/Kodin-Digiapu-Link.webp">
+  <meta name="twitter:image:alt" content="Kodin Digiapu - Ystävällistä digiapua kotiisi">
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0ea5e9">
+  <meta name="msapplication-TileColor" content="#0ea5e9">
+  <meta name="theme-color" content="#ffffff">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
   <style>
@@ -23,12 +44,29 @@
     html { scroll-behavior: smooth; }
     body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: var(--bg); color: var(--text-dark); line-height:1.6; padding-top:76px; }
     header { background: white; position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; padding-left:20px;}
-    .nav { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; }
-    .logo { font-weight: 700; font-size: 20px; color: var(--main); text-decoration: none; }
-    .nav-links { display: flex; gap: 24px; list-style: none; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+    .nav { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; padding-left:10px;}
+    
+    .logo { 
+      display: flex; 
+      align-items: center; 
+      gap: 10px;
+      font-weight: 700; 
+      font-size: 20px; 
+      color: var(--main); 
+      text-decoration: none; 
+    }
+    .logo-icon {
+      height: 32px;
+      width: 32px;
+      border-radius: 50%;
+    }
+    
+    .nav-toggle { display: none; background: none; border: none; font-size: 30px; cursor: pointer; color: var(--main); }
+    .nav-links { display: flex; gap: 24px; list-style: none; align-items: center;}
     .nav-links a { color: var(--text-dark); text-decoration: none; font-weight: 500; transition: color 0.2s; }
     .nav-links a:hover { color: var(--accent); }
+    
     .page-header h1 { font-size: clamp(32px, 5vw, 48px); color: var(--main); margin-bottom: 1rem; text-align:center; }
     .page-header p { text-align:center; max-width:700px; margin:0 auto 3rem; font-size: 1.1rem; color: var(--text-light); }
     .section { padding:80px 0; }
@@ -45,15 +83,39 @@
     .cta-section p { max-width: 600px; margin: 0 auto 1.5rem auto; opacity: 0.9; }
     .cta-button { padding: 0.9rem 1.8rem; border-radius: 8px; font-size: 1.1rem; font-weight: 700; text-decoration: none; background-color: var(--accent); color: white; display: inline-block; transition: background-color 0.2s; }
     .cta-button:hover { background-color: #0c8ac1; }
+    
     footer { background:#e5e7eb; text-align:center; padding:25px; font-size:14px; color:#4b5563; }
-    @media (min-width:768px){ .grid-2-cols { grid-template-columns:repeat(2,1fr); } }
+    .mobile-sticky-cta { display: none; }
+
+    @media (max-width: 768px) {
+      body { padding-top: 70px; padding-bottom: 70px; }
+      .section { padding: 60px 0; }
+      .nav-toggle { display: block; }
+      .nav-links { display: none; flex-direction: column; width: 100%; background: white; position: absolute; top: 70px; left: 0; padding: 20px 0; box-shadow: 0 8px 16px rgba(0,0,0,.05); border-top: 1px solid #eee; }
+      .nav-links.show { display: flex; }
+      .nav-links a { padding: 10px 0; text-align: center; width: 100%; }
+      .mobile-sticky-cta { display: flex; position: fixed; bottom: 0; left: 0; width: 100%; background-color: white; box-shadow: 0 -2px 10px rgba(0,0,0,0.1); z-index: 1001; }
+      .sticky-btn { flex: 1; padding: 15px 10px; text-align: center; text-decoration: none; font-weight: 600; font-size: 1rem; color: #333; }
+      .sticky-btn.call { color: var(--accent); }
+      .sticky-btn.whatsapp { color: #25D366; }
+    }
+    
+    @media (min-width:768px){ 
+      .grid-2-cols { grid-template-columns:repeat(2,1fr); } 
+    }
   </style>
 </head>
 <body>
 
 <header>
   <div class="container nav">
-    <a href="/" class="logo">Kodin Digiapu</a>
+    <a href="/" class="logo">
+      <img src="/favicon-96x96.png" alt="Kodin Digiapu logo" class="logo-icon">
+      <span>Kodin Digiapu</span>
+    </a>
+    <button class="nav-toggle" aria-label="Avaa valikko">
+      <i class="fas fa-bars"></i>
+    </button>
     <nav>
       <ul class="nav-links">
         <li><a href="/">Etusivu</a></li>
@@ -138,6 +200,31 @@
     <p>&copy; 2025 Kodin Digiapu | Palvelualue: Järvenpää, Tuusula, Kerava, Hyvinkää ja lähialueet</p>
   </div>
 </footer>
+
+<div class="mobile-sticky-cta">
+  <a href="tel:+358405724113" class="sticky-btn call"><i class="fas fa-phone-alt"></i> Soita</a>
+  <a href="https://wa.me/358405724113" target="_blank" class="sticky-btn whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // --- Navigaatio ---
+    const toggleBtn = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    if (toggleBtn && navLinks) {
+      toggleBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('show');
+      });
+      document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+          if (navLinks.classList.contains('show')) {
+            navLinks.classList.remove('show');
+          }
+        });
+      });
+    }
+  });
+</script>
 
 </body>
 </html>
