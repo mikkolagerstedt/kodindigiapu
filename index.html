@@ -126,67 +126,70 @@
         margin-bottom: 2rem;
         min-height: 25px;
     }
-    .toggle-container {
+
+    /* --- Uudet hintanappien tyylit --- */
+    .price-toggle-group {
       display: flex;
       justify-content: center;
-      align-items: center;
-      gap: 1.5rem;
       margin-bottom: 2rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      overflow: hidden;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .price-toggle-group label {
+      flex: 1; /* Saa napit täyttämään tilan tasan */
+      text-align: center;
+      padding: 12px 10px;
+      background-color: #f0f0f0;
+      color: #555;
+      cursor: pointer;
+      transition: background-color 0.2s ease, color 0.2s ease;
       font-weight: 500;
-      color: #333;
+      position: relative; /* Tarvitaan piilotetulle inputille */
     }
-
-    .toggle-switch {
-      position: relative;
-      width: 60px;
-      height: 30px;
-      cursor: pointer;
-      touch-action: manipulation;
-      -webkit-tap-highlight-color: transparent;
+    /* Korostaa hieman ei-valittua nappia kun hiiri on päällä */
+    .price-toggle-group label:hover {
+      background-color: #e9e9e9;
     }
-
-    .toggle-switch input {
+    /* Piilottaa alkuperäisen radio-nappulan täysin */
+    .price-toggle-group input[type="radio"] {
       position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
       opacity: 0;
-      margin: 0;
-      z-index: 2;
-      cursor: pointer;
+      width: 0;
+      height: 0;
     }
-
-    .slider {
+    /* Tämä on tärkein: Miltä VALITTU nappi näyttää */
+    .price-toggle-group input[type="radio"]:checked + span {
+      color: white;
+    }
+    .price-toggle-group input[type="radio"]:checked + span::before {
+      content: "";
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
       bottom: 0;
-      background-color: #ccc;
-      border-radius: 34px;
+      background-color: var(--accent);
+      z-index: -1; /* Menee tekstin taakse */
       transition: background-color 0.3s ease;
     }
-
-    .slider::before {
-      content: "";
-      position: absolute;
-      height: 22px;
-      width: 22px;
-      left: 4px;
-      bottom: 4px;
-      background-color: white;
-      border-radius: 50%;
-      transition: transform 0.3s ease;
+    /* Tehdään valitusta napista vihreä, kun vähennys on valittu */
+    #toggle-deducted:checked + span::before {
+      background-color: var(--success);
     }
-
-    .toggle-switch input:checked + .slider {
-      background-color: var(--accent);
+    /* Lisätään pieni erotinviiva nappien väliin */
+    .price-toggle-group label:first-of-type {
+      border-right: 1px solid #ccc;
     }
-
-    .toggle-switch input:checked + .slider::before {
-      transform: translateX(28px);
+    .price-toggle-group span {
+      position: relative;
+      z-index: 2; /* Pysyy taustavärin päällä */
     }
+    /* --- Uusien hintanappien tyylit loppuu --- */
+
 
     .explanation-box {
         background-color: #f0f9ff;
@@ -346,33 +349,32 @@
   </section>
 
   <section id="hinnat" class="section">
-  <div class="container">
-    <h2 class="section-title">Selkeä ja reilu hinnoittelu</h2>
-    <div class="price-card">
-      <div id="price-display" class="price-display normal">60€</div>
-      <p id="price-description" class="price-description">/ tunti</p>
-
-      <div class="toggle-container">
-        <span>Normaalihinta</span>
-        <div class="toggle-switch">
-          <input type="checkbox" id="price-toggle" aria-label="Näytä hinta kotitalousvähennyksellä">
-          <span class="slider"></span>
+    <div class="container">
+      <h2 class="section-title">Selkeä ja reilu hinnoittelu</h2>
+      <div class="price-card">
+        <div id="price-display" class="price-display normal">60€</div>
+        <p id="price-description" class="price-description">/ tunti</p>
+  
+        <div class="price-toggle-group">
+          <label>
+            <input type="radio" name="price-option" id="toggle-normal" value="normal" checked>
+            <span>Normaalihinta</span>
+          </label>
+          <label>
+            <input type="radio" name="price-option" id="toggle-deducted" value="deducted">
+            <span>Kotitalousvähennyksellä</span>
+          </label>
         </div>
-        <span>Kotitalousvähennyksellä</span>
-      </div>
-
-
-      <div id="explanation-with-deduction" class="explanation-box">
-        <p>Tämä on arvioitu kustannuksesi, kun <strong>35% kotitalousvähennys</strong> on hyödynnetty (vuoden 2025 säännöillä ja 150€ omavastuun täytyttyä). Se on edullisin tapa hankkia apua!</p>
-      </div>
-
-      <div id="explanation-without-deduction" class="explanation-box">
-        <p>Tämä on normaali tuntihintani ilman verovähennyksiä. Minimiveloitus on 30€ (30 min). Järvenpään alueella ei ole matkakuluja.</p>
+        <div id="explanation-with-deduction" class="explanation-box">
+          <p>Tämä on arvioitu kustannuksesi, kun <strong>35% kotitalousvähennys</strong> on hyödynnetty (vuoden 2025 säännöillä ja 150€ omavastuun täytyttyä). Se on edullisin tapa hankkia apua!</p>
+        </div>
+  
+        <div id="explanation-without-deduction" class="explanation-box">
+          <p>Tämä on normaali tuntihintani ilman verovähennyksiä. Minimiveloitus on 30€ (30 min). Järvenpään alueella ei ole matkakuluja.</p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
-
+  </section>
   <section id="ukk" class="section">
   <div class="container">
     <h2 class="section-title">Usein kysyttyä</h2>
@@ -395,7 +397,7 @@
         </details>
         <details>
           <summary>Miten kotitalousvähennys toimii ja paljonko maksu on sen jälkeen?</summary>
-          <p>Digiapu on kotitalousvähennyskelpoista työtä. Vuonna 2025 voit vähentää 35 % työn osuudesta, kun 150 € omavastuu on täyttynyt. Käytännössä 60 €/h hinnasta jää maksettavaksesi noin <strong>39 €/h</strong>. Vähennys haetaan veroilmoituksella.</p>
+          <p>Digiapu on kotitalousvähennyskelpoista työtä. Vuonna 2025 voit vähentää 35 % työn osuudesta, kun 150 € omavastuu on täyttynyt. Käytännössä 60 €/h hinnasta jää makSETTAVAKSESI noin <strong>39 €/h</strong>. Vähennys haetaan veroilmoituksella.</p>
         </details>
     </div>
   </div>
@@ -461,16 +463,19 @@
     }
 
     // --- Hinnanvaihto (Normaalihinta ↔ Kotitalousvähennyksellä) ---
-    const priceToggle = document.getElementById('price-toggle');
-    if (priceToggle) {
+    // Tämä on uusi, radio-nappeihin perustuva koodi
+    const toggleNormal = document.getElementById('toggle-normal');
+    const toggleDeducted = document.getElementById('toggle-deducted');
+    
+    if (toggleNormal && toggleDeducted) {
       const priceDisplay = document.getElementById('price-display');
       const priceDescription = document.getElementById('price-description');
       const explanationWith = document.getElementById('explanation-with-deduction');
       const explanationWithout = document.getElementById('explanation-without-deduction');
 
-      // Vaihtotapahtuma
-      priceToggle.addEventListener('change', function() {
-        if (this.checked) {
+      // Toiminto, joka tarkistaa kumpa on valittu
+      function updatePriceView() {
+        if (toggleDeducted.checked) {
           // Kotitalousvähennyksellä
           priceDisplay.textContent = '39€';
           priceDisplay.classList.remove('normal');
@@ -479,7 +484,7 @@
           explanationWith.style.display = 'block';
           explanationWithout.style.display = 'none';
         } else {
-          // Normaalihinta
+          // Normaalihinta (oletus)
           priceDisplay.textContent = '60€';
           priceDisplay.classList.remove('deducted');
           priceDisplay.classList.add('normal');
@@ -487,8 +492,14 @@
           explanationWith.style.display = 'none';
           explanationWithout.style.display = 'block';
         }
-      });
+      }
+
+      // Lisätään kuuntelija kumpaankin nappiin
+      toggleNormal.addEventListener('change', updatePriceView);
+      toggleDeducted.addEventListener('change', updatePriceView);
     }
+    // --- Hinnanvaihdon koodi loppuu ---
+
   });
 </script>
 
