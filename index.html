@@ -161,13 +161,20 @@
     .testimonial-card .text { font-style: italic; color: var(--text-dark); margin-bottom: 1rem; }
     .testimonial-card .author { font-weight: 700; color: var(--text-light); text-align: right; }
 
+    /* --- TÄMÄ ON PÄIVITETTY --- */
     .trust-image {
-        max-width: 100%;
+        max-width: 80%; /* Pienennetty 100% -> 80% */
         height: auto;
         display: block;
         margin: 2rem auto 3rem auto;
         border-radius: 12px;
         box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    @media (max-width: 768px) {
+      .trust-image {
+        max-width: 90%; 
+        margin-bottom: 2rem; 
+      }
     }
 
     .price-card {
@@ -413,21 +420,27 @@
   <section id="luottamus" class="section">
     <div class="container">
       <h2 class="section-title">Mitä asiakkaat sanovat?</h2>
+      
       <img src="images/kodin-digiapu-auttamassa.webp" alt="Kodin Digiapu auttamassa senioria tietokoneen kanssa" class="trust-image" loading="lazy">
 
       <div class="testimonials-grid">
+        
         <div class="testimonial-card">
-          <p class="text">"Sain vihdoin uuden puhelimeni kunnolla käyttöön. Suuri kiitos avusta!"</p>
-          <p class="author">– Leena, Järvenpää</p>
+          <p class="text">"Tietokoneeni ei enää toiminut kunnolla, vaan se valitti viruksia, mutta sain apua nopeasti ja alle tunnissa homma oli jo tehty ja tietokoneeni toimii taas ilman ongelmia! Suosittelen lämpimästi"</p>
+          <p class="author">– Helena, Järvenpää</p>
         </div>
+        
         <div class="testimonial-card">
           <p class="text">"Tietokoneeni hidasteli vuosia, mutta nyt se toimii kuin uusi. Ammattitaitoista ja nopeaa palvelua suoraan kotiin."</p>
           <p class="author">– Matti, Tuusula</p>
         </div>
+        <div class="testimonial-card">
+          <p class="text">"Sain vihdoin uuden puhelimeni kunnolla käyttöön. Suuri kiitos avusta!"</p>
+          <p class="author">– Leena, Järvenpää</p>
+        </div>
       </div>
     </div>
   </section>
-
   <section id="hinnat" class="section">
     <div class="container">
       <h2 class="section-title">Selkeä ja reilu hinnoittelu</h2>
@@ -556,37 +569,32 @@
       const explanationWith = document.getElementById('explanation-with-deduction');
       const explanationWithout = document.getElementById('explanation-without-deduction');
 
-      // --- TÄMÄ ON PÄIVITETTY FUNKTIO ---
       function updatePriceView() {
-        const vatInfo = document.getElementById('vat-info-text'); // Haetaan ALV-elementti
+        const vatInfo = document.getElementById('vat-info-text'); 
 
         if (toggleDeducted.checked) {
-          // Kotitalousvähennyksellä
           priceDisplay.textContent = '39€';
           priceDisplay.classList.remove('normal');
           priceDisplay.classList.add('deducted');
           priceDescription.textContent = '/ tunti kotitalousvähennyksellä';
           explanationWith.style.display = 'block';
           explanationWithout.style.display = 'none';
-          if (vatInfo) vatInfo.style.display = 'none'; // Piilota ALV
+          if (vatInfo) vatInfo.style.display = 'none'; 
         } else {
-          // Normaalihinta (oletus)
           priceDisplay.textContent = '60€';
           priceDisplay.classList.remove('deducted');
           priceDisplay.classList.add('normal');
           priceDescription.textContent = '/ tunti';
           explanationWith.style.display = 'none';
           explanationWithout.style.display = 'block';
-          if (vatInfo) vatInfo.style.display = 'block'; // Näytä ALV
+          if (vatInfo) vatInfo.style.display = 'block'; 
         }
       }
 
       toggleNormal.addEventListener('change', updatePriceView);
       toggleDeducted.addEventListener('change', updatePriceView);
 
-      // Asetetaan oikea näkymä heti sivun latautuessa
       updatePriceView(); 
-      // --- PÄIVITETTY FUNKTIO LOPPUU ---
     }
 
   });
