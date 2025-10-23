@@ -176,8 +176,8 @@
         text-align: left;
     }
     /* Korjaus: oikea alkuasetelma */
-    #explanation-with-deduction { display: block; }
-    #explanation-without-deduction { display: none; }
+    #explanation-with-deduction { display: none; }
+    #explanation-without-deduction { display: block; }
     .explanation-box p { margin: 0; }
 
     .faq { max-width: 900px; margin: 0 auto; }
@@ -324,33 +324,33 @@
   </section>
 
   <section id="hinnat" class="section">
-    <div class="container">
-      <h2 class="section-title">Selkeä ja reilu hinnoittelu</h2>
-      <div class="price-card">
+    <div class="container">
+      <h2 class="section-title">Selkeä ja reilu hinnoittelu</h2>
+      <div class="price-card">
 
-        <div id="price-display" class="price-display deducted">39€</div>
-        <p id="price-description" class="price-description">/ tunti kotitalousvähennyksellä</p>
+                <div id="price-display" class="price-display normal">60€</div>
+        <p id="price-description" class="price-description">/ tunti</p>
 
-        <div class="toggle-container">
-          <span>Vähennyksellä</span>
-          <label class="switch">
-            <input type="checkbox" id="price-toggle">
-            <span class="slider"></span>
-          </label>
-          <span>Normaalihinta</span>
-        </div>
+        <div class="toggle-container">
+                    <span>Normaalihinta</span>
+          <label class="switch">
+            <input type="checkbox" id="price-toggle">
+            <span class="slider"></span>
+          </label>
+          <span>Kotitalousvähennyksellä</span>
+        </div>
 
-        <div id="explanation-with-deduction" class="explanation-box">
-          <p>Tämä on arvioitu kustannuksesi, kun <strong>35% kotitalousvähennys</strong> on hyödynnetty (vuoden 2025 säännöillä ja 150€ omavastuun täytyttyä). Se on edullisin tapa hankkia apua!</p>
-        </div>
+        <div id="explanation-with-deduction" class="explanation-box">
+          <p>Tämä on arvioitu kustannuksesi, kun <strong>35% kotitalousvähennys</strong> on hyödynnetty (vuoden 2025 säännöillä ja 150€ omavastuun täytyttyä). Se on edullisin tapa hankkia apua!</p>
+        </div>
 
-        <div id="explanation-without-deduction" class="explanation-box">
-          <p>Tämä on normaali tuntihintani ilman verovähennyksiä. Minimiveloitus on 30€ (30 min). Järvenpään alueella ei ole matkakuluja.</p>
-        </div>
+        <div id="explanation-without-deduction" class="explanation-box">
+          <p>Tämä on normaali tuntihintani ilman verovähennyksiä. Minimiveloitus on 30€ (30 min). Järvenpään alueella ei ole matkakuluja.</p>
+        </div>
 
-      </div>
-    </div>
-  </section>
+      </div>
+    </div>
+  </section>
 
   <section id="ukk" class="section">
   <div class="container">
@@ -439,30 +439,42 @@
     }
 
     const priceToggle = document.getElementById('price-toggle');
-    if (priceToggle) {
-        const priceDisplay = document.getElementById('price-display');
-        const priceDescription = document.getElementById('price-description');
-        const explanationWith = document.getElementById('explanation-with-deduction');
-        const explanationWithout = document.getElementById('explanation-without-deduction');
+    if (priceToggle) {
+        const priceDisplay = document.getElementById('price-display');
+        const priceDescription = document.getElementById('price-description');
+        const explanationWith = document.getElementById('explanation-with-deduction');
+        const explanationWithout = document.getElementById('explanation-without-deduction');
 
-        priceToggle.addEventListener('change', function() {
-            if (this.checked) {
-                priceDisplay.textContent = '60€';
-                priceDisplay.classList.remove('deducted');
-                priceDisplay.classList.add('normal');
-                priceDescription.textContent = '/ tunti';
-                explanationWith.style.display = 'none';
-                explanationWithout.style.display = 'block';
-            } else {
-                priceDisplay.textContent = '39€';
-                priceDisplay.classList.remove('normal');
-                priceDisplay.classList.add('deducted');
-                priceDescription.textContent = '/ tunti kotitalousvähennyksellä';
-                explanationWith.style.display = 'block';
-                explanationWithout.style.display = 'none';
-            }
-        });
-    }
+        // LISÄTTY: Varmistetaan 60€ oletusarvot sivun latautuessa
+        priceDisplay.textContent = '60€';
+        priceDisplay.classList.remove('deducted');
+        priceDisplay.classList.add('normal');
+        priceDescription.textContent = '/ tunti';
+        explanationWith.style.display = 'none';
+        explanationWithout.style.display = 'block';
+        priceToggle.checked = false; // Varmistetaan, että kytkin on POIS PÄÄLTÄ
+
+        priceToggle.addEventListener('change', function() {
+            // KORJATTU LOGIIKKA
+            if (this.checked) { 
+                // Kytkin on PÄÄLLÄ -> Näytä 39€ (Vähennys)
+                priceDisplay.textContent = '39€';
+                priceDisplay.classList.remove('normal');
+                priceDisplay.classList.add('deducted');
+                priceDescription.textContent = '/ tunti kotitalousvähennyksellä';
+                explanationWith.style.display = 'block';
+                explanationWithout.style.display = 'none';
+            } else {
+                // Kytkin on POIS PÄÄLTÄ -> Näytä 60€ (Normaali)
+                priceDisplay.textContent = '60€';
+                priceDisplay.classList.remove('deducted');
+                priceDisplay.classList.add('normal');
+                priceDescription.textContent = '/ tunti';
+                explanationWith.style.display = 'none';
+                explanationWithout.style.display = 'block';
+            }
+        });
+    }
   });
 </script>
 
