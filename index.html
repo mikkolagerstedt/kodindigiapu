@@ -127,68 +127,89 @@
         min-height: 25px;
     }
 
-    /* --- Uudet hintanappien tyylit --- */
+    /* --- TÄSSÄ ALKAA UUSI, KORJATTU CSS-HINTANAPEILLE --- */
+    
     .price-toggle-group {
       display: flex;
-      justify-content: center;
+      flex-direction: column; /* OLETUS: Päällekkäin kännykällä */
       margin-bottom: 2rem;
       border: 1px solid #ccc;
       border-radius: 8px;
-      overflow: hidden;
+      overflow: hidden; /* Pitää pyöristykset näkyvissä */
       max-width: 400px;
       margin-left: auto;
       margin-right: auto;
     }
+    
     .price-toggle-group label {
-      flex: 1; /* Saa napit täyttämään tilan tasan */
-      text-align: center;
+      flex: 1;
+      cursor: pointer;
+      position: relative; 
+    }
+
+    /* Tämä on se näkyvä osa napista */
+    .price-toggle-group label span {
+      display: block; /* Täyttää koko labelin leveyden */
       padding: 12px 10px;
+      text-align: center;
       background-color: #f0f0f0;
       color: #555;
-      cursor: pointer;
-      transition: background-color 0.2s ease, color 0.2s ease;
       font-weight: 500;
-      position: relative; /* Tarvitaan piilotetulle inputille */
+      transition: background-color 0.2s ease, color 0.2s ease;
     }
-    /* Korostaa hieman ei-valittua nappia kun hiiri on päällä */
-    .price-toggle-group label:hover {
-      background-color: #e9e9e9;
+    
+    /* Lisää väliviivan päällekkäisessä näkymässä */
+    .price-toggle-group label:first-of-type span {
+       border-bottom: 1px solid #ccc;
     }
-    /* Piilottaa alkuperäisen radio-nappulan täysin */
+
+    /* Piilottaa alkuperäisen radio-nappulan */
     .price-toggle-group input[type="radio"] {
       position: absolute;
       opacity: 0;
       width: 0;
       height: 0;
     }
-    /* Tämä on tärkein: Miltä VALITTU nappi näyttää */
-    .price-toggle-group input[type="radio"]:checked + span {
+
+    /* Hover-tila (kun nappi EI ole valittu) */
+    .price-toggle-group label:hover span {
+      background-color: #e9e9e9;
+    }
+    
+    /* --- VALITTUJEN NAPPIEN TYYLIT --- */
+    
+    #toggle-normal:checked + span {
+      background-color: var(--accent);
       color: white;
     }
-    .price-toggle-group input[type="radio"]:checked + span::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-color: var(--accent);
-      z-index: -1; /* Menee tekstin taakse */
-      transition: background-color 0.3s ease;
+    
+    #toggle-deducted:checked + span {
+      background-color: var(--success);
+      color: white;
     }
-    /* Tehdään valitusta napista vihreä, kun vähennys on valittu */
-    #toggle-deducted:checked + span::before {
+
+    /* Estää valittuja nappia välähtämästä harmaaksi hoverilla */
+    #toggle-normal:checked + span:hover {
+      background-color: var(--accent);
+    }
+    
+    #toggle-deducted:checked + span:hover {
       background-color: var(--success);
     }
-    /* Lisätään pieni erotinviiva nappien väliin */
-    .price-toggle-group label:first-of-type {
-      border-right: 1px solid #ccc;
+
+    /* MEDIA QUERY: Kun näyttö on leveämpi (esim. 480px) -> napit vierekkäin */
+    @media (min-width: 480px) {
+      .price-toggle-group {
+        flex-direction: row; /* Vaihdetaan vierekkäin */
+      }
+      
+      /* Muutetaan väliviiva pystyviivaksi */
+      .price-toggle-group label:first-of-type span {
+        border-bottom: none;
+        border-right: 1px solid #ccc;
+      }
     }
-    .price-toggle-group span {
-      position: relative;
-      z-index: 2; /* Pysyy taustavärin päällä */
-    }
-    /* --- Uusien hintanappien tyylit loppuu --- */
+    /* --- HINTANAPPIEN CSS LOPPUU TÄHÄN --- */
 
 
     .explanation-box {
@@ -365,6 +386,7 @@
             <span>Kotitalousvähennyksellä</span>
           </label>
         </div>
+  
         <div id="explanation-with-deduction" class="explanation-box">
           <p>Tämä on arvioitu kustannuksesi, kun <strong>35% kotitalousvähennys</strong> on hyödynnetty (vuoden 2025 säännöillä ja 150€ omavastuun täytyttyä). Se on edullisin tapa hankkia apua!</p>
         </div>
@@ -375,6 +397,8 @@
       </div>
     </div>
   </section>
+
+
   <section id="ukk" class="section">
   <div class="container">
     <h2 class="section-title">Usein kysyttyä</h2>
@@ -397,7 +421,7 @@
         </details>
         <details>
           <summary>Miten kotitalousvähennys toimii ja paljonko maksu on sen jälkeen?</summary>
-          <p>Digiapu on kotitalousvähennyskelpoista työtä. Vuonna 2025 voit vähentää 35 % työn osuudesta, kun 150 € omavastuu on täyttynyt. Käytännössä 60 €/h hinnasta jää makSETTAVAKSESI noin <strong>39 €/h</strong>. Vähennys haetaan veroilmoituksella.</p>
+          <p>Digiapu on kotitalousvähennyskelpoista työtä. Vuonna 2025 voit vähentää 35 % työn osuudesta, kun 150 € omavastuu on täyttynyt. Käytännössä 60 €/h hinnasta jää maksettavaksesi noin <strong>39 €/h</strong>. Vähennys haetaan veroilmoituksella.</p>
         </details>
     </div>
   </div>
