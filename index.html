@@ -6,7 +6,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Kodin Digiapu Järvenpäässä tarjoaa ystävällistä ja luotettavaa apua tietokoneiden, puhelimien ja muiden laitteiden kanssa. Kun tekniikka turhauttaa, apu on lähellä.">
   
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <meta property="og:title" content="Kodin Digiapu – Ystävällistä digiapua kotiisi Järvenpäässä">
+  <meta property="og:description" content="Kun tekniikka turhauttaa, apu on lähellä. Ystävällistä apua tietokoneiden, puhelimien ja muiden laitteiden kanssa Järvenpäässä.">
+  <meta property="og:image" content="https://www.kodindigiapu.fi/images/Kodin-Digiapu-Link.webp">
+  <meta property="og:image:alt" content="Kodin Digiapu - Ystävällistä digiapua kotiisi">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://www.kodindigiapu.fi/">
+  <meta property="og:type" content="website">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Kodin Digiapu – Ystävällistä digiapua kotiisi Järvenpäässä">
+  <meta name="twitter:description" content="Kun tekniikka turhauttaa, apu on lähellä.">
+  <meta name="twitter:image" content="https://www.kodindigiapu.fi/images/Kodin-Digiapu-Link.webp">
+  <meta name="twitter:image:alt" content="Kodin Digiapu - Ystävällistä digiapua kotiisi">
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0ea5e9">
+  <meta name="msapplication-TileColor" content="#0ea5e9">
+  <meta name="theme-color" content="#ffffff">
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
   <script type="application/ld+json">
@@ -63,7 +85,25 @@
 
     header { background: white; position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; box-shadow: 0 2px 8px rgba(0,0,0,.06); }
     .nav { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; padding-left:10px; }
-    .logo { font-weight: 700; font-size: 20px; color: var(--main); text-decoration: none; }
+    
+    /* --- TÄMÄ ON MUUTETTU --- */
+    .logo { 
+      display: flex; 
+      align-items: center; 
+      gap: 10px; /* Lisää ilmaa kuvan ja tekstin väliin */
+      font-weight: 700; 
+      font-size: 20px; 
+      color: var(--main); 
+      text-decoration: none; 
+    }
+    
+    /* --- TÄMÄ ON UUSI SÄÄNTÖ LOGOLLE --- */
+    .logo-icon {
+      height: 32px; /* Määritetään sopiva koko yläpalkkiin */
+      width: 32px;
+      border-radius: 50%; /* Tämä tekee siitä pyöreän */
+    }
+    
     .nav-toggle { display: none; background: none; border: none; font-size: 30px; cursor: pointer; color: var(--main); }
     .nav-links { display: flex; gap: 24px; align-items: center; list-style: none; }
     .nav-links a { color: var(--text-dark); text-decoration: none; font-weight: 500; transition: color 0.2s; }
@@ -284,7 +324,10 @@
 
 <header>
   <div class="container nav">
-    <a href="#" class="logo">Kodin Digiapu</a>
+    <a href="#" class="logo">
+      <img src="/favicon-96x96.png" alt="Kodin Digiapu logo" class="logo-icon">
+      <span>Kodin Digiapu</span>
+    </a>
     <button class="nav-toggle" aria-label="Avaa valikko">
       <i class="fas fa-bars"></i>
     </button>
