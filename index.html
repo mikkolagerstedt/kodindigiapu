@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>Kodin Digiapu – Ystävällistä ja selkeää digiapua kotiisi Järvenpäässä</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Kun tekniikka turhauttaa, apu on lähellä. Tarjoan luotettavaa apua tietokoneiden, puhelimien ja muiden laitteiden kanssa Järvenpäässä ja lähialueilla.">
+  <meta name="description" content="Kodin Digiapu Järvenpäässä tarjoaa ystävällistä ja luotettavaa apua tietokoneiden, puhelimien ja muiden laitteiden kanssa. Kun tekniikka turhauttaa, apu on lähellä.">
   
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -127,45 +127,57 @@
         min-height: 25px;
     }
     .toggle-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 1rem;
-        margin-bottom: 2rem;
-        font-weight: 500;
-        color: #333;
-    }
-    .switch {
-        position: relative;
-        display: inline-block;
-        width: 60px;
-        height: 34px;
-    }
-    .switch input { opacity: 0; width: 0; height: 0; }
-    .slider {
-        position: absolute;
-        cursor: pointer;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #ccc;
-        transition: .4s;
-        border-radius: 34px;
-    }
-    .slider:before {
-        position: absolute;
-        content: "";
-        height: 26px;
-        width: 26px;
-        left: 4px;
-        bottom: 4px;
-        background-color: white;
-        transition: .4s;
-        border-radius: 50%;
-    }
-    input:checked + .slider { background-color: var(--accent); }
-    input:checked + .slider:before { transform: translateX(26px); }
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  gap: 1.5rem;
+	  margin-bottom: 2rem;
+	  font-weight: 500;
+	  color: #333;
+	}
+
+	.toggle-switch {
+	  position: relative;
+	  width: 60px;
+	  height: 30px;
+	}
+
+	.toggle-switch input {
+	  opacity: 0;
+	  width: 0;
+	  height: 0;
+	}
+
+	.slider {
+	  position: absolute;
+	  cursor: pointer;
+	  top: 0; left: 0; right: 0; bottom: 0;
+	  background-color: #ccc;
+	  transition: .4s;
+	  border-radius: 34px;
+	}
+
+	.slider:before {
+	  position: absolute;
+	  content: "";
+	  height: 22px;
+	  width: 22px;
+	  left: 4px;
+	  bottom: 4px;
+	  background-color: white;
+	  transition: .4s;
+	  border-radius: 50%;
+	}
+
+	input:checked + .slider {
+	  background-color: var(--accent);
+	}
+
+	input:checked + .slider:before {
+	  transform: translateX(28px);
+	}
+
+
     .explanation-box {
         background-color: #f0f9ff;
         border: 1px solid #e0f2fe;
@@ -324,33 +336,31 @@
   </section>
 
   <section id="hinnat" class="section">
-    <div class="container">
-      <h2 class="section-title">Selkeä ja reilu hinnoittelu</h2>
-      <div class="price-card">
+  <div class="container">
+    <h2 class="section-title">Selkeä ja reilu hinnoittelu</h2>
+    <div class="price-card">
+      <div id="price-display" class="price-display normal">60€</div>
+      <p id="price-description" class="price-description">/ tunti</p>
 
-                <div id="price-display" class="price-display normal">60€</div>
-        <p id="price-description" class="price-description">/ tunti</p>
+      <div class="toggle-container">
+        <span>Normaalihinta</span>
+        <label class="toggle-switch">
+          <input type="checkbox" id="price-toggle">
+          <span class="slider"></span>
+        </label>
+        <span>Kotitalousvähennyksellä</span>
+      </div>
 
-        <div class="toggle-container">
-                    <span>Normaalihinta</span>
-          <label class="switch">
-            <input type="checkbox" id="price-toggle">
-            <span class="slider"></span>
-          </label>
-          <span>Kotitalousvähennyksellä</span>
-        </div>
+      <div id="explanation-with-deduction" class="explanation-box">
+        <p>Tämä on arvioitu kustannuksesi, kun <strong>35% kotitalousvähennys</strong> on hyödynnetty (vuoden 2025 säännöillä ja 150€ omavastuun täytyttyä). Se on edullisin tapa hankkia apua!</p>
+      </div>
 
-        <div id="explanation-with-deduction" class="explanation-box">
-          <p>Tämä on arvioitu kustannuksesi, kun <strong>35% kotitalousvähennys</strong> on hyödynnetty (vuoden 2025 säännöillä ja 150€ omavastuun täytyttyä). Se on edullisin tapa hankkia apua!</p>
-        </div>
-
-        <div id="explanation-without-deduction" class="explanation-box">
-          <p>Tämä on normaali tuntihintani ilman verovähennyksiä. Minimiveloitus on 30€ (30 min). Järvenpään alueella ei ole matkakuluja.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
+      <div id="explanation-without-deduction" class="explanation-box">
+        <p>Tämä on normaali tuntihintani ilman verovähennyksiä. Minimiveloitus on 30€ (30 min). Järvenpään alueella ei ole matkakuluja.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
   <section id="ukk" class="section">
   <div class="container">
@@ -423,6 +433,7 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
+    // --- Navigaatio ---
     const toggleBtn = document.querySelector('.nav-toggle');
     const navLinks = document.querySelector('.nav-links');
     if (toggleBtn && navLinks) {
@@ -438,45 +449,46 @@
       });
     }
 
+    // --- Hinnanvaihto (Normaalihinta ↔ Kotitalousvähennyksellä) ---
     const priceToggle = document.getElementById('price-toggle');
-    if (priceToggle) {
-        const priceDisplay = document.getElementById('price-display');
-        const priceDescription = document.getElementById('price-description');
-        const explanationWith = document.getElementById('explanation-with-deduction');
-        const explanationWithout = document.getElementById('explanation-without-deduction');
+    if (priceToggle) {
+      const priceDisplay = document.getElementById('price-display');
+      const priceDescription = document.getElementById('price-description');
+      const explanationWith = document.getElementById('explanation-with-deduction');
+      const explanationWithout = document.getElementById('explanation-without-deduction');
 
-        // LISÄTTY: Varmistetaan 60€ oletusarvot sivun latautuessa
-        priceDisplay.textContent = '60€';
-        priceDisplay.classList.remove('deducted');
-        priceDisplay.classList.add('normal');
-        priceDescription.textContent = '/ tunti';
-        explanationWith.style.display = 'none';
-        explanationWithout.style.display = 'block';
-        priceToggle.checked = false; // Varmistetaan, että kytkin on POIS PÄÄLTÄ
+      // Oletusarvot sivun latautuessa
+      priceDisplay.textContent = '60€';
+      priceDisplay.classList.add('normal');
+      priceDescription.textContent = '/ tunti';
+      explanationWith.style.display = 'none';
+      explanationWithout.style.display = 'block';
+      priceToggle.checked = false;
 
-        priceToggle.addEventListener('change', function() {
-            // KORJATTU LOGIIKKA
-            if (this.checked) { 
-                // Kytkin on PÄÄLLÄ -> Näytä 39€ (Vähennys)
-                priceDisplay.textContent = '39€';
-                priceDisplay.classList.remove('normal');
-                priceDisplay.classList.add('deducted');
-                priceDescription.textContent = '/ tunti kotitalousvähennyksellä';
-                explanationWith.style.display = 'block';
-                explanationWithout.style.display = 'none';
-            } else {
-                // Kytkin on POIS PÄÄLTÄ -> Näytä 60€ (Normaali)
-                priceDisplay.textContent = '60€';
-                priceDisplay.classList.remove('deducted');
-                priceDisplay.classList.add('normal');
-                priceDescription.textContent = '/ tunti';
-                explanationWith.style.display = 'none';
-                explanationWithout.style.display = 'block';
-            }
-        });
-    }
+      // Vaihtotapahtuma
+      priceToggle.addEventListener('change', function() {
+        if (this.checked) {
+          // Kotitalousvähennyksellä
+          priceDisplay.textContent = '39€';
+          priceDisplay.classList.remove('normal');
+          priceDisplay.classList.add('deducted');
+          priceDescription.textContent = '/ tunti kotitalousvähennyksellä';
+          explanationWith.style.display = 'block';
+          explanationWithout.style.display = 'none';
+        } else {
+          // Normaalihinta
+          priceDisplay.textContent = '60€';
+          priceDisplay.classList.remove('deducted');
+          priceDisplay.classList.add('normal');
+          priceDescription.textContent = '/ tunti';
+          explanationWith.style.display = 'none';
+          explanationWithout.style.display = 'block';
+        }
+      });
+    }
   });
 </script>
+
 
 </body>
 </html>
