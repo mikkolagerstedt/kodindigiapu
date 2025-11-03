@@ -221,6 +221,31 @@
 	  font-size: 1rem;
 	}
 	.faq-item[open] .faq-icon { transform: rotate(180deg); }
+	  /* Perusvärit */
+	  .icon-home {
+		font-size: 2.2rem;
+		color: #1f2937; /* tumma harmaa vaaleassa teemassa */
+		transition: color 0.3s ease;
+	  }
+	  .icon-invoice {
+		font-size: 2.2rem;
+		color: #22c55e; /* vaalea vihreä laskutukselle */
+		transition: color 0.3s ease;
+	  }
+
+	  /* Hover-efekti */
+	  .icon-home:hover, .icon-invoice:hover {
+		transform: scale(1.1);
+		transition: all 0.25s ease;
+	  }
+
+	  /* Tumman teeman värit */
+	  [data-theme="dark"] .icon-home {
+		color: #f9fafb; /* valkoinen */
+	  }
+	  [data-theme="dark"] .icon-invoice {
+		color: #86efac; /* pehmeä vihreä */
+	  }
 
 	/* --- VASTAUS --- */
 	.faq-answer {
@@ -328,26 +353,34 @@
 
     <!-- HERO -->
     <section class="hero">
-      <div class="container">
-        <h1 class="hero-title">Kun tekniikka kotona tai toimistolla turhauttaa, apu on lähellä.</h1>
-        <div class="problem-checklist">
-          <p><i class="fas fa-mobile-alt icon-blue"></i> Tuntuuko puhelimen tai tabletin käyttö hankalalta?</p>
-          <p><i class="fas fa-tv icon-blue"></i> Aiheuttaako uusi laite tai ohjelma päänvaivaa?</p>
-          <p><i class="fas fa-laptop icon-blue"></i> Hidasteleeko tietokone tai eikö jokin ohjelma toimi?</p>
-        </div>
-        <p class="hero-subtitle">
-          Tarjoan ystävällistä ja selkeää apua tietokoneiden, puhelimien, tablettien ja verkkoyhteyksien kanssa
-          <strong>Järvenpään ja lähialueiden kotitalouksille sekä pienyrityksille</strong>.
-          Unohda tekninen stressi – hoidan digipulmasi kuntoon luonasi tai etänä.
-        </p>
-        <div class="hero-cta-buttons">
-          <a href="tel:0405724113" class="cta-button primary"><i class="fas fa-phone-alt"></i> Soita 040 572 4113</a>
-          <a href="https://wa.me/358405724113" target="_blank" class="cta-button whatsapp">
-            <i class="fab fa-whatsapp"></i> WhatsApp
-          </a>
-        </div>
-      </div>
-    </section>
+	  <div class="container">
+		<h1 class="hero-title">Kun tietokone, puhelin tai wifi ei toimi – apu on lähellä.</h1>
+
+		<div class="problem-checklist">
+		  <p><i class="fas fa-shield-alt icon-blue"></i> Epäiletkö viruksia tai haittaohjelmia tietokoneessa?</p>
+		  <p><i class="fas fa-laptop icon-blue"></i> Hidasteleeko tietokone tai pätkiikö nettiyhteys?</p>
+		  <p><i class="fas fa-mobile-alt icon-blue"></i> Onko uuden laitteen tai ohjelman käyttöönotto hankalaa?</p>
+		  <p><i class="fas fa-user-friends icon-blue"></i> Tarvitsetko rauhallista opastusta laitteen tai ohjelman käyttöön?</p>
+		</div>
+
+		<p class="hero-subtitle">
+		  Tarjoan ystävällistä ja selkeää tietokoneapua, teknistä apua ja IT-tukea
+		  <strong>Järvenpään, Tuusulan ja Keravan</strong> alueen kotitalouksille ja pienyrityksille.
+		  Ratkaisen virustorjuntaan, haittaohjelmiin, laitteiden käyttöönottoon ja verkkoyhteyksiin liittyvät ongelmat
+		  paikan päällä tai etänä – helposti ja luotettavasti.
+		</p>
+
+		<div class="hero-cta-buttons">
+		  <a href="tel:0405724113" class="cta-button primary"><i class="fas fa-phone-alt"></i> Soita 040 572 4113</a>
+		  <a href="https://wa.me/358405724113" target="_blank" class="cta-button whatsapp">
+			<i class="fab fa-whatsapp"></i> WhatsApp
+		  </a>
+		</div>
+
+	
+	  </div>
+	</section>
+
 
     <!-- PALVELUT -->
     <section id="palvelut" class="section">
@@ -496,35 +529,44 @@
 		  Maksu onnistuu paikan päällä tai laskulla. Työ on kotitalousvähennyskelpoista.
 		</p>
 
-		<div style="display:flex; justify-content:center; align-items:center; gap:40px; flex-wrap:wrap;">
+		<div style="display:flex; justify-content:center; align-items:center; gap:50px; flex-wrap:wrap;">
 		  <!-- Kotitalousvähennys -->
 		  <div style="text-align:center;">
-			<i class="fas fa-home" style="font-size:2.2rem; color:var(--accent);"></i>
+			<i class="fas fa-home icon-home"></i>
 			<p style="font-size:0.95rem; color:var(--text-light); margin-top:6px;">Kotitalousvähennys</p>
 		  </div>
 
 		  <!-- Laskutus -->
 		  <div style="text-align:center;">
-			<i class="fas fa-file-invoice" style="font-size:2.2rem; color:var(--accent);"></i>
+			<i class="fas fa-file-invoice icon-invoice"></i>
 			<p style="font-size:0.95rem; color:var(--text-light); margin-top:6px;">Laskutus</p>
 		  </div>
 
-		  <!-- MobilePay (kuvana ilman tekstiä) -->
+		  <!-- MobilePay -->
 		  <div style="text-align:center;">
 			<img src="/images/MobilePay.png" alt="MobilePay maksutapa"
 				 loading="lazy"
-				 style="height:50px; margin-top:4px; filter:drop-shadow(0 1px 3px rgba(0,0,0,0.15));">
+				 style="height:50px; margin-top:4px; filter:drop-shadow(0 1px 3px rgba(0,0,0,0.25));">
 		  </div>
 		</div>
 	  </div>
 	</section>
+	<section style="padding:20px 0; text-align:center; background:var(--card); border-top:1px solid var(--border-light);">
+	  <div class="container">
+		<p style="font-size:0.95rem; color:var(--text-light); line-height:1.6;">
+		  Tietokoneapu | Virustorjunta ja haittaohjelmien poisto | Uusien laitteiden käyttöönotto | Kännykän käyttö ja opastus
+		</p>
+	  </div>
+	</section>
+
 
   </main>
 
   <!-- FOOTER -->
   <footer>
     <div class="container">
-      <p>&copy; 2025 Kodin Digiapu  |  Y-tunnus 2272247-7  |  Palvelualue: Järvenpää, Tuusula, Kerava, Hyvinkää ja lähialueet</p>
+      <p>&copy; 2025 Kodin Digiapu | <a href="mailto:mikko@kodindigiapu.fi?subject=Kysely%20Kodin%20Digiavusta" style="color:white;">
+  mikko@kodindigiapu.fi</a> |  Y-tunnus 2272247-7  |  Palvelualue: Järvenpää, Tuusula, Kerava, Hyvinkää ja lähialueet</p>
     </div>
   </footer>
 
@@ -611,6 +653,34 @@
       toTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
     });
   </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Kuinka nopeasti voin saada apua – ja voiko sen tehdä etänä?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Useimmiten samana tai seuraavana arkipäivänä. Monet asiat voidaan hoitaa myös etäyhteydellä." }
+    },
+    {
+      "@type": "Question",
+      "name": "Miten voin valmistautua kotikäyntiin ja onko matkakuluja?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Pidä laitteiden salasanat ja mahdolliset ongelmakuvaukset valmiina. Järvenpäässä ei ole matkakuluja." }
+    },
+    {
+      "@type": "Question",
+      "name": "Mitä jos ongelmaa ei saada kuntoon?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Maksu perustuu käytettyyn aikaan ja tehtyyn työhön, vaikka ongelmaa ei saataisi kokonaan ratkaistua." }
+    },
+    {
+      "@type": "Question",
+      "name": "Miten kotitalousvähennys toimii ja paljonko maksu on sen jälkeen?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Digiapu on kotitalousvähennyskelpoista työtä. Vuonna 2025 voit vähentää 35 % työn osuudesta, jolloin 60 €/h hinnasta jää maksettavaksi noin 39 €/h." }
+    }
+  ]
+}
+</script>
 
 </body>
 </html>
