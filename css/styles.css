@@ -903,3 +903,226 @@ footer {
     right: 16px;
   }
 }
+/* =========================================================
+   NÄIN KODIN DIGIAPU AUTTAA — PÄIVITETTY OSIO
+   Toimii sekä vaaleassa että tummassa teemassa
+========================================================= */
+
+.help-section {
+  text-align: left;
+}
+
+.help-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  max-width: 650px;
+  margin: 2rem auto 0 auto;
+}
+
+.help-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  background: var(--card);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 1.4rem 1.6rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease, background 0.3s ease;
+  line-height: 1.7;
+}
+
+.help-step:hover {
+  transform: translateY(-3px);
+}
+
+.help-step i {
+  font-size: 1.7rem;
+  color: var(--accent);
+  margin-top: 2px;
+  flex-shrink: 0;
+  width: 36px;
+  text-align: center;
+}
+
+.help-step h3 {
+  margin: 0;
+  color: var(--main);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.help-step p {
+  margin-top: 0.3rem;
+  color: var(--text-light);
+  font-size: 1.05rem;
+}
+
+.help-divider {
+  border: none;
+  height: 1px;
+  background: var(--border-light);
+  margin: 2.5rem auto 2rem;
+  width: 80%;
+}
+
+[data-theme="dark"] .help-step {
+  background: #1e293b;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+[data-theme="dark"] .help-divider {
+  background: rgba(255,255,255,0.1);
+}
+/* =========================================================
+   VIRUSTORJUNTA — SIVUKOHTAISET TYYLIT (ERISTETTY)
+   Ei vaikuta index/etusivuun. Toimii vaalea/tumma.
+========================================================= */
+.virustorjunta-page .vst-section {
+  padding: 80px 20px;
+}
+
+.virustorjunta-page .vst-title {
+  font-size: clamp(28px, 4vw, 36px);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: var(--main);
+}
+
+/* --- Korttiruudukko (virus-oireet + miksi ei itse) --- */
+.virustorjunta-page .vst-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.6rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  justify-items: center;
+}
+
+.virustorjunta-page .vst-card {
+  width: 100%;
+  max-width: 340px;
+  background: var(--card);
+  border: 1px solid var(--border-light);
+  border-radius: 14px;
+  padding: 1.6rem 1.4rem;
+  text-align: center;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  transition: transform .2s ease, background .3s ease, box-shadow .2s ease;
+}
+
+.virustorjunta-page .vst-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+}
+
+.virustorjunta-page .vst-card .vst-icon {
+  font-size: 2.1rem;
+  color: var(--accent);
+  margin-bottom: .75rem;
+}
+
+.virustorjunta-page .vst-card h3 {
+  font-size: 1.2rem;
+  color: var(--main);
+  margin: 0 0 .5rem 0;
+}
+
+.virustorjunta-page .vst-card p {
+  font-size: 1rem;
+  color: var(--text-light);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Värivariaatiot varoitus/huomio/ok-ikoneille (valinnainen) */
+.virustorjunta-page .vst-card.is-warning .vst-icon { color:#ef4444; }
+.virustorjunta-page .vst-card.is-caution .vst-icon { color:#f59e0b; }
+.virustorjunta-page .vst-card.is-safe    .vst-icon { color:#10b981; }
+
+/* --- Selkeytinviiva ja CTA-rivi ennen footeria --- */
+.virustorjunta-page .vst-separator {
+  max-width: 1100px;
+  margin: 40px auto 24px auto;
+  height: 1px;
+  background: var(--border-light);
+  border: 0;
+}
+
+.virustorjunta-page .vst-cta-row {
+  max-width: 900px;
+  margin: 0 auto 40px auto;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0 20px;
+}
+
+/* Pieni lisätila, ettei mobiili-ala-CTA peitä sisältöä */
+.virustorjunta-page .vst-bottom-pad {
+  padding-bottom: 90px;
+}
+
+/* --- Tumma teema: hienosäädöt (värit jo tulevat muuttujista) --- */
+[data-theme="dark"] .virustorjunta-page .vst-card {
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+}
+[data-theme="dark"] .virustorjunta-page .vst-separator {
+  background: rgba(255,255,255,0.12);
+}
+/* --- CTA SECTION (yhteinen) --- */
+.cta-section {
+  background: var(--accent);
+  color: #fff;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.cta-section h2 {
+  font-size: clamp(26px, 4vw, 34px);
+  margin-bottom: 1rem;
+}
+
+.cta-section p {
+  font-size: 1.1rem;
+  margin: 0.3rem 0;
+}
+
+/* pientä tilaa napeille, jos käytetään samaa nappirakennetta */
+.cta-section .hero-cta-buttons {
+  margin-top: 2rem;
+  justify-content: center;
+}
+
+/* --- FOOTER LINKIT – VALKOISET JA SELKEÄT --- */
+footer {
+  background: var(--footer-bg);
+  text-align: center;
+  padding: 25px;
+  font-size: 14px;
+  color: #fff; /* Valkoinen teksti */
+}
+
+footer a {
+  color: #fff !important; /* Valkoinen linkki */
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0 4px;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid transparent;
+}
+
+footer a:hover {
+  color: #fff;
+  border-bottom: 1px solid #fff;
+  text-decoration: none;
+}
+
+/* Tumma teema: varmistetaan valkoisuus */
+[data-theme="dark"] footer,
+[data-theme="dark"] footer a {
+  color: #fff !important;
+}
