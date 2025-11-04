@@ -8,7 +8,7 @@
   <meta name="keywords" content="tietokoneapu, tekninen apu, IT-tuki, tietokoneen korjaus, puhelinapu, wifi ei toimi, sähköposti ongelma, tietoturva, virustorjunta, haittaohjelma, tietokoneen puhdistus, laiteapu kotiin, etätuki, kotitalousvähennys, Järvenpää, Tuusula, Kerava, Hyvinkää, Vantaa, Mäntsälä, Sipoo, pienyrityksen IT-apu">
 
   <!-- Canonical & Author -->
-  <link rel="canonical" href="https://www.kodindigiapu.fi/">
+  <link rel="canonical" href="/https://www.kodindigiapu.fi/">
   <meta name="author" content="Mikko Lagerstedt">
 
   <!-- Open Graph -->
@@ -20,6 +20,8 @@
   <meta property="og:image:height" content="630">
   <meta property="og:url" content="https://www.kodindigiapu.fi/">
   <meta property="og:type" content="website">
+  <meta property="og:locale" content="fi_FI">
+  <meta property="og:site_name" content="Kodin Digiapu">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
@@ -29,23 +31,26 @@
   <meta name="twitter:image:alt" content="Kodin Digiapu – tietokoneapu ja tekninen apu">
 
   <!-- Favicons -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0ea5e9">
+  <link rel="apple-touch-icon" sizes="180x180" href="//apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="//favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="//favicon-16x16.png">
+  <link rel="manifest" href="//site.webmanifest">
+  <link rel="mask-icon" href="//safari-pinned-tab.svg" color="#0ea5e9">
   <meta name="msapplication-TileColor" content="#0ea5e9">
   <meta name="theme-color" content="#ffffff">
 
-  <!-- Preconnect for performance -->
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Preconnect -->
+  <link rel="preconnect" href="/https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="/https://fonts.gstatic.com" crossorigin>
 
-  <!-- Preload Font Awesome CSS -->
-  <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"></noscript>
+  <!-- Font Awesome (async) -->
+  <link rel="preload" href="/https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"></noscript>
 
-  <!-- Local Business Schema -->
+  <!-- CSS – TOIMII PAIKALLISESTI -->
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <!-- Schema.org: LocalBusiness -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -65,7 +70,7 @@
   }
   </script>
 
-  <!-- Organization Schema -->
+  <!-- Schema.org: Organization -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -79,252 +84,14 @@
     ]
   }
   </script>
-
-  <style>
-	  /* VALOISA TEEMA */
-	  :root { --main: #1f2937; --accent: #0ea5e9; --accent-light: #3b82f6; --success: #28a745; --whatsapp-green: #25D366; --bg: #f1f5f9; --card: #ffffff; --text-dark: #333; --text-light: #555; --border-light: #eee; --header-bg: #ffffff; --footer-bg: #d1d5db; --footer-text: #374151; --explanation-bg: #f0f9ff; --explanation-border: #e0f2fe; --toggle-border: #ccc; --toggle-inactive-home: #dbeafe; --toggle-inactive-business: #f3f4f6; --toggle-hover: #bfdbfe; }
-
-	  /* TUMMA TEEMA */
-	  [data-theme="dark"] { --main: #f3f4f6; --accent: #38bdf8; --accent-light: #60a5fa; --success: #34d399; --whatsapp-green: #25D366; --bg: #111827; --card: #1f2937; --text-dark: #f3f4f6; --text-light: #9ca3af; --border-light: #374151; --header-bg: #111827; --footer-bg: #1f2937; --footer-text: #9ca3af; --explanation-bg: #172554; --explanation-border: #1e40af; --toggle-border: #374151; --toggle-inactive-home: #1e3a8a; --toggle-inactive-business: #374151; --toggle-hover: #1e40af; }
-
-	  * { box-sizing: border-box; margin: 0; padding: 0; }
-	  html { scroll-behavior: smooth; }
-	  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: var(--bg); color: var(--text-dark); line-height: 1.6; padding-top: 76px; transition: background 0.3s ease, color 0.3s ease; }
-	  .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-	  .section { padding: 80px 0; }
-	  .section-title { font-size: clamp(28px, 4vw, 36px); margin-bottom: 1rem; text-align: center; color: var(--main); }
-	  .section-subtitle { max-width: 650px; margin: 0 auto 3rem; text-align: center; color: var(--text-light); font-size: 1.1rem; }
-
-	  /* --- HEADER --- */
-	  header { background: var(--header-bg); position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; box-shadow: 0 2px 8px rgba(0,0,0,.06); transition: background 0.3s ease; }
-	  .nav { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; }
-	  .logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 20px; color: var(--main); text-decoration: none; }
-	  .logo-icon { height: 32px; width: 32px; border-radius: 50%; }
-	  .nav-toggle { display: none; background: none; border: none; font-size: 30px; cursor: pointer; color: var(--main); }
-	  .nav-links { display: flex; gap: 24px; align-items: center; list-style: none; }
-	  .nav-links a { color: var(--text-dark); text-decoration: none; font-weight: 500; transition: color 0.2s; }
-	  .nav-links a:hover { color: var(--accent); }
-
-	  /* --- TUMMA/VALOISA KYTKIN --- */
-	  .theme-toggle { background: none; border: none; font-size: 1.4rem; cursor: pointer; color: var(--text-light); transition: color 0.2s; }
-	  .theme-toggle:hover { color: var(--accent); }
-
-	  /* --- HERO --- */
-	  .hero { background: var(--card); text-align: center; padding: 60px 20px 80px; transition: background 0.3s ease; }
-	  .hero-title { color: var(--main); }
-	  .problem-checklist { margin: 1.5rem auto 2rem; max-width: 550px; text-align: left; }
-	  .problem-checklist p { font-size: 1.1rem; color: var(--text-dark); margin-bottom: 0.75rem; font-weight: 500; display: flex; align-items: center; }
-	  .icon-blue { background: var(--accent); color: white; width: 36px; height: 36px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; margin-right: 0.9rem; flex-shrink: 0; font-size: 1rem; line-height: 1; }
-	  .icon-blue .fas { font-size: 1rem; line-height: 1; }
-	  .hero-subtitle { font-size: 1.1rem; max-width: 700px; margin: 0 auto 2.5rem; color: var(--text-light); line-height: 1.7; }
-	  .hero-cta-buttons { display: flex; flex-direction: column; align-items: center; gap: 1rem; }
-	  .cta-button { padding: 0.9rem 1.8rem; border-radius: 8px; font-size: 1.1rem; font-weight: 700; text-decoration: none; transition: all 0.2s ease; border: 2px solid transparent; width: 100%; max-width: 300px; text-align: center; }
-	  .cta-button.primary { background: var(--accent); color: white; }
-	  .cta-button.primary:hover { background: #0284c7; transform: translateY(-2px); }
-	  .cta-button.whatsapp { background: var(--card); color: var(--whatsapp-green); border-color: var(--whatsapp-green); }
-	  .cta-button.whatsapp:hover { background: #f0fff4; transform: translateY(-2px); }
-	  .cta-button .fas, .cta-button .fab { margin-right: 8px; }
-
-	  /* --- CLIENT TOGGLE --- */
-	  .client-toggle { display: flex; border: 1px solid var(--toggle-border); border-radius: 8px; overflow: hidden; max-width: 420px; margin: 0 auto 2.5rem; }
-	  .client-toggle label { flex: 1; cursor: pointer; position: relative; }
-	  .client-toggle input[type="radio"] { position: absolute; opacity: 0; }
-	  .client-toggle span { display: flex; align-items: center; justify-content: center; gap: 6px; padding: 12px 10px; text-align: center; font-weight: 500; transition: all 0.2s; font-size: 0.95rem; }
-	  #client-home + span { background: var(--toggle-inactive-home); color: #1e40af; }
-	  #client-business + span { background: var(--toggle-inactive-business); color: #9ca3af; }
-	  .client-toggle label:hover span { background: var(--toggle-hover) !important; }
-	  #client-home:checked + span { background: var(--accent-light) !important; color: white !important; box-shadow: 0 2px 6px rgba(59,130,246,.3); }
-	  #client-business:checked + span { background: var(--accent) !important; color: white !important; box-shadow: 0 2px 6px rgba(14,165,233,.3); }
-	  [data-theme="dark"] #client-home + span { background: #1e3a8a; color: #93c5fd !important; }
-	  [data-theme="dark"] #client-business + span { background: #374151; color: #e5e7eb !important; }
-	  [data-theme="dark"] .client-toggle label:hover span { background: #1e40af !important; color: white !important; }
-	  [data-theme="dark"] #client-home:checked + span, [data-theme="dark"] #client-business:checked + span { color: white !important; box-shadow: 0 2px 6px rgba(0,0,0,.4); }
-	  @media (min-width: 480px) { .client-toggle { flex-direction: row; } #client-home + span { border-right: 1px solid var(--toggle-border); } }
-
-	  /* --- PRICE TOGGLE --- */
-	  .price-toggle { display: flex; border: 1px solid var(--toggle-border); border-radius: 8px; overflow: hidden; max-width: 380px; margin: 1.5rem auto 0; }
-	  .price-toggle label { flex: 1; cursor: pointer; position: relative; }
-	  .price-toggle input[type="radio"] { position: absolute; opacity: 0; }
-	  .price-toggle span { display: block; padding: 10px 8px; text-align: center; font-weight: 500; font-size: 0.9rem; transition: all 0.2s; }
-	  .price-toggle label:first-child span { background: #f8fafc; color: #475569; }
-	  .price-toggle label:last-child span { background: #ecfdf5; color: #166534; }
-	  .price-toggle label:hover span { background: #e0f2fe !important; }
-	  .price-toggle input:checked + span { background: var(--accent) !important; color: white !important; font-weight: 600; }
-	  #toggle-deducted:checked + span { background: var(--success) !important; }
-
-	  /* Fade */
-	  .fade-section { opacity: 0; transition: opacity 0.3s ease; display: none; }
-	  .fade-section.active { opacity: 1; display: block; }
-
-	  /* --- PALVELUT --- */
-	  .services-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
-	  .service-card { background: var(--card); border: 1px solid var(--border-light); padding: 2rem; border-radius: 8px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: transform 0.2s, box-shadow 0.2s; }
-	  .service-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
-	  .service-card .icon { font-size: 2.5rem; color: var(--accent); margin-bottom: 1rem; }
-	  .service-card h3 { font-size: 1.3rem; margin-bottom: 0.75rem; color: var(--main); }
-
-	  /* --- ASIAKKAAT --- */
-	  #luottamus { background: var(--card); }
-	  .testimonials-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
-	  .testimonial-card { background: var(--bg); border-left: 4px solid var(--accent); padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-	  .testimonial-card .text { font-style: italic; color: var(--text-dark); margin-bottom: 1rem; }
-	  .testimonial-card .author { font-weight: 700; color: var(--text-light); text-align: right; }
-	  .trust-image { max-width: 80%; height: auto; display: block; margin: 2rem auto 3rem; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
-
-	  /* --- HINNAT --- */
-	  .price-card { text-align: center; background: var(--card); border-radius: 16px; padding: 2.5rem; box-shadow: 0 8px 30px rgba(0,0,0,.07); max-width: 600px; margin: 0 auto; }
-	  .price-display { font-size: clamp(48px, 10vw, 72px); font-weight: 700; margin-bottom: 0.25rem; transition: color 0.3s ease; }
-	  .price-display.normal { color: var(--accent); }
-	  .price-display.deducted { color: var(--success); }
-	  .price-description { font-size: 1.2rem; color: var(--text-light); margin-bottom: 1rem; min-height: 25px; }
-	  .explanation-box { background: var(--explanation-bg); border: 1px solid var(--explanation-border); padding: 1.25rem; border-radius: 8px; margin-top: 1.5rem; font-size: 0.95rem; text-align: left; }
-
-	/* --- UKK --- */
-	.faq {
-	  max-width: 900px;
-	  margin: 0 auto;
-	  display: flex;
-	  flex-direction: column;
-	  gap: 1.2rem;
-	}
-
-	.faq-item {
-	  border-radius: 12px;
-	  overflow: hidden;
-	  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
-	  border: 1px solid rgba(0, 0, 0, 0.05);
-	  transition: all 0.3s ease;
-	}
-	.faq-item:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12); }
-
-	/* --- KYSYMYS --- */
-	.faq-question {
-	  cursor: pointer;
-	  padding: 1.2rem 1.6rem;
-	  font-weight: 700;
-	  font-size: 1.05rem;
-	  background: #ffffff;
-	  color: #111827;
-	  display: flex;
-	  justify-content: space-between;
-	  align-items: center;
-	  transition: background 0.2s ease;
-	}
-	.faq-question:hover {
-	  background: #f1f5f9;
-	}
-	.faq-question::-webkit-details-marker { display: none; }
-
-	.faq-icon {
-	  color: var(--accent);
-	  transition: transform 0.3s ease;
-	  font-size: 1rem;
-	}
-	.faq-item[open] .faq-icon { transform: rotate(180deg); }
-	  /* Perusvärit */
-	  .icon-home {
-		font-size: 2.2rem;
-		color: #1f2937; /* tumma harmaa vaaleassa teemassa */
-		transition: color 0.3s ease;
-	  }
-	  .icon-invoice {
-		font-size: 2.2rem;
-		color: #22c55e; /* vaalea vihreä laskutukselle */
-		transition: color 0.3s ease;
-	  }
-
-	  /* Hover-efekti */
-	  .icon-home:hover, .icon-invoice:hover {
-		transform: scale(1.1);
-		transition: all 0.25s ease;
-	  }
-
-	  /* Tumman teeman värit */
-	  [data-theme="dark"] .icon-home {
-		color: #f9fafb; /* valkoinen */
-	  }
-	  [data-theme="dark"] .icon-invoice {
-		color: #86efac; /* pehmeä vihreä */
-	  }
-
-	/* --- VASTAUS --- */
-	.faq-answer {
-	  background: #dbeafe;
-	  color: #1e293b;
-	  font-size: 1rem;
-	  line-height: 1.7;
-	  padding: 0 1.6rem;
-	  border-top: 1px solid #bfdbfe;
-	  max-height: 0;
-	  overflow: hidden;
-	  transition: max-height 0.4s ease, padding 0.3s ease, background 0.3s ease;
-	}
-	.faq-item[open] .faq-answer {
-	  max-height: 400px;
-	  padding: 1.3rem 1.6rem;
-	}
-	.faq-answer p { margin: 0; }
-
-	/* --- TUMMA TEEMA --- */
-	[data-theme="dark"] .faq-item {
-	  border: 2px solid #2d3a4b;
-	  background: #1f2937;
-	  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.5);
-	}
-	[data-theme="dark"] .faq-question {
-	  background: #1f2937;
-	  color: #f1f5f9;
-	}
-	[data-theme="dark"] .faq-question:hover {
-	  background: #2a3647;
-	}
-	[data-theme="dark"] .faq-answer {
-	  background: #0f172a;
-	  border-top: 2px solid #1e3a8a;
-	  color: #dbeafe;
-	}
-
-	  /* --- YHTEYS --- */
-	  #yhteys { background: var(--card); }
-	  .contact-wrapper { display: grid; gap: 40px; align-items: center; }
-	  .contact-info { text-align: center; }
-	  .contact-info img { max-width: 180px; border-radius: 50%; margin-bottom: 1.5rem; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-	  .contact-info h3 { font-size: 1.5rem; color: var(--main); margin-bottom: 1rem; }
-	  .contact-info p { margin-bottom: 1rem; font-size: 1.1rem; }
-	  .contact-info a { color: var(--main); font-weight: 600; text-decoration: none; }
-	  .contact-info a:hover { text-decoration: underline; }
-	  .contact-info .icon { color: var(--accent); margin-right: 10px; }
-	  .contact-form { background: var(--card); border-radius: 12px; padding: 2rem; box-shadow: 0 4px 16px rgba(0,0,0,.05); }
-	  .form-group { margin-bottom: 1rem; }
-	  .form-group input, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-size: 1rem; font-family: inherit; background: var(--bg); color: var(--text-dark); }
-	  .form-group input::placeholder, .form-group textarea::placeholder { color: var(--text-light); opacity: 0.7; }
-	  .btn-submit { background: var(--accent); color: white; padding: 16px 34px; border-radius: 8px; font-weight: 600; border: none; cursor: pointer; width: 100%; font-size: 1.1rem; transition: background 0.2s; }
-	  .btn-submit:hover { background: #0284c7; }
-
-	  /* --- FOOTER --- */
-	  footer { background: var(--footer-bg); text-align: center; padding: 25px; font-size: 14px; color: var(--footer-text); }
-
-	  /* --- MOBIILI --- */
-	  .mobile-sticky-cta { display: none; }
-	  @media (max-width: 768px) { body { padding-top: 70px; padding-bottom: 70px; } .section { padding: 60px 0; } .nav-toggle { display: block; } .nav-links { display: none; flex-direction: column; width: 100%; background: var(--header-bg); position: absolute; top: 70px; left: 0; padding: 20px 0; box-shadow: 0 8px 16px rgba(0,0,0,.05); border-top: 1px solid var(--border-light); } .nav-links.show { display: flex; } .nav-links a { padding: 10px 0; text-align: center; width: 100%; } .hero-cta-buttons, .cta-button { width: 100%; max-width: 320px; } .mobile-sticky-cta { display: flex; position: fixed; bottom: 0; left: 0; width: 100%; background: var(--header-bg); box-shadow: 0 -2px 10px rgba(0,0,0,0.1); z-index: 1001; } .sticky-btn { flex: 1; padding: 15px 10px; text-align: center; text-decoration: none; font-weight: 600; font-size: 1rem; color: var(--text-dark); } .sticky-btn.call { color: var(--accent); } .sticky-btn.whatsapp { color: var(--whatsapp-green); } .trust-image { max-width: 90%; margin-bottom: 2rem; } }
-	  @media (min-width: 576px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
-	  @media (min-width: 768px) { .hero-cta-buttons { flex-direction: row; justify-content: center; } .cta-button { width: auto; } .testimonials-grid { grid-template-columns: repeat(2, 1fr); } }
-	  @media (min-width: 992px) { .services-grid { grid-template-columns: repeat(4, 1fr); } .contact-wrapper { grid-template-columns: 1fr 1.2fr; } .contact-info { text-align: left; } }
-
-	  /* --- TAKAISIN YLÖS --- */
-	  #toTop { position: fixed; bottom: 90px; right: 20px; width: 46px; height: 46px; background: var(--accent); color: #fff; border: none; border-radius: 50%; box-shadow: 0 4px 10px rgba(0,0,0,0.25); cursor: pointer; display: none; align-items: center; justify-content: center; z-index: 1002; transition: background 0.3s, transform 0.2s; }
-	  #toTop:hover { background: #0284c7; transform: translateY(-2px); }
-	  #toTop i { font-size: 1.1rem; }
-	  @media (max-width: 768px) { #toTop { bottom: 80px; right: 16px; } }
-	</style>
 </head>
 
 <body data-theme="light">
 
-  <!-- HEADER + TUMMA/VALOISA KYTKIN -->
+  <!-- HEADER -->
   <header>
     <div class="container nav">
-      <a href="#" class="logo">
+      <a href="/#" class="logo">
         <img src="/favicon-96x96.png" alt="Kodin Digiapu logo" class="logo-icon">
         <span>Kodin Digiapu</span>
       </a>
@@ -336,48 +103,44 @@
       </div>
       <nav>
         <ul class="nav-links">
-          <li><a href="#palvelut">Palvelut</a></li>
-          <li><a href="#luottamus">Asiakkaiden kokemuksia</a></li>
-          <li><a href="#hinnat">Hinnat</a></li>
-          <li><a href="#ukk">Usein kysyttyä</a></li>
-          <li><a href="#yhteys">Ota yhteyttä</a></li>
+          <li><a href="/#palvelut">Palvelut</a></li>
+          <li><a href="/#luottamus">Asiakkaiden kokemuksia</a></li>
+          <li><a href="/#hinnat">Hinnat</a></li>
+          <li><a href="/#ukk">Usein kysyttyä</a></li>
+          <li><a href="/#yhteys">Ota yhteyttä</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main>
-
     <!-- HERO -->
     <section class="hero">
-	  <div class="container">
-		<h1 class="hero-title">Kun tietokone, puhelin tai wifi ei toimi – apu on lähellä.</h1>
+      <div class="container">
+        <h1 class="hero-title">Kun tietokone, puhelin tai wifi ei toimi – apu on lähellä.</h1>
 
-		<div class="problem-checklist">
-		  <p><i class="fas fa-shield-alt icon-blue"></i> Epäiletkö viruksia tai haittaohjelmia tietokoneessa?</p>
-		  <p><i class="fas fa-laptop icon-blue"></i> Hidasteleeko tietokone tai pätkiikö nettiyhteys?</p>
-		  <p><i class="fas fa-mobile-alt icon-blue"></i> Onko uuden laitteen käyttöönotto hankalaa?</p>
-		  <p><i class="fas fa-user-friends icon-blue"></i> Tarvitsetko opastusta laitteen tai ohjelman käyttöön?</p>
-		</div>
+        <div class="problem-checklist">
+          <p><i class="fas fa-shield-alt icon-blue"></i> Epäiletkö viruksia tai haittaohjelmia tietokoneessa?</p>
+          <p><i class="fas fa-laptop icon-blue"></i> Hidasteleeko tietokone tai pätkiikö nettiyhteys?</p>
+          <p><i class="fas fa-mobile-alt icon-blue"></i> Onko uuden laitteen käyttöönotto hankalaa?</p>
+          <p><i class="fas fa-user-friends icon-blue"></i> Tarvitsetko opastusta laitteen tai ohjelman käyttöön?</p>
+        </div>
 
-		<p class="hero-subtitle">
-		  Tarjoan ystävällistä ja selkeää tietokoneapua ja teknistä apua
-		  <strong>Järvenpään, Tuusulan ja Keravan</strong> alueen kotitalouksille ja pienyrityksille.
-		  Ratkaisen virustorjuntaan, haittaohjelmiin, laitteiden käyttöönottoon ja verkkoyhteyksiin liittyvät ongelmat
-		  paikan päällä tai etänä – helposti ja luotettavasti.
-		</p>
+        <p class="hero-subtitle">
+          Tarjoan ystävällistä ja selkeää tietokoneapua ja teknistä apua
+          <strong>Järvenpään, Tuusulan ja Keravan</strong> alueen kotitalouksille ja pienyrityksille.
+          Ratkaisen virustorjuntaan, haittaohjelmiin, laitteiden käyttöönottoon ja verkkoyhteyksiin liittyvät ongelmat
+          paikan päällä tai etänä – helposti ja luotettavasti.
+        </p>
 
-		<div class="hero-cta-buttons">
-		  <a href="tel:0405724113" class="cta-button primary"><i class="fas fa-phone-alt"></i> Soita 040 572 4113</a>
-		  <a href="https://wa.me/358405724113" target="_blank" class="cta-button whatsapp">
-			<i class="fab fa-whatsapp"></i> WhatsApp
-		  </a>
-		</div>
-
-	
-	  </div>
-	</section>
-
+        <div class="hero-cta-buttons">
+          <a href="/tel:0405724113" class="cta-button primary"><i class="fas fa-phone-alt"></i> Soita 040 572 4113</a>
+          <a href="/https://wa.me/358405724113" target="_blank" rel="noopener" class="cta-button whatsapp">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
 
     <!-- PALVELUT -->
     <section id="palvelut" class="section">
@@ -416,7 +179,7 @@
     <section id="luottamus" class="section">
       <div class="container">
         <h2 class="section-title">Mitä asiakkaat sanovat?</h2>
-        <img src="images/kodin-digiapu-auttamassa.webp" alt="Kodin Digiapu auttamassa senioria tietokoneen kanssa" class="trust-image" loading="lazy">
+        <img src="/images/kodin-digiapu-auttamassa.webp" alt="Kodin Digiapu auttamassa senioria tietokoneen kanssa" class="trust-image" loading="lazy">
         <div class="testimonials-grid">
           <div class="testimonial-card"><p class="text">"Tietokoneeni ei enää toiminut kun se valitti viruksia, mutta sain apua nopeasti ja alle tunnissa homma oli jo tehty ja tietokoneeni toimii taas ilman ongelmia! Suosittelen lämpimästi."</p><p class="author">– Helena, Järvenpää</p></div>
           <div class="testimonial-card"><p class="text">"Sain vihdoin uuden puhelimeni kunnolla käyttöön. Suuri kiitos avusta!"</p><p class="author">– Leena, Järvenpää</p></div>
@@ -450,52 +213,52 @@
     </section>
 
     <!-- UKK -->
-	<section id="ukk" class="section">
-	  <div class="container">
-		<h2 class="section-title">Usein kysyttyä</h2>
-		<div class="faq">
-		  <details class="faq-item">
-			<summary class="faq-question">
-			  <span>Kuinka nopeasti voin saada apua – ja voiko sen tehdä etänä?</span>
-			  <i class="fas fa-chevron-down faq-icon"></i>
-			</summary>
-			<div class="faq-answer">
-			  <p>Useimmiten samana tai seuraavana arkipäivänä. Monet asiat voidaan hoitaa myös etäyhteydellä.</p>
-			</div>
-		  </details>
+    <section id="ukk" class="section">
+      <div class="container">
+        <h2 class="section-title">Usein kysyttyä</h2>
+        <div class="faq">
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>Kuinka nopeasti voin saada apua – ja voiko sen tehdä etänä?</span>
+              <i class="fas fa-chevron-down faq-icon"></i>
+            </summary>
+            <div class="faq-answer">
+              <p>Useimmiten samana tai seuraavana arkipäivänä. Monet asiat voidaan hoitaa myös etäyhteydellä.</p>
+            </div>
+          </details>
 
-		  <details class="faq-item">
-			<summary class="faq-question">
-			  <span>Miten voin valmistautua kotikäyntiin ja onko matkakuluja?</span>
-			  <i class="fas fa-chevron-down faq-icon"></i>
-			</summary>
-			<div class="faq-answer">
-			  <p>Pidä laitteiden salasanat ja mahdolliset ongelmakuvaukset valmiina. Järvenpäässä ei ole matkakuluja.</p>
-			</div>
-		  </details>
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>Miten voin valmistautua kotikäyntiin ja onko matkakuluja?</span>
+              <i class="fas fa-chevron-down faq-icon"></i>
+            </summary>
+            <div class="faq-answer">
+              <p>Pidä laitteiden salasanat ja mahdolliset ongelmakuvaukset valmiina. Järvenpäässä ei ole matkakuluja.</p>
+            </div>
+          </details>
 
-		  <details class="faq-item">
-			<summary class="faq-question">
-			  <span>Mitä jos ongelmaa ei saada kuntoon?</span>
-			  <i class="fas fa-chevron-down faq-icon"></i>
-			</summary>
-			<div class="faq-answer">
-			  <p>Maksu perustuu käytettyyn aikaan ja tehtyyn työhön, vaikka ongelmaa ei saataisi kokonaan ratkaistua.</p>
-			</div>
-		  </details>
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>Mitä jos ongelmaa ei saada kuntoon?</span>
+              <i class="fas fa-chevron-down faq-icon"></i>
+            </summary>
+            <div class="faq-answer">
+              <p>Maksu perustuu käytettyyn aikaan ja tehtyyn työhön, vaikka ongelmaa ei saataisi kokonaan ratkaistua.</p>
+            </div>
+          </details>
 
-		  <details class="faq-item">
-			<summary class="faq-question">
-			  <span>Miten kotitalousvähennys toimii ja paljonko maksu on sen jälkeen?</span>
-			  <i class="fas fa-chevron-down faq-icon"></i>
-			</summary>
-			<div class="faq-answer">
-			  <p>Digiapu on kotitalousvähennyskelpoista työtä. Vuonna 2025 voit vähentää 35 % työn osuudesta, jolloin 60 €/h hinnasta jää maksettavaksi noin 39 €/h.</p>
-			</div>
-		  </details>
-		</div>
-	  </div>
-	</section>
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>Miten kotitalousvähennys toimii ja paljonko maksu on sen jälkeen?</span>
+              <i class="fas fa-chevron-down faq-icon"></i>
+            </summary>
+            <div class="faq-answer">
+              <p>Digiapu on kotitalousvähennyskelpoista työtä. Vuonna 2025 voit vähentää 35 % työn osuudesta, jolloin 60 €/h hinnasta jää maksettavaksi noin 39 €/h.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
 
     <!-- YHTEYS -->
     <section id="yhteys" class="section">
@@ -506,8 +269,8 @@
             <img src="/images/mikko-digiapu.webp" alt="Mikko Lagerstedt, Kodin Digiapu" loading="lazy">
             <h3>Soita tai lähetä viesti</h3>
             <p>Nopein tapa saada apua on soittaa. Jos en pääse vastaamaan, soitan sinulle takaisin mahdollisimman pian.</p>
-            <p><i class="fas fa-phone-alt icon"></i><strong>Puhelin:</strong> <a href="tel:+358405724113">040 572 4113</a></p>
-            <p><i class="fas fa-envelope icon"></i><strong>Sähköposti:</strong> <a href="mailto:mikko@kodindigiapu.fi">mikko@kodindigiapu.fi</a></p>
+            <p><i class="fas fa-phone-alt icon"></i><strong>Puhelin:</strong> <a href="/tel:+358405724113">040 572 4113</a></p>
+            <p><i class="fas fa-envelope icon"></i><strong>Sähköposti:</strong> <a href="/mailto:mikko@kodindigiapu.fi">mikko@kodindigiapu.fi</a></p>
           </div>
           <form action="https://formspree.io/f/mnngjdyr" method="POST" class="contact-form">
             <input type="hidden" name="_next" value="https://www.kodindigiapu.fi/kiitos.html">
@@ -520,164 +283,92 @@
         </div>
       </div>
     </section>
-	<section class="section" style="padding:50px 0; text-align:center;">
-	  <div class="container">
-		<p style="font-size:1.1rem; color:var(--text-light); margin-bottom:1.8rem;">
-		  Maksu onnistuu paikan päällä tai laskulla. Työ on kotitalousvähennyskelpoista.
-		</p>
 
-		<div style="display:flex; justify-content:center; align-items:center; gap:50px; flex-wrap:wrap;">
-		  <!-- Kotitalousvähennys -->
-		  <div style="text-align:center;">
-			<i class="fas fa-home icon-home"></i>
-			<p style="font-size:0.95rem; color:var(--text-light); margin-top:6px;">Kotitalousvähennys</p>
-		  </div>
+    <!-- MAKSUTAVAT -->
+    <section class="section" style="padding:50px 0; text-align:center;">
+      <div class="container">
+        <p style="font-size:1.1rem; color:var(--text-light); margin-bottom:1.8rem;">
+          Maksu onnistuu paikan päällä tai laskulla. Työ on kotitalousvähennyskelpoista.
+        </p>
+        <div style="display:flex; justify-content:center; align-items:center; gap:50px; flex-wrap:wrap;">
+          <div style="text-align:center;">
+            <i class="fas fa-home icon-home"></i>
+            <p style="font-size:0.95rem; color:var(--text-light); margin-top:6px;">Kotitalousvähennys</p>
+          </div>
+          <div style="text-align:center;">
+            <i class="fas fa-file-invoice icon-invoice"></i>
+            <p style="font-size:0.95rem; color:var(--text-light); margin-top:6px;">Laskutus</p>
+          </div>
+          <div style="text-align:center;">
+            <picture>
+              <source srcset="images/MobilePay.webp" type="image/webp">
+              <img src="/images/MobilePay.png" alt="MobilePay maksutapa" loading="lazy" style="height:50px; margin-top:4px; filter:drop-shadow(0 1px 3px rgba(0,0,0,0.25));">
+            </picture>
+          </div>
+        </div>
+      </div>
+    </section>
 
-		  <!-- Laskutus -->
-		  <div style="text-align:center;">
-			<i class="fas fa-file-invoice icon-invoice"></i>
-			<p style="font-size:0.95rem; color:var(--text-light); margin-top:6px;">Laskutus</p>
-		  </div>
-
-		  <!-- MobilePay -->
-		  <div style="text-align:center;">
-			<img src="/images/MobilePay.png" alt="MobilePay maksutapa"
-				 loading="lazy"
-				 style="height:50px; margin-top:4px; filter:drop-shadow(0 1px 3px rgba(0,0,0,0.25));">
-		  </div>
-		</div>
-	  </div>
-	</section>
-	<section style="padding:20px 0; text-align:center; background:var(--card); border-top:1px solid var(--border-light);">
-	  <div class="container">
-		<p style="font-size:0.95rem; color:var(--text-light); line-height:1.6;">
-		  Tietokoneapu | Virustorjunta ja haittaohjelmien poisto | Uusien laitteiden käyttöönotto | Kännykän käyttö ja opastus
-		</p>
-	  </div>
-	</section>
-
+    <!-- ALATUNNUS -->
+    <section style="padding:20px 0; text-align:center; background:var(--card); border-top:1px solid var(--border-light);">
+      <div class="container">
+        <p style="font-size:0.95rem; color:var(--text-light); line-height:1.6;">
+          Tietokoneapu | Virustorjunta ja haittaohjelmien poisto | Uusien laitteiden käyttöönotto | Kännykän käyttö ja opastus
+        </p>
+      </div>
+    </section>
 
   </main>
 
   <!-- FOOTER -->
   <footer>
     <div class="container">
-      <p>&copy; 2025 Kodin Digiapu | <a href="mailto:mikko@kodindigiapu.fi?subject=Kysely%20Kodin%20Digiavusta" style="color:white;">
-  mikko@kodindigiapu.fi</a> |  Y-tunnus 2272247-7  |  Palvelualue: Järvenpää, Tuusula, Kerava, Hyvinkää ja lähialueet</p>
+      <p>© 2025 Kodin Digiapu | <a href="/mailto:mikko@kodindigiapu.fi?subject=Kysely%20Kodin%20Digiavusta" style="color:white;">
+  mikko@kodindigiapu.fi</a> | Y-tunnus 2272247-7 | Palvelualue: Järvenpää, Tuusula, Kerava, Hyvinkää ja lähialueet</p>
     </div>
   </footer>
 
   <!-- MOBIILI CTA -->
   <div class="mobile-sticky-cta">
-    <a href="tel:+358405724113" class="sticky-btn call"><i class="fas fa-phone-alt"></i> Soita</a>
-    <a href="https://wa.me/358405724113" target="_blank" class="sticky-btn whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    <a href="/tel:+358405724113" class="sticky-btn call"><i class="fas fa-phone-alt"></i> Soita</a>
+    <a href="/https://wa.me/358405724113" target="_blank" rel="noopener" class="sticky-btn whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
   </div>
 
   <!-- TAKAISIN YLÖS -->
   <button id="toTop" aria-label="Takaisin ylös"><i class="fas fa-chevron-up"></i></button>
 
-  <!-- ==================== JAVASCRIPT ==================== -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const body = document.body;
-      const themeToggle = document.getElementById('themeToggle');
-      const icon = themeToggle.querySelector('i');
+  <!-- JavaScript – TOIMII PAIKALLISESTI -->
+  <script defer src="/js/script.js"></script>
 
-      // Lataa teema
-      const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-      body.setAttribute('data-theme', savedTheme);
-      icon.className = savedTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
-
-      // Vaihda teemaa
-      themeToggle.addEventListener('click', () => {
-        const isDark = body.getAttribute('data-theme') === 'dark';
-        const newTheme = isDark ? 'light' : 'dark';
-        body.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        icon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
-      });
-
-      // Automaattinen selainasetus
-      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-        if (!localStorage.getItem('theme')) {
-          const newTheme = e.matches ? 'dark' : 'light';
-          body.setAttribute('data-theme', newTheme);
-          icon.className = newTheme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
-        }
-      });
-
-      // Navigaatio
-      const navToggle = document.querySelector('.nav-toggle');
-      const navLinks = document.querySelector('.nav-links');
-      navToggle?.addEventListener('click', () => navLinks.classList.toggle('show'));
-      document.querySelectorAll('.nav-links a').forEach(link => link.addEventListener('click', () => navLinks.classList.remove('show')));
-
-      // Hinta-toggle
-      const updatePrice = () => {
-        const isDeducted = document.getElementById('toggle-deducted').checked;
-        const display = document.getElementById('price-display');
-        const desc = document.getElementById('price-description');
-        const vat = document.getElementById('vat-info-text');
-        const expNormal = document.getElementById('explanation-without-deduction');
-        const expDeducted = document.getElementById('explanation-with-deduction');
-        if (isDeducted) {
-          display.textContent = '39€'; display.className = 'price-display deducted';
-          desc.textContent = '/ tunti kotitalousvähennyksellä';
-          expNormal.style.display = 'none'; expDeducted.style.display = 'block'; vat.style.display = 'none';
-        } else {
-          display.textContent = '60€'; display.className = 'price-display normal';
-          desc.textContent = '/ tunti';
-          expNormal.style.display = 'block'; expDeducted.style.display = 'none'; vat.style.display = 'block';
-        }
-      };
-      document.querySelectorAll('input[name="price-option"]').forEach(i => i.addEventListener('change', updatePrice));
-      updatePrice();
-
-      // Koti/Yritys toggle
-      const updateClientView = () => {
-        const isHome = document.getElementById('client-home').checked;
-        document.getElementById('home-services').classList.toggle('active', isHome);
-        document.getElementById('business-services').classList.toggle('active', !isHome);
-      };
-      document.querySelectorAll('input[name="client-type"]').forEach(i => i.addEventListener('change', updateClientView));
-      updateClientView();
-
-      // Takaisin ylös
-      const toTopBtn = document.getElementById('toTop');
-      window.addEventListener('scroll', () => {
-        toTopBtn.style.display = window.scrollY > 400 ? 'flex' : 'none';
-      });
-      toTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-    });
+  <!-- FAQ Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Kuinka nopeasti voin saada apua – ja voiko sen tehdä etänä?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Useimmiten samana tai seuraavana arkipäivänä. Monet asiat voidaan hoitaa myös etäyhteydellä." }
+      },
+      {
+        "@type": "Question",
+        "name": "Miten voin valmistautua kotikäyntiin ja onko matkakuluja?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Pidä laitteiden salasanat ja mahdolliset ongelmakuvaukset valmiina. Järvenpäässä ei ole matkakuluja." }
+      },
+      {
+        "@type": "Question",
+        "name": "Mitä jos ongelmaa ei saada kuntoon?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Maksu perustuu käytettyyn aikaan ja tehtyyn työhön, vaikka ongelmaa ei saataisi kokonaan ratkaistua." }
+      },
+      {
+        "@type": "Question",
+        "name": "Miten kotitalousvähennys toimii ja paljonko maksu on sen jälkeen?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Digiapu on kotitalousvähennyskelpoista työtä. Vuonna 2025 voit vähentää 35 % työn osuudesta, jolloin 60 €/h hinnasta jää maksettavaksi noin 39 €/h." }
+      }
+    ]
+  }
   </script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Kuinka nopeasti voin saada apua – ja voiko sen tehdä etänä?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Useimmiten samana tai seuraavana arkipäivänä. Monet asiat voidaan hoitaa myös etäyhteydellä." }
-    },
-    {
-      "@type": "Question",
-      "name": "Miten voin valmistautua kotikäyntiin ja onko matkakuluja?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Pidä laitteiden salasanat ja mahdolliset ongelmakuvaukset valmiina. Järvenpäässä ei ole matkakuluja." }
-    },
-    {
-      "@type": "Question",
-      "name": "Mitä jos ongelmaa ei saada kuntoon?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Maksu perustuu käytettyyn aikaan ja tehtyyn työhön, vaikka ongelmaa ei saataisi kokonaan ratkaistua." }
-    },
-    {
-      "@type": "Question",
-      "name": "Miten kotitalousvähennys toimii ja paljonko maksu on sen jälkeen?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Digiapu on kotitalousvähennyskelpoista työtä. Vuonna 2025 voit vähentää 35 % työn osuudesta, jolloin 60 €/h hinnasta jää maksettavaksi noin 39 €/h." }
-    }
-  ]
-}
-</script>
 
 </body>
 </html>
