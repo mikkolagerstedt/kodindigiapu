@@ -111,7 +111,9 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 18px 0;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  
 }
 
 .logo {
@@ -212,6 +214,10 @@ header {
 
 .hero-title {
   color: var(--main);
+  max-width: 750px;
+  margin-left: auto;   
+  margin-right: auto;
+  font-size: clamp(30px, 5vw, 42px); 
 }
 
 /* --- UUSI, TEKSTIPOHJAINEN ONGELMALISTA (index.html) --- */
@@ -263,6 +269,9 @@ body:not(.service-page-landing) .hero-subtitle {
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  flex-wrap: wrap;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .cta-button {
@@ -1513,7 +1522,8 @@ footer a:hover {
   color: white;
 }
 
-@media (min-width: 992px) {
+/* MUUTA TÄMÄ NÄIN: */
+@media (min-width: 992px) { 
   .header-cta {
     display: inline-block;
   }
@@ -1665,11 +1675,11 @@ a:hover {
 }
 
 .payment-section .payment-methods {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 50px;
-  flex-wrap: wrap;
+display: flex;
+justify-content: center;
+align-items: flex-start; /* MUUTETTU TÄHÄN */
+gap: 50px;
+flex-wrap: wrap;
 }
 
 .payment-methods > div {
@@ -1683,9 +1693,9 @@ a:hover {
 }
 
 .payment-methods img {
-  height: 50px;
-  margin-top: 4px;
-  filter: drop-shadow(0 1px 3px rgba(0,0,0,0.25));
+height: 3.9rem; /* MUUTETTU (vastaa .icon-home kokoa) */
+margin-top: 0; /* POISTETTU (turha nyt) */
+filter: drop-shadow(0 1px 3px rgba(0,0,0,0.25));
 }
 
 .keyword-section {
@@ -1695,12 +1705,15 @@ a:hover {
   border-top: 1px solid var(--border-light);
 }
 
-.keyword-section p {
+.keyword-section p a {
   font-size: 0.95rem;
   color: var(--text-light);
   line-height: 1.6;
 }
-
+.keyword-section p a:hover {
+  color: var(--accent); /* Muuttuu korostusväriksi hiirellä */
+  text-decoration: underline; /* Lisää viivan hiirellä */
+}
 
 /* --- Palvelusivut (puhelinapu.html, yrityksille.html, jne.) --- */
 
