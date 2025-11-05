@@ -569,6 +569,59 @@
     ]
   }
   </script>
-	
+	<div id="cookie-consent-banner" class="cookie-banner">
+  <div class="cookie-banner-content">
+    <p>Käytämme evästeitä ymmärtääksemme, miten sivustoamme käytetään. Hyväksymällä annat luvan analytiikkaevästeiden käyttöön. <a href="/evasteet.html" class="cookie-link">Lue lisää</a></p>
+    <div class="cookie-banner-buttons">
+      <button id="btn-consent-deny" class="cookie-btn deny">Hylkää</button>
+      <button id="btn-consent-accept" class="cookie-btn accept">Hyväksy</button>
+    </div>
+  </div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const banner = document.getElementById('cookie-consent-banner');
+    const acceptBtn = document.getElementById('btn-consent-accept');
+    const denyBtn = document.getElementById('btn-consent-deny');
+
+    // Tarkistetaan, onko valinta jo tehty
+    const consentChoice = localStorage.getItem('cookie_consent_choice');
+
+    if (!consentChoice) {
+      // Jos valintaa EI ole tehty, näytä banneri
+      banner.style.display = 'block';
+    }
+
+    // Mitä tapahtuu kun hyväksytään
+    acceptBtn.addEventListener('click', function() {
+      // 1. Päivitetään suostumus Googlelle (TÄRKEIN KOHTA)
+      if (typeof gtag === 'function') {
+        gtag('consent', 'update', {
+          'analytics_storage': 'granted',
+          'ad_storage': 'granted',
+          'ad_user_data': 'granted',
+          'ad_personalization': 'granted'
+        });
+      }
+      
+      // 2. Tallennetaan valinta selaimen muistiin
+      localStorage.setItem('cookie_consent_choice', 'granted');
+      
+      // 3. Piilotetaan banneri
+      banner.style.display = 'none';
+    });
+
+    // Mitä tapahtuu kun hylätään
+    denyBtn.addEventListener('click', function() {
+      // 1. (Ei tarvitse päivittää, oletus on jo 'denied')
+      
+      // 2. Tallennetaan valinta selaimen muistiin
+      localStorage.setItem('cookie_consent_choice', 'denied');
+      
+      // 3. Piilotetaan banneri
+      banner.style.display = 'none';
+    });
+  });
+</script>
 </body>
 </html>

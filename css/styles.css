@@ -1750,3 +1750,92 @@ a:hover {
 .cta-section .hero-cta-buttons {
   margin-top: 2rem;
 }
+/* === Oman evästebannerin tyylit === */
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--card);
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.15);
+  padding: 20px;
+  z-index: 9998; 
+  display: none; /* Piilotettu oletuksena */
+  border-top: 1px solid var(--border-light);
+  color: var(--text-dark);
+}
+
+.cookie-banner-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  text-align: center;
+}
+
+.cookie-banner p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-light);
+}
+
+.cookie-banner a.cookie-link {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.cookie-banner a.cookie-link:hover {
+  color: var(--accent-light);
+}
+
+.cookie-banner-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.cookie-btn {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none !important;
+}
+
+.cookie-btn.accept {
+  background: var(--accent);
+  color: white;
+}
+.cookie-btn.accept:hover {
+  background: #0284c7;
+  color: white;
+}
+
+.cookie-btn.deny {
+  background: var(--bg);
+  color: var(--text-dark);
+  border: 1px solid var(--border-light);
+}
+.cookie-btn.deny:hover {
+  background: #e2e8f0;
+  color: var(--text-dark);
+}
+
+[data-theme="dark"] .cookie-btn.deny:hover {
+  background: #374151;
+}
+
+/* Mobiiliasettelu */
+@media (min-width: 768px) {
+  .cookie-banner-content {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
