@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const expDeducted = document.getElementById('explanation-with-deduction');
 
     if (isDeducted) {
-      priceDisplay.textContent = '43€'; // KORJATTU HINTA
+      priceDisplay.textContent = '39€'; // KORJATTU HINTA
       priceDisplay.className = 'price-display deducted';
       priceDesc.textContent = '/ tunti kotitalousvähennyksellä';
       expNormal.style.display = 'none';
