@@ -4,11 +4,14 @@
   <meta charset="utf-8">
   <title>Kiitos yhteydenotostasi! - Kodin Digiapu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Kiitos yhteydenotostasi Kodin Digiapuun! Saat vastauksen pian koskien tietokoneapua Järvenpään, Tuusulan ja Keravan alueella.">
+  <meta name="robots" content="noindex, nofollow"> 
   <style>
     :root{
       --main:#1f2937;
       --accent:#0ea5e9;
       --bg:#f9fafb;
+      --text-light: #4b5563;
     }
     body{
       font-family: Inter, system-ui, sans-serif;
@@ -17,9 +20,10 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      min-height: 100vh;
       margin: 0;
       text-align: center;
+      padding: 20px;
     }
     .container {
       max-width: 600px;
@@ -35,8 +39,27 @@
     }
     p {
       font-size: 18px;
+      color: var(--text-light);
       line-height: 1.6;
       margin-bottom: 30px;
+    }
+    /* Uusi kiire-huomio */
+    .urgent-notice {
+        background: #f0f9ff;
+        border: 1px solid #e0f2fe;
+        padding: 20px;
+        border-radius: 8px;
+        margin-bottom: 30px;
+        font-size: 17px;
+        color: #0c4a6e;
+    }
+    .urgent-notice a {
+        color: #0369a1;
+        font-weight: 600;
+        text-decoration: none;
+    }
+    .urgent-notice a:hover {
+        text-decoration: underline;
     }
     .btn{
       background: var(--accent);
@@ -46,6 +69,7 @@
       font-weight: 600;
       text-decoration: none;
       transition: background .2s;
+      display: inline-block;
     }
     .btn:hover{background:#0284c7;}
   </style>
@@ -53,8 +77,14 @@
 <body>
 
   <div class="container">
-    <h1>âœ… Kiitos viestistÃ¤si!</h1>
+    <h1>Kiitos viestistä!</h1>
     <p>Olen saanut yhteydenottosi ja vastaan sinulle mahdollisimman pian, yleensä saman päivän aikana.</p>
+    
+    <div class="urgent-notice">
+      <strong>Onko asiasi kiireellinen?</strong><br>
+      Jos laitteesi on kokonaan pois käytöstä, nopein tapa saada apua on soittaa minulle numeroon <a href="tel:0405724113">040 572 4113</a>.
+    </div>
+
     <a href="index.html" class="btn">Palaa etusivulle</a>
   </div>
 

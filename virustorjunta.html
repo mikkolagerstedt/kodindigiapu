@@ -9,36 +9,29 @@
 
   <link rel="canonical" href="https://www.kodindigiapu.fi/virustorjunta.html">
 
-  <!-- Open Graph -->
   <meta property="og:title" content="Virustorjunta ja haittaohjelmien poisto – Kodin Digiapu">
   <meta property="og:description" content="Poistan virukset ja haittaohjelmat turvallisesti ja autan suojaamaan tietokoneesi jatkossa. Selkeää apua ilman vaikeaa tietotekniikkakieltä.">
   <meta property="og:image" content="https://www.kodindigiapu.fi/images/kodin-digiapu-virus.webp">
   <meta property="og:url" content="https://www.kodindigiapu.fi/virustorjunta.html">
   <meta property="og:type" content="website">
 
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Virustorjunta ja haittaohjelmien poisto – Kodin Digiapu">
   <meta name="twitter:description" content="Turvallinen ja selkeä apu virusten ja haittaohjelmien poistoon Järvenpäässä, Tuusulassa ja Keravalla.">
   <meta name="twitter:image" content="https://www.kodindigiapu.fi/images/kodin-digiapu-virus.webp">
 
-  <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
 
-  <!-- Preconnect -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <!-- CSS -->
   <link rel="stylesheet" href="/css/styles.css">
 
-  <!-- Google Analytics – KORVAA OMA ID:LLÄSI -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-MEASUREID"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -46,38 +39,80 @@
     gtag('js', new Date());
     gtag('config', 'G-MEASUREID');
   </script>
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Virustorjunta ja haittaohjelmien poisto",
+    "description": "Ammattimainen virusten ja haittaohjelmien poisto sekä tietokoneen suojaus Järvenpään, Tuusulan ja Keravan alueella.",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Kodin Digiapu",
+      "telephone": "+358405724113",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Järvenpää",
+        "addressCountry": "FI"
+      },
+      "url": "https://www.kodindigiapu.fi/"
+    },
+    "areaServed": [
+      {"@type": "City", "name": "Järvenpää"},
+      {"@type": "City", "name": "Tuusula"},
+      {"@type": "City", "name": "Kerava"}
+    ],
+    "offers": {
+      "@type": "Offer",
+      "price": "90",
+      "priceCurrency": "EUR"
+    }
+  }
+  </script>
 </head>
 
-<body class="virustorjunta-page" data-theme="light">
+<body class="service-page-landing" data-theme="light">
 
-  <!-- HEADER -->
   <header>
-    <div class="container nav">
-      <a href="/" class="logo">
-        <img src="/favicon-96x96.png" alt="Kodin Digiapu logo" class="logo-icon">
-        <span>Kodin Digiapu</span>
-      </a>
-      <div style="display: flex; align-items: center; gap: 16px;">
-        <button class="theme-toggle" aria-label="Vaihda teemaa" id="themeToggle">
-          <i class="fas fa-moon"></i>
-        </button>
-        <button class="nav-toggle" aria-label="Avaa valikko"><i class="fas fa-bars"></i></button>
-      </div>
-      <nav>
-        <ul class="nav-links">
-          <li><a href="/#palvelut">Palvelut</a></li>
-          <li><a href="/#luottamus">Asiakkaat</a></li>
-          <li><a href="/#hinnat">Hinnat</a></li>
-          <li><a href="/#ukk">UKK</a></li>
-          <li><a href="/#yhteys">Yhteys</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+	  <div class="container nav">
+		<a href="/" class="logo">
+		  <img src="/favicon-96x96.png" alt="Kodin Digiapu logo" class="logo-icon" width="96" height="96">
+		  <span>Kodin Digiapu</span>
+		</a>
+		<div class="header-controls">
+		  <button class="theme-toggle" id="themeToggle" aria-label="Vaihda tumma/vaalea teema">
+		  <svg class="icon-sun" viewBox="0 0 24 24">
+			<circle cx="12" cy="12" r="5" />
+			<line x1="12" y1="1" x2="12" y2="3" />
+			<line x1="12" y1="21" x2="12" y2="23" />
+			<line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+			<line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+			<line x1="1" y1="12" x2="3" y2="12" />
+			<line x1="21" y1="12" x2="23" y2="12" />
+			<line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+			<line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+		  </svg>
+		  <svg class="icon-moon" viewBox="0 0 24 24">
+			<path d="M21 12.79A9 9 0 0 1 11.21 3 9 9 0 1 0 21 12.79z"></path>
+		  </svg>
+		  </button>
+		  <a href="tel:+358405724113" class="header-cta">Soita 040 572 4113</a>
+		  <button class="nav-toggle" aria-label="Avaa valikko" aria-expanded="false"><i class="fas fa-bars"></i></button>
+		</div>
+		<nav>
+		  <ul class="nav-links">
+			<li><a href="/#palvelut">Palvelut</a></li>
+			<li><a href="/#hinnat">Hinnat</a></li>
+			<li><a href="/#luottamus">Asiakkaat</a></li>
+			<li><a href="/#ukk">Usein kysyttyä</a></li>
+			<li><a href="/#yhteys">Yhteys</a></li>
+		  </ul>
+		</nav>
+	  </div>
+	</header>
 
   <main>
 
-    <!-- HERO -->
     <section class="hero">
       <div class="container">
         <i class="fas fa-shield-alt icon" style="font-size:3rem; color:var(--accent); margin-bottom:1rem;" aria-hidden="true"></i>
@@ -85,18 +120,13 @@
         <p class="hero-subtitle">
           Jos tietokoneesi hidastelee, selain avaa outoja sivuja tai saat epäilyttäviä varoituksia, kyseessä voi olla virus tai haittaohjelma.<br><br>
           <strong>Kodin Digiapu auttaa sinua rauhallisesti ja ammattitaidolla.</strong><br>
-          Tulen paikan päälle tai autan etänä – selitän asiat ymmärrettävästi ilman teknistä jargonia.
+          Tulen paikan päälle tai autan etänä – selitän asiat ymmärrettävästi ja ilman vaikeita ammattisanoja.
         </p>
-        <div class="hero-cta-buttons">
-          <a href="tel:0405724113" class="cta-button primary"><i class="fas fa-phone-alt" aria-hidden="true"></i> Soita 040 572 4113</a>
-          <a href="https://wa.me/358405724113" target="_blank" rel="noopener" class="cta-button whatsapp">
-            <i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp
-          </a>
+        
         </div>
       </div>
     </section>
 
-    <!-- TUNNISTAMINEN -->
     <section class="vst-section">
       <div class="container">
         <h2 class="vst-title">Mistä tunnistat mahdollisen viruksen?</h2>
@@ -109,7 +139,7 @@
           <div class="vst-card">
             <i class="fas fa-bomb vst-icon" aria-hidden="true"></i>
             <h3>Mainoksia ja ponnahdusikkunoita</h3>
-            <p>Ruudulle ilmestyy jatkuvasti mainoksia tai vääriä varoituksia – joskus jopa offline-tilassa.</p>
+            <p>Ruudulle ilmestyy jatkuvasti mainoksia tai varoituksia – joskus jopa offline-tilassa.</p>
           </div>
           <div class="vst-card">
             <i class="fas fa-lock vst-icon" aria-hidden="true"></i>
@@ -120,7 +150,6 @@
       </div>
     </section>
 
-    <!-- MIKSI EI ITSE -->
     <section class="vst-section">
       <div class="container">
         <h2 class="vst-title">Miksi et kokeilisi poistaa itse?</h2>
@@ -144,7 +173,6 @@
       </div>
     </section>
 
-    <!-- NÄIN AUTAN -->
     <section class="section dark-section help-section">
       <div class="container">
         <h2 class="section-title">Näin autan sinua</h2>
@@ -183,28 +211,69 @@
         
       </div>
     </section>
-
-    <!-- CTA ennen footeria -->
-    <section class="cta-section">
+    
+    <section id="ukk" class="section">
       <div class="container">
-        <h2>Apua nopeasti ja selkeästi</h2>
-        <p>Usein voin auttaa jo samana päivänä. Ei matkakuluja Järvenpäässä.</p>
-        <p><strong>Hinta: 60 € / h</strong><br>(kotitalousvähennyksen jälkeen noin 39 € / h)</p>
+        <h2 class="section-title">Kysymyksiä virustorjunnasta</h2>
+        <div class="faq">
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>Voivatko tiedostoni kadota viruksenpoiston aikana?</span>
+              <i class="fas fa-chevron-down faq-icon"></i>
+            </summary>
+            <div class="faq-answer">
+              <p>Tavoite on aina säilyttää kaikki tärkeät tiedostosi. Useimmiten virus saadaan poistettua ilman tiedostojen menetystä. Jos virus on kuitenkin ehtinyt lukita tai vioittaa tiedostoja (esim. kiristyshaittaohjelma), niiden palauttaminen voi olla vaikeaa. Siksi säännöllinen varmuuskopiointi on tärkeää.</p>
+            </div>
+          </details>
 
-        <div class="hero-cta-buttons" style="margin-top: 2rem;">
-          <a href="tel:0405724113" class="cta-button primary">
-            <i class="fas fa-phone-alt" aria-hidden="true"></i> Soita 040 572 4113
-          </a>
-          <a href="https://wa.me/358405724113" target="_blank" rel="noopener" class="cta-button whatsapp">
-            <i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp
-          </a>
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>Mikä on paras virustorjuntaohjelma?</span>
+              <i class="fas fa-chevron-down faq-icon"></i>
+            </summary>
+            <div class="faq-answer">
+              <p>Tähän ei ole yhtä oikeaa vastausta. Tavalliselle kotikäyttäjälle Windowsin sisäänrakennettu Defender-suojaus on nykyään erittäin hyvä ja riittävä. Tärkeintä on, että käyttöjärjestelmä ja ohjelmat pidetään päivitettyinä ja netissä käytetään maalaisjärkeä.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>Mistä tiedän, onko minulla virus vai hidasteleeko kone muuten vain?</span>
+              <i class="fas fa-chevron-down faq-icon"></i>
+            </summary>
+            <div class="faq-answer">
+              <p>Tämä on yleinen kysymys. Hidastelu voi johtua myös levytilan puutteesta, vanhentuneista ohjelmista tai liian monesta taustalla pyörivästä sovelluksesta. Tarkistan aina koneen kokonaistilanteen, puhdistan turhat tiedostot ja selvitän hidastelun todellisen syyn.</p>
+            </div>
+          </details>
         </div>
       </div>
     </section>
 
+	 <section class="cta-section">
+		  <div class="container">
+			<h2>Poistetaanko virukset ja haittaohjelmat?</h2>
+			<p>Saat työn selkeällä, kiinteällä hinnalla. Ei matkakuluja Järvenpäässä.</p>
+			<p>
+			  <strong style="font-size: 1.4rem; color: var(--main);">Pakettihinta: 90 €</strong><br>
+			  <span style="font-size: 0.9rem;">(Sis. virusten poiston ja suojauksen päivityksen)</span>
+			</p>
+			<p style="margin-top: 1rem; font-size: 0.9rem;">
+			  <i>*Muut asennus- ja opastustyöt 60 € / h (kotitalousvähennyksellä noin 43 € / h).</i>
+			</p>
+
+			<div class="hero-cta-buttons" style="margin-top: 2rem;">
+			  <a href="tel:+358405724113" class="cta-button primary">
+				<i class="fas fa-phone-alt" aria-hidden="true"></i> Soita 040 572 4113
+			  </a>
+			  <a href="https://wa.me/358405724113?text=Hei!%20Haluaisin%20varata%20virustorjuntapaketin%20(90%E2%82%AC)" target="_blank" rel="noopener" class="cta-button whatsapp">
+				<i class="fab fa-whatsapp" aria-hidden="true"></i> Varaa WhatsAppilla
+			  </a>
+			</div>
+		  </div>
+		</section>
+
   </main>
 
-  <!-- FOOTER -->
   <footer>
     <div class="container">
       <p>
@@ -212,22 +281,52 @@
         <a href="/virustorjunta.html">Virustorjunta</a> |
         <a href="/#palvelut">Palvelut</a> |
         <a href="/#yhteys">Yhteys</a> |
-        <a href="mailto:mikko@kodindigiapu.fi">mikko@kodindigiapu.fi</a> |
+        <a href="mailto:mikko@kodindigiapu.fi?subject=Kysely%20virustorjunnasta">mikko@kodindigiapu.fi</a> |
         Y-tunnus 2272247-7
       </p>
     </div>
   </footer>
 
-  <!-- MOBIILI CTA -->
   <div class="mobile-sticky-cta">
     <a href="tel:+358405724113" class="sticky-btn call"><i class="fas fa-phone-alt" aria-hidden="true"></i> Soita</a>
-    <a href="https://wa.me/358405724113" target="_blank" rel="noopener" class="sticky-btn whatsapp"><i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp</a>
+    <a href="https://wa.me/358405724113" target="_blank" rel="noopener" class="sticky-btn whatsapp" aria-label="Lähetä viesti WhatsAppilla"><i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp</a>
   </div>
 
-  <!-- TAKAISIN YLÖS -->
   <button id="toTop" aria-label="Takaisin ylös"><i class="fas fa-chevron-up"></i></button>
 
-  <!-- JavaScript -->
   <script defer src="/js/script.js"></script>
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Voivatko tiedostoni kadota viruksenpoiston aikana?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tavoite on aina säilyttää kaikki tärkeät tiedostosi. Useimmiten virus saadaan poistettua ilman tiedostojen menetystä. Jos virus on kuitenkin ehtinyt lukita tai vioittaa tiedostoja (esim. kiristyshaittaohjelma), niiden palauttaminen voi olla vaikeaa. Siksi säännöllinen varmuuskopiointi on tärkeää."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Mikä on paras virustorjuntaohjelma?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tähän ei ole yhtä oikeaa vastausta. Tavalliselle kotikäyttäjälle Windowsin sisäänrakennettu Defender-suojaus on nykyään erittäin hyvä ja riittävä. Tärkeintä on, että käyttöjärjestelmä ja ohjelmat pidetään päivitettyinä ja netissä käytetään maalaisjärkeä."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Mistä tiedän, onko minulla virus vai hidasteleeko kone muuten vain?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tämä on yleinen kysymys. Hidastelu voi johtua myös levytilan puutteesta, vanhentuneista ohjelmista tai liian monesta taustalla pyörivästä sovelluksesta. Tarkistan aina koneen kokonaistilanteen, puhdistan turhat tiedostot ja selvitän hidastelun todellisen syyn."
+        }
+      }
+    ]
+  }
+  </script>
 </body>
 </html>

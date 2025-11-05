@@ -6,6 +6,31 @@
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://www.kodindigiapu.fi/uusilaite.html</loc>
+    <lastmod>2025-09-27</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.kodindigiapu.fi/puhelinapu.html</loc>
+    <lastmod>2025-09-27</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.kodindigiapu.fi/virustorjunta.html</loc>
+    <lastmod>2025-09-27</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.kodindigiapu.fi/opastus.html</loc>
+    <lastmod>2025-09-27</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.kodindigiapu.fi/yrityksille.html</loc>
+    <lastmod>2025-09-27</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.kodindigiapu.fi/kiitos.html</loc>
     <lastmod>2025-09-27</lastmod>
     <priority>0.5</priority>
