@@ -36,11 +36,32 @@
 
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
+  
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('theme') ||
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    })();
+  </script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <link rel="stylesheet" href="/css/styles.css">
-	<!-- Google Tag Manager -->
+  
+  <script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+
+	gtag('consent', 'default', {
+	  'ad_storage': 'denied',
+	  'ad_user_data': 'denied',
+	  'ad_personalization': 'denied',
+	  'analytics_storage': 'denied',
+	  'functionality_storage': 'granted',
+	  'security_storage': 'granted',
+	  'wait_for_update': 500
+	});
+	</script>
 	<script>
 	(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -48,9 +69,7 @@
 	'https://www.googletagmanager.com/gtm.js?id=GTM-THJ4NB54'+dl;f.parentNode.insertBefore(j,f);
 	})(window,document,'script','dataLayer','GTM-THJ4NB54');
 	</script>
-	<!-- End Google Tag Manager -->
-
-  <script type="application/ld+json">
+	<script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
@@ -80,30 +99,12 @@
     ]
   }
   </script>
-  <script>
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-
-	gtag('consent', 'default', {
-	  'ad_storage': 'denied',
-	  'ad_user_data': 'denied',
-	  'ad_personalization': 'denied',
-	  'analytics_storage': 'denied',
-	  'functionality_storage': 'granted',
-	  'security_storage': 'granted',
-	  'wait_for_update': 500
-	});
-	</script>
-
 </head>
 
-<body data-theme="light">
-  <!-- Google Tag Manager (noscript) -->
-	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THJ4NB54"
+<body>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THJ4NB54"
 	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-	<!-- End Google Tag Manager (noscript) -->
-
-  <a href="#main-content" class="visually-hidden-focusable">Hyppää sisältöön</a>
+	<a href="#main-content" class="visually-hidden-focusable">Hyppää sisältöön</a>
 
   <header>
 	  <div class="container nav">
@@ -147,13 +148,18 @@
     <section class="hero">
       <div class="container">
         <h1 class="hero-title">Tarvitsetko apua tietokoneen, puhelimen tai internetin kanssa?</h1>
+        
+        <p class="hero-subtitle" style="font-size: 1.3rem; font-weight: 500; margin-bottom: 1rem; margin-top: 1rem; line-height: 1.6;">
+          Olen Mikko, ja tarjoan ystävällistä ja selkeää teknistä tukea.
+        </p>
         <p class="hero-subtitle">
-          Tarjoan tietokoneapua ja teknistä tukea Järvenpään, Tuusulan ja Keravan alueen kotitalouksille ja pienyrityksille. Ratkaisen haittaohjelmiin, laitteiden käyttöönottoon ja verkkoyhteyksiin liittyvät ongelmat paikan päällä.<br>
-          
-          <strong>Yhteydenotto ei maksa mitään.</strong>
+          Autan Järvenpään, Tuusulan ja Keravan alueen kotitalouksia ja pienyrityksiä. Ratkaisen haittaohjelmiin, laitteiden käyttöönottoon ja verkkoyhteyksiin liittyvät ongelmat paikan päällä.
         </p>
 
-        <div class="hero-cta-buttons">
+        <p style="font-weight: 600; font-size: 1.1rem; margin-top: 1.5rem; color: var(--text-dark);">
+          Yhteydenotto ja tilanteen kartoitus on aina maksutonta.
+        </p>
+        <div class="hero-cta-buttons" style="margin-top: 1.5rem;">
           <a href="tel:+358405724113" class="cta-button primary"><i class="fas fa-phone-alt"></i> Soita 040 572 4113</a>
           <a href="https://wa.me/358405724113" target="_blank" rel="noopener" class="cta-button whatsapp" aria-label="Lähetä viesti WhatsAppilla">
             <i class="fab fa-whatsapp"></i> WhatsApp
@@ -273,7 +279,7 @@
             <p>Tämä on normaali tuntihintani ilman verovähennyksiä. Minimiveloitus on 30€ (30 min). Järvenpään alueella ei ole matkakuluja.</p>
           </div>
           <div id="explanation-with-deduction" class="explanation-box" style="display: none;">
-            <p>Tämä on arvioitu hinta kotitalousvähennyksen jälkeen (noin 39 €/h). Saat työstä 35 %:n verovähennyksen omavastuun ylittyessä. Neuvon mielelläni vähennyksen hakemisessa.</p>
+            <p>Tämä on arvioitu hinta kotitalousvähennyksen jälkeen (noin 39 €/h). Saat työstä 35 %:n verovähennyksen omavastuun (100 €) ylittyessä. Neuvon mielelläni vähennyksen hakemisessa.</p>
           </div>
         </div>
       </div>
@@ -400,7 +406,7 @@
               <i class="fas fa-chevron-down faq-icon"></i>
             </summary>
             <div class="faq-answer">
-			  <p>Digiapu on kotitalousvähennyskelpoista työtä. Vuonna 2025 voit vähentää 35 % työn osuudesta (omavastuu 150 €), jolloin 60 €/h hinnasta jää maksettavaksi noin 39 €/h omavastuun ylittyessä.</p>
+			  <p>Digiapu on kotitalousvähennyskelpoista työtä. Vuonna 2025 voit vähentää 35 % työn osuudesta (omavastuu 100 €), jolloin 60 €/h hinnasta jää maksettavaksi noin 39 €/h omavastuun ylittyessä.</p>
 			</div>
           </details>
           
@@ -549,7 +555,7 @@
       {
         "@type": "Question",
         "name": "Miten kotitalousvähennys toimii ja paljonko maksu on sen jälkeen?",
-        "acceptedAnswer": { "@type": "Answer", "text": "Digiapu on kotitalousvähennyskelpoista työtä. Vuonna 2025 voit vähentää 35 % työn osuudesta, jolloin 60 €/h hinnasta jää maksettavaksi noin 39 €/h (omavastuun ylittyessä)." }
+        "acceptedAnswer": { "@type": "Answer", "text": "Digiapu on kotitalousvähennyskelpoista työtä. Vuonna 2025 voit vähentää 35 % työn osuudesta (omavastuu 100 €), jolloin 60 €/h hinnasta jää maksettavaksi noin 39 €/h omavastuun ylittyessä." }
       },
       {
         "@type": "Question",
@@ -578,6 +584,5 @@
     </div>
   </div>
 </div>
-
 </body>
 </html>

@@ -19,6 +19,13 @@
   <link rel="manifest" href="/site.webmanifest">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous">
 
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('theme') ||
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    })();
+  </script>
   <link rel="stylesheet" href="/css/styles.css">
 
   <script>
@@ -68,7 +75,7 @@
   </script>
 </head>
 
-<body class="service-page-landing" data-theme="light">
+<body class="service-page-landing">
   
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THJ4NB54"
 	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>

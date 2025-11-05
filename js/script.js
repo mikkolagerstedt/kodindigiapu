@@ -4,26 +4,24 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  const body = document.body;
 
   // ==================================================================
   // 1. TUMMA/VALOISA TEEMA (SVG-KYTKIMELLÄ)
   // ==================================================================
+  // HUOM: Teemaa hallitaan nyt <html>-elementissä (document.documentElement)
+  // Tämä skripti vain hallinnoi NAPIN toimintaa.
+  // Varsinainen teeman lataus tapahtuu <head>-skriptissä välähdyksen estämiseksi.
+  
   const themeToggle = document.getElementById('themeToggle');
-
-  // Lataa tallennettu teema tai käytä selaimen oletusta
-  const savedTheme = localStorage.getItem('theme') ||
-    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-
-  body.setAttribute('data-theme', savedTheme);
+  const htmlEl = document.documentElement; // Kohdistetaan <html>
 
   // Vaihda teemaa napilla
   if (themeToggle) {
     themeToggle.addEventListener('click', () => {
-      const isDark = body.getAttribute('data-theme') === 'dark';
+      const isDark = htmlEl.getAttribute('data-theme') === 'dark';
       const newTheme = isDark ? 'light' : 'dark';
 
-      body.setAttribute('data-theme', newTheme);
+      htmlEl.setAttribute('data-theme', newTheme);
       localStorage.setItem('theme', newTheme);
     });
   }
@@ -32,9 +30,12 @@ document.addEventListener('DOMContentLoaded', () => {
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
     if (!localStorage.getItem('theme')) {
       const newTheme = e.matches ? 'dark' : 'light';
-      body.setAttribute('data-theme', newTheme);
+      htmlEl.setAttribute('data-theme', newTheme);
     }
   });
+
+  // Haetaan body-elementti vasta tässä, koska sitä tarvitaan alempana
+  const body = document.body; 
 
   // ==================================================================
   // 2. MOBIILINAVIGAATIO (PÄIVITETTY ARIA-TUELLE)
@@ -126,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==================================================================
-  // 5. EVÄSTEBANNERIN JA MOBIILIPALKIN HALLINTA (UUSI LISÄYS)
+  // 5. EVÄSTEBANNERIN JA MOBIILIPALKIN HALLINTA (PÄIVITETTY)
   // ==================================================================
   const banner = document.getElementById('cookie-consent-banner');
   const acceptBtn = document.getElementById('btn-consent-accept');
@@ -144,11 +145,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Mitä tapahtuu kun hyväksytään
     acceptBtn.addEventListener('click', function() {
-      // (gtag-logiikka pysyy täällä, jos siirrät senkin)
-      // Esim:
-      // if (typeof gtag === 'function') {
-      //   gtag('consent', 'update', { ... });
-      // }
+      // Päivitetään suostumus Googlelle
+      if (typeof gtag === 'function') {
+        gtag('consent', 'update', {
+          'analytics_storage': 'granted',
+          'ad_storage': 'granted',
+          'ad_user_data': 'granted',
+          'ad_personalization': 'granted'
+        });
+      }
       
       localStorage.setItem('cookie_consent_choice', 'granted');
       banner.style.display = 'none';

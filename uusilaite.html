@@ -19,6 +19,13 @@
   <link rel="manifest" href="/site.webmanifest">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous">
 
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('theme') ||
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    })();
+  </script>
   <link rel="stylesheet" href="/css/styles.css">
 
   <script>
@@ -68,7 +75,7 @@
   </script>
 </head>
 
-<body class="service-page-landing" data-theme="light">
+<body class="service-page-landing">
 
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THJ4NB54"
 	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -206,6 +213,7 @@
           <i>*Muut asennus- ja opastustyöt 60 € / h (kotitalousvähennyksellä noin 39 € / h).</i>
         </p>
 
+        <p style="font-style: italic; font-size: 1rem; margin-top: 1rem;">Yhteydenotto ja tilanteen kartoitus on aina maksutonta.</p>
         <div class="hero-cta-buttons" style="margin-top: 2rem;">
           <a href="tel:+358405724113" class="cta-button primary"><i class="fas fa-phone-alt" aria-hidden="true"></i> Soita 040 572 4113</a>
           <a href="https://wa.me/358405724113?text=Hei!%20Haluaisin%20varata%20uuden%20laitteen%20k%C3%A4ytt%C3%B6%C3%B6noton%20(75%E2%82%AC)" target="_blank" rel="noopener" class="cta-button whatsapp"><i class="fab fa-whatsapp" aria-hidden="true"></i> Varaa WhatsAppilla</a>
