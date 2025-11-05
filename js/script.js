@@ -1,13 +1,14 @@
 /**
  * Kodin Digiapu – script.js
- * Kaikki interaktiiviset toiminnot: teema, navigointi, hinta-toggle, takaisin ylös
+ * Kaikki interaktiiviset toiminnot: teema, navigointi, hinta-toggle, takaisin ylös, evästebanneri
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  const body = document.body;
+
   // ==================================================================
   // 1. TUMMA/VALOISA TEEMA (SVG-KYTKIMELLÄ)
   // ==================================================================
-  const body = document.body;
   const themeToggle = document.getElementById('themeToggle');
 
   // Lataa tallennettu teema tai käytä selaimen oletusta
@@ -17,13 +18,15 @@ document.addEventListener('DOMContentLoaded', () => {
   body.setAttribute('data-theme', savedTheme);
 
   // Vaihda teemaa napilla
-  themeToggle.addEventListener('click', () => {
-    const isDark = body.getAttribute('data-theme') === 'dark';
-    const newTheme = isDark ? 'light' : 'dark';
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const isDark = body.getAttribute('data-theme') === 'dark';
+      const newTheme = isDark ? 'light' : 'dark';
 
-    body.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-  });
+      body.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    });
+  }
 
   // Seuraa selaimen teemamuutoksia (jos käyttäjä ei ole tallentanut valintaa)
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
@@ -57,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-// ==================================================================
+  // ==================================================================
   // 3. HINTA-TOGGLE (PÄIVITETTY 2025 SÄÄNNÖILLÄ)
   // ==================================================================
   const updatePriceDisplay = () => {
@@ -106,7 +109,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (toTopBtn) {
     window.addEventListener('scroll', () => {
-      toTopBtn.style.display = window.scrollY > 400 ? 'flex' : 'none';
+      // Näytä nappi vain, jos evästebanneri EI OLE näkyvissä
+      if (!body.classList.contains('cookie-banner-is-visible')) {
+        toTopBtn.style.display = window.scrollY > 400 ? 'flex' : 'none';
+      } else {
+        toTopBtn.style.display = 'none';
+      }
     });
 
     toTopBtn.addEventListener('click', () => {
@@ -114,6 +122,46 @@ document.addEventListener('DOMContentLoaded', () => {
         top: 0,
         behavior: 'smooth'
       });
+    });
+  }
+
+  // ==================================================================
+  // 5. EVÄSTEBANNERIN JA MOBIILIPALKIN HALLINTA (UUSI LISÄYS)
+  // ==================================================================
+  const banner = document.getElementById('cookie-consent-banner');
+  const acceptBtn = document.getElementById('btn-consent-accept');
+  const denyBtn = document.getElementById('btn-consent-deny');
+
+  if (banner && acceptBtn && denyBtn) {
+    const consentChoice = localStorage.getItem('cookie_consent_choice');
+
+    if (!consentChoice) {
+      // Jos valintaa EI ole tehty, näytä banneri
+      banner.style.display = 'block';
+      // LISÄÄ LUOKKA, JOKA SIIRTÄÄ MOBIILIPALKKIA
+      body.classList.add('cookie-banner-is-visible');
+    }
+
+    // Mitä tapahtuu kun hyväksytään
+    acceptBtn.addEventListener('click', function() {
+      // (gtag-logiikka pysyy täällä, jos siirrät senkin)
+      // Esim:
+      // if (typeof gtag === 'function') {
+      //   gtag('consent', 'update', { ... });
+      // }
+      
+      localStorage.setItem('cookie_consent_choice', 'granted');
+      banner.style.display = 'none';
+      // POISTA LUOKKA, MOBIILIPALKKI PALAA ALAS
+      body.classList.remove('cookie-banner-is-visible');
+    });
+
+    // Mitä tapahtuu kun hylätään
+    denyBtn.addEventListener('click', function() {
+      localStorage.setItem('cookie_consent_choice', 'denied');
+      banner.style.display = 'none';
+      // POISTA LUOKKA, MOBIILIPALKKI PALAA ALAS
+      body.classList.remove('cookie-banner-is-visible');
     });
   }
 });
