@@ -207,5 +207,23 @@ document.addEventListener('DOMContentLoaded', () => {
     // Aseta oletustila heti latauksessa
     updatePlatformContent(); 
   }
+// ==================================================================
+  // 7. MOBIILI-CTA-PALKIN KELLUMISEN KORJAUS (Visual Viewport API)
+  // ==================================================================
+  const mobileCta = document.querySelector('.mobile-sticky-cta');
 
+  if (mobileCta && window.visualViewport) {
+    const updateCtaPosition = () => {
+      // Haetaan visuaalisen näkymän alareunan etäisyys
+      const viewportBottom = window.visualViewport.height - window.visualViewport.pageTop - window.visualViewport.height;
+      
+      // Asetetaan bottom-arvo dynaamisesti. 
+      // 0px tarkoittaa, että se on kiinni näytön alareunassa.
+      mobileCta.style.bottom = `${window.visualViewport.offsetBottom || 0}px`;
+    };
+
+    // Suorita heti ja aina kun selainikkunan koko muuttuu
+    window.visualViewport.addEventListener('resize', updateCtaPosition);
+    updateCtaPosition(); // Aseta oikea paikka heti latauksessa
+  }
 }); // <-- TÄMÄ ON KOKO TIEDOSTON VIIMEINEN SULKU
