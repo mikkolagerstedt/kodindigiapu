@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const body = document.body; 
 
   // ==================================================================
-  // 2. MOBIILINAVIGAATIO (PÄIVITETTY ARIA-TUELLE)
+  // 2. MOBIILINAVIGAATIO (PÄIVITETTY ARIA-TUELLE JA IKONIN VAIHDOLLE)
   // ==================================================================
   const navToggle = document.querySelector('.nav-toggle');
   const navLinks = document.querySelector('.nav-links');
@@ -49,14 +49,17 @@ document.addEventListener('DOMContentLoaded', () => {
       const isVisible = navLinks.classList.toggle('show');
       // PÄIVITETÄÄN ARIA-ATTRIBUUTTI ruudunlukijoille
       navToggle.setAttribute('aria-expanded', isVisible);
+      // Vaihda ikoni (fa-bars <-> fa-times)
+      navToggle.innerHTML = isVisible ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
     });
 
     // Sulje valikko, kun linkkiä klikataan
     document.querySelectorAll('.nav-links a').forEach(link => {
       link.addEventListener('click', () => {
         navLinks.classList.remove('show');
-        // Suljetaan myös aria-attribuutti
+        // Suljetaan myös aria-attribuutti ja ikoni
         navToggle.setAttribute('aria-expanded', 'false');
+        navToggle.innerHTML = '<i class="fas fa-bars"></i>';
       });
     });
   }
@@ -101,7 +104,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Alusta heti
     updatePriceDisplay();
   }
-
 
   // ==================================================================
   // 4. TAKAISIN YLÖS -PAINIKE
@@ -172,7 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // ==================================================================
   // 6. OHJESIVUN VAIHTOPAINIKKEET (ANDROID/IPHONE)
-  // (SIIRRETTY OIKEAAN PAIKKAAN TÄNNE SISÄLLE)
+  // (PÄIVITETTY: Käytetään .active-luokkaa fade-efektin kanssa)
   // ==================================================================
   const platformToggleInputs = document.querySelectorAll('input[name="platform-option"]');
   const androidContent = document.getElementById('android-instructions');
@@ -186,10 +188,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (selectedPlatform === 'android') {
       androidContent.style.display = 'block';
+      androidContent.classList.add('active');
+      iphoneContent.classList.remove('active');
       iphoneContent.style.display = 'none';
     } else {
-      androidContent.style.display = 'none';
       iphoneContent.style.display = 'block';
+      iphoneContent.classList.add('active');
+      androidContent.classList.remove('active');
+      androidContent.style.display = 'none';
     }
   };
 
