@@ -169,4 +169,37 @@ document.addEventListener('DOMContentLoaded', () => {
       body.classList.remove('cookie-banner-is-visible');
     });
   }
-});
+  
+  // ==================================================================
+  // 6. OHJESIVUN VAIHTOPAINIKKEET (ANDROID/IPHONE)
+  // (SIIRRETTY OIKEAAN PAIKKAAN TÄNNE SISÄLLE)
+  // ==================================================================
+  const platformToggleInputs = document.querySelectorAll('input[name="platform-option"]');
+  const androidContent = document.getElementById('android-instructions');
+  const iphoneContent = document.getElementById('iphone-instructions');
+
+  const updatePlatformContent = () => {
+    // Varmistetaan, että ollaan oikealla sivulla
+    if (!androidContent || !iphoneContent) return;
+
+    const selectedPlatform = document.querySelector('input[name="platform-option"]:checked').value;
+
+    if (selectedPlatform === 'android') {
+      androidContent.style.display = 'block';
+      iphoneContent.style.display = 'none';
+    } else {
+      androidContent.style.display = 'none';
+      iphoneContent.style.display = 'block';
+    }
+  };
+
+  // Lisätään kuuntelija vain, jos elementtejä on sivulla
+  if (platformToggleInputs.length > 0) {
+    platformToggleInputs.forEach(input => {
+      input.addEventListener('change', updatePlatformContent);
+    });
+    // Aseta oletustila heti latauksessa
+    updatePlatformContent(); 
+  }
+
+}); // <-- TÄMÄ ON KOKO TIEDOSTON VIIMEINEN SULKU

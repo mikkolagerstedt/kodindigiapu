@@ -208,7 +208,7 @@ header {
 .hero {
   background: var(--card);
   text-align: center;
-  padding: 60px 20px 80px;
+  padding: 60px 20px 50px;
   transition: background 0.3s ease;
 }
 
@@ -256,12 +256,26 @@ header {
   line-height: 1.7;
 }
 
-/* Etusivun poikkeava hero-teksti (korvaa aiemman säännön) */
+/* KORJAUS 6.11.2025: Parannettu etusivun luettavuutta ja välejä */
 body:not(.service-page-landing) .hero-subtitle {
-  font-size: 1.2rem;
+  font-size: 1.3rem; /* Kasvatettu 1.2rem -> 1.3rem */
   line-height: 1.7;
-  margin-top: 1rem;
+  margin-top: 1.5rem; /* Lisätty ilmaa otsikon ja tekstin väliin */
   margin-bottom: 2.5rem;
+}
+
+/* KORJAUS 6.11.2025: Parempi kontrasti tummalla teemalla */
+[data-theme="dark"] .hero-subtitle {
+  color: #cbd5e1; /* Paljon vaaleampi ja luettavampi harmaa */
+}
+
+/* KORJAUS 6.11.2025: Lisätty puuttuvat välit */
+.hero .hero-subtitle + p {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-top: 2rem; /* Lisää ilmaa alaotsikon jälkeen */
+  margin-bottom: 1.5rem; /* Lisää ilmaa nappien yläpuolelle */
+  color: var(--text-dark);
 }
 
 .hero-cta-buttons {
@@ -272,6 +286,13 @@ body:not(.service-page-landing) .hero-subtitle {
   flex-wrap: wrap;
   margin-left: auto;
   margin-right: auto;
+}
+
+/* KORJAUS 6.11.2025: Lisätty puuttuvat välit */
+.hero .hero-cta-buttons + p {
+  margin-top: 1.5rem; /* Lisää ilmaa nappien alapuolelle */
+  font-size: 0.95rem;
+  color: var(--text-light);
 }
 
 .cta-button {
@@ -1505,11 +1526,12 @@ footer a:hover {
   color: #475569;
 }
 /* --- LISÄYS: HEADERIN CTA-PAINIKE --- */
+/* KORJAUS 6.11.2025: Ilmavampi pehmuste */
 .header-cta {
   display: none; 
   background: var(--accent);
   color: white;
-  padding: 0.6rem 1rem;
+  padding: 0.7rem 1.2rem; /* Korjattu 0.6rem 1.rem -> 0.7rem 1.2rem */
   border-radius: 8px;
   font-weight: 600;
   text-decoration: none;
@@ -1517,9 +1539,11 @@ footer a:hover {
   transition: background 0.2s ease;
 }
 
+/* KORJAUS 6.11.2025: Poistettu alleviivaus hover-tilasta */
 .header-cta:hover {
   background: #0284c7;
   color: white;
+  text-decoration: none; /* Lisätty tämä */
 }
 
 /* MUUTA TÄMÄ NÄIN: */
@@ -1612,6 +1636,7 @@ a:hover {
   padding-bottom: 60px;
 }
 
+/* Hinnaston ALV-teksti */
 #vat-info-text {
   font-size: 0.9rem;
   color: var(--text-light);
@@ -1619,6 +1644,15 @@ a:hover {
   margin-bottom: 2rem;
   font-style: italic;
 }
+
+/* Hinnaston minimiveloitus-teksti */
+.price-card p:nth-of-type(3) {
+  font-weight: 600;
+  margin-top: -1rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-dark);
+}
+
 
 .business-cta-block {
   margin-top: 2.5rem;
@@ -1677,7 +1711,7 @@ a:hover {
 .payment-section .payment-methods {
 display: flex;
 justify-content: center;
-align-items: flex-start; /* MUUTETTU TÄHÄN */
+align-items: flex-start;
 gap: 50px;
 flex-wrap: wrap;
 }
@@ -1693,9 +1727,14 @@ flex-wrap: wrap;
 }
 
 .payment-methods img {
-height: 3.9rem; /* MUUTETTU (vastaa .icon-home kokoa) */
-margin-top: 0; /* POISTETTU (turha nyt) */
-filter: drop-shadow(0 1px 3px rgba(0,0,0,0.25));
+  height: 3.9rem;
+  margin-top: 0;
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,0.25));
+}
+
+.payment-methods a {
+  text-decoration: none;
+  color: inherit;
 }
 
 .keyword-section {
@@ -1711,8 +1750,8 @@ filter: drop-shadow(0 1px 3px rgba(0,0,0,0.25));
   line-height: 1.6;
 }
 .keyword-section p a:hover {
-  color: var(--accent); /* Muuttuu korostusväriksi hiirellä */
-  text-decoration: underline; /* Lisää viivan hiirellä */
+  color: var(--accent);
+  text-decoration: underline;
 }
 
 /* --- Palvelusivut (puhelinapu.html, yrityksille.html, jne.) --- */
@@ -1744,7 +1783,6 @@ filter: drop-shadow(0 1px 3px rgba(0,0,0,0.25));
 
 .cta-section .price-sub {
   font-size: 0.9rem;
-  /* Väri periytyy vanhemmalta */
 }
 
 /* Yrityssivun poikkeava väri */
@@ -1857,4 +1895,92 @@ filter: drop-shadow(0 1px 3px rgba(0,0,0,0.25));
     justify-content: space-between;
     text-align: left;
   }
+}
+/* =========================================================
+   OHJESIVUN VAIHTOPAINIKKEET (PLATFORM TOGGLE)
+========================================================= */
+.platform-toggle {
+  display: flex;
+  border: 1px solid var(--toggle-border);
+  border-radius: 8px;
+  overflow: hidden;
+  max-width: 380px;
+  margin: 1.5rem auto 0;
+}
+
+.platform-toggle label {
+  flex: 1;
+  cursor: pointer;
+  position: relative;
+}
+
+.platform-toggle input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+}
+
+.platform-toggle span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* Lisätty tilaa ikonille */
+  padding: 12px 10px; /* Hieman isompi pehmuste */
+  text-align: center;
+  font-weight: 500;
+  font-size: 1rem; /* Hieman isompi fontti */
+  transition: all 0.2s;
+}
+
+/* Oletusvärit */
+.platform-toggle label:first-child span {
+  background: #f0fdf4; /* Vaalea vihreä */
+  color: #166534; /* Tumma vihreä */
+}
+.platform-toggle label:last-child span {
+  background: #f8fafc; /* Vaalea harmaa */
+  color: #334155; /* Tumma harmaa */
+}
+
+/* Hover-tila */
+.platform-toggle label:hover span {
+  background: #e0f2fe !important;
+}
+
+/* Valittu-tila (Android) */
+#toggle-android:checked + span {
+  background: #22c55e !important; /* Kirkas vihreä */
+  color: white !important;
+  font-weight: 600;
+}
+
+/* Valittu-tila (iPhone) */
+#toggle-iphone:checked + span {
+  background: #64748b !important; /* Keski-harmaa */
+  color: white !important;
+  font-weight: 600;
+}
+
+/* Tumman teeman värit */
+[data-theme="dark"] .platform-toggle label:first-child span {
+  background: #14532d;
+  color: #a7f3d0;
+}
+[data-theme="dark"] .platform-toggle label:last-child span {
+  background: #334155;
+  color: #e2e8f0;
+}
+[data-theme="dark"] .platform-toggle label:hover span {
+  background: #1f2937 !important;
+}
+
+/* Sisältölaatikoiden hallinta */
+.platform-content {
+  display: none; /* Piilotettu oletuksena */
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.platform-content.active {
+  display: block; /* Tulee näkyviin */
+  opacity: 1;
 }
