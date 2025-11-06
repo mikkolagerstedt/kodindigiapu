@@ -63,7 +63,7 @@ body {
   font-size: 18px; 
   padding-top: 76px;
   transition: all 0.3s ease; 
-  min-height: 100dvh;
+  min-height: 100dvh; /* KORJATTU: Käytetään dynaamista korkeutta */
   display: flex;
   flex-direction: column;
 }
@@ -893,7 +893,8 @@ body:not(.service-page-landing) .hero-subtitle {
 @media (max-width: 768px) {
   body {
     padding-top: 70px;
-    padding-bottom: 70px;
+    /* KORJATTU: Käytetään dynaamista alapaddingia CTA-palkille ja iOS-turva-alueelle */
+    padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 60px); /* 60px on arvio CTA:n korkeudesta */
   }
   .section {
     padding: 60px 0;
@@ -929,12 +930,14 @@ body:not(.service-page-landing) .hero-subtitle {
   .mobile-sticky-cta {
     display: flex;
     position: fixed;
-    bottom: 0;
+    /* KORJATTU: Ottaa huomioon iOS-turva-alueen "notchin" */
+    bottom: env(safe-area-inset-bottom, 0px);
     left: 0;
     width: 100%;
     background: var(--header-bg);
     box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
     z-index: 1001;
+    transition: bottom 0.3s ease; /* LISÄTTY: Pehmeä siirtymä */
   }
   .sticky-btn {
     flex: 1;
@@ -1024,8 +1027,8 @@ body:not(.service-page-landing) .hero-subtitle {
 
 @media (max-width: 768px) {
   #toTop {
-    bottom: 80px;
-    right: 16px;
+    /* KORJATTU: Nostettu pysymään CTA-palkin yläpuolella */
+    bottom: calc(env(safe-area-inset-bottom, 0px) + 70px); /* 60px CTA + 10px marginaali */
   }
 }
 
@@ -1897,9 +1900,15 @@ flex-wrap: wrap;
   }
 }
 
+/* KORJATTU: Lisätty sääntö siirtämään CTA-palkkia, kun evästebanneri on auki */
+body.cookie-banner-is-visible .mobile-sticky-cta {
+  /* Säädä 80px bannerin todellisen korkeuden mukaan */
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 80px); 
+}
+
+
 /* =========================================================
    OHJESIVUN VAIHTOPAINIKKEET (PLATFORM TOGGLE)
-   KORJATTU: Siirretty @media-lohkon ulkopuolelle
 ========================================================= */
 .platform-toggle {
   display: flex;
