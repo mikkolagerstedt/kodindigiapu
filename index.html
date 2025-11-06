@@ -56,7 +56,7 @@
 	  'ad_storage': 'denied',
 	  'ad_user_data': 'denied',
 	  'ad_personalization': 'denied',
-	  'analytics_storage': 'granted',
+	  'analytics_storage': 'denied', /* TÄMÄ ON NYT OIKEIN 'denied' */
 	  'functionality_storage': 'granted',
 	  'security_storage': 'granted',
 	  'wait_for_update': 500
@@ -109,37 +109,25 @@
 
   <header>
 	  <div class="container nav">
-		<a href="/" class="logo">
+		<a href="index.html" class="logo">
 		  <img src="/favicon-96x96.png" alt="Kodin Digiapu logo" class="logo-icon" width="96" height="96">
 		  <span>Kodin Digiapu</span>
 		</a>
 		<div class="header-controls">
 		  <button class="theme-toggle" id="themeToggle" aria-label="Vaihda tumma/vaalea teema">
-		  <svg class="icon-sun" viewBox="0 0 24 24">
-			<circle cx="12" cy="12" r="5" />
-			<line x1="12" y1="1" x2="12" y2="3" />
-			<line x1="12" y1="21" x2="12" y2="23" />
-			<line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-			<line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-			<line x1="1" y1="12" x2="3" y2="12" />
-			<line x1="21" y1="12" x2="23" y2="12" />
-			<line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-			<line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
-		  </svg>
-		  <svg class="icon-moon" viewBox="0 0 24 24">
-			<path d="M21 12.79A9 9 0 0 1 11.21 3 9 9 0 1 0 21 12.79z"></path>
-		  </svg>
+		  <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5" /><line x1="12" y1="1" x2="12" y2="3" /><line x1="12" y1="21" x2="12" y2="23" /><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" /><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" /><line x1="1" y1="12" x2="3" y2="12" /><line x1="21" y1="12" x2="23" y2="12" /><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" /><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" /></svg>
+		  <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 0 1 11.21 3 9 9 0 1 0 21 12.79z"></path></svg>
 		  </button>
 		  <a href="tel:+358405724113" class="header-cta">Soita 040 572 4113</a>
 		  <button class="nav-toggle" aria-label="Avaa valikko" aria-expanded="false"><i class="fas fa-bars"></i></button>
 		</div>
 		<nav>
 		  <ul class="nav-links">
-			<li><a href="/#palvelut">Palvelut</a></li>
-			<li><a href="/#hinnat">Hinnat</a></li>
-			<li><a href="/#luottamus">Asiakkaat</a></li>
-			<li><a href="/#ukk">Usein kysyttyä</a></li>
-			<li><a href="/#yhteys">Yhteys</a></li>
+			<li><a href="#palvelut">Palvelut</a></li>
+			<li><a href="#hinnat">Hinnat</a></li>
+			<li><a href="#luottamus">Asiakkaat</a></li>
+			<li><a href="#ukk">Usein kysyttyä</a></li>
+            <li><a href="ohjeet.html">Ohjeet</a></li> <li><a href="#yhteys">Yhteys</a></li>
 		  </ul>
 		</nav>
 	  </div>
@@ -152,23 +140,25 @@
         <h1 class="hero-title">Jumittaako tietokone, puhelin tai internet-yhteys?</h1>
         
         <p class="hero-subtitle">
-		  Hei, olen Mikko - paikallinen tekniikka-apusi Järvenpään, Tuusulan ja Keravan alueella.
-		  Tulen auttamaan sinua suoraan kotiisi.
+		  Hei, olen Mikko – paikallinen asiantuntijasi Järvenpään, Tuusulan ja Keravan alueella.
+		  Tulen auttamaan sinua rauhallisesti ja luotettavasti suoraan kotiisi.
          </p>
 
         <p>
-          Yhteydenotto ja tilanteen kartoitus on aina maksutonta. <br>
-		  
-        </p>
+          Yhteydenotto ja tilanteen kartoitus on aina maksutonta.
+        </p> 
         
         <div class="hero-cta-buttons">
           <a href="tel:+358405724113" class="cta-button primary"><i class="fas fa-phone-alt"></i> Soita 040 572 4113</a>
           <a href="https://wa.me/358405724113" target="_blank" rel="noopener" class="cta-button whatsapp" aria-label="Lähetä viesti WhatsAppilla">
-            <i class="fab fa-whatsapp"></i> Lähetä WhatsApp-viesti
+            <i class="fab fa-whatsapp"></i> WhatsApp
           </a>
         </div>
-		<p>Soita tai lähetä viesti. Autan mielelläni pienissä ja isommissakin ongelmissa.</p>
+		
       </div>
+      <p>
+		  Soita tai lähetä viesti. Autan mielelläni pienissä tai isommissakin ongelmissa.
+      </p>
     </section>
 
     <section class="section help-section">
@@ -218,7 +208,7 @@
         <div class="services-grid">
             
             <div class="service-card">
-              <a href="/uusilaite.html" class="service-link">
+              <a href="uusilaite.html" class="service-link">
                 <i class="fas fa-desktop icon"></i>
                 <h3>Kodin laitteet</h3>
                 <p>Saat uudet ja vanhat laitteesi – tietokoneet, televisiot, tulostimet – käyttövalmiiksi ja toimimaan saumattomasti yhdessä.</p>
@@ -227,7 +217,7 @@
             </div>
 
             <div class="service-card">
-              <a href="/puhelinapu.html" class="service-link">
+              <a href="puhelinapu.html" class="service-link">
                 <i class="fas fa-mobile-alt icon"></i>
                 <h3>Puhelin ja tabletti</h3>
                 <p>Opastan laitteen käytössä, sovelluksissa, sähköpostissa ja tietojen varmuuskopioinnissa selkeästi ja ilman kiirettä.</p>
@@ -236,7 +226,7 @@
             </div>
 
 			<div class="service-card">
-			  <a href="/virustorjunta.html" class="service-link">
+              <a href="virustorjunta.html" class="service-link">
 				<i class="fas fa-shield-alt icon"></i>
 				<h3>Tietoturva ja virustorjunta</h3>
 				<p>Virusten ja haittaohjelmien poisto, tietoturva-asetusten tarkistus sekä luotettava virustorjunta.</p>
@@ -245,7 +235,7 @@
 			</div>            
 
             <div class="service-card">
-              <a href="/opastus.html" class="service-link">
+              <a href="opastus.html" class="service-link">
                 <i class="fas fa-user-friends icon"></i>
                 <h3>Henkilökohtainen opastus</h3>
                 <p>Käymme asiat läpi rauhassa, ja saat halutessasi mukaan selkeät muistiinpanot jatkoa varten.</p>
@@ -258,7 +248,7 @@
           <i class="fas fa-briefcase icon"></i>
           <h3>Oletko yrittäjä?</h3>
           <p>Tarjoan nopeaa apua pienyritysten laite-, verkko- ja sähköpostiongelmiin.</p>
-          <a href="/yrityksille.html" class="cta-button primary">Katso palvelut yrityksille</a>
+          <a href="yrityksille.html" class="cta-button primary">Katso palvelut yrityksille</a>
         </div>
         
       </div>
@@ -314,7 +304,7 @@
 		<div class="services-grid">
 
 		  <div class="service-card highlight">
-            <a href="/uusilaite.html" class="service-link">
+            <a href="uusilaite.html" class="service-link">
 			  <i class="fas fa-laptop-code icon"></i>
 			  <h3>Tietokone käyttökuntoon</h3>
 			  <p>Uuden tietokoneen käyttöönotto, asetukset ja virustorjunnan asennus. Laite käyttövalmiiksi nopeasti ja turvallisesti.</p>
@@ -508,9 +498,9 @@
       <div class="container">
         <p>
           <a href="#palvelut">Tietokoneapu</a> | 
-          <a href="/virustorjunta.html">Virustorjunta ja haittaohjelmien poisto</a> | 
-          <a href="/uusilaite.html">Uusien laitteiden käyttöönotto</a> | 
-          <a href="/puhelinapu.html">Kännykän käyttö ja opastus</a>
+          <a href="virustorjunta.html">Virustorjunta ja haittaohjelmien poisto</a> | 
+          <a href="uusilaite.html">Uusien laitteiden käyttöönotto</a> | 
+          <a href="puhelinapu.html">Kännykän käyttö ja opastus</a>
         </p>
       </div>
     </section>
@@ -522,9 +512,9 @@
       <p>Puhelin: <a href="tel:+358405724113">040 572 4113</a> · Sähköposti: <a href="mailto:mikko@kodindigiapu.fi?subject=Tietokoneapu%20Kodin%20Digiavusta">mikko@kodindigiapu.fi</a></p>
       <p>Aukiolo (puhelin): ma–pe 10–17 · Y-tunnus 2272247-7</p>
       <p>
-        <a href="/sitemap.xml">Sivukartta</a> · 
-        <a href="/tietosuoja.html">Tietosuojaseloste</a> · 
-        <a href="/evasteet.html">Evästekäytännöt</a>
+        <a href="sitemap.xml">Sivukartta</a> · 
+        <a href="tietosuoja.html">Tietosuojaseloste</a> · 
+        <a href="evasteet.html">Evästekäytännöt</a>
       </p>
     </div>
   </footer>
@@ -583,7 +573,7 @@
   </script>
 	<div id="cookie-consent-banner" class="cookie-banner">
   <div class="cookie-banner-content">
-    <p>Käytämme evästeitä ymmärtääksemme, miten sivustoamme käytetään. Hyväksymällä annat luvan analytiikkaevästeiden käyttöön. <a href="/evasteet.html" class="cookie-link">Lue lisää</a></p>
+    <p>Käytämme evästeitä ymmärtääksemme, miten sivustoamme käytetään. Hyväksymällä annat luvan analytiikkaevästeiden käyttöön. <a href="evasteet.html" class="cookie-link">Lue lisää</a></p>
     <div class="cookie-banner-buttons">
       <button id="btn-consent-deny" class="cookie-btn deny">Hylkää</button>
       <button id="btn-consent-accept" class="cookie-btn accept">Hyväksy</button>

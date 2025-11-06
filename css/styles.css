@@ -1139,7 +1139,6 @@ body:not(.service-page-landing) .hero-subtitle {
 .help-step.is-linkable i, 
 .help-step.is-linkable div {
   position: relative;
-  z-index: 2;
 }
 
 .help-step.is-linkable:hover {
