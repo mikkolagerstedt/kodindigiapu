@@ -1896,8 +1896,10 @@ flex-wrap: wrap;
     text-align: left;
   }
 }
+
 /* =========================================================
    OHJESIVUN VAIHTOPAINIKKEET (PLATFORM TOGGLE)
+   KORJATTU: Siirretty @media-lohkon ulkopuolelle
 ========================================================= */
 .platform-toggle {
   display: flex;
