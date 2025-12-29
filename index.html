@@ -15,15 +15,53 @@
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fi_FI">
 
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
   <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-  
+  <link rel="manifest" href="/site.webmanifest">
   <meta name="theme-color" content="#ffffff">
 
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link rel="stylesheet" href="/css/styles.css">
 
+  <style>
+    /* Nämä tyylit varmistavat Hero-osion asettelun tässä tiedostossa */
+    .hero-container-flex {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        text-align: left;
+    }
+    
+    .hero-profile-img {
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        object-fit: cover;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        flex-shrink: 0;
+    }
+
+    /* Pakotetaan 3 saraketta palveluihin isolla ruudulla */
+    @media (min-width: 992px) {
+        .services-grid {
+            grid-template-columns: repeat(3, 1fr) !important;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .hero-container-flex {
+            flex-direction: column;
+            text-align: center;
+            gap: 20px;
+        }
+        .hero-title { text-align: center; }
+        .hero-cta-buttons { justify-content: center; }
+    }
+  </style>
+  
   <script>
     (function() {
       const savedTheme = localStorage.getItem('theme') ||
@@ -51,7 +89,7 @@
   <header>
       <div class="container nav">
         <a href="index.html" class="logo">
-          <img src="/favicon-96x96.png" alt="Kodin Digiapu logo" class="logo-icon" width="64" height="64">
+          <img src="/favicon-96x96.png" alt="Kodin Digiapu logo" class="logo-icon" width="96" height="96">
           <span>Kodin Digiapu</span>
         </a>
         <div class="header-controls">
@@ -111,7 +149,7 @@
             <i class="fas fa-phone-alt" aria-hidden="true"></i>
             <div>
               <h3>1. Ota yhteyttä</h3>
-              <p>Soita tai laita viesti. Kerro omin sanoin, mikä mättää. En kysele vaikeita termejä.</p>
+              <p>Soita tai lähetä viesti. Kerro omin sanoin, mikä mättää. En kysele vaikeita termejä.</p>
             </div>
           </div>
           
@@ -218,7 +256,7 @@
             <p>Minimiveloitus on 30€ (puoli tuntia). Järvenpään alueella ei ole matkakuluja. <br>Maksutavat: Lasku, käteinen tai MobilePay.</p>
           </div>
           <div id="explanation-with-deduction" class="explanation-box" style="display: none;">
-            <p>Arvioitu hinta verovähennyksen jälkeen (noin 39 €/h). Saat työstä 35 %:n kotitalousvähennyksen omavastuun ylittyessä.</p>
+            <p>Arvioitu hinta verovähennyksen jälkeen (noin 39 €/h). Saat työstä 60 %:n kotitalousvähennyksen omavastuun ylittyessä.</p>
           </div>
         </div>
       </div>
@@ -315,8 +353,8 @@
             <h3>Soita tai lähetä viesti</h3>
             <p>Vastaan puhelimeen arkisin klo 10–18. Jos olen asiakaskäynnillä, soitan sinulle takaisin mahdollisimman pian.</p>
             
-            <p class="contact-method"><i class="fas fa-phone-alt icon"></i><strong>Puhelin:</strong> <a href="tel:+358405724113">040 572 4113</a></p>
-            <p class="contact-method"><i class="fas fa-envelope icon"></i><strong>Sähköposti:</strong> <a href="mailto:mikko@kodindigiapu.fi">mikko@kodindigiapu.fi</a></p>
+            <p class="contact-row"><i class="fas fa-phone-alt icon"></i><strong>Puhelin:</strong> <a href="tel:+358405724113">040 572 4113</a></p>
+            <p class="contact-row"><i class="fas fa-envelope icon"></i><strong>Sähköposti:</strong> <a href="mailto:mikko@kodindigiapu.fi">mikko@kodindigiapu.fi</a></p>
           </div>
           
           <form action="https://formspree.io/f/mnngjdyr" method="POST" class="contact-form">
