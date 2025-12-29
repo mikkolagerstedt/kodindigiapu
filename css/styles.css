@@ -63,7 +63,6 @@ body {
   font-size: 18px; 
   padding-top: 76px;
   transition: all 0.3s ease; 
-  /* KORJATTU: Käytetään dynaamista korkeutta */
   min-height: 100dvh; 
   display: flex;
   flex-direction: column;
@@ -1714,7 +1713,7 @@ a:hover {
   margin-bottom: 1.8rem;
 }
 
-.payment-section .payment-methods {
+.payment-methods {
 display: flex;
 justify-content: center;
 align-items: flex-start;
@@ -1732,11 +1731,19 @@ flex-wrap: wrap;
   margin-top: 6px;
 }
 
-.payment-methods img {
-  height: 3.9rem;
-  margin-top: 0;
-  filter: drop-shadow(0 1px 3px rgba(0,0,0,0.25));
+/* --- PAYMENT METHODS: MOBILEPAY KORJAUS --- */
+.icon-home, .icon-invoice, .icon-mobilepay {
+  font-size: 3rem; /* Suurempi ikoni (vastaa aiempaa 60px kuvaa) */
+  margin-bottom: 10px;
+  display: block;
+  height: 60px; /* Vakiokorkeus */
+  line-height: 60px; /* Keskittää ikonin pystysuunnassa */
+  color: var(--text-dark); /* Oletusväri */
 }
+
+/* Ikonien erikoisvärit */
+.icon-invoice { color: var(--success); }
+.icon-mobilepay { color: #5a78ff; } /* MobilePayn sininen */
 
 .payment-methods a {
   text-decoration: none;
@@ -1997,4 +2004,14 @@ body.cookie-banner-is-visible .mobile-sticky-cta {
 .platform-content.active {
   display: block; /* Tulee näkyviin */
   opacity: 1;
+}
+
+/* --- YHTEYDENOTTO-OSION LAAJENNUS --- */
+.contact-profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
