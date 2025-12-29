@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <title>Tietokoneapu Järvenpää, Kerava & Tuusula | Kodin Digiapu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-  <meta name="description" content="Ystävällistä tietokoneapua ja digitukea kotiisi Järvenpään, Keravan ja Tuusulan alueella. Apua viruksiin, asennuksiin ja nettiongelmiin. Soita!">
+  <meta name="description" content="Ystävällistä tietokoneapua kotiisi Järvenpään, Keravan ja Tuusulan alueella. Apua viruksiin, asennuksiin ja nettiongelmiin. Soita!">
   <link rel="canonical" href="https://www.kodindigiapu.fi/">
   <meta name="author" content="Mikko Lagerstedt">
 
@@ -29,28 +29,42 @@
   <link rel="stylesheet" href="/css/styles.css">
 
   <style>
-    /* Pieni lisätyyli kuvan asettelulle tässä versiossa, jotta se on varmasti pyöreä ja vasemmalla */
+    /* Hero-osion asettelu */
     .hero-container-flex {
         display: flex;
         align-items: center;
-        gap: 30px;
+        gap: 40px;
         text-align: left;
     }
+    
+    /* Kuvan tyyli - ei reunusta, pyöreä */
     .hero-profile-img {
         width: 160px;
         height: 160px;
         border-radius: 50%;
         object-fit: cover;
-        border: 4px solid white;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        flex-shrink: 0; /* Estää kuvan litistymisen mobiilissa */
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* Kevyt varjo nostaa kuvan irti taustasta */
+        flex-shrink: 0;
     }
+
+    /* Keskittämis-luokka ilmaiselle yhteydenotolle */
+    .center-text {
+        text-align: center;
+        width: 100%;
+        margin-top: 20px;
+        font-weight: 500;
+        color: #4b5563;
+    }
+
+    /* Mobiiliresponsiivisuus hero-osiolle */
     @media (max-width: 768px) {
         .hero-container-flex {
             flex-direction: column;
             text-align: center;
+            gap: 20px;
         }
         .hero-title { text-align: center; }
+        .hero-cta-buttons { justify-content: center; }
     }
   </style>
   
@@ -117,12 +131,13 @@
         <img src="/images/mikko-digiapu.webp" alt="Mikko Lagerstedt" class="hero-profile-img">
         
         <div class="hero-text-content">
-            <h1 class="hero-title">Tietokone, puhelin tai netti jumissa?</h1>
+            <h1 class="hero-title">Onko tietokone jumissa tai netti pätkii?</h1>
             
             <p class="hero-subtitle">
-              Hei, olen Mikko. Tulen kotiisi laittamaan laitteet kuntoon Järvenpään, Tuusulan ja Keravan alueella. 
+              Hei, olen Mikko. Tulen kotiisi laittamaan laitteet kuntoon Järvenpään, Tuusulan ja Keravan alueella.
               <br><br>
-              <strong>Soita rohkeasti.</strong> Moni miettii, kehtaako soittaa "pienestä" asiasta. Kyllä kehtaa. Minulle mikään ongelma ei ole liian yksinkertainen, ja ammattilainen hoitaa sen hetkessä.
+              <strong>Älä paini ongelman kanssa yksin.</strong> <br>
+              Moni miettii, kehtaako "pienestä" asiasta soittaa. Kyllä kehtaa. Minulle nämä ovat arkipäivää, ja hoidan ne kuntoon nopeasti ja ystävällisesti.
              </p>
 
             <div class="hero-cta-buttons">
@@ -131,11 +146,13 @@
                 <i class="fab fa-whatsapp"></i> WhatsApp-viesti
               </a>
             </div>
-            <p style="font-size: 0.9rem; margin-top: 15px; opacity: 0.9;">
-                Yhteydenotto on maksuton. Kerron heti, voinko auttaa.
-            </p>
+            
         </div>
+        
       </div>
+      <p class="center-text">
+        Yhteydenotto on maksuton. Kerron heti, voinko auttaa.
+      </p>
     </section>
 
     <section class="section help-section">
@@ -148,7 +165,7 @@
             <i class="fas fa-phone-alt" aria-hidden="true"></i>
             <div>
               <h3>1. Ota yhteyttä</h3>
-              <p>Soita tai laita viesti. Kerro lyhyesti mikä mättää. Ei tarvitse tietää teknisiä termejä.</p>
+              <p>Soita tai laita viesti. Kerro omin sanoin, mikä mättää. En kysele vaikeita termejä.</p>
             </div>
           </div>
           
@@ -157,7 +174,7 @@
             <i class="fas fa-home" aria-hidden="true"></i>
             <div>
               <h3>2. Tulen käymään</h3>
-              <p>Tulen kotiisi sovittuna aikana. Järvenpään alueella en veloita matkakuluja.</p>
+              <p>Sovitaan aika ja tulen kotiisi. Järvenpään alueella en veloita matkakuluja.</p>
             </div>
           </div>
 
@@ -166,7 +183,7 @@
             <i class="fas fa-check-circle" aria-hidden="true"></i>
             <div>
               <h3>3. Asia kuntoon</h3>
-              <p>Korjaan ongelman ja opastan, miten vältät sen jatkossa. Maksat vasta kun työ on tehty.</p>
+              <p>Laitan laitteet toimimaan. Maksat vasta, kun työ on tehty.</p>
             </div>
           </div>
         </div>
@@ -176,7 +193,7 @@
     <section id="palvelut" class="section">
       <div class="container">
         <h2 class="section-title">Missä tarvitset apua?</h2>
-        <p class="section-subtitle">Tässä ovat yleisimmät asiat, joiden takia ihmiset soittavat minulle.</p>
+        <p class="section-subtitle">Tässä ovat yleisimmät asiat, joiden takia minulle soitetaan.</p>
 
         <div class="services-grid">
             
@@ -184,7 +201,7 @@
               <a href="virustorjunta.html" class="service-link">
                 <i class="fas fa-shield-virus icon"></i>
                 <h3>Haittaohjelmat & Virukset</h3>
-                <p>Käyttäytyykö kone oudosti? Tuleeko ruudulle outoja ilmoituksia? Puhdistan koneen ja varmistan tietoturvasi.</p>
+                <p>Käyttäytyykö kone oudosti tai hidastelee? Puhdistan koneen ja varmistan, että tietosi ovat turvassa.</p>
                 <span class="read-more">Lue lisää →</span>
               </a>
             </div>
@@ -193,7 +210,7 @@
               <a href="uusilaite.html" class="service-link">
                 <i class="fas fa-tools icon"></i>
                 <h3>Tietokoneen asennus</h3>
-                <p>Uuden tietokoneen käyttöönotto tai koneen kasaus osista. Siirrän myös tiedostot vanhasta koneesta uuteen.</p>
+                <p>Uusi kone paketissa tai osina? Kasaamme koneen, asennamme Windowsin ja siirrämme tiedostot vanhasta uuteen.</p>
                 <span class="read-more">Lue lisää →</span>
               </a>
             </div>
@@ -202,7 +219,7 @@
               <a href="miten-varmuuskopioin-tietokoneen-opas.html" class="service-link">
                 <i class="fas fa-cloud-upload-alt icon"></i>
                 <h3>Varmuuskopiointi</h3>
-                <p>Pelastetaan tärkeät valokuvat ja tiedostot talteen pilveen tai ulkoiselle levylle ennen kuin laite hajoaa.</p>
+                <p>Pelastetaan tärkeät valokuvat ja tiedostot talteen pilveen tai ulkoiselle levylle ennen kuin laite hajoaa lopullisesti.</p>
                 <span class="read-more">Lue lisää →</span>
               </a>
             </div>
@@ -210,8 +227,8 @@
             <div class="service-card">
               <a href="miksi-wifi-ei-toimi-opas.html" class="service-link">
                 <i class="fas fa-wifi icon"></i>
-                <h3>Internet & Verkko-ongelmat</h3>
-                <p>Pätkiikö netti tai onko Wi-Fi hidas? Tulen paikan päälle mittaamaan ja korjaamaan yhteydet.</p>
+                <h3>Internet & Wifi-ongelmat</h3>
+                <p>Pätkiikö netti tai onko yhteys hidas? Tulen paikan päälle mittaamaan verkon ja korjaan yhteydet.</p>
                 <span class="read-more">Lue lisää →</span>
               </a>
             </div>
@@ -220,16 +237,16 @@
               <a href="puhelinapu.html" class="service-link">
                 <i class="fas fa-mobile-alt icon"></i>
                 <h3>Puhelimet & Tabletit</h3>
-                <p>Uuden puhelimen käyttöönotto, tietojen siirto ja käytön opastus rauhallisesti.</p>
+                <p>Uuden puhelimen käyttöönotto, tietojen siirto ja käytön rauhallinen opastus.</p>
                 <span class="read-more">Lue lisää →</span>
               </a>
             </div>
 
              <div class="service-card">
-              <a href="yrityksille.html" class="service-link">
-                <i class="fas fa-briefcase icon"></i>
-                <h3>Yrityksille</h3>
-                <p>Nopea IT-tuki pienyrityksille ja toiminimiyrittäjille. Sähköpostit, kotisivut ja laitteet.</p>
+              <a href="opastus.html" class="service-link">
+                <i class="fas fa-hands-helping icon"></i>
+                <h3>Henkilökohtainen opastus</h3>
+                <p>Käydään rauhassa läpi laitteen käyttöä. Opit tekemään asiat itse ja turvallisesti.</p>
                 <span class="read-more">Lue lisää →</span>
               </a>
             </div>
@@ -252,7 +269,7 @@
           </div>
 
           <div id="explanation-without-deduction" class="explanation-box">
-            <p>Minimiveloitus on 30€ (puoli tuntia). Järvenpään alueella ei ole matkakuluja. <br>Maksutavat: Kortti, käteinen, MobilePay tai lasku.</p>
+            <p>Minimiveloitus on 30€ (puoli tuntia). Järvenpään alueella ei ole matkakuluja. <br>Maksutavat: Lasku, käteinen tai MobilePay.</p>
           </div>
           <div id="explanation-with-deduction" class="explanation-box" style="display: none;">
             <p>Arvioitu hinta verovähennyksen jälkeen (noin 39 €/h). Saat työstä 35 %:n kotitalousvähennyksen omavastuun ylittyessä.</p>
@@ -322,7 +339,7 @@
               <i class="fas fa-chevron-down faq-icon"></i>
             </summary>
             <div class="faq-answer">
-              <p>Voit maksaa paikan päällä kortilla, käteisellä tai MobilePaylla. Voin myös lähettää laskun sähköpostitse tai paperisena.</p>
+              <p>Voit maksaa laskulla, käteisellä tai MobilePaylla. Laskun voin lähettää sähköpostiin tai paperisena.</p>
             </div>
           </details>
         </div>
@@ -368,7 +385,7 @@
         <p>Työ on kotitalousvähennyskelpoista.</p>
         <div class="payment-methods">
           <div><i class="fas fa-home icon-home"></i> Kotitalousvähennys</div>
-          <div><i class="fas fa-file-invoice icon-invoice"></i> Lasku / Kortti</div>
+          <div><i class="fas fa-file-invoice icon-invoice"></i> Lasku / Käteinen</div>
           <div><img src="/images/MobilePay.png" alt="MobilePay" style="height: 24px;"></div>
         </div>
       </div>
