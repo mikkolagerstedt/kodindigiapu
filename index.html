@@ -112,9 +112,11 @@
           <span>Kodin Digiapu</span>
         </a>
         <div class="header-controls">
-          <button class="theme-toggle" id="themeToggle" aria-label="Vaihda teema">
-             <i class="fas fa-adjust"></i>
+          <button class="theme-toggle" id="themeToggle" aria-label="Vaihda tumma/vaalea teema">
+            <svg class="icon-sun" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
           </button>
+
           <a href="tel:+358405724113" class="header-cta">Soita 040 572 4113</a>
           <button class="nav-toggle" aria-label="Avaa valikko"><i class="fas fa-bars"></i></button>
         </div>
@@ -357,7 +359,7 @@
               <i class="fas fa-chevron-down faq-icon"></i>
             </summary>
             <div class="faq-answer">
-              <p>Kotitalousvähennys koskee työn osuutta. Koska laskutuksessani ei ole matkakuluja tai laiteostoja, on koko summa 100 % vähennyskelpoista työtä. Ilmoitat vain maksamasi summan verottajalle, ja vähennys huomioidaan verotuksessasi omavastuun (100 €) jälkeen.</p>
+              <p>Kotitalousvähennys koskee työn osuutta. Vuonna 2025 voit vähentää verotuksessa <strong>60 % työn osuudesta</strong> (omavastuun 100 € ylittyessä). Koska laskutuksessani ei ole matkakuluja tai laiteostoja, on koko summa 100 % vähennyskelpoista työtä.</p>
             </div>
           </details>
         </div>
@@ -422,4 +424,33 @@
   <footer>
     <div class="container">
       <p><strong>Kodin Digiapu</strong> – Järvenpää, Tuusula, Kerava</p>
-      <p>Puhelin: <a href="tel:+358405724113">040
+      <p>Puhelin: <a href="tel:+358405724113">040 572 4113</a> · Sähköposti: <a href="mailto:mikko@kodindigiapu.fi">mikko@kodindigiapu.fi</a></p>
+      <p>Aukiolo: ma–pe 10–18 · Y-tunnus 2272247-7</p>
+      <p>
+        <a href="sitemap.xml">Sivukartta</a> · 
+        <a href="tietosuoja.html">Tietosuoja</a> · 
+        <a href="evasteet.html">Evästeet</a>
+      </p>
+    </div>
+  </footer>
+
+  <div class="mobile-sticky-cta">
+    <a href="tel:+358405724113" class="sticky-btn call"><i class="fas fa-phone-alt"></i> Soita</a>
+    <a href="https://wa.me/358405724113" target="_blank" rel="noopener" class="sticky-btn whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+  </div>
+
+  <button id="toTop" aria-label="Takaisin ylös"><i class="fas fa-chevron-up"></i></button>
+
+  <script defer src="/js/script.js"></script>
+  
+  <div id="cookie-consent-banner" class="cookie-banner">
+  <div class="cookie-banner-content">
+    <p>Käytämme evästeitä parantaaksemme sivustoa. <a href="evasteet.html" class="cookie-link">Lue lisää</a></p>
+    <div class="cookie-banner-buttons">
+      <button id="btn-consent-deny" class="cookie-btn deny">Hylkää</button>
+      <button id="btn-consent-accept" class="cookie-btn accept">Hyväksy</button>
+    </div>
+  </div>
+</div>
+</body>
+</html>
