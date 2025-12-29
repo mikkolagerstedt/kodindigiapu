@@ -772,27 +772,57 @@ header {
   margin-bottom: 1.8rem;
 }
 
+/* --- MAKSUTAVAT (Päivitetty: Yhtenäiset ikonit) --- */
+
 .payment-methods {
   display: flex;
   justify-content: center;
-  align-items: center; /* Tasaa ikonit pystysuunnassa */
-  gap: 40px;
+  align-items: flex-start; /* Tasaa yläreunat */
+  gap: 50px; /* Reilu väli */
   flex-wrap: wrap;
 }
 
-.payment-methods div {
+.payment-methods > div {
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5px;
+  width: 140px; /* Varmistaa että tekstit rivittyvät nätisti jos pitkiä */
 }
 
-.icon-home, .icon-invoice {
-  font-size: 2rem;
-  color: var(--text-dark);
+/* Yleinen tyyli kaikille ikoneille */
+.icon-home, 
+.icon-invoice, 
+.icon-mobilepay {
+  font-size: 3rem; /* Kaikki saman kokoisia */
+  margin-bottom: 10px;
+  display: block;
+  height: 50px; /* Vakio korkeus pitää rivin suorana */
+  line-height: 50px;
 }
-.icon-invoice { color: var(--success); }
+
+/* Värit */
+.icon-home { 
+  color: var(--text-dark); 
+}
+
+.icon-invoice { 
+  color: var(--success); /* Vihreä laskulle */
+}
+
+.icon-mobilepay {
+  color: #5a78ff; /* MobilePayn virallinen sininen */
+  /* Pieni kikka: MobilePay-logo on hieman pyöreämpi, 
+     mutta tämä väri tekee siitä heti tunnistettavan */
+}
+
+.payment-methods p {
+  font-size: 1rem;
+  color: var(--text-light);
+  margin-top: 5px;
+  font-weight: 500;
+  line-height: 1.4;
+}
 
 /* Footer */
 footer {
