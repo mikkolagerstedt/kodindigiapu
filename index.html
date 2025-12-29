@@ -53,17 +53,53 @@
         }
     }
 
-    /* Keskitykset */
+    /* --- YHTEYDENOTTO KORJAUS --- */
+    /* Tämä leventää ja asettaa vierekkäin tietokoneella */
     .contact-wrapper {
-        display: flex;
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: 1fr; /* Mobiilissa allekkain */
+        gap: 40px;
         align-items: center;
+        max-width: 1000px; /* Levennetty, jotta mahtuu vierekkäin */
+        margin: 0 auto;
     }
-    .contact-info, .contact-info p {
+
+    .contact-info {
         text-align: center;
     }
-    .contact-info p {
-        justify-content: center;
+    
+    /* Uusi profiilikuva yhteysosiossa */
+    .contact-profile-img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        border: 3px solid var(--card); /* Pieni reunus erottamaan taustasta */
+    }
+
+    .contact-form {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    /* Työpöytänäkymä (leveä) */
+    @media (min-width: 900px) {
+        .contact-wrapper {
+            grid-template-columns: 1fr 1.2fr; /* Kuva/teksti vasemmalla, lomake oikealla */
+            text-align: left;
+        }
+        .contact-info {
+            text-align: left;
+            padding-right: 20px;
+        }
+        .contact-info p {
+            justify-content: flex-start; /* Tasaa ikonit vasemmalle */
+        }
+        .contact-info h3 {
+            text-align: left;
+        }
     }
 
     @media (max-width: 768px) {
@@ -359,7 +395,7 @@
               <i class="fas fa-chevron-down faq-icon"></i>
             </summary>
             <div class="faq-answer">
-              <p>Kotitalousvähennys koskee työn osuutta. Vuonna 2025 voit vähentää verotuksessa <strong>60 % työn osuudesta</strong> (omavastuun 100 € ylittyessä). Koska laskutuksessani ei ole matkakuluja tai laiteostoja, on koko summa 100 % vähennyskelpoista työtä.</p>
+              <p>Kotitalousvähennys koskee työn osuutta. Koska laskutuksessani ei ole matkakuluja tai laiteostoja, on koko summa 100 % vähennyskelpoista työtä. Ilmoitat vain maksamasi summan verottajalle, ja vähennys huomioidaan verotuksessasi omavastuun (100 €) jälkeen.</p>
             </div>
           </details>
         </div>
@@ -371,6 +407,7 @@
         <h2 class="section-title">Ota yhteyttä</h2>
         <div class="contact-wrapper">
           <div class="contact-info">
+            <img src="/images/mikko-digiapu.webp" alt="Mikko Lagerstedt" class="contact-profile-img">
             <h3>Soita tai lähetä viesti</h3>
             <p>Vastaan puhelimeen arkisin klo 10–18. Jos olen asiakaskäynnillä, soitan sinulle takaisin mahdollisimman pian.</p>
             
@@ -401,24 +438,24 @@
     </section>
 
     <section class="section payment-section">
-  <div class="container">
-    <p>Työ on kotitalousvähennyskelpoista.</p>
-    <div class="payment-methods">
-      <div>
-        <i class="fas fa-home icon-home"></i>
-        <p>Kotitalousvähennys</p>
+      <div class="container">
+        <p>Työ on kotitalousvähennyskelpoista.</p>
+        <div class="payment-methods">
+          <div>
+            <i class="fas fa-home icon-home"></i>
+            <p>Kotitalousvähennys</p>
+          </div>
+          <div>
+            <i class="fas fa-file-invoice icon-invoice"></i>
+            <p>Lasku / Käteinen</p>
+          </div>
+          <div>
+            <i class="fas fa-mobile-screen-button icon-mobilepay"></i>
+            <p>MobilePay</p>
+          </div>
+        </div>
       </div>
-      <div>
-        <i class="fas fa-file-invoice icon-invoice"></i>
-        <p>Lasku / Käteinen</p>
-      </div>
-      <div>
-        <i class="fas fa-mobile-screen-button icon-mobilepay"></i>
-        <p>MobilePay</p>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
   </main>
 
   <footer>
