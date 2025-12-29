@@ -29,7 +29,7 @@
   <link rel="stylesheet" href="/css/styles.css">
 
   <style>
-    /* Hero-osion asettelu */
+    /* Nämä tyylit varmistavat asettelun tässä tiedostossa */
     .hero-container-flex {
         display: flex;
         align-items: center;
@@ -37,26 +37,35 @@
         text-align: left;
     }
     
-    /* Kuvan tyyli - ei reunusta, pyöreä */
     .hero-profile-img {
         width: 160px;
         height: 160px;
         border-radius: 50%;
         object-fit: cover;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* Kevyt varjo nostaa kuvan irti taustasta */
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         flex-shrink: 0;
     }
 
-    /* Keskittämis-luokka ilmaiselle yhteydenotolle */
-    .center-text {
-        text-align: center;
-        width: 100%;
-        margin-top: 20px;
-        font-weight: 500;
-        color: #4b5563;
+    /* Pakotetaan 3 saraketta palveluihin isolla ruudulla */
+    @media (min-width: 992px) {
+        .services-grid {
+            grid-template-columns: repeat(3, 1fr) !important;
+        }
     }
 
-    /* Mobiiliresponsiivisuus hero-osiolle */
+    /* Keskitykset */
+    .contact-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .contact-info, .contact-info p {
+        text-align: center;
+    }
+    .contact-info p {
+        justify-content: center;
+    }
+
     @media (max-width: 768px) {
         .hero-container-flex {
             flex-direction: column;
@@ -148,11 +157,7 @@
             </div>
             
         </div>
-        
       </div>
-      <p class="center-text">
-        Yhteydenotto on maksuton. Kerron heti, voinko auttaa.
-      </p>
     </section>
 
     <section class="section help-section">
