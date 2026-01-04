@@ -7,17 +7,7 @@
   <meta name="description" content="Sivua ei löytynyt. Palaa etusivulle tai ota yhteyttä, niin autan nopeasti." />
   <meta name="robots" content="noindex" />
   <link rel="canonical" href="https://www.kodindigiapu.fi/404.html" />
-  <meta name="author" content="Mikko Lagerstedt" />
 
-  <!-- Open Graph (kevyt, riittävä) -->
-  <meta property="og:title" content="Sivua ei löytynyt | Kodin Digiapu" />
-  <meta property="og:description" content="Sivua ei löytynyt. Palaa etusivulle tai ota yhteyttä, niin autan nopeasti." />
-  <meta property="og:image" content="https://www.kodindigiapu.fi/images/mikko-digiapu.webp" />
-  <meta property="og:url" content="https://www.kodindigiapu.fi/404.html" />
-  <meta property="og:type" content="website" />
-  <meta property="og:locale" content="fi_FI" />
-
-  <!-- Icons + manifest -->
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
@@ -25,28 +15,76 @@
   <link rel="manifest" href="/site.webmanifest" />
   <meta name="theme-color" content="#ffffff" />
 
-  <!-- Styles -->
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <link rel="stylesheet" href="/css/styles.css" />
+
+  <!-- TÄRKEÄ: Tämä style-blokki on index.html:ssä, ei styles.css:ssä. Ilman tätä 404 näyttää “rikkinäiseltä”. -->
+  <style>
+    /* Nämä tyylit varmistavat Hero-osion asettelun tässä tiedostossa */
+    .hero-container-flex {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        text-align: left;
+    }
+
+    .hero-profile-img {
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        object-fit: cover;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        flex-shrink: 0;
+    }
+
+    .hero-text-content {
+        flex: 1;
+    }
+
+    .hero-title {
+        margin: 0 0 14px;
+    }
+
+    .hero-subtitle {
+        margin: 0 0 20px;
+    }
+
+    /* Varmistetaan että 3 korttia pysyy rivissä isoilla näytöillä, kuten etusivulla */
+    @media (min-width: 900px) {
+        .services-grid {
+            grid-template-columns: repeat(3, 1fr) !important;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .hero-container-flex {
+            flex-direction: column;
+            text-align: center;
+            gap: 20px;
+        }
+        .hero-title { text-align: center; }
+        .hero-cta-buttons { justify-content: center; }
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- Header (sama rakenne kuin index.html, mutta linkit viedään etusivulle) -->
   <header>
     <div class="container nav">
-      <a class="logo" href="index.html">
-        <img alt="Kodin Digiapu logo" class="logo-icon" src="/favicon-96x96.png" width="96" height="96" />
+      <a href="/" class="logo">
+        <img src="/favicon-96x96.png" alt="Kodin Digiapu logo" class="logo-icon" width="96" height="96">
         <span>Kodin Digiapu</span>
       </a>
 
       <div class="header-controls">
-        <button id="themeToggle" class="theme-toggle" aria-label="Vaihda teema">
+        <button class="theme-toggle" id="themeToggle" aria-label="Vaihda teema">
           <i class="fas fa-adjust"></i>
         </button>
 
-        <a class="header-cta" href="tel:+358405724113">Soita 040 572 4113</a>
+        <!-- VAIHDA numero jos etusivulla on eri -->
+        <a href="tel:+358405724113" class="header-cta">Soita 040 572 4113</a>
 
         <button class="nav-toggle" aria-label="Avaa valikko">
           <i class="fas fa-bars"></i>
@@ -55,12 +93,12 @@
 
       <nav>
         <ul class="nav-links">
-          <li><a href="index.html#palvelut">Palvelut</a></li>
-          <li><a href="index.html#hinnat">Hinnat</a></li>
-          <li><a href="index.html#luottamus">Asiakkaat</a></li>
-          <li><a href="index.html#ukk">Usein kysyttyä</a></li>
-          <li><a href="ohjeet.html">Ohjeet</a></li>
-          <li><a href="index.html#yhteys">Yhteys</a></li>
+          <li><a href="/#palvelut">Palvelut</a></li>
+          <li><a href="/#hinnat">Hinnat</a></li>
+          <li><a href="/#luottamus">Asiakkaat</a></li>
+          <li><a href="/#ukk">Usein kysyttyä</a></li>
+          <li><a href="/ohjeet.html">Ohjeet</a></li>
+          <li><a href="/#yhteys">Yhteys</a></li>
         </ul>
       </nav>
     </div>
@@ -68,86 +106,83 @@
 
   <main id="main-content">
 
-    <!-- Hero-tyylinen 404 (käyttää samaa visuaalista linjaa kuin etusivu) -->
     <section class="hero">
       <div class="container hero-container-flex">
-        <img
-          alt="Mikko Lagerstedt"
-          class="hero-profile-img"
-          src="/images/mikko-digiapu.webp"
-        />
+        <img src="/images/mikko-digiapu.webp" alt="Mikko Lagerstedt" class="hero-profile-img">
 
         <div class="hero-text-content">
           <h1 class="hero-title">Sivua ei löytynyt</h1>
 
           <p class="hero-subtitle">
             Osoite on voinut muuttua tai linkissä on kirjoitusvirhe.
-            <br /><br />
-            Voit palata etusivulle tai jatkaa ohjeisiin.
-            Jos haluat, voit myös soittaa tai laittaa WhatsApp-viestin, niin katsotaan asia kuntoon.
+            <br><br>
+            Voit palata etusivulle tai avata ohjeet. Jos haluat, voit myös soittaa tai laittaa WhatsApp-viestin, niin katsotaan asia kuntoon.
           </p>
 
           <div class="hero-cta-buttons">
-            <a class="cta-button primary" href="index.html">Etusivulle</a>
-            <a class="cta-button secondary" href="ohjeet.html">Ohjeet</a>
-            <a class="cta-button secondary" href="index.html#yhteys">Ota yhteyttä</a>
-          </div>
+            <a href="/" class="cta-button primary"><i class="fas fa-home"></i> Etusivulle</a>
 
-          <p class="trust-mini" style="margin-top:14px;">
-            Tietoturva käytännössä: en tee muutoksia ilman lupaa ja pysähdyn, jos on riski datan menetyksestä.
-          </p>
+            <a href="/ohjeet.html" class="cta-button secondary">
+              <i class="fas fa-book"></i> Ohjeet
+            </a>
+
+            <!-- VAIHDA numero jos etusivulla on eri -->
+            <a href="tel:+358405724113" class="cta-button secondary"><i class="fas fa-phone-alt"></i> Soita</a>
+
+            <a href="https://wa.me/358405724113" target="_blank" rel="noopener" class="cta-button whatsapp">
+              <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Kevyt “missä mennään” -korttirivi, jotta sivu ei jää tyhjäksi -->
     <section class="services" style="padding-top:0;">
       <div class="container">
         <div class="services-grid">
+
           <div class="service-card">
             <h3>Tarvitsetko apua heti?</h3>
             <p>Soita tai laita WhatsApp. Kerro lyhyesti mitä tapahtui ja millä laitteella.</p>
             <div class="service-actions">
               <a class="service-link" href="tel:+358405724113"><i class="fas fa-phone-alt"></i> Soita</a>
-              <a class="service-link" target="_blank" href="https://wa.me/358405724113"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+              <a class="service-link" target="_blank" rel="noopener" href="https://wa.me/358405724113"><i class="fab fa-whatsapp"></i> WhatsApp</a>
             </div>
           </div>
 
           <div class="service-card">
             <h3>Etsitkö ohjetta?</h3>
             <p>Ohjeet ja vinkit löytyvät omalta sivultaan. Useimmat ongelmat ratkeavat nopeasti.</p>
-            <a class="service-link" href="ohjeet.html"><i class="fas fa-book"></i> Avaa ohjeet</a>
+            <a class="service-link" href="/ohjeet.html"><i class="fas fa-book"></i> Avaa ohjeet</a>
           </div>
 
           <div class="service-card">
             <h3>Palvelualue</h3>
             <p>Järvenpää, Tuusula, Kerava. Kotikäynnit ja etätuki sovitusti.</p>
-            <a class="service-link" href="index.html"><i class="fas fa-house"></i> Takaisin etusivulle</a>
+            <a class="service-link" href="/"><i class="fas fa-house"></i> Takaisin etusivulle</a>
           </div>
+
         </div>
       </div>
     </section>
 
   </main>
 
-  <!-- Footer (sama kuin etusivulla) -->
   <footer>
     <div class="container">
       <p><strong>Kodin Digiapu</strong> – Järvenpää, Tuusula, Kerava</p>
-      <p>Puhelin: <a href="tel:+358405724113">040 572 4113</a> · Sähköposti: <a href="mailto:mikko@kodindigiapu.fi">mikko@kodindigiapu.fi</a></p>
-      <p>Aukiolo: ma–pe 10–18 · Y-tunnus 2272247-7</p>
+      <p>Puhelin: <a href="tel:+358405724113">040 572 4113</a></p>
       <p>
-        <a href="sitemap.xml">Sivukartta</a> ·
-        <a href="tietosuoja.html">Tietosuoja</a> ·
-        <a href="evasteet.html">Evästeet</a>
+        <a href="/sitemap.xml">Sivukartta</a> ·
+        <a href="/tietosuoja.html">Tietosuoja</a> ·
+        <a href="/evasteet.html">Evästeet</a>
       </p>
     </div>
   </footer>
 
-  <!-- Sticky CTA + toTop + cookie banner (sama kuin etusivulla) -->
   <div class="mobile-sticky-cta">
     <a class="sticky-btn call" href="tel:+358405724113"><i class="fas fa-phone-alt"></i> Soita</a>
-    <a class="sticky-btn whatsapp" href="https://wa.me/358405724113" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    <a class="sticky-btn whatsapp" href="https://wa.me/358405724113" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
   </div>
 
   <button id="toTop" aria-label="Takaisin ylös">
@@ -158,7 +193,7 @@
 
   <div class="cookie-banner" id="cookie-consent-banner">
     <div class="cookie-banner-content">
-      <p>Käytämme evästeitä parantaaksemme sivustoa. <a class="cookie-link" href="evasteet.html">Lue lisää</a></p>
+      <p>Käytämme evästeitä parantaaksemme sivustoa. <a class="cookie-link" href="/evasteet.html">Lue lisää</a></p>
       <div class="cookie-banner-buttons">
         <button class="cookie-btn deny" id="btn-consent-deny">Hylkää</button>
         <button class="cookie-btn accept" id="btn-consent-accept">Hyväksy</button>
