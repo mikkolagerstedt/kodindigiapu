@@ -1,2 +1,3 @@
+/misi-tulostin-ei-tulosta-opas.html  /miksi-tulostin-ei-tulosta-opas.html  301
 /images/*    /images/:splat   200
 /*           /index.html      200
