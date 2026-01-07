@@ -1,217 +1,336 @@
 /**
- * Kodin Digiapu – script.js
- * Kaikki interaktiiviset toiminnot: teema, navigointi, hinta-toggle, takaisin ylös, evästebanneri
+ * Kodin Digiapu – script.js (PÄIVITETTY)
+ * Teema, navigointi, ankkuriskrolli, hinta-toggle, takaisin ylös, evästebanneri,
+ * ohjesivun platform-toggle, mobiili-CTA (VisualViewport fix)
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  const htmlEl = document.documentElement;
+  const body = document.body;
 
-  // ==================================================================
-  // 1. TUMMA/VALOISA TEEMA (SVG-KYTKIMELLÄ)
-  // ==================================================================
-  const themeToggle = document.getElementById('themeToggle');
-  const htmlEl = document.documentElement; 
+  const $ = (sel, root = document) => root.querySelector(sel);
+  const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+
+  // =========================================================
+  // 0. HELPERS
+  // =========================================================
+  const headerEl = $('header');
+  const getHeaderOffset = () => {
+    // Jos headerin korkeus muuttuu, tämä pysyy mukana
+    const h = headerEl ? headerEl.getBoundingClientRect().height : 0;
+    return Math.max(0, Math.round(h) + 12); // pieni lisätila
+  };
+
+  const safeCallGtagConsentUpdate = (state) => {
+    // state: 'granted' | 'denied'
+    try {
+      if (typeof gtag === 'function') {
+        gtag('consent', 'update', {
+          analytics_storage: state,
+          ad_storage: state,
+          ad_user_data: state,
+          ad_personalization: state
+        });
+      }
+    } catch (e) {
+      // ei tehdä mitään jos gtag ei ole käytössä
+    }
+  };
+
+  // =========================================================
+  // 1. TUMMA/VALOISA TEEMA
+  // =========================================================
+  const themeToggle = $('#themeToggle');
+
+  const setTheme = (theme) => {
+    htmlEl.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  };
 
   if (themeToggle) {
     themeToggle.addEventListener('click', () => {
       const isDark = htmlEl.getAttribute('data-theme') === 'dark';
-      const newTheme = isDark ? 'light' : 'dark';
-      htmlEl.setAttribute('data-theme', newTheme);
-      localStorage.setItem('theme', newTheme);
+      setTheme(isDark ? 'light' : 'dark');
     });
   }
 
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-    if (!localStorage.getItem('theme')) {
-      const newTheme = e.matches ? 'dark' : 'light';
-      htmlEl.setAttribute('data-theme', newTheme);
-    }
-  });
+  // Jos käyttäjä ei ole valinnut teemaa, seuraa järjestelmäteemaa
+  const mql = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+  if (mql && typeof mql.addEventListener === 'function') {
+    mql.addEventListener('change', (e) => {
+      if (!localStorage.getItem('theme')) {
+        htmlEl.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+      }
+    });
+  }
 
-  const body = document.body; 
+  // =========================================================
+  // 2. MOBIILINAVIGAATIO (ARIA + sulkeutuu ulos/ESC)
+  // =========================================================
+  const navToggle = $('.nav-toggle');
+  const navLinks = $('.nav-links');
 
-  // ==================================================================
-  // 2. MOBIILINAVIGAATIO (PÄIVITETTY ARIA-TUELLE JA IKONIN VAIHDOLLE)
-  // ==================================================================
-  const navToggle = document.querySelector('.nav-toggle');
-  const navLinks = document.querySelector('.nav-links');
+  const openMenu = () => {
+    if (!navLinks || !navToggle) return;
+    navLinks.classList.add('show');
+    navToggle.setAttribute('aria-expanded', 'true');
+    navToggle.innerHTML = '<i class="fas fa-times"></i>';
+    // Halutessasi: estä taustaskrolli kun menu auki
+    body.style.overflow = 'hidden';
+  };
+
+  const closeMenu = () => {
+    if (!navLinks || !navToggle) return;
+    navLinks.classList.remove('show');
+    navToggle.setAttribute('aria-expanded', 'false');
+    navToggle.innerHTML = '<i class="fas fa-bars"></i>';
+    body.style.overflow = '';
+  };
+
+  const isMenuOpen = () => navLinks && navLinks.classList.contains('show');
 
   if (navToggle && navLinks) {
+    // lähtötila
+    navToggle.setAttribute('aria-expanded', 'false');
+
     navToggle.addEventListener('click', () => {
-      const isVisible = navLinks.classList.toggle('show');
-      navToggle.setAttribute('aria-expanded', isVisible);
-      navToggle.innerHTML = isVisible ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+      if (isMenuOpen()) closeMenu();
+      else openMenu();
     });
 
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('show');
-        navToggle.setAttribute('aria-expanded', 'false');
-        navToggle.innerHTML = '<i class="fas fa-bars"></i>';
-      });
+    // Sulje kun klikataan linkkiä
+    $$('.nav-links a').forEach((link) => {
+      link.addEventListener('click', () => closeMenu());
+    });
+
+    // Sulje kun klikataan valikon ulkopuolelle
+    document.addEventListener('click', (e) => {
+      if (!isMenuOpen()) return;
+      const clickedInsideMenu = navLinks.contains(e.target);
+      const clickedToggle = navToggle.contains(e.target);
+      if (!clickedInsideMenu && !clickedToggle) closeMenu();
+    });
+
+    // Sulje ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isMenuOpen()) closeMenu();
     });
   }
 
-  // ==================================================================
-  // 3. HINTA-TOGGLE (PÄIVITETTY 2025 SÄÄNNÖILLÄ)
-  // ==================================================================
-  const updatePriceDisplay = () => {
-    const priceToggleDeducted = document.getElementById('toggle-deducted');
-    if (!priceToggleDeducted) return; 
+  // =========================================================
+  // 2b. ANKKURILINKKIEN SMOOTH SCROLL (fixed header huomioiden)
+  // =========================================================
+  const handleAnchorClick = (e) => {
+    const a = e.currentTarget;
+    const href = a.getAttribute('href') || '';
+    if (!href.startsWith('#')) return;
 
-    const isDeducted = priceToggleDeducted.checked;
-    const priceDisplay = document.getElementById('price-display');
-    const priceDesc = document.getElementById('price-description');
-    const vatInfo = document.getElementById('vat-info-text');
-    const expNormal = document.getElementById('explanation-without-deduction');
-    const expDeducted = document.getElementById('explanation-with-deduction');
+    const id = href.slice(1);
+    const target = document.getElementById(id);
+    if (!target) return;
+
+    e.preventDefault();
+
+    const y = window.scrollY + target.getBoundingClientRect().top - getHeaderOffset();
+    window.scrollTo({ top: y, behavior: 'smooth' });
+
+    // jos mobiilimenu auki, sulje
+    closeMenu();
+  };
+
+  $$('a[href^="#"]').forEach((a) => a.addEventListener('click', handleAnchorClick));
+
+  // =========================================================
+  // 3. HINTA-TOGGLE (2026: ei väitetä “tarkkaa”, näytetään suuntaa-antava)
+  // =========================================================
+  const priceDisplay = $('#price-display');
+  const priceDesc = $('#price-description');
+  const vatInfo = $('#vat-info-text');
+  const expNormal = $('#explanation-without-deduction');
+  const expDeducted = $('#explanation-with-deduction');
+
+  // Voit halutessasi lisätä HTML:ään:
+  // <div id="price-display" data-normal="60" data-deducted="39" ...>
+  const readPriceFromDataset = (key, fallback) => {
+    if (!priceDisplay) return fallback;
+    const v = priceDisplay.dataset ? priceDisplay.dataset[key] : null;
+    const n = v ? Number(String(v).replace(',', '.')) : NaN;
+    return Number.isFinite(n) ? n : fallback;
+  };
+
+  const NORMAL_HOURLY = readPriceFromDataset('normal', 60);
+  const DEDUCTED_HOURLY = readPriceFromDataset('deducted', 39);
+
+  const updatePriceDisplay = () => {
+    const deductedRadio = $('#toggle-deducted');
+    if (!deductedRadio || !priceDisplay || !priceDesc) return;
+
+    const isDeducted = deductedRadio.checked;
 
     if (isDeducted) {
-      priceDisplay.textContent = '39€'; 
+      priceDisplay.textContent = `${DEDUCTED_HOURLY}€`;
       priceDisplay.className = 'price-display deducted';
-      priceDesc.textContent = '/ tunti kotitalousvähennyksellä';
-      expNormal.style.display = 'none';
-      expDeducted.style.display = 'block';
-      vatInfo.style.display = 'none';
+      priceDesc.textContent = '/ tunti kotitalousvähennyksellä (suuntaa-antava)';
+      if (expNormal) expNormal.style.display = 'none';
+      if (expDeducted) expDeducted.style.display = 'block';
+      if (vatInfo) vatInfo.style.display = 'none';
     } else {
-      priceDisplay.textContent = '60€';
+      priceDisplay.textContent = `${NORMAL_HOURLY}€`;
       priceDisplay.className = 'price-display normal';
       priceDesc.textContent = '/ tunti';
-      expNormal.style.display = 'block';
-      expDeducted.style.display = 'none';
-      vatInfo.style.display = 'block';
+      if (expNormal) expNormal.style.display = 'block';
+      if (expDeducted) expDeducted.style.display = 'none';
+      if (vatInfo) vatInfo.style.display = 'block';
     }
   };
-  
-  const priceToggleInputs = document.querySelectorAll('input[name="price-option"]');
+
+  const priceToggleInputs = $$('input[name="price-option"]');
   if (priceToggleInputs.length > 0) {
-    priceToggleInputs.forEach(input => {
-      input.addEventListener('change', updatePriceDisplay);
-    });
+    priceToggleInputs.forEach((input) => input.addEventListener('change', updatePriceDisplay));
     updatePriceDisplay();
   }
 
-  // ==================================================================
-  // 4. TAKAISIN YLÖS -PAINIKE
-  // ==================================================================
-  const toTopBtn = document.getElementById('toTop');
+  // =========================================================
+  // 4. TAKAISIN YLÖS -PAINIKE (kevyempi scroll handler)
+  // =========================================================
+  const toTopBtn = $('#toTop');
+  let ticking = false;
+
+  const updateToTopVisibility = () => {
+    if (!toTopBtn) return;
+
+    const cookieVisible = body.classList.contains('cookie-banner-is-visible');
+    if (cookieVisible) {
+      toTopBtn.style.display = 'none';
+      return;
+    }
+    toTopBtn.style.display = window.scrollY > 400 ? 'flex' : 'none';
+  };
 
   if (toTopBtn) {
-    window.addEventListener('scroll', () => {
-      if (!body.classList.contains('cookie-banner-is-visible')) {
-        toTopBtn.style.display = window.scrollY > 400 ? 'flex' : 'none';
-      } else {
-        toTopBtn.style.display = 'none';
-      }
-    });
+    window.addEventListener(
+      'scroll',
+      () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+          updateToTopVisibility();
+          ticking = false;
+        });
+      },
+      { passive: true }
+    );
 
     toTopBtn.addEventListener('click', () => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+
+    updateToTopVisibility();
   }
 
-  // ==================================================================
-  // 5. EVÄSTEBANNERIN JA MOBIILIPALKIN HALLINTA (PÄIVITETTY)
-  // ==================================================================
-  const banner = document.getElementById('cookie-consent-banner');
-  const acceptBtn = document.getElementById('btn-consent-accept');
-  const denyBtn = document.getElementById('btn-consent-deny');
+  // =========================================================
+  // 5. EVÄSTEBANNERI (gtag consent update molemmissa)
+  // =========================================================
+  const banner = $('#cookie-consent-banner');
+  const acceptBtn = $('#btn-consent-accept');
+  const denyBtn = $('#btn-consent-deny');
+
+  const hideBanner = () => {
+    if (!banner) return;
+    banner.style.display = 'none';
+    body.classList.remove('cookie-banner-is-visible');
+    updateToTopVisibility();
+  };
+
+  const showBanner = () => {
+    if (!banner) return;
+    banner.style.display = 'block';
+    body.classList.add('cookie-banner-is-visible');
+    updateToTopVisibility();
+  };
 
   if (banner && acceptBtn && denyBtn) {
     const consentChoice = localStorage.getItem('cookie_consent_choice');
 
     if (!consentChoice) {
-      banner.style.display = 'block';
-      body.classList.add('cookie-banner-is-visible');
+      showBanner();
+    } else {
+      // varmistetaan että tila on ainakin järkevä
+      body.classList.remove('cookie-banner-is-visible');
+      banner.style.display = 'none';
+      updateToTopVisibility();
     }
 
-    // Mitä tapahtuu kun hyväksytään
-    acceptBtn.addEventListener('click', function() {
-      if (typeof gtag === 'function') {
-        gtag('consent', 'update', {
-          'analytics_storage': 'granted',
-          'ad_storage': 'granted',
-          'ad_user_data': 'granted',
-          'ad_personalization': 'granted'
-        });
-      }
+    acceptBtn.addEventListener('click', () => {
+      safeCallGtagConsentUpdate('granted');
       localStorage.setItem('cookie_consent_choice', 'granted');
-      banner.style.display = 'none';
-      body.classList.remove('cookie-banner-is-visible');
+      hideBanner();
     });
 
-    // **TÄMÄ ON KRIITTINEN KORJAUS GOOGLE TAGILLE**
-    // Mitä tapahtuu kun hylätään
-    denyBtn.addEventListener('click', function() {
-      // **LISÄTTY:** Päivitetään suostumus myös hylätessä
-      if (typeof gtag === 'function') {
-        gtag('consent', 'update', {
-          'analytics_storage': 'denied',
-          'ad_storage': 'denied',
-          'ad_user_data': 'denied',
-          'ad_personalization': 'denied'
-        });
-      }
+    denyBtn.addEventListener('click', () => {
+      safeCallGtagConsentUpdate('denied');
       localStorage.setItem('cookie_consent_choice', 'denied');
-      banner.style.display = 'none';
-      body.classList.remove('cookie-banner-is-visible');
+      hideBanner();
     });
   }
-  
-  // ==================================================================
+
+  // =========================================================
   // 6. OHJESIVUN VAIHTOPAINIKKEET (ANDROID/IPHONE)
-  // ==================================================================
-  const platformToggleInputs = document.querySelectorAll('input[name="platform-option"]');
-  const androidContent = document.getElementById('android-instructions');
-  const iphoneContent = document.getElementById('iphone-instructions');
+  // =========================================================
+  const platformToggleInputs = $$('input[name="platform-option"]');
+  const androidContent = $('#android-instructions');
+  const iphoneContent = $('#iphone-instructions');
 
   const updatePlatformContent = () => {
     if (!androidContent || !iphoneContent) return;
 
-    const selectedPlatform = document.querySelector('input[name="platform-option"]:checked').value;
+    const checked = $('input[name="platform-option"]:checked');
+    if (!checked) return;
 
-    if (selectedPlatform === 'android') {
+    const selected = checked.value;
+
+    if (selected === 'android') {
       androidContent.style.display = 'block';
-      setTimeout(() => androidContent.classList.add('active'), 10);
+      iphoneContent.style.display = 'none';
+      androidContent.classList.add('active');
       iphoneContent.classList.remove('active');
-      setTimeout(() => {
-        if (document.querySelector('input[name="platform-option"]:checked').value === 'android') {
-            iphoneContent.style.display = 'none';
-        }
-      }, 400); 
-
     } else {
       iphoneContent.style.display = 'block';
-      setTimeout(() => iphoneContent.classList.add('active'), 10);
+      androidContent.style.display = 'none';
+      iphoneContent.classList.add('active');
       androidContent.classList.remove('active');
-      setTimeout(() => {
-         if (document.querySelector('input[name="platform-option"]:checked').value === 'iphone') {
-            androidContent.style.display = 'none';
-         }
-      }, 400);
     }
   };
 
   if (platformToggleInputs.length > 0) {
-    platformToggleInputs.forEach(input => {
-      input.addEventListener('change', updatePlatformContent);
-    });
-    updatePlatformContent(); 
+    platformToggleInputs.forEach((input) => input.addEventListener('change', updatePlatformContent));
+    updatePlatformContent();
   }
-  
-  // ==================================================================
-  // 7. MOBIILI-CTA-PALKIN KELLUMISEN KORJAUS (Visual Viewport API)
-  // ==================================================================
-  const mobileCta = document.querySelector('.mobile-sticky-cta');
+
+  // =========================================================
+  // 7. MOBIILI-CTA-PALKIN KELLUMISEN KORJAUS (VisualViewport)
+  // =========================================================
+  const mobileCta = $('.mobile-sticky-cta');
+
+  // Joillakin selaimilla offsetBottom ei ole luotettava, joten lasketaan itse
+  const getViewportBottomInset = () => {
+    if (!window.visualViewport) return 0;
+    const vv = window.visualViewport;
+    // vv.height + vv.offsetTop = näkyvän viewportin "alareuna" suhteessa layout viewportiin
+    // window.innerHeight = layout viewportin korkeus
+    const bottom = Math.max(0, Math.round(window.innerHeight - (vv.height + vv.offsetTop)));
+    return bottom;
+  };
+
+  const updateCtaPosition = () => {
+    if (!mobileCta) return;
+    const inset = getViewportBottomInset();
+    mobileCta.style.bottom = `${inset}px`;
+  };
 
   if (mobileCta && window.visualViewport) {
-    const updateCtaPosition = () => {
-      mobileCta.style.bottom = `${window.visualViewport.offsetBottom || 0}px`;
-    };
     window.visualViewport.addEventListener('resize', updateCtaPosition);
-    updateCtaPosition(); 
+    window.visualViewport.addEventListener('scroll', updateCtaPosition);
+    updateCtaPosition();
   }
-
-}); // <-- TÄMÄ ON KOKO TIEDOSTON VIIMEINEN SULKU
+});
