@@ -33,43 +33,68 @@
   <link rel="stylesheet" href="/css/styles.css">
   
   <style>
-    /* 1. Hero-kuvan skaalaus mobiilissa */
-    .hero-profile-img {
-        max-width: 100%;
-        height: auto;
+    /* 1. KUVAN KESKITYS JA SKAALAUS */
+    .contact-profile-img {
+        display: block;
+        margin: 0 auto 1.5rem auto; /* Keskittää kuvan */
+        max-width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
     }
 
-    /* 2. Yhteystietojen rivitys (ikonit ja teksti samalle riville) */
+    /* 2. YHTEYSTIETORIVIEN KESKITYS */
+    .contact-info {
+        text-align: center; /* Keskittää tekstin */
+    }
+
     .contact-row {
         display: flex;
         align-items: center;
-        justify-content: center; /* Mobiilissa keskelle */
+        justify-content: center; /* Keskittää rivin sisällön (ikonin ja tekstin) */
         gap: 10px;
         margin-bottom: 0.8rem;
     }
+    
     .contact-row .icon {
         margin-right: 0 !important;
         flex-shrink: 0;
-    }
-    @media (min-width: 992px) {
-        .contact-row { justify-content: flex-start; } /* Desktopilla vasemmalle */
+        color: var(--accent); /* Varmistaa ikonin värin */
     }
 
-    /* 3. MOBIILIN ALAPALKKI (Sticky CTA) - Modernisointi */
+    /* 3. LINKKIEN VÄRIKONTRASTIN KORJAUS (TÄRKEÄ!) */
+    /* Tämä korjaa sen, että puhelinnumero ei näy tummalla taustalla */
+    .contact-row a {
+        color: var(--accent); /* Käyttää kirkasta teemaväriä */
+        text-decoration: none;
+        font-weight: 700;
+    }
+    
+    .contact-row a:hover {
+        text-decoration: underline;
+    }
+
+    /* Desktop-korjaus: Siirretään vasemmalle vain isolla ruudulla */
+    @media (min-width: 992px) {
+        .contact-row { justify-content: flex-start; } 
+        .contact-info { text-align: left; }
+        .contact-profile-img { margin-left: 0; margin-right: 0; }
+    }
+
+    /* 4. MOBIILIN ALAPALKKI (Sticky CTA) */
     @media (max-width: 768px) {
-        /* Korjataan body-padding, jotta alapalkki ei peitä footeria */
         body {
             padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 80px) !important;
         }
 
         .mobile-sticky-cta {
-            display: flex !important; /* Pakotetaan näkyviin mobiilissa */
+            display: flex !important;
             position: fixed;
             bottom: 0;
             bottom: env(safe-area-inset-bottom, 0px);
             left: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95) !important; /* Läpinäkyvyys */
+            background: rgba(255, 255, 255, 0.95) !important;
             backdrop-filter: blur(10px);
             box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
             z-index: 1001;
@@ -79,7 +104,6 @@
             border-top: 1px solid rgba(0,0,0,0.05);
         }
         
-        /* Napit pillerin muotoisiksi */
         .sticky-btn {
             flex: 1;
             display: flex !important;
@@ -97,16 +121,16 @@
         }
 
         .sticky-btn.call {
-            background-color: #0ea5e9 !important; /* Sininen */
+            background-color: #0ea5e9 !important;
             color: white !important;
         }
 
         .sticky-btn.whatsapp {
-            background-color: #25D366 !important; /* Vihreä */
+            background-color: #25D366 !important;
             color: white !important;
         }
         
-        /* Tumma teema tuki */
+        /* Tumma teema tuki alapalkille */
         html[data-theme="dark"] .mobile-sticky-cta {
             background: rgba(17, 24, 39, 0.95) !important;
             border-top: 1px solid rgba(255,255,255,0.1);
@@ -438,7 +462,7 @@
             <h3>Soita tai lähetä viesti</h3>
             <p>Vastaan puhelimeen arkisin klo 10–18. Jos olen asiakaskäynnillä, soitan sinulle takaisin mahdollisimman pian.</p>
             
-            <p style="margin-bottom: 1.5rem; font-weight: 500; color: var(--main); border-left: 4px solid var(--accent); padding-left: 1rem;">
+            <p style="margin-bottom: 1.5rem; font-weight: 500; color: var(--main); border-left: 4px solid var(--accent); padding-left: 1rem; display: inline-block; text-align: left;">
                 Et häiritse. Yhteydenotto ei sido mihinkään. Jos asia ratkeaa nopeasti puhelimessa, kerron sen heti.
             </p>
             
