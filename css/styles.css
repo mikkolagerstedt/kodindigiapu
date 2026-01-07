@@ -1407,3 +1407,141 @@ body.service-page-landing main > section .container > ol {
   margin-left: auto;
   margin-right: auto;
 }
+/* =========================================================
+   GUIDE PAGES (ohjeet / artikkelit)
+   Käyttö: <body class="guide-page">
+   Tavoite: selkeämpi rytmi, enemmän ilmaa, ei "palveluländärin" raskautta.
+   ========================================================= */
+
+body.guide-page {
+  background: var(--bg);
+  color: var(--text-dark);
+}
+
+/* Parempi tekstirytmi ohjesivuille */
+body.guide-page p {
+  margin-bottom: 1.2rem;
+}
+
+body.guide-page .section {
+  padding: clamp(54px, 7vh, 84px) 0;
+}
+
+.content-narrow {
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Hero ohjesivulle: kevyempi kuin service-page-landing */
+body.guide-page .guide-hero {
+  padding: clamp(52px, 7vh, 92px) 0 34px;
+  border-bottom: 1px solid var(--border-light);
+  background:
+    radial-gradient(900px 380px at 30% -10%, rgba(14,165,233,0.10), transparent 60%),
+    radial-gradient(800px 340px at 70% -20%, rgba(99,102,241,0.08), transparent 55%),
+    var(--card);
+}
+
+html[data-theme="dark"] body.guide-page .guide-hero {
+  background:
+    radial-gradient(900px 380px at 30% -10%, rgba(14,165,233,0.14), transparent 60%),
+    radial-gradient(800px 340px at 70% -20%, rgba(99,102,241,0.12), transparent 55%),
+    var(--card);
+}
+
+body.guide-page .guide-eyebrow {
+  display: inline-block;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.82rem;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+/* Ohjesivun CTA-napit: keskelle */
+body.guide-page .guide-cta {
+  align-items: center;
+  justify-content: center;
+}
+
+/* Kortit ohjesivulle */
+body.guide-page .guide-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 26px;
+}
+
+@media (max-width: 980px) {
+  body.guide-page .guide-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+body.guide-page .guide-card {
+  background: var(--card);
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  box-shadow: var(--shadow-sm);
+  padding: 20px 18px;
+}
+
+body.guide-page .guide-card h3 {
+  margin: 10px 0 8px 0;
+  color: var(--main);
+  font-size: 1.12rem;
+}
+
+body.guide-page .guide-card p {
+  color: var(--text-light);
+  line-height: 1.7;
+  margin-bottom: 0.95rem;
+}
+
+body.guide-page .guide-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(14,165,233,0.12);
+  color: var(--main);
+}
+
+body.guide-page .guide-card-icon i {
+  font-size: 1.15rem;
+}
+
+body.guide-page .guide-card-highlight {
+  border-color: rgba(14,165,233,0.35);
+  box-shadow: var(--shadow-md);
+}
+
+/* Listat ohjesivulle */
+body.guide-page .guide-list {
+  margin: 12px 0 0 18px;
+  padding: 0;
+  color: var(--text-light);
+  line-height: 1.75;
+}
+
+body.guide-page .guide-list li {
+  margin-bottom: 8px;
+}
+
+/* CTA-osio ohjesivulla: selkeä, ei liian “myyntiländäri” */
+body.guide-page .guide-cta-section {
+  border-top: 1px solid var(--border-light);
+  background:
+    radial-gradient(900px 380px at 50% 120%, rgba(14,165,233,0.10), transparent 60%),
+    var(--card);
+}
+
+html[data-theme="dark"] body.guide-page .guide-cta-section {
+  background:
+    radial-gradient(900px 380px at 50% 120%, rgba(14,165,233,0.16), transparent 60%),
+    var(--card);
+}
