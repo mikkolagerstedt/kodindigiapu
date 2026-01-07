@@ -9,7 +9,7 @@
   --accent-light: #3b82f6;
   --success: #28a745;
   --whatsapp-green: #25D366;
-  --bg: #f1f5f9;
+  --bg: #f8fafc; /* Raikkaampi vaalea tausta */
   --card: #ffffff;
   --text-dark: #333;
   --text-light: #555;
@@ -63,7 +63,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   background: var(--bg);
   color: var(--text-dark);
-  line-height: 1.6;
+  line-height: 1.8;
   font-size: 18px; 
   padding-top: 76px;
   transition: all 0.3s ease; 
@@ -74,6 +74,16 @@ body {
 
 main {
   flex-grow: 1;
+}
+
+p {
+    margin-bottom: 1.5rem;
+}
+
+h1, h2, h3 {
+    line-height: 1.3;
+    margin-bottom: 1rem;
+    color: var(--main);
 }
 
 .container {
@@ -249,8 +259,7 @@ header {
    4. HERO-OSIOT (HOME vs DEFAULT)
    ========================================= */
 
-/* --- A) DEFAULT HERO (Ohjeet, Palvelut ym.) --- 
-   Tämä on keskitetty oletuksena. */
+/* --- A) DEFAULT HERO (Sisäsivut: Ohjeet, Palvelut ym.) --- */
 .hero {
   background: var(--card);
   text-align: center;
@@ -264,7 +273,6 @@ header {
   align-items: center;
 }
 
-/* Ikonit sisäsivuilla (esim. ohjeet) */
 .hero .icon {
   font-size: 3rem;
   color: var(--accent);
@@ -276,45 +284,51 @@ header {
   margin-left: auto;   
   margin-right: auto;
   font-size: clamp(30px, 5vw, 42px); 
-  line-height: 1.3;
+  line-height: 1.2;
   font-weight: 800;
+  letter-spacing: -0.02em;
 }
 
 .hero-subtitle {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   max-width: 720px;
-  margin: 0 auto 2.5rem;
+  margin: 1rem auto 2.5rem;
   color: var(--text-light);
-  line-height: 1.7;
+  line-height: 1.6;
 }
 
-/* --- B) HERO HOME (VAIN ETUSIVULLE) --- 
-   Tämä on vasemmalle tasattu desktopilla. */
+/* --- B) HERO HOME (VAIN ETUSIVULLE - MODERNISOITU) --- */
 .hero-home {
   text-align: left; 
+  /* Moderni liukuväri */
+  background: linear-gradient(135deg, var(--card) 0%, var(--explanation-bg) 100%);
+  padding: 80px 0;
 }
 
 .hero-home .hero-container-flex {
   display: flex;
-  align-items: center;
-  gap: 40px;
+  flex-direction: row; /* Pakotetaan riviksi isolla näytöllä */
+  align-items: center; /* Keskitetään pystysuunnassa */
+  justify-content: flex-start;
+  gap: 50px;
   text-align: left;
 }
 
 .hero-home .hero-text-content {
   flex: 1;
   min-width: 0;
-  max-width: 850px; 
+  max-width: 700px; 
 }
 
 .hero-home .hero-profile-img {
-  width: 160px;
-  height: 160px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  /* Moderni varjo ja valkoinen reunus */
+  box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+  border: 4px solid var(--card);
   flex-shrink: 0;
-  margin-top: 0; 
 }
 
 .hero-home .hero-title,
@@ -331,7 +345,6 @@ header {
     line-height: 1.6;
 }
 
-/* Slogan etusivulle (korostettu rivi) */
 .hero-slogan {
   display: block; 
   margin-top: 0.8rem; 
@@ -351,23 +364,29 @@ header {
   margin-right: 0;
 }
 
-/* Isolla ruudulla napit vierekkäin etusivulla */
 @media (min-width: 768px) {
   .hero-cta-buttons {
     flex-direction: row;
   }
 }
 
-/* --- HERO MOBIILI (YHTEINEN KAIKILLE) --- */
+/* --- HERO MOBIILI --- */
 @media (max-width: 768px) {
   .hero, .hero-home {
     text-align: center;
+    padding: 50px 0;
   }
   
   .hero-home .hero-container-flex {
     flex-direction: column;
-    text-align: center;
     align-items: center;
+    gap: 30px;
+  }
+  
+  .hero-home .hero-profile-img {
+      width: 150px;
+      height: 150px;
+      margin-bottom: 10px;
   }
 
   .hero-title, 
@@ -381,11 +400,6 @@ header {
     align-items: center;
     margin-left: auto;
     margin-right: auto;
-  }
-  
-  .hero-slogan {
-    margin-top: 0.5rem;
-    font-size: 1em;
   }
 }
 
@@ -424,7 +438,6 @@ header {
   transform: translateY(-2px);
 }
 
-/* "Haamu-nappi" (soittopyyntö) */
 .cta-button.ghost {
   background: transparent;
   border: 2px solid var(--accent);
@@ -448,7 +461,7 @@ header {
 }
 
 /* =========================================
-   5. ETUSIVUN SISÄLTÖ (Palvelut, Hinnat, UKK)
+   5. SISÄLTÖ JA PALVELUT
    ========================================= */
 
 /* Toggle-komponentit (Hinta) */
@@ -485,7 +498,6 @@ header {
   height: 100%;
 }
 
-/* Toggle värit */
 .price-toggle label:first-child span {
   background: #f8fafc;
   color: #475569;
@@ -496,7 +508,6 @@ header {
   color: #166534;
 }
 
-/* Toggle Active State */
 .price-toggle input:checked + span {
   background: var(--accent) !important;
   color: white !important;
@@ -529,20 +540,21 @@ header {
   .services-grid { grid-template-columns: repeat(4, 1fr); }
 }
 
-/* Palvelukortit */
+/* Modernisoidut Palvelukortit */
 .service-card {
   background: var(--card);
-  border: 1px solid var(--border-light);
-  padding: 2rem;
-  border-radius: 8px;
+  border: none; /* Ei kovaa reunusta */
+  padding: 2.5rem 2rem;
+  border-radius: 16px;
   text-align: center;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-  transition: transform 0.2s, box-shadow 0.2s;
+  /* Pehmeä varjo */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .service-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 .service-card .icon {
@@ -572,28 +584,6 @@ header {
   color: var(--accent);
 }
 
-/* Erityistyylit etusivun palveluosiolle */
-#palvelut .service-card {
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  transition: none; 
-}
-#palvelut .service-card:hover {
-  transform: none;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-}
-#palvelut .service-link {
-  padding: 2rem; 
-  transition: transform 0.2s, box-shadow 0.2s;
-  border-radius: 8px;
-}
-#palvelut .service-link:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  text-decoration: none;
-}
-
 .service-outro {
     text-align: center; 
     margin-top: 2.5rem;
@@ -601,13 +591,6 @@ header {
 .service-outro p {
     margin-bottom: 1rem; 
     color: var(--text-light);
-}
-
-.link-arrow {
-    font-weight: 600; 
-    color: var(--accent); 
-    text-decoration: none; 
-    border-bottom: 2px solid var(--accent);
 }
 
 /* Hinnasto */
@@ -775,7 +758,6 @@ header {
   .contact-info { text-align: left; }
 }
 
-/* Yhteystietojen keskitys mobiilissa */
 .contact-info {
     text-align: center;
 }
@@ -785,7 +767,7 @@ header {
 
 .contact-profile-img {
     display: block;
-    margin: 0 auto 1.5rem auto;
+    margin: 0 auto 2rem auto;
     max-width: 150px;
     height: 150px;
     border-radius: 50%;
@@ -810,8 +792,9 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    margin-bottom: 0.8rem;
+    gap: 15px;
+    margin-bottom: 1.2rem;
+    padding: 5px 0;
 }
 @media (min-width: 992px) {
     .contact-row { justify-content: flex-start; } 
@@ -821,11 +804,13 @@ header {
     margin-right: 0 !important;
     flex-shrink: 0;
     color: var(--accent);
+    font-size: 1.3rem;
 }
 .contact-row a {
     color: var(--accent); 
     text-decoration: none;
     font-weight: 700;
+    font-size: 1.1rem;
 }
 .contact-row a:hover {
     text-decoration: underline;
@@ -870,6 +855,18 @@ header {
 .btn-submit:hover { background: #0284c7; }
 
 /* Payment Section */
+.payment-section {
+  text-align: center; 
+  padding: 60px 0;
+  background: var(--bg);
+}
+.payment-section p {
+    max-width: 600px;
+    margin: 0 auto 2rem auto; 
+    color: var(--text-light);
+    font-size: 1.1rem;
+}
+
 .payment-methods {
   display: flex;
   justify-content: center;
@@ -899,10 +896,7 @@ footer {
   padding: 25px 20px;
   font-size: 14px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  margin-bottom: 80px; /* Space for sticky bar */
-}
-@media (min-width: 769px) {
-    footer { margin-bottom: 0; }
+  margin-bottom: 0;
 }
 
 footer a { color: #93c5fd; text-decoration: none; padding: 0 5px; }
@@ -914,7 +908,7 @@ footer a:hover { color: #ffffff; text-decoration: underline; }
 }
 @media (max-width: 768px) {
   body { 
-      padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 80px) !important; 
+      padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 90px) !important; 
   }
 
   .nav-links {
@@ -938,19 +932,18 @@ footer a:hover { color: #ffffff; text-decoration: underline; }
     bottom: env(safe-area-inset-bottom, 0px);
     left: 0;
     width: 100%;
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(10px);
     box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
     z-index: 1001;
-    padding: 12px 16px !important;
-    gap: 12px !important;
+    padding: 15px 20px !important;
+    gap: 15px !important;
     align-items: center;
     border-top: 1px solid rgba(0,0,0,0.05);
   }
   
-  /* Tumma teema tuki alapalkille */
   html[data-theme="dark"] .mobile-sticky-cta {
-      background: rgba(17, 24, 39, 0.95);
+      background: rgba(17, 24, 39, 0.98);
       border-top: 1px solid rgba(255,255,255,0.1);
   }
   
@@ -959,15 +952,16 @@ footer a:hover { color: #ffffff; text-decoration: underline; }
     display: flex !important;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    padding: 12px !important;
+    gap: 10px;
+    padding: 14px !important;
     border-radius: 50px !important;
     font-weight: 700 !important;
-    font-size: 1rem !important;
+    font-size: 1.05rem !important;
     text-decoration: none !important;
     color: white !important;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     text-align: center;
+    line-height: 1;
   }
   .sticky-btn.call { 
       background-color: #0ea5e9 !important;
@@ -1009,13 +1003,6 @@ footer a:hover { color: #ffffff; text-decoration: underline; }
 
 /* Näin homma toimii -boxit */
 .help-section { text-align: left; }
-.section-subtitle-small {
-    text-align: center; 
-    max-width: 600px; 
-    margin: 0 auto 2.5rem; 
-    color: var(--text-light); 
-    font-size: 1.05rem;
-}
 
 .help-steps-grid {
   max-width: 900px;
@@ -1094,29 +1081,7 @@ footer a:hover { color: #ffffff; text-decoration: underline; }
 }
 :focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
 
-/* =========================================
-   SISÄSIVUJEN KESKITETTY HERO (UUSI)
-   ========================================= */
-.hero-center {
-  text-align: center;
-}
-
-.hero-center .hero-title,
-.hero-center .hero-subtitle {
-  margin-left: auto;
-  margin-right: auto;
-}
-/* =========================================
-   9. ARTIKKELISIVUJEN TYYLIT
-   ========================================= */
-
-/* Pakottaa kortin sisällön vasemmalle (helpompi lukea pitkät tekstit) */
-.help-step.text-left {
-  align-items: flex-start;
-  text-align: left;
-}
-
-/* Vinkin muotoilu kortin sisällä */
+/* Artikkelisivut ja vinkit */
 .step-tip {
   margin-top: 12px;
   font-size: 0.95rem;
@@ -1125,81 +1090,10 @@ footer a:hover { color: #ffffff; text-decoration: underline; }
   border-radius: 6px;
   border-left: 3px solid var(--accent);
 }
-
-/* Koodinpätkät (esim. Ctrl+Vaihto+Esc) */
 code {
   background: var(--border-light);
   padding: 2px 5px;
   border-radius: 4px;
   font-family: monospace;
   font-size: 0.9em;
-}
-/* =========================================
-   10. LISTAMAINEN OHJE-ASSETTELU (Allekkain)
-   ========================================= */
-
-/* Pääkontti listalle - kavennetaan hieman luettavuuden vuoksi */
-.help-steps-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-/* Yksittäinen kohta (rivi) */
-.help-step-item {
-  display: flex;
-  background: var(--card);
-  border: 1px solid var(--border-light);
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
-  text-align: left;
-  transition: transform 0.2s;
-}
-
-/* Ikonin ympäristö */
-.step-icon-wrapper {
-  flex-shrink: 0;
-  width: 60px;
-  height: 60px;
-  background: var(--explanation-bg);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 1.5rem;
-  color: var(--accent);
-  font-size: 1.5rem;
-}
-
-/* Sisältöalue */
-.step-content {
-  flex-grow: 1;
-}
-
-.step-content h3 {
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
-  color: var(--main);
-}
-
-.step-content p {
-  margin-bottom: 0.8rem;
-  font-size: 1rem;
-}
-
-/* Mobiili: Pinotaan ikoni päällekkäin jos tila loppuu */
-@media (max-width: 600px) {
-  .help-step-item {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  
-  .step-icon-wrapper {
-    margin-right: 0;
-    margin-bottom: 1rem;
-  }
 }
