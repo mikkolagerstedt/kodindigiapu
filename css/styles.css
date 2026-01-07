@@ -1200,3 +1200,31 @@ footer a:hover { color: #ffffff; text-decoration: underline; }
     flex-direction: row;
   }
 }
+/* =========================================
+   9. ARTIKKELISIVUJEN TYYLIT
+   ========================================= */
+
+/* Pakottaa kortin sisällön vasemmalle (helpompi lukea pitkät tekstit) */
+.help-step.text-left {
+  align-items: flex-start;
+  text-align: left;
+}
+
+/* Vinkin muotoilu kortin sisällä */
+.step-tip {
+  margin-top: 12px;
+  font-size: 0.95rem;
+  background: var(--explanation-bg);
+  padding: 8px 12px;
+  border-radius: 6px;
+  border-left: 3px solid var(--accent);
+}
+
+/* Koodinpätkät (esim. Ctrl+Vaihto+Esc) */
+code {
+  background: var(--border-light);
+  padding: 2px 5px;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 0.9em;
+}
