@@ -1210,3 +1210,32 @@ body.service-page-landing .price-note {
 
 /* Service pages footer: käytetään samaa footeria, mutta tekstin rytmitys */
 body.service-page-landing footer p { margin: 0; }
+/* Skip link: näkyy vain kun käyttäjä tabbaa (saavutettavuus) */
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: 10px;
+  transform: translateY(-200%);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 9999;
+
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: var(--card);
+  color: var(--text-dark);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-md);
+  text-decoration: none;
+  font-weight: 900;
+}
+
+.skip-link:focus,
+.skip-link:focus-visible {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
