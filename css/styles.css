@@ -87,7 +87,7 @@ main { flex-grow: 1; }
 p { margin-bottom: 1.1rem; }
 
 h1, h2, h3 {
-  line-height: 1.2;
+  line-height: 1.4;
   margin-bottom: 0.9rem;
   color: var(--main);
 }
