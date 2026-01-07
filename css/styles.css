@@ -1106,3 +1106,97 @@ footer a:hover { color: #ffffff; text-decoration: underline; }
   margin-left: auto;
   margin-right: auto;
 }
+/* =========================================
+   8. OHJEET-SIVUN ERITYISTYYLIT (HERO CENTER & CTA)
+   ========================================= */
+
+/* Keskitetty Hero (Käytetään sisäsivuilla) */
+.hero-center {
+  text-align: center;
+  padding: 60px 0 40px;
+}
+
+.hero-center .icon {
+  font-size: 3.5rem;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+  display: inline-block;
+}
+
+.hero-center .hero-title {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 800px;
+}
+
+.hero-center .hero-subtitle {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0;
+}
+
+/* CTA Section (Alareunan sininen/harmaa laatikko) */
+.cta-section {
+  background: var(--explanation-bg);
+  border-top: 1px solid var(--explanation-border);
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.cta-section h2 {
+  color: var(--main);
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  margin-bottom: 1rem;
+}
+
+.cta-section p {
+  max-width: 700px;
+  margin: 0 auto 1.5rem;
+  color: var(--text-light);
+  font-size: 1.05rem;
+}
+
+/* Hinta-korostus CTA:ssa */
+.price-box {
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.price-main {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--main);
+  margin-bottom: 0.2rem !important;
+}
+
+.price-main a {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.price-sub {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  font-weight: 400;
+}
+
+.free-consultation {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--success);
+  margin-bottom: 2rem !important;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Varmistetaan että napit on keskellä CTA:ssa */
+.cta-section .hero-cta-buttons {
+  justify-content: center;
+  flex-direction: column;
+}
+
+@media (min-width: 600px) {
+  .cta-section .hero-cta-buttons {
+    flex-direction: row;
+  }
+}
