@@ -1,34 +1,217 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fi">
 <head>
   <meta charset="utf-8">
-  <title>Kiitos yhteydenotostasi! - Kodin Digiapu</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Kiitos yhteydenotostasi Kodin Digiapuun! Saat vastauksen pian koskien tietokoneapua Järvenpään, Tuusulan ja Keravan alueella.">
-  <meta name="robots" content="noindex, nofollow"> 
+  <title>Tietokone- ja puhelinapu kotikäynnillä Järvenpää, Kerava & Tuusula | Kodin Digiapu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
   
-  <script>
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
+  <meta name="description" content="Ystävällistä apua tietokoneille, puhelimille ja nettiyhteyksille kotiisi Järvenpää, Kerava, Tuusula. Usein jo samana tai seuraavana arkipäivänä.">
+  
+  <link rel="canonical" href="https://www.kodindigiapu.fi/">
+  <meta name="author" content="Mikko Lagerstedt">
 
-	gtag('consent', 'default', {
-	  'ad_storage': 'denied',
-	  'ad_user_data': 'denied',
-	  'ad_personalization': 'denied',
-	  'analytics_storage': 'denied',
-	  'functionality_storage': 'granted',
-	  'security_storage': 'granted',
-	  'wait_for_update': 500
-	});
-	</script>
-  <script>
-  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id=GTM-THJ4NB54'+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-THJ4NB54');
-  </script>
+  <meta property="og:title" content="Kodin Digiapu – Tietokoneapu kotikäynnillä Järvenpää, Tuusula, Kerava">
+  <meta property="og:description" content="Ystävällistä ja luotettavaa apua tietokoneiden, puhelimien ja verkkoyhteyksien kanssa. Kotikäynnit ja etätuki – Järvenpää, Tuusula, Kerava.">
+  <meta property="og:image" content="https://www.kodindigiapu.fi/images/mikko-digiapu.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://www.kodindigiapu.fi/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fi_FI">
+
+  <link rel="preload" as="image" href="/images/mikko-digiapu.webp">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   
+  <link rel="stylesheet" href="/css/styles.css">
+  
+  <style>
+    /* 1. VÄRIMÄÄRITYKSET (KORJAA VÄRIONGELMAN) */
+    :root {
+      --main: #1f2937;
+      --accent: #0ea5e9; /* Kirkas sininen */
+      --accent-light: #3b82f6;
+      --success: #28a745;
+      --whatsapp-green: #25D366;
+      --bg: #f1f5f9;
+      --card: #ffffff;
+      --text-dark: #333;
+      --text-light: #555;
+      --border-light: #eee;
+      --header-bg: #ffffff;
+      --footer-bg: #0f172a;
+      --footer-text: #f1f5f9;
+      --explanation-bg: #f0f9ff;
+      --explanation-border: #e0f2fe;
+      --toggle-border: #ccc;
+      --toggle-inactive-home: #dbeafe;
+      --toggle-inactive-business: #f3f4f6;
+      --toggle-hover: #bfdbfe;
+    }
+
+    /* Tumma teema */
+    html[data-theme="dark"] {
+      --main: #f3f4f6;
+      --accent: #38bdf8;
+      --accent-light: #60a5fa;
+      --success: #34d399;
+      --whatsapp-green: #25D366;
+      --bg: #111827;
+      --card: #1f2937;
+      --text-dark: #f3f4f6;
+      --text-light: #9ca3af;
+      --border-light: #374151;
+      --header-bg: #111827;
+      --footer-bg: #0a1120;
+      --footer-text: #e2e8f0;
+      --explanation-bg: #172554;
+      --explanation-border: #1e40af;
+      --toggle-border: #374151;
+      --toggle-inactive-home: #1e3a8a;
+      --toggle-inactive-business: #374151;
+      --toggle-hover: #1e40af;
+    }
+
+    /* 2. YLEINEN LUETTAVUUS */
+    body {
+        line-height: 1.8 !important;
+        color: var(--text-dark); /* Käytetään määriteltyä väriä */
+        background: var(--bg);
+    }
+
+    p {
+        margin-bottom: 1.5rem !important;
+    }
+
+    h1, h2, h3 {
+        line-height: 1.3 !important;
+        margin-bottom: 1.2rem !important;
+        color: var(--main);
+    }
+
+    .section {
+        padding: 80px 0 !important;
+    }
+
+    /* 3. YHTEYSTIETORIVIEN KESKITYS JA VÄRIT */
+    .contact-info {
+        text-align: center; 
+    }
+
+    .contact-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px; 
+        margin-bottom: 1.2rem !important;
+        padding: 5px 0;
+    }
+    
+    .contact-row .icon {
+        margin-right: 0 !important;
+        flex-shrink: 0;
+        color: var(--accent); /* Varmistetaan sininen väri */
+        font-size: 1.3rem;
+    }
+
+    /* Linkkien värikontrasti */
+    .contact-row a {
+        color: var(--accent); /* Käytetään kirkasta teemaväriä */
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 1.1rem;
+    }
+    
+    .contact-row a:hover {
+        text-decoration: underline;
+    }
+
+    /* Profiilikuvan asettelu */
+    .contact-profile-img {
+        display: block;
+        margin: 0 auto 2rem auto;
+        max-width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+    
+    .hero-profile-img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Desktop-tarkennukset */
+    @media (min-width: 992px) {
+        .contact-row { justify-content: flex-start; } 
+        .contact-info { text-align: left; }
+        .contact-profile-img { margin-left: 0; margin-right: 0; }
+    }
+
+    /* 4. MOBIILIN ALAPALKKI (Sticky CTA) */
+    @media (max-width: 768px) {
+        body {
+            padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 90px) !important;
+        }
+
+        .mobile-sticky-cta {
+            display: flex !important;
+            position: fixed;
+            bottom: 0;
+            bottom: env(safe-area-inset-bottom, 0px);
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98) !important;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+            z-index: 1001;
+            padding: 15px 20px !important;
+            gap: 15px !important;
+            align-items: center;
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .sticky-btn {
+            flex: 1;
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px !important;
+            border-radius: 50px !important;
+            font-weight: 700 !important;
+            font-size: 1.05rem !important;
+            text-decoration: none !important;
+            color: white !important;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            text-align: center;
+            line-height: 1;
+        }
+
+        .sticky-btn.call {
+            background-color: var(--accent) !important;
+            color: white !important;
+        }
+
+        .sticky-btn.whatsapp {
+            background-color: var(--whatsapp-green) !important;
+            color: white !important;
+        }
+        
+        html[data-theme="dark"] .mobile-sticky-cta {
+            background: rgba(17, 24, 39, 0.98) !important;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+    }
+  </style>
+
   <script>
     (function() {
       const savedTheme = localStorage.getItem('theme') ||
@@ -36,114 +219,417 @@
       document.documentElement.setAttribute('data-theme', savedTheme);
     })();
   </script>
-  <style>
-    :root{
-      --main:#1f2937;
-      --accent:#0ea5e9;
-      --bg:#f9fafb;
-      --text-light: #4b5563;
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Kodin Digiapu",
+    "url": "https://www.kodindigiapu.fi/",
+    "image": "https://www.kodindigiapu.fi/images/mikko-digiapu.webp",
+    "telephone": "+358405724113",
+    "email": "mikko@kodindigiapu.fi",
+    "priceRange": "€",
+    "areaServed": ["Järvenpää", "Tuusula", "Kerava"],
+    "address": { 
+        "@type": "PostalAddress", 
+        "addressLocality": "Järvenpää", 
+        "postalCode": "04400",
+        "addressCountry": "FI" 
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "10:00",
+      "closes": "18:00"
     }
-    /* LISÄTTY: Tuki tummalle teemalle kiitossivulla */
-    html[data-theme="dark"] {
-      --main: #f3f4f6;
-      --accent: #38bdf8;
-      --bg: #111827;
-      --text-light: #9ca3af;
-    }
-    html[data-theme="dark"] body {
-      background: #111827;
-      color: #f3f4f6;
-    }
-    html[data-theme="dark"] .container {
-      background: #1f2937;
-      box-shadow: 0 4px 16px rgba(0,0,0,.4);
-    }
-    html[data-theme="dark"] .urgent-notice {
-        background: #172554;
-        border: 1px solid #1e40af;
-        color: #e0f2fe;
-    }
-    html[data-theme="dark"] .urgent-notice a {
-        color: #60a5fa;
-    }
-    
-    body{
-      font-family: Inter, system-ui, sans-serif;
-      background: var(--bg);
-      color: #333;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      margin: 0;
-      text-align: center;
-      padding: 20px;
-      transition: background 0.3s ease; /* Lisätty siirtymä */
-    }
-    .container {
-      max-width: 600px;
-      padding: 40px;
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 16px rgba(0,0,0,.05);
-      transition: background 0.3s ease; /* Lisätty siirtymä */
-    }
-    h1 {
-      font-size: 32px;
-      color: var(--main);
-      margin-bottom: 20px;
-    }
-    p {
-      font-size: 18px;
-      color: var(--text-light);
-      line-height: 1.6;
-      margin-bottom: 30px;
-    }
-    .urgent-notice {
-        background: #f0f9ff;
-        border: 1px solid #e0f2fe;
-        padding: 20px;
-        border-radius: 8px;
-        margin-bottom: 30px;
-        font-size: 17px;
-        color: #0c4a6e;
-    }
-    .urgent-notice a {
-        color: #0369a1;
-        font-weight: 600;
-        text-decoration: none;
-    }
-    .urgent-notice a:hover {
-        text-decoration: underline;
-    }
-    .btn{
-      background: var(--accent);
-      color: white;
-      padding: 16px 34px;
-      border-radius: 8px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: background .2s;
-      display: inline-block;
-    }
-    .btn:hover{background:#0284c7;}
-  </style>
+  }
+  </script>
 </head>
+
 <body>
 
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THJ4NB54"
-	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <div class="container">
-    <h1>Kiitos viestistä!</h1>
-    <p>Olen saanut yhteydenottosi ja vastaan sinulle mahdollisimman pian, yleensä saman päivän aikana.</p>
-    
-    <div class="urgent-notice">
-      <strong>Onko asiasi kiireellinen?</strong><br>
-      Jos laitteesi on kokonaan pois käytöstä, nopein tapa saada apua on soittaa minulle numeroon <a href="tel:0405724113">040 572 4113</a>.
-    </div>
+  <header>
+      <div class="container nav">
+        <a href="/" class="logo">
+          <img src="/favicon-96x96.png" alt="Kodin Digiapu logo" class="logo-icon" width="96" height="96">
+          <span>Kodin Digiapu</span>
+        </a>
+        <div class="header-controls">
+          <button class="theme-toggle" id="themeToggle" aria-label="Vaihda teema">
+             <svg class="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5" /><line x1="12" y1="1" x2="12" y2="3" /><line x1="12" y1="21" x2="12" y2="23" /><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" /><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" /><line x1="1" y1="12" x2="3" y2="12" /><line x1="21" y1="12" x2="23" y2="12" /><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" /><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" /></svg>
+             <svg class="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 0 1 11.21 3 9 9 0 1 0 21 12.79z"></path></svg>
+          </button>
+          
+          <a href="tel:+358405724113" class="header-cta">Soita 040 572 4113</a>
+          <button class="nav-toggle" aria-label="Avaa valikko"><i class="fas fa-bars"></i></button>
+        </div>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="#palvelut">Palvelut</a></li>
+            <li><a href="#hinnat">Hinnat</a></li>
+            <li><a href="#ukk">Usein kysyttyä</a></li>
+            <li><a href="#luottamus">Asiakkaat</a></li>
+            <li><a href="ohjeet.html">Ohjeet</a></li> 
+            <li><a href="#yhteys">Yhteys</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
-    <a href="index.html" class="btn">Palaa etusivulle</a>
+  <main id="main-content">
+    
+    <section class="hero hero-home">
+      <div class="container hero-container-flex">
+        
+        <img src="/images/mikko-digiapu.webp" alt="Mikko Lagerstedt" class="hero-profile-img" width="160" height="160">
+        
+        <div class="hero-text-content">
+            <h1 class="hero-title">
+              Onko tekniikan kanssa ongelmia?
+              <span class="hero-slogan">Tulen kotiisi ja laitan laitteet kuntoon.</span>
+            </h1>
+            
+            <p class="hero-subtitle">
+              Hei, olen Mikko. Autan sinua kotonasi kännykän, tietokoneen ja muiden älylaitteiden käytössä ja ongelmien ratkomisessa. Tulen paikan päälle Järvenpäässä, Keravalla ja Tuusulassa.
+             </p>
+
+            <div class="hero-cta-buttons">
+              <a href="tel:+358405724113" class="cta-button primary"><i class="fas fa-phone-alt"></i> Soita 040 572 4113</a>
+              <a href="https://wa.me/358405724113" target="_blank" rel="noopener" class="cta-button whatsapp">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+              </a>
+              <a href="#yhteys" class="cta-button ghost">
+                <i class="fas fa-envelope"></i> Jätä soittopyyntö
+              </a>
+            </div>
+
+            <p style="font-size: 1rem; color: var(--text-light); margin-top: 1.5rem; line-height: 1.8;">
+             Moni miettii, kehtaako pienestä asiasta ottaa yhteyttä. Kyllä kehtaa. Minulle tekniikka-ongelmien ratkaiseminen on arkipäivää, ja hoidan ne kuntoon nopeasti ja ystävällisesti. 
+             Riittää kun kerrot mikä ei toimi.<br>
+            </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section help-section">
+      <div class="container">
+        <h2 class="section-title">Näin homma toimii</h2>
+        <p style="text-align: center; max-width: 600px; margin: 0 auto 3rem; color: var(--text-light); font-size: 1.1rem;">
+            Ei teknisiä termejä. Ei turhaa myyntiä. Vain selkeä apu.
+        </p>
+
+        <div class="help-steps-grid">
+          
+          <div class="help-step is-linkable">
+            <a href="#yhteys" class="help-step-link-overlay" aria-label="Siirry yhteystietoihin"></a>
+            <i class="fas fa-phone-alt" aria-hidden="true"></i>
+            <div>
+              <h3>1. Ota yhteyttä</h3>
+              <p>Soita tai lähetä viesti. Kerro omin sanoin, mikä mättää. En kysele vaikeita termejä.</p>
+            </div>
+          </div>
+          
+          <div class="help-step is-linkable">
+            <a href="#hinnat" class="help-step-link-overlay" aria-label="Tarkista hinnat"></a>
+            <i class="fas fa-home" aria-hidden="true"></i>
+            <div>
+              <h3>2. Tulen käymään</h3>
+              <p>Sovitaan aika ja tulen kotiisi. Järvenpään alueella en veloita matkakuluja.</p>
+            </div>
+          </div>
+
+          <div class="help-step is-linkable">
+            <a href="#luottamus" class="help-step-link-overlay" aria-label="Lue palautteita"></a>
+            <i class="fas fa-check-circle" aria-hidden="true"></i>
+            <div>
+              <h3>3. Asia kuntoon</h3>
+              <p>Laitan asiat kuntoon. Maksat vasta, kun työ on tehty ja olet tyytyväinen.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="palvelut" class="section">
+      <div class="container">
+        <h2 class="section-title">Missä tarvitset apua?</h2>
+        <p class="section-subtitle">Tässä ovat yleisimmät asiat, joiden takia minulle soitetaan.</p>
+        
+        <p style="text-align: center; max-width: 760px; margin: -2rem auto 3rem; font-weight: 500; color: var(--main); font-size: 1.1rem;">
+            Kyse ei ole vain tietokoneista. Autan myös puhelimien ja tablettien käyttöönotossa, sovelluksissa, tunnuksissa, sähköpostissa ja nettiyhteyksissä.
+        </p>
+
+        <div class="services-grid">
+            
+            <div class="service-card">
+              <a href="virustorjunta.html" class="service-link">
+                <i class="fas fa-shield-virus icon"></i>
+                <h3>Haittaohjelmat & Virukset</h3>
+                <p>Käyttäytyykö kone oudosti tai hidastelee? Puhdistan koneen ja varmistan, että tietosi ovat turvassa.</p>
+                <span class="read-more">Lue lisää →</span>
+              </a>
+            </div>
+
+            <div class="service-card">
+              <a href="uusilaite.html" class="service-link">
+                <i class="fas fa-tools icon"></i>
+                <h3>Tietokoneen asennus</h3>
+                <p>Uusi kone paketissa tai osina? Kasaamme koneen, asennamme Windowsin ja siirrämme tiedostot vanhasta uuteen.</p>
+                <span class="read-more">Lue lisää →</span>
+              </a>
+            </div>
+
+            <div class="service-card">
+              <a href="miten-varmuuskopioin-tietokoneen-opas.html" class="service-link">
+                <i class="fas fa-cloud-upload-alt icon"></i>
+                <h3>Varmuuskopiointi</h3>
+                <p>Pelastetaan tärkeät valokuvat ja tiedostot talteen pilveen tai ulkoiselle levylle ennen kuin ne katoavat.</p>
+                <span class="read-more">Lue lisää →</span>
+              </a>
+            </div>
+
+            <div class="service-card">
+              <a href="miksi-wifi-ei-toimi-opas.html" class="service-link">
+                <i class="fas fa-wifi icon"></i>
+                <h3>Internet & Wifi-ongelmat</h3>
+                <p>Pätkiikö netti tai onko yhteys hidas? Tulen paikan päälle tarkistamaan verkon ja korjaan yhteydet.</p>
+                <span class="read-more">Lue lisää →</span>
+              </a>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 3rem;">
+            <p style="margin-bottom: 1.5rem; color: var(--text-light);">Eikö ongelmasi löytynyt listalta? Usein ihmiset eivät tiedä mikä laite tai asia on pielessä – se ei haittaa.</p>
+            <a href="#yhteys" style="font-weight: 600; color: var(--accent); text-decoration: none; border-bottom: 2px solid var(--accent); font-size: 1.1rem;">
+                Kysy muista palveluista (puhelimet, tabletit, opastus) →
+            </a>
+        </div>
+      </div>
+    </section>
+    
+    <section id="hinnat" class="section">
+      <div class="container">
+        <h2 class="section-title">Hinnasto</h2>
+        <div class="price-card">
+          
+          <p style="font-weight: 700; color: var(--main); margin-bottom: 0.5rem; font-size: 1.1rem;">
+             Minimiveloitus 30€ <span style="font-weight:400; font-size: 0.9rem; color: var(--text-light);">(30 min)</span>
+          </p>
+
+          <div id="price-display" class="price-display normal">60€</div>
+          <p id="price-description" class="price-description">/ tunti</p>
+          <p id="vat-info-text">sis. alv 25,5%</p>
+          
+          <div class="price-toggle">
+            <label><input type="radio" name="price-option" id="toggle-normal" value="normal" checked><span>Normaalihinta</span></label>
+            <label><input type="radio" name="price-option" id="toggle-deducted" value="deducted"><span>Kotitalousvähennyksellä</span></label>
+          </div>
+
+          <div id="explanation-without-deduction" class="explanation-box">
+            <p>Minimiveloitus on 30€ (puoli tuntia), joka riittää pienten vikojen selvittämiseen. Järvenpään alueella ei ole matkakuluja.</p>
+          </div>
+          
+          <div id="explanation-with-deduction" class="explanation-box" style="display: none;">
+            <p>Voit hyödyntää kotitalousvähennyksen. Tarkka hyöty riippuu omavastuun (150 €/hlö/vuosi) täyttymisestä ja vuoden muista vähennyksistä. Erittelen työn osuuden laskulle valmiiksi.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ukk" class="section" style="padding-top: 40px;">
+      <div class="container">
+        <h2 class="section-title">Usein kysyttyä</h2>
+        <div class="faq">
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>Kuinka nopeasti pääset paikalle?</span>
+              <i class="fas fa-chevron-down faq-icon"></i>
+            </summary>
+            <div class="faq-answer">
+              <p>Useimmiten samana tai seuraavana arkipäivänä. Monet pienet asiat voidaan hoitaa myös etäyhteydellä heti.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>Mitä jos vikaa ei saada korjattua?</span>
+              <i class="fas fa-chevron-down faq-icon"></i>
+            </summary>
+            <div class="faq-answer">
+              <p>Minimiveloitus on 30 €, joka kattaa vian selvityksen. Jos totean, että laitetta ei kannata korjata, kerron sen rehellisesti etkä maksa turhasta työstä enempää.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>Kehtaanko soittaa tai laittaa viestin, jos en osaa selittää vikaa?</span>
+              <i class="fas fa-chevron-down faq-icon"></i>
+            </summary>
+            <div class="faq-answer">
+              <p>Totta kai. Sinun ei tarvitse osata selittää tai käyttää oikeita termejä. Riittää kun kerrot omin sanoin, mikä ei toimi tai tuntuu oudolta. Moni yhteydenotto alkaa sanoilla "en oikein osaa selittää tätä" – ja se on täysin ok.</p>
+            </div>
+          </details>
+          
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>Miten maksu hoidetaan?</span>
+              <i class="fas fa-chevron-down faq-icon"></i>
+            </summary>
+            <div class="faq-answer">
+              <p>Voit maksaa laskulla, käteisellä tai MobilePaylla. Laskun voin lähettää sähköpostiin tai paperisena.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>Miten kotitalousvähennys toimii vuonna 2026?</span>
+              <i class="fas fa-chevron-down faq-icon"></i>
+            </summary>
+            <div class="faq-answer">
+              <p>Yritykseltä ostetusta työstä saat vähentää verotuksessa <strong>35 % työn osuudesta</strong> (omavastuu on 150 € ja maksimi 1 600 € vuodessa). Vähennys koskee vain työtä, ei laitteita tai tarvikkeita. Vähennys myönnetään sen vuoden verotuksessa, jolloin lasku on maksettu.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+    
+    <section id="luottamus" class="section">
+      <div class="container">
+        <h2 class="section-title">Asiakkaiden kokemuksia</h2>
+        <img src="/images/kodin-digiapu-auttamassa.webp" alt="Kodin Digiapu auttamassa senioria" class="trust-image" loading="lazy" style="max-width: 100%; height: auto; display: block; margin: 2rem auto;">
+        <div class="testimonials-grid">
+          
+          <div class="testimonial-card" style="border-left: 6px solid var(--accent); background-color: var(--explanation-bg);">
+            <p class="text">"Tietokoneeni oli täynnä viruksia, mutta sain apua nopeasti ja kone toimii taas. Suosittelen lämpimästi."</p>
+            <p class="author">– Helena, Järvenpää <span style="display:block; font-size:0.8rem; font-weight:normal; opacity:0.8;">(Haittaohjelmien poisto)</span></p>
+          </div>
+          
+          <div class="testimonial-card">
+            <p class="text">"Sain vihdoin uuden puhelimeni kunnolla käyttöön. Kiitos selkeästä avusta!"</p>
+            <p class="author">– Leena, Järvenpää</p>
+          </div>
+          <div class="testimonial-card">
+            <p class="text">"Konetta nopeutettiin ja turhat ohjelmat poistettiin. Ammattitaitoista palvelua suoraan kotiin."</p>
+            <p class="author">– Matti, Tuusula</p>
+          </div>
+          <div class="testimonial-card">
+            <p class="text">"Pilvipalvelun hinta nousi jatkuvasti, enkä halunnut enää maksaa siitä. Mikko siirsi kuvani turvaan ja neuvoi edullisemman ratkaisun."</p>
+            <p class="author">– Tiina, Tuusula</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="yhteys" class="section">
+      <div class="container">
+        <h2 class="section-title">Ota yhteyttä</h2>
+        <div class="contact-wrapper">
+          <div class="contact-info">
+            <img src="/images/mikko-digiapu.webp" alt="Mikko Lagerstedt" class="contact-profile-img">
+            <h3>Soita tai lähetä viesti</h3>
+            <p>Vastaan puhelimeen arkisin klo 10–18. Jos olen asiakaskäynnillä, soitan sinulle takaisin mahdollisimman pian.</p>
+            
+            <p style="margin-bottom: 2rem; padding: 1rem; background-color: var(--explanation-bg); border-radius: 8px; border-left: 4px solid var(--accent); display: inline-block; text-align: left;">
+                <strong style="color: var(--main);">Et häiritse.</strong> Yhteydenotto ei sido mihinkään. Jos asia ratkeaa nopeasti puhelimessa, kerron sen heti.
+            </p>
+            
+            <div class="contact-row">
+                <i class="fas fa-phone-alt icon"></i>
+                <div><strong>Puhelin:</strong> <a href="tel:+358405724113">040 572 4113</a></div>
+            </div>
+            <div class="contact-row">
+                <i class="fas fa-envelope icon"></i>
+                <div><strong>Sähköposti:</strong> <a href="mailto:mikko@kodindigiapu.fi">mikko@kodindigiapu.fi</a></div>
+            </div>
+          </div>
+          
+          <form action="https://formspree.io/f/mnngjdyr" method="POST" class="contact-form">
+            <input type="hidden" name="_next" value="https://www.kodindigiapu.fi/kiitos.html">
+            <h3>Jätä soittopyyntö</h3>
+            <p class="form-notice">
+                Yhteydenotto on maksutonta.<br>
+                Sinun ei tarvitse osata selittää ongelmaa tarkasti – riittää kun kerrot omin sanoin, mikä ei toimi.
+            </p>
+            <div class="form-group">
+              <label for="name" class="visually-hidden">Nimesi</label>
+              <input type="text" id="name" name="name" placeholder="Nimesi" required>
+            </div>
+            <div class="form-group">
+              <label for="phone" class="visually-hidden">Puhelinnumerosi</label>
+              <input type="tel" id="phone" name="phone" placeholder="Puhelinnumerosi" required>
+            </div>
+            <div class="form-group">
+              <label for="message" class="visually-hidden">Viestisi</label>
+              <textarea id="message" name="message" rows="4" placeholder="Kerro lyhyesti ongelmasta" required></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Lähetä</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="section payment-section">
+      <div class="container">
+        <p>Työ on kotitalousvähennyskelpoista.</p>
+        <div class="payment-methods">
+          <div>
+            <i class="fas fa-home icon-home"></i>
+            <p>Kotitalousvähennys</p>
+          </div>
+          <div>
+            <i class="fas fa-file-invoice icon-invoice"></i>
+            <p>Lasku / Käteinen</p>
+          </div>
+          <div>
+            <i class="fas fa-mobile-screen-button icon-mobilepay"></i>
+            <p>MobilePay</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p><strong>Kodin Digiapu</strong> – Järvenpää, Tuusula, Kerava</p>
+      <p>Puhelin: <a href="tel:+358405724113">040 572 4113</a> · Sähköposti: <a href="mailto:mikko@kodindigiapu.fi">mikko@kodindigiapu.fi</a></p>
+      <p>Aukiolo: ma–pe 10–18 · Y-tunnus 2272247-7</p>
+      <p>
+        <a href="sitemap.xml">Sivukartta</a> · 
+        <a href="tietosuoja.html">Tietosuoja</a> · 
+        <a href="evasteet.html">Evästeet</a>
+      </p>
+    </div>
+  </footer>
+
+  <div class="mobile-sticky-cta">
+    <a href="tel:+358405724113" class="sticky-btn call">
+        <i class="fas fa-phone-alt"></i> Soita
+    </a>
+    <a href="https://wa.me/358405724113" target="_blank" rel="noopener" class="sticky-btn whatsapp">
+        <i class="fab fa-whatsapp"></i> WhatsApp
+    </a>
   </div>
 
+  <button id="toTop" aria-label="Takaisin ylös"><i class="fas fa-chevron-up"></i></button>
+
+  <script defer src="/js/script.js"></script>
+  
+  <div id="cookie-consent-banner" class="cookie-banner">
+  <div class="cookie-banner-content">
+    <p>Käytämme evästeitä parantaaksemme sivustoa. <a href="evasteet.html" class="cookie-link">Lue lisää</a></p>
+    <div class="cookie-banner-buttons">
+      <button id="btn-consent-deny" class="cookie-btn deny">Hylkää</button>
+      <button id="btn-consent-accept" class="cookie-btn accept">Hyväksy</button>
+    </div>
+  </div>
+</div>
 </body>
 </html>
