@@ -1228,3 +1228,72 @@ code {
   font-family: monospace;
   font-size: 0.9em;
 }
+/* =========================================
+   10. LISTAMAINEN OHJE-ASSETTELU (Allekkain)
+   ========================================= */
+
+/* Pääkontti listalle - kavennetaan hieman luettavuuden vuoksi */
+.help-steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Yksittäinen kohta (rivi) */
+.help-step-item {
+  display: flex;
+  background: var(--card);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  text-align: left;
+  transition: transform 0.2s;
+}
+
+/* Ikonin ympäristö */
+.step-icon-wrapper {
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  background: var(--explanation-bg);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1.5rem;
+  color: var(--accent);
+  font-size: 1.5rem;
+}
+
+/* Sisältöalue */
+.step-content {
+  flex-grow: 1;
+}
+
+.step-content h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: var(--main);
+}
+
+.step-content p {
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+}
+
+/* Mobiili: Pinotaan ikoni päällekkäin jos tila loppuu */
+@media (max-width: 600px) {
+  .help-step-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .step-icon-wrapper {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+}
