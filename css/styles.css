@@ -1545,3 +1545,193 @@ html[data-theme="dark"] body.guide-page .guide-cta-section {
     radial-gradient(900px 380px at 50% 120%, rgba(14,165,233,0.16), transparent 60%),
     var(--card);
 }
+/* =========================================================
+   GUIDE PAGE IMPROVEMENTS: stacked steps + better CTA layout
+   ========================================================= */
+
+body.guide-page .guide-content .section-title,
+body.guide-page .guide-content .section-subtitle {
+  text-align: center;
+}
+
+body.guide-page .guide-steps {
+  margin-top: 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Step card: icon left, content right */
+body.guide-page .guide-step {
+  display: grid;
+  grid-template-columns: 54px 1fr;
+  gap: 14px;
+  align-items: start;
+  background: var(--card);
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  padding: 18px 18px;
+  box-shadow: var(--shadow-sm);
+}
+
+body.guide-page .guide-step:hover {
+  border-color: rgba(14,165,233,0.30);
+  box-shadow: var(--shadow-md);
+}
+
+body.guide-page .guide-step-icon {
+  width: 54px;
+  height: 54px;
+  border-radius: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(14,165,233,0.12);
+  color: var(--main);
+}
+
+body.guide-page .guide-step-icon i {
+  font-size: 1.2rem;
+}
+
+body.guide-page .guide-step-title {
+  margin: 2px 0 8px 0;
+  font-size: 1.18rem;
+  line-height: 1.25;
+  color: var(--main);
+}
+
+body.guide-page .guide-step-text {
+  margin: 0 0 10px 0;
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+body.guide-page .guide-step-points p {
+  margin: 0 0 8px 0;
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+body.guide-page .guide-step-highlight {
+  border-color: rgba(14,165,233,0.38);
+  background:
+    radial-gradient(900px 360px at 70% -30%, rgba(14,165,233,0.10), transparent 60%),
+    var(--card);
+}
+
+/* Mobile: tighter layout */
+@media (max-width: 640px) {
+  body.guide-page .guide-step {
+    grid-template-columns: 46px 1fr;
+    padding: 16px 16px;
+  }
+  body.guide-page .guide-step-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+  }
+}
+
+/* CTA section: clearly structured card */
+body.guide-page .guide-cta-section {
+  padding: clamp(56px, 7vh, 92px) 0;
+  border-top: 1px solid var(--border-light);
+  background:
+    radial-gradient(900px 380px at 50% 120%, rgba(14,165,233,0.10), transparent 60%),
+    var(--bg);
+}
+
+html[data-theme="dark"] body.guide-page .guide-cta-section {
+  background:
+    radial-gradient(900px 380px at 50% 120%, rgba(14,165,233,0.16), transparent 60%),
+    var(--bg);
+}
+
+body.guide-page .cta-box {
+  background: var(--card);
+  border: 1px solid var(--border-light);
+  border-radius: 18px;
+  box-shadow: var(--shadow-md);
+  padding: 22px 20px;
+}
+
+body.guide-page .cta-title {
+  margin: 0 0 10px 0;
+  font-size: clamp(1.55rem, 2.6vw, 2.0rem);
+  letter-spacing: -0.015em;
+  color: var(--main);
+  text-align: left;
+}
+
+body.guide-page .cta-lead {
+  margin: 0 0 16px 0;
+  color: var(--text-light);
+  line-height: 1.75;
+}
+
+body.guide-page .cta-what {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border-light);
+}
+
+body.guide-page .cta-subtitle {
+  margin: 0 0 10px 0;
+  font-size: 1.05rem;
+  color: var(--main);
+}
+
+body.guide-page .cta-list {
+  margin: 0 0 0 18px;
+  padding: 0;
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+body.guide-page .cta-list li {
+  margin-bottom: 8px;
+}
+
+body.guide-page .cta-price {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border-light);
+}
+
+body.guide-page .cta-price-main {
+  margin: 0;
+  font-size: 1.35rem;
+  color: var(--main);
+}
+
+body.guide-page .cta-price-sub {
+  margin: 6px 0 0 0;
+  color: var(--text-light);
+}
+
+/* Buttons: more space after, better gaps */
+body.guide-page .cta-actions {
+  margin-top: 18px;
+  display: flex;
+  gap: 14px;
+  align-items: stretch;
+}
+
+body.guide-page .cta-actions .cta-button {
+  max-width: none;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  body.guide-page .cta-actions {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+body.guide-page .cta-footnote {
+  margin-top: 16px;
+  color: var(--text-light);
+  font-size: 0.98rem;
+}
