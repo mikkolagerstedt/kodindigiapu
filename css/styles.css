@@ -113,7 +113,7 @@ header {
   align-items: center;
   padding-top: 18px;
   padding-bottom: 18px;
-   
+  
 }
 
 .logo {
@@ -204,54 +204,27 @@ header {
 [data-theme="dark"] .icon-moon { opacity: 0; }
 
 
-/* --- HERO (KORJATTU 6.11.2025) --- */
+/* --- HERO --- */
 .hero {
   background: var(--card);
-  text-align: left;
-  /* KORJAUS 1: Poistettu sivupadding, jotta ei tule tuplamarginaaleja containerin kanssa */
-  padding: 60px 0 50px; 
+  text-align: center;
+  padding: 60px 20px 50px;
   transition: background 0.3s ease;
-}
-
-.hero-container-flex {
-  display: flex;
-  /* KORJAUS 2: Linjataan kuva ja teksti yläreunaan, ei keskelle */
-  align-items: flex-start;
-  gap: 40px;
-  text-align: left;
-}
-
-/* Tekstialue saa ottaa tilan ja estetään venyminen */
-.hero-text-content {
-  flex: 1;
-  min-width: 0;
-  max-width: 720px; 
-}
-
-.hero-profile-img {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  object-fit: cover;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  flex-shrink: 0;
-  /* KORJAUS 3: Pieni säätö, jotta kuva istuu nätisti H1-otsikon korkeuden kanssa */
-  margin-top: 10px;
 }
 
 .hero-title {
   color: var(--main);
-  margin-left: 0;   
-  margin-right: 0;
+  max-width: 750px;
+  margin-left: auto;   
+  margin-right: auto;
   font-size: clamp(30px, 5vw, 42px); 
 }
 
-/* --- ONGELMALISTA (index.html) --- */
+/* --- UUSI, TEKSTIPOHJAINEN ONGELMALISTA (index.html) --- */
 .problem-checklist {
-  margin: 1rem 0 2.5rem 0; 
-  /* KORJAUS 4: Sama leveys kuin muilla tekstielementeillä */
-  max-width: 720px; 
-  text-align: left; 
+  margin: 1rem auto 2.5rem; 
+  max-width: 500px; 
+  text-align: center; 
   display: flex; 
   flex-direction: column; 
   gap: 0.25rem; 
@@ -277,45 +250,47 @@ header {
 
 .hero-subtitle {
   font-size: 1.1rem;
-  /* KORJAUS 5: Yhtenäistetty leveys 720px */
-  max-width: 720px;
-  margin: 0 0 2.5rem 0;
+  max-width: 700px;
+  margin: 0 auto 2.5rem;
   color: var(--text-light);
   line-height: 1.7;
 }
 
+/* KORJAUS 6.11.2025: Parannettu etusivun luettavuutta ja välejä */
 body:not(.service-page-landing) .hero-subtitle {
-  font-size: 1.3rem;
+  font-size: 1.3rem; /* Kasvatettu 1.2rem -> 1.3rem */
   line-height: 1.7;
-  margin-top: 1.5rem;
+  margin-top: 1.5rem; /* Lisätty ilmaa otsikon ja tekstin väliin */
   margin-bottom: 2.5rem;
 }
 
+/* KORJAUS 6.11.2025: Parempi kontrasti tummalla teemalla */
 [data-theme="dark"] .hero-subtitle {
-  color: #cbd5e1;
+  color: #cbd5e1; /* Paljon vaaleampi ja luettavampi harmaa */
 }
 
+/* KORJAUS 6.11.2025: Lisätty puuttuvat välit */
 .hero .hero-subtitle + p {
   font-weight: 600;
   font-size: 1.1rem;
-  margin-top: 2rem;
-  margin-bottom: 1.5rem;
+  margin-top: 2rem; /* Lisää ilmaa alaotsikon jälkeen */
+  margin-bottom: 1.5rem; /* Lisää ilmaa nappien yläpuolelle */
   color: var(--text-dark);
 }
 
 .hero-cta-buttons {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
+  align-items: center;
   gap: 1rem;
   flex-wrap: wrap;
-  margin-left: 0;
-  margin-right: 0;
+  margin-left: auto;
+  margin-right: auto;
 }
 
+/* KORJAUS 6.11.2025: Lisätty puuttuvat välit */
 .hero .hero-cta-buttons + p {
-  margin-top: 1.5rem;
+  margin-top: 1.5rem; /* Lisää ilmaa nappien alapuolelle */
   font-size: 0.95rem;
   color: var(--text-light);
 }
@@ -359,15 +334,13 @@ body:not(.service-page-landing) .hero-subtitle {
   margin-right: 8px;
 }
 
-/* --- CLIENT TOGGLE --- */
+/* --- CLIENT TOGGLE (PALAUTETTU) --- */
 .client-toggle {
   display: flex;
   border: 1px solid var(--toggle-border);
   border-radius: 8px;
   overflow: hidden;
   max-width: 420px;
-  /* Pidetään desktopilla keskitettynä tai vasemmalla riippuen mieltymyksestä. 
-     Nyt: keskitetty. Jos haluat vasemmalle: margin: 0 0 2.5rem 0; */
   margin: 0 auto 2.5rem;
 }
 
@@ -450,7 +423,7 @@ body:not(.service-page-landing) .hero-subtitle {
   }
 }
 
-/* --- PRICE TOGGLE --- */
+/* --- PRICE TOGGLE (PALAUTETTU) --- */
 .price-toggle {
   display: flex;
   border: 1px solid var(--toggle-border);
@@ -538,23 +511,25 @@ body:not(.service-page-landing) .hero-subtitle {
   gap: 1.5rem;
 }
 
-/* VAIN #palvelut-osioon */
+/* --- KORJATTU OSA --- */
+/* Nämä säännöt kohdistuvat VAIN #palvelut-osioon */
 #palvelut .service-card {
-  padding: 0;
+  padding: 0; /* Poistetaan oletuspehmuste */
   display: flex;
   flex-direction: column;
-  transition: none; 
+  transition: none; /* Linkki hoitaa siirtymän */
 }
 
 #palvelut .service-card:hover {
+  /* Poistetaan oletushover */
   transform: none;
   box-shadow: 0 4px 15px rgba(0,0,0,0.05);
 }
 
 #palvelut .service-link {
-  padding: 2rem; 
-  border-radius: 8px;
-  height: 100%;
+  padding: 2rem; /* Otetaan pehmuste .service-cardilta */
+  border-radius: 8px; /* Peritään .service-cardilta */
+  height: 100%; /* Varmistetaan, että täyttää koko kortin */
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
@@ -563,19 +538,21 @@ body:not(.service-page-landing) .hero-subtitle {
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
   text-decoration: none;
 }
+/* --- KORJAUKSEN LOPPU --- */
 
-/* Yleinen .service-card -sääntö */
+
+/* Yleinen .service-card -sääntö (vaikuttaa mm. #paketit-osioon) */
 .service-card {
   background: var(--card);
   border: 1px solid var(--border-light);
-  padding: 2rem;
+  padding: 2rem; /* PALAUTETTU OLETUSARVO */
   border-radius: 8px;
   text-align: center;
   box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s; /* PALAUTETTU OLETUSARVO */
 }
 
-.service-card:hover {
+.service-card:hover { /* PALAUTETTU OLETUSARVO */
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
@@ -632,7 +609,7 @@ body:not(.service-page-landing) .hero-subtitle {
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
-/* --- HINNAT --- */
+/* --- HINNAT (PIENENNETTY) --- */
 .price-card {
   text-align: center;
   background: var(--card);
@@ -697,6 +674,7 @@ body:not(.service-page-landing) .hero-subtitle {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
 }
 
+/* --- KYSYMYS --- */
 .faq-question {
   cursor: pointer;
   padding: 1.2rem 1.6rem;
@@ -728,6 +706,7 @@ body:not(.service-page-landing) .hero-subtitle {
   transform: rotate(180deg);
 }
 
+/* Ikonit: koti ja lasku */
 .icon-home {
   font-size: 2.2rem;
   color: #1f2937;
@@ -754,6 +733,7 @@ body:not(.service-page-landing) .hero-subtitle {
   color: #86efac;
 }
 
+/* --- VASTAUS --- */
 .faq-answer {
   background: #dbeafe;
   color: #1e293b;
@@ -775,6 +755,7 @@ body:not(.service-page-landing) .hero-subtitle {
   margin: 0;
 }
 
+/* --- TUMMA TEEMA FAQ --- */
 [data-theme="dark"] .faq-item {
   border: 2px solid #2d3a4b;
   background: #1f2937;
@@ -851,11 +832,12 @@ body:not(.service-page-landing) .hero-subtitle {
   box-shadow: 0 4px 16px rgba(0,0,0,.05);
 }
 
+/* KORJAUS: Muutettu H3 tasaus vasemmalle */
 .contact-form h3 {
   margin-bottom: 0.5rem;
   text-align: left;
 }
-
+/* KORJAUS: Muutettu .form-notice tasaus vasemmalle */
 .form-notice {
   font-size: 0.95rem;
   color: var(--text-light);
@@ -905,12 +887,14 @@ body:not(.service-page-landing) .hero-subtitle {
 
 /* --- MOBIILI --- */
 .mobile-sticky-cta {
-  display: none; 
+  display: none; /* Piilotettu oletuksena */
 }
 
 @media (max-width: 768px) {
   body {
     padding-top: 70px;
+    /* KORJATTU: Käytetään dynaamista alapaddingia CTA-palkille ja iOS-turva-alueelle */
+    /* 51px on .sticky-btn padding (15px*2) + font-size (1rem=16px) + pieni marginaali */
     padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 51px); 
   }
   .section {
@@ -939,26 +923,24 @@ body:not(.service-page-landing) .hero-subtitle {
     text-align: center;
     width: 100%;
   }
-  
-  /* MOBIILI FIX: Nämä pakotetaan keskelle puhelimessa */
   .hero-cta-buttons,
   .cta-button {
     width: 100%;
     max-width: 320px;
-    align-items: center; 
-    justify-content: center; 
   }
 
+  /* KORJATTU: .mobile-sticky-cta -säännöt päivitetty ohjeiden mukaan */
   .mobile-sticky-cta {
     display: flex;
     position: fixed;
+    /* KORJATTU: Ottaa huomioon iOS-turva-alueen "notchin" */
     bottom: env(safe-area-inset-bottom, 0px);
     left: 0;
     width: 100%;
     background: var(--header-bg);
     box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
     z-index: 1001;
-    transition: bottom 0.3s ease; 
+    transition: bottom 0.3s ease; /* LISÄTTY: Pehmeä siirtymä */
   }
   .sticky-btn {
     flex: 1;
@@ -979,39 +961,6 @@ body:not(.service-page-landing) .hero-subtitle {
     max-width: 90%;
     margin-bottom: 2rem;
   }
-
-  /* --- MOBIILI HERO FIXIT --- */
-  .hero {
-    text-align: center;
-  }
-  
-  .hero-container-flex {
-    flex-direction: column;
-    text-align: center;
-    gap: 20px;
-    /* KORJAUS 6: Mobiilissa palautetaan align-items keskelle */
-    align-items: center;
-  }
-  
-  .hero-title, 
-  .hero-subtitle {
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center; 
-  }
-  
-  .problem-checklist {
-    margin: 1rem auto 2.5rem;
-    text-align: center;
-    align-items: center;
-  }
-  
-  .hero-cta-buttons {
-    margin-left: auto;
-    margin-right: auto;
-    justify-content: center;
-    align-items: center;
-  }
 }
 
 @media (min-width: 576px) {
@@ -1023,7 +972,7 @@ body:not(.service-page-landing) .hero-subtitle {
 @media (min-width: 768px) {
   .hero-cta-buttons {
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: center;
   }
   .cta-button {
     width: auto;
@@ -1037,6 +986,7 @@ body:not(.service-page-landing) .hero-subtitle {
   .services-grid {
     grid-template-columns: repeat(4, 1fr);
   }
+  /* Palvelu-osion yrityspuolen keskitys */
   #business-services .services-grid {
     grid-template-columns: 1fr;
   }
@@ -1080,17 +1030,19 @@ body:not(.service-page-landing) .hero-subtitle {
 
 @media (max-width: 768px) {
   #toTop {
-    bottom: calc(env(safe-area-inset-bottom, 0px) + 65px); 
+    /* KORJATTU: Nostettu pysymään CTA-palkin yläpuolella */
+    bottom: calc(env(safe-area-inset-bottom, 0px) + 65px); /* 51px CTA + 14px marginaali */
   }
 }
 
 /* =========================================================
-   NÄIN KODIN DIGIAPU AUTTAA
+   NÄIN KODIN DIGIAPU AUTTAA — PÄIVITETTY OSIO
 ========================================================= */
 .help-section {
   text-align: left;
 }
 
+/* Tämä on YLEINEN tyyli help-step-listoille (kuten palvelusivuilla) */
 .help-steps {
   display: flex;
   flex-direction: column;
@@ -1152,6 +1104,7 @@ body:not(.service-page-landing) .hero-subtitle {
   background: rgba(255,255,255,0.1);
 }
 
+/* --- LISÄYS: Etusivun "Näin autan" -osion grid-asettelu --- */
 .help-steps-grid {
   max-width: 900px;
   display: grid;
@@ -1160,12 +1113,14 @@ body:not(.service-page-landing) .hero-subtitle {
   margin: 2rem auto 0 auto;
 }
 
+/* Tämä keskittää ikonit ja tekstit ruudukon sisällä */
 .help-steps-grid .help-step {
   flex-direction: column;
   text-align: center;
   align-items: center;
 }
 
+/* --- LISÄYS: Klikattavat "Näin autan" -laatikot --- */
 .help-step.is-linkable {
   position: relative; 
 }
@@ -1193,7 +1148,7 @@ body:not(.service-page-landing) .hero-subtitle {
 }
 
 /* =========================================================
-   PALVELUSIVUJEN KORTIT
+   PALVELUSIVUJEN KORTIT – YHTENÄINEN MUOTOILU
 ========================================================= */
 .service-page-landing .vst-section {
   padding: 80px 20px;
@@ -1251,10 +1206,12 @@ body:not(.service-page-landing) .hero-subtitle {
   margin: 0;
 }
 
+/* Värivariaatiot */
 .service-page-landing .vst-card.is-warning .vst-icon { color: #ef4444; }
 .service-page-landing .vst-card.is-caution .vst-icon { color: #f59e0b; }
 .service-page-landing .vst-card.is-safe    .vst-icon { color: #10b981; }
 
+/* Tumma teema */
 [data-theme="dark"] .service-page-landing .vst-card {
   box-shadow: 0 6px 18px rgba(0,0,0,0.35);
 }
@@ -1323,7 +1280,8 @@ body:not(.service-page-landing) .hero-subtitle {
   transform: translateY(-2px);
 }
 
-/* --- FOOTER --- */
+/* --- FOOTER – TÄYSIN YHTENÄINEN KAIKILLA SIVUILLA --- */
+/* PÄIVITETTY SÄÄNTÖ: Poistettu !important ja korjattu padding */
 footer {
   background: var(--footer-bg);
   color: var(--footer-text);
@@ -1342,7 +1300,7 @@ footer a {
   color: #93c5fd;
   text-decoration: none;
   font-weight: 500;
-  padding: 0 5px; 
+  padding: 0 5px; /* Päivitetty 4px -> 5px */
   transition: all 0.2s ease;
 }
 
@@ -1351,6 +1309,7 @@ footer a:hover {
   text-decoration: underline;
 }
 
+/* Tumma teema CTA-osiolle */
 [data-theme="dark"] .cta-section {
   background: #0f172a; 
   color: #f1f5f9;
@@ -1389,7 +1348,8 @@ footer a:hover {
   color: #fff; 
 }
 
-/* --- LINKIT --- */
+/* --- PALVELUKORTTIEN LINKIT --- */
+/* Yleinen .service-link -sääntö */
 .service-link {
   display: block;
   color: inherit;
@@ -1398,6 +1358,8 @@ footer a:hover {
 }
 
 .service-link:hover {
+  /* Tämä vaikuttaa nyt vain #paketit-osion linkkiin, */
+  /* koska #palvelut-osion hover on määritelty erikseen */
   transform: translateY(-5px);
   text-decoration: none;
 }
@@ -1415,7 +1377,7 @@ footer a:hover {
   color: #0284c7;
 }
 
-/* --- PALVELUPAKETIT --- */
+/* --- PALVELUPAKETIT: EROTTUVA ILME JA PAREMPI SPACING --- */
 #paketit {
   background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
   padding: 80px 20px;
@@ -1444,6 +1406,7 @@ footer a:hover {
   color: #475569;
 }
 
+/* Gridin asettelu */
 #paketit .services-grid {
   display: grid;
   gap: 2rem;
@@ -1453,16 +1416,18 @@ footer a:hover {
   margin: 0 auto;
 }
 
+/* Kortit */
 #paketit .service-card {
+  /* Tämä sääntö ylikirjoittaa yleisen .service-card -säännön */
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 14px;
-  padding: 2.2rem 1.6rem 2.8rem 1.6rem; 
+  padding: 2.2rem 1.6rem 2.8rem 1.6rem; /* TÄMÄ ON TÄRKEÄ */
   text-align: center;
   transition: all 0.3s ease;
   position: relative;
-  display: flex; 
-  flex-direction: column; 
+  display: flex; /* LISÄTTY TÄMÄ TASOITTAMAAN KORKEUS */
+  flex-direction: column; /* LISÄTTY TÄMÄ TASOITTAMAAN KORKEUS */
 }
 
 [data-theme="light"] #paketit .service-card {
@@ -1471,12 +1436,14 @@ footer a:hover {
 }
 
 #paketit .service-card:hover {
+  /* Tämä ylikirjoittaa yleisen .service-card:hover -säännön */
   transform: translateY(-5px);
   box-shadow: 0 10px 25px rgba(14,165,233,0.25);
 }
 
+/* MUOKKAUS: Kohdistetaan linkkiin VAIN .highlight-kortissa */
 #paketit .service-card.highlight .service-link {
-  padding: 0; 
+  padding: 0; /* Poistetaan yleisen .service-link:n pehmuste */
   flex-grow: 1;
   border-radius: 0;
   transition: none;
@@ -1487,9 +1454,11 @@ footer a:hover {
   box-shadow: none;
 }
 
+/* LISÄTTY: Tasoitetaan P-elementin korkeus */
 #paketit .service-card p {
-  flex-grow: 1; 
+  flex-grow: 1; /* Tämä venyttää tekstikappaletta */
 }
+
 
 #paketit .service-card .icon {
   font-size: 2.2rem;
@@ -1517,9 +1486,10 @@ footer a:hover {
   font-size: 1.1rem;
   color: #38bdf8;
   margin-bottom: 1rem;
-  margin-top: auto; 
+  margin-top: auto; /* LISÄTTY: Työntää hinnan alas */
 }
 
+/* Varaa-nappi ilmavasti erillään */
 #paketit .cta-mini {
   display: inline-block;
   margin-top: 0.8rem;
@@ -1530,6 +1500,8 @@ footer a:hover {
   border-radius: 8px;
   text-decoration: none;
   transition: background 0.25s ease, transform 0.2s ease;
+  
+  /* Varmistetaan, että nappi on linkin päällä */
   position: relative;
   z-index: 2;
 }
@@ -1547,6 +1519,7 @@ footer a:hover {
   background: #38bdf8;
 }
 
+/* Alaviite */
 #paketit .price-note {
   margin-top: 3rem;
   color: rgba(255, 255, 255, 0.6);
@@ -1557,12 +1530,13 @@ footer a:hover {
 [data-theme="light"] #paketit .price-note {
   color: #475569;
 }
-/* --- HEADERIN CTA-PAINIKE --- */
+/* --- LISÄYS: HEADERIN CTA-PAINIKE --- */
+/* KORJAUS 6.11.2025: Ilmavampi pehmuste */
 .header-cta {
   display: none; 
   background: var(--accent);
   color: white;
-  padding: 0.7rem 1.2rem; 
+  padding: 0.7rem 1.2rem; /* Korjattu 0.6rem 1.rem -> 0.7rem 1.2rem */
   border-radius: 8px;
   font-weight: 600;
   text-decoration: none;
@@ -1570,19 +1544,21 @@ footer a:hover {
   transition: background 0.2s ease;
 }
 
+/* KORJAUS 6.11.2025: Poistettu alleviivaus hover-tilasta */
 .header-cta:hover {
   background: #0284c7;
   color: white;
-  text-decoration: none; 
+  text-decoration: none; /* Lisätty tämä */
 }
 
+/* MUUTA TÄMÄ NÄIN: */
 @media (min-width: 992px) { 
   .header-cta {
     display: inline-block;
   }
 }
 
-/* --- ESTEETTÖMYYS --- */
+/* --- LISÄYS: Esteettömyysparannukset --- */
 .visually-hidden,
 .visually-hidden-focusable:not(:focus):not(:active) {
   position: absolute;
@@ -1609,25 +1585,29 @@ footer a:hover {
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
+/* 3A: Selkeämpi fokus-tyyli näppäimistökäyttäjille */
 :focus-visible {
   outline: 3px solid var(--accent);
   outline-offset: 2px;
 }
 
+/* 3D: Yleinen hover-alleviivaus linkeille (Ei vaikuta nappeihin) */
 a:hover { 
   text-decoration: underline; 
 }
+/* Kumotaan alleviivaus elementeiltä, joilla on jo oma hover-tehoste */
 .logo:hover,
 .nav-links a:hover,
 .cta-button:hover,
 .service-link:hover,
 .cta-mini:hover,
 .sticky-btn:hover,
-.help-step-link-overlay:hover { 
+.help-step-link-overlay:hover { /* Lisätty tämä kumoamaan linkkilaatikon alleviivaus */
   text-decoration: none;
 }
 
 
+/* 4D: Tuki liikkeen vähentämiselle */
 @media (prefers-reduced-motion: reduce) {
   * { 
     animation: none !important; 
@@ -1637,8 +1617,10 @@ a:hover {
 
 /* =========================================================
    REFAKTOIDUT INLINE-TYYLIT
+   Nämä säännöt korvaavat HTML-tiedostoissa olleet style-attribuutit.
 ========================================================= */
 
+/* --- Yleiset --- */
 .header-controls {
   display: flex;
   align-items: center;
@@ -1652,12 +1634,14 @@ a:hover {
 
 /* --- Etusivu (index.html) --- */
 
+/* Kohdistaa etusivun "Näin autan" -osioon */
 .hero + .help-section {
   background: var(--bg);
   padding-top: 60px;
   padding-bottom: 60px;
 }
 
+/* Hinnaston ALV-teksti */
 #vat-info-text {
   font-size: 0.9rem;
   color: var(--text-light);
@@ -1666,6 +1650,7 @@ a:hover {
   font-style: italic;
 }
 
+/* Hinnaston minimiveloitus-teksti */
 .price-card p:nth-of-type(3) {
   font-weight: 600;
   margin-top: -1rem;
@@ -1711,6 +1696,7 @@ a:hover {
   font-size: 1rem;
 }
 
+/* Korjaa #paketit-osion yhden kortin poikkeavan linkkityylin */
 #paketit .service-card .service-link {
   text-decoration: none;
   color: inherit;
@@ -1745,17 +1731,19 @@ flex-wrap: wrap;
   margin-top: 6px;
 }
 
+/* --- PAYMENT METHODS: MOBILEPAY KORJAUS --- */
 .icon-home, .icon-invoice, .icon-mobilepay {
-  font-size: 3rem; 
+  font-size: 3rem; /* Suurempi ikoni (vastaa aiempaa 60px kuvaa) */
   margin-bottom: 10px;
   display: block;
-  height: 60px; 
-  line-height: 60px; 
-  color: var(--text-dark); 
+  height: 60px; /* Vakiokorkeus */
+  line-height: 60px; /* Keskittää ikonin pystysuunnassa */
+  color: var(--text-dark); /* Oletusväri */
 }
 
+/* Ikonien erikoisvärit */
 .icon-invoice { color: var(--success); }
-.icon-mobilepay { color: #5a78ff; } 
+.icon-mobilepay { color: #5a78ff; } /* MobilePayn sininen */
 
 .payment-methods a {
   text-decoration: none;
@@ -1779,14 +1767,16 @@ flex-wrap: wrap;
   text-decoration: underline;
 }
 
-/* --- Palvelusivut --- */
+/* --- Palvelusivut (puhelinapu.html, yrityksille.html, jne.) --- */
 
+/* Hero-osion pääikoni */
 .service-page-landing .hero .icon {
   font-size: 3rem;
   color: var(--accent);
   margin-bottom: 1rem;
 }
 
+/* Linkki toiseen palveluun (esim. puhelinapu -> opastus) */
 .help-section .related-service-link {
   text-align: center;
   margin-top: 2rem;
@@ -1798,6 +1788,7 @@ flex-wrap: wrap;
   font-weight: 600;
 }
 
+/* CTA-osion hintatiedot */
 .cta-section .price-main {
   font-size: 1.4rem;
   color: var(--main);
@@ -1807,6 +1798,7 @@ flex-wrap: wrap;
   font-size: 0.9rem;
 }
 
+/* Yrityssivun poikkeava väri */
 .page-yrityksille .cta-section .price-sub {
   color: #cbd5e1;
 }
@@ -1828,8 +1820,7 @@ flex-wrap: wrap;
 .cta-section .hero-cta-buttons {
   margin-top: 2rem;
 }
-
-/* === EVÄSTEBANNERI === */
+/* === Oman evästebannerin tyylit === */
 .cookie-banner {
   position: fixed;
   bottom: 0;
@@ -1839,7 +1830,7 @@ flex-wrap: wrap;
   box-shadow: 0 -2px 10px rgba(0,0,0,0.15);
   padding: 20px;
   z-index: 9998; 
-  display: none; 
+  display: none; /* Piilotettu oletuksena */
   border-top: 1px solid var(--border-light);
   color: var(--text-dark);
 }
@@ -1910,6 +1901,7 @@ flex-wrap: wrap;
   background: #374151;
 }
 
+/* Mobiiliasettelu */
 @media (min-width: 768px) {
   .cookie-banner-content {
     flex-direction: row;
@@ -1918,7 +1910,9 @@ flex-wrap: wrap;
   }
 }
 
+/* KORJATTU: Lisätty sääntö siirtämään CTA-palkkia, kun evästebanneri on auki */
 body.cookie-banner-is-visible .mobile-sticky-cta {
+  /* Säädä 80px bannerin todellisen korkeuden mukaan (arvio) */
   bottom: calc(env(safe-area-inset-bottom, 0px) + 80px); 
 }
 
@@ -1950,39 +1944,44 @@ body.cookie-banner-is-visible .mobile-sticky-cta {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px; 
-  padding: 12px 10px; 
+  gap: 8px; /* Lisätty tilaa ikonille */
+  padding: 12px 10px; /* Hieman isompi pehmuste */
   text-align: center;
   font-weight: 500;
-  font-size: 1rem; 
+  font-size: 1rem; /* Hieman isompi fontti */
   transition: all 0.2s;
 }
 
+/* Oletusvärit */
 .platform-toggle label:first-child span {
-  background: #f0fdf4; 
-  color: #166534; 
+  background: #f0fdf4; /* Vaalea vihreä */
+  color: #166534; /* Tumma vihreä */
 }
 .platform-toggle label:last-child span {
-  background: #f8fafc; 
-  color: #334155; 
+  background: #f8fafc; /* Vaalea harmaa */
+  color: #334155; /* Tumma harmaa */
 }
 
+/* Hover-tila */
 .platform-toggle label:hover span {
   background: #e0f2fe !important;
 }
 
+/* Valittu-tila (Android) */
 #toggle-android:checked + span {
-  background: #22c55e !important; 
+  background: #22c55e !important; /* Kirkas vihreä */
   color: white !important;
   font-weight: 600;
 }
 
+/* Valittu-tila (iPhone) */
 #toggle-iphone:checked + span {
-  background: #64748b !important; 
+  background: #64748b !important; /* Keski-harmaa */
   color: white !important;
   font-weight: 600;
 }
 
+/* Tumman teeman värit */
 [data-theme="dark"] .platform-toggle label:first-child span {
   background: #14532d;
   color: #a7f3d0;
@@ -1995,14 +1994,15 @@ body.cookie-banner-is-visible .mobile-sticky-cta {
   background: #1f2937 !important;
 }
 
+/* Sisältölaatikoiden hallinta */
 .platform-content {
-  display: none; 
+  display: none; /* Piilotettu oletuksena */
   opacity: 0;
   transition: opacity 0.4s ease;
 }
 
 .platform-content.active {
-  display: block; 
+  display: block; /* Tulee näkyviin */
   opacity: 1;
 }
 
