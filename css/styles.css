@@ -296,7 +296,7 @@ header {
 
 .hero-home .hero-container-flex {
   display: flex;
-  align-items: center; /* Pystysuunnassa keskitetty kuvaan nähden */
+  align-items: center; /* KORJATTU: center pitää kuvan pystysuunnassa keskellä */
   gap: 40px;
   text-align: left;
 }
@@ -304,7 +304,7 @@ header {
 .hero-home .hero-text-content {
   flex: 1;
   min-width: 0;
-  max-width: 850px; /* Estää tekstin leviämisen liian leveäksi */
+  max-width: 850px; 
 }
 
 .hero-home .hero-profile-img {
@@ -314,6 +314,7 @@ header {
   object-fit: cover;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   flex-shrink: 0;
+  margin-top: 0; /* Poistettu margin-top, koska align-items: center hoitaa keskityksen */
 }
 
 .hero-home .hero-title,
@@ -366,7 +367,7 @@ header {
   .hero-home .hero-container-flex {
     flex-direction: column;
     text-align: center;
-    gap: 20px;
+    align-items: center;
   }
 
   .hero-title, 
@@ -1001,3 +1002,16 @@ footer a:hover { color: #ffffff; text-decoration: underline; }
   position: absolute; top: 1rem; left: 1rem; z-index: 9999; padding: 0.5rem 1rem; background: var(--card); border: 2px solid var(--accent); border-radius: 8px;
 }
 :focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+/* =========================================
+   SISÄSIVUJEN KESKITETTY HERO (UUSI)
+   ========================================= */
+.hero-center {
+  text-align: center;
+}
+
+.hero-center .hero-title,
+.hero-center .hero-subtitle {
+  margin-left: auto;
+  margin-right: auto;
+}
