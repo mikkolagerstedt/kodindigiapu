@@ -113,7 +113,7 @@ header {
   align-items: center;
   padding-top: 18px;
   padding-bottom: 18px;
-   
+  
 }
 
 .logo {
@@ -204,24 +204,21 @@ header {
 [data-theme="dark"] .icon-moon { opacity: 0; }
 
 
-/* --- HERO (KORJATTU 6.11.2025) --- */
+/* --- HERO (ETUSIVU / LEFT ALIGN) --- */
 .hero {
   background: var(--card);
-  text-align: left;
-  /* KORJAUS 1: Poistettu sivupadding, jotta ei tule tuplamarginaaleja containerin kanssa */
+  text-align: left; /* Etusivu: Vasen */
   padding: 60px 0 50px; 
   transition: background 0.3s ease;
 }
 
 .hero-container-flex {
   display: flex;
-  /* KORJAUS 2: Linjataan kuva ja teksti yläreunaan, ei keskelle */
   align-items: flex-start;
   gap: 40px;
   text-align: left;
 }
 
-/* Tekstialue saa ottaa tilan ja estetään venyminen */
 .hero-text-content {
   flex: 1;
   min-width: 0;
@@ -235,7 +232,6 @@ header {
   object-fit: cover;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   flex-shrink: 0;
-  /* KORJAUS 3: Pieni säätö, jotta kuva istuu nätisti H1-otsikon korkeuden kanssa */
   margin-top: 10px;
 }
 
@@ -249,7 +245,6 @@ header {
 /* --- ONGELMALISTA (index.html) --- */
 .problem-checklist {
   margin: 1rem 0 2.5rem 0; 
-  /* KORJAUS 4: Sama leveys kuin muilla tekstielementeillä */
   max-width: 720px; 
   text-align: left; 
   display: flex; 
@@ -277,7 +272,6 @@ header {
 
 .hero-subtitle {
   font-size: 1.1rem;
-  /* KORJAUS 5: Yhtenäistetty leveys 720px */
   max-width: 720px;
   margin: 0 0 2.5rem 0;
   color: var(--text-light);
@@ -354,6 +348,17 @@ body:not(.service-page-landing) .hero-subtitle {
   transform: translateY(-2px);
 }
 
+/* "Haamu-nappi" (soittopyyntö) */
+.cta-button.ghost {
+  background: transparent;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+}
+.cta-button.ghost:hover {
+  background: var(--explanation-bg);
+  transform: translateY(-2px);
+}
+
 .cta-button .fas,
 .cta-button .fab {
   margin-right: 8px;
@@ -366,8 +371,6 @@ body:not(.service-page-landing) .hero-subtitle {
   border-radius: 8px;
   overflow: hidden;
   max-width: 420px;
-  /* Pidetään desktopilla keskitettynä tai vasemmalla riippuen mieltymyksestä. 
-     Nyt: keskitetty. Jos haluat vasemmalle: margin: 0 0 2.5rem 0; */
   margin: 0 auto 2.5rem;
 }
 
@@ -980,7 +983,7 @@ body:not(.service-page-landing) .hero-subtitle {
     margin-bottom: 2rem;
   }
 
-  /* --- MOBIILI HERO FIXIT --- */
+  /* --- MOBIILI HERO FIXIT (Etusivu) --- */
   .hero {
     text-align: center;
   }
@@ -989,7 +992,6 @@ body:not(.service-page-landing) .hero-subtitle {
     flex-direction: column;
     text-align: center;
     gap: 20px;
-    /* KORJAUS 6: Mobiilissa palautetaan align-items keskelle */
     align-items: center;
   }
   
@@ -2014,4 +2016,19 @@ body.cookie-banner-is-visible .mobile-sticky-cta {
     object-fit: cover;
     margin-bottom: 1rem;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* =========================================================
+   SISÄSIVUJEN KESKITETTY HERO (UUSI)
+   Lisää tämä luokka ohjesivujen .hero -elementtiin
+   esim: <section class="hero hero-center">
+========================================================= */
+.hero-center {
+  text-align: center;
+}
+
+.hero-center .hero-title,
+.hero-center .hero-subtitle {
+  margin-left: auto;
+  margin-right: auto;
 }
