@@ -212,6 +212,23 @@ header {
   transition: background 0.3s ease;
 }
 
+/* UUDET HERO-TYYLIT (Lisätty index.html:n inline-tyyleistä) */
+.hero-container-flex {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  text-align: left;
+}
+
+.hero-profile-img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  flex-shrink: 0;
+}
+
 .hero-title {
   color: var(--main);
   max-width: 750px;
@@ -258,23 +275,23 @@ header {
 
 /* KORJAUS 6.11.2025: Parannettu etusivun luettavuutta ja välejä */
 body:not(.service-page-landing) .hero-subtitle {
-  font-size: 1.3rem; /* Kasvatettu 1.2rem -> 1.3rem */
+  font-size: 1.3rem;
   line-height: 1.7;
-  margin-top: 1.5rem; /* Lisätty ilmaa otsikon ja tekstin väliin */
+  margin-top: 1.5rem;
   margin-bottom: 2.5rem;
 }
 
 /* KORJAUS 6.11.2025: Parempi kontrasti tummalla teemalla */
 [data-theme="dark"] .hero-subtitle {
-  color: #cbd5e1; /* Paljon vaaleampi ja luettavampi harmaa */
+  color: #cbd5e1;
 }
 
 /* KORJAUS 6.11.2025: Lisätty puuttuvat välit */
 .hero .hero-subtitle + p {
   font-weight: 600;
   font-size: 1.1rem;
-  margin-top: 2rem; /* Lisää ilmaa alaotsikon jälkeen */
-  margin-bottom: 1.5rem; /* Lisää ilmaa nappien yläpuolelle */
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
   color: var(--text-dark);
 }
 
@@ -290,7 +307,7 @@ body:not(.service-page-landing) .hero-subtitle {
 
 /* KORJAUS 6.11.2025: Lisätty puuttuvat välit */
 .hero .hero-cta-buttons + p {
-  margin-top: 1.5rem; /* Lisää ilmaa nappien alapuolelle */
+  margin-top: 1.5rem;
   font-size: 0.95rem;
   color: var(--text-light);
 }
@@ -961,6 +978,15 @@ body:not(.service-page-landing) .hero-subtitle {
     max-width: 90%;
     margin-bottom: 2rem;
   }
+
+  /* UUDET HERO-MOBIILITYYLIT (Lisätty index.html:n inline-tyyleistä) */
+  .hero-container-flex {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+  .hero-title { text-align: center; }
+  .hero-cta-buttons { justify-content: center; }
 }
 
 @media (min-width: 576px) {
