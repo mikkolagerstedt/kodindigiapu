@@ -20,6 +20,9 @@
   --explanation-bg: #f0f9ff;
   --explanation-border: #e0f2fe;
   --toggle-border: #ccc;
+  --toggle-inactive-home: #dbeafe;
+  --toggle-inactive-business: #f3f4f6;
+  --toggle-hover: #bfdbfe;
 }
 
 /* TUMMA TEEMA */
@@ -40,6 +43,9 @@ html[data-theme="dark"] {
   --explanation-bg: #172554;
   --explanation-border: #1e40af;
   --toggle-border: #374151;
+  --toggle-inactive-home: #1e3a8a;
+  --toggle-inactive-business: #374151;
+  --toggle-hover: #1e40af;
 }
 
 * {
@@ -59,8 +65,9 @@ body {
   color: var(--text-dark);
   line-height: 1.6;
   font-size: 18px; 
-  padding-top: 76px; /* Tila kiinteälle headerille */
-  min-height: 100vh; 
+  padding-top: 76px;
+  transition: all 0.3s ease; 
+  min-height: 100dvh; 
   display: flex;
   flex-direction: column;
 }
@@ -76,7 +83,7 @@ main {
 }
 
 .section {
-  padding: 60px 0;
+  padding: 80px 0;
 }
 
 .section-title {
@@ -105,14 +112,15 @@ header {
   width: 100%;
   z-index: 1000;
   box-shadow: 0 2px 8px rgba(0,0,0,.06);
+  transition: background 0.3s ease;
 }
 
 .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding-top: 18px;
+  padding-bottom: 18px;
 }
 
 .logo {
@@ -126,8 +134,8 @@ header {
 }
 
 .logo-icon {
-  height: 36px;
-  width: 36px;
+  height: 32px;
+  width: 32px;
   border-radius: 50%;
 }
 
@@ -135,6 +143,15 @@ header {
   display: flex;
   align-items: center;
   gap: 16px;
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: var(--main);
 }
 
 .nav-links {
@@ -148,41 +165,44 @@ header {
   color: var(--text-dark);
   text-decoration: none;
   font-weight: 500;
+  transition: color 0.2s;
 }
+
 .nav-links a:hover {
   color: var(--accent);
 }
 
+/* Header CTA-painike (vain desktopilla) */
 .header-cta {
   display: none; 
   background: var(--accent);
   color: white;
-  padding: 0.6rem 1.2rem; 
+  padding: 0.7rem 1.2rem; 
   border-radius: 8px;
   font-weight: 600;
   text-decoration: none;
   font-size: 0.95rem;
+  transition: background 0.2s ease;
+}
+
+.header-cta:hover {
+  background: #0284c7;
+  color: white;
+  text-decoration: none; 
 }
 
 @media (min-width: 992px) { 
-  .header-cta { display: inline-block; }
-}
-
-.nav-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 28px;
-  cursor: pointer;
-  color: var(--main);
+  .header-cta {
+    display: inline-block;
+  }
 }
 
 /* =========================================
-   3. TEEMAKYTKIN
+   3. TEEMAKYTKIN (SVG)
    ========================================= */
 .theme-toggle {
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -190,344 +210,773 @@ header {
   border: none;
   cursor: pointer;
   background: var(--card);
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: background 0.3s ease, transform 0.2s ease;
   position: relative; 
 }
 
+.theme-toggle:hover {
+  transform: translateY(-2px);
+  background: var(--accent);
+}
+
 .theme-toggle svg {
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   stroke: var(--main);
   fill: none;
-  stroke-width: 2;
+  stroke-width: 1.8;
+  transition: opacity 0.3s ease, stroke 0.3s ease;
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
 }
 
+.theme-toggle:hover svg {
+  stroke: white;
+}
+
+/* Ikonien näkyvyys teeman mukaan */
 .icon-sun { opacity: 0; }
 .icon-moon { opacity: 1; }
+
 [data-theme="dark"] .icon-sun { opacity: 1; }
 [data-theme="dark"] .icon-moon { opacity: 0; }
 
+
 /* =========================================
-   4. HERO-OSIOT (HOME vs CENTER)
+   4. HERO-OSIOT (HOME vs DEFAULT)
    ========================================= */
 
-/* A) HERO HOME (Etusivu - Vasemmalle tasattu) */
-.hero-home {
-  padding: 80px 0;
+/* --- A) DEFAULT HERO (Ohjeet, Palvelut ym.) --- 
+   Tämä on keskitetty oletuksena. */
+.hero {
   background: var(--card);
+  text-align: center;
+  padding: 60px 0 50px; 
+  transition: background 0.3s ease;
 }
+
+.hero .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Ikonit sisäsivuilla (esim. ohjeet) */
+.hero .icon {
+  font-size: 3rem;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.hero-title {
+  color: var(--main);
+  margin-left: auto;   
+  margin-right: auto;
+  font-size: clamp(30px, 5vw, 42px); 
+  line-height: 1.3;
+  font-weight: 800;
+}
+
+.hero-subtitle {
+  font-size: 1.1rem;
+  max-width: 720px;
+  margin: 0 auto 2.5rem;
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+/* --- B) HERO HOME (VAIN ETUSIVULLE) --- 
+   Tämä on vasemmalle tasattu desktopilla. */
+.hero-home {
+  text-align: left; 
+}
+
 .hero-home .hero-container-flex {
   display: flex;
   align-items: center;
   gap: 40px;
+  text-align: left;
 }
+
 .hero-home .hero-text-content {
   flex: 1;
+  min-width: 0;
+  max-width: 850px; 
 }
+
 .hero-home .hero-profile-img {
   width: 160px;
   height: 160px;
   border-radius: 50%;
   object-fit: cover;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  flex-shrink: 0;
+  margin-top: 0; 
 }
-.hero-home h1 {
-  font-size: clamp(32px, 5vw, 48px);
-  color: var(--main);
-  line-height: 1.2;
-  margin-bottom: 1rem;
+
+.hero-home .hero-title,
+.hero-home .hero-subtitle {
+  margin-left: 0;
+  margin-right: 0;
+  text-align: left;
 }
+
+.hero-extra-text {
+    font-size: 0.95rem; 
+    color: var(--text-light); 
+    margin-top: 1rem; 
+    line-height: 1.6;
+}
+
+/* Slogan etusivulle (korostettu rivi) */
 .hero-slogan {
-  display: block;
-  color: var(--accent);
-  font-size: 0.8em;
-  margin-top: 0.5rem;
+  display: block; 
+  margin-top: 0.8rem; 
+  color: var(--accent); 
+  font-size: 1.1em; 
 }
 
-/* B) HERO CENTER (Sisäsivut - Keskitetty) */
-.hero-center {
-  text-align: center;
-  padding: 60px 0 40px;
-  background: var(--card);
-}
-.hero-center .icon {
-  font-size: 3.5rem;
-  color: var(--accent);
-  margin-bottom: 1rem;
-}
-.hero-center h1 {
-  font-size: clamp(28px, 4vw, 42px);
-  color: var(--main);
-  margin-bottom: 1rem;
-}
-.hero-center p {
-  max-width: 700px;
-  margin: 0 auto;
-  color: var(--text-light);
-}
-
-/* CTA Napit */
+/* CTA-napit etusivulla */
 .hero-cta-buttons {
   display: flex;
-  gap: 15px;
-  margin-top: 1.5rem;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 1rem;
   flex-wrap: wrap;
+  margin-left: 0;
+  margin-right: 0;
 }
-.hero-home .hero-cta-buttons { justify-content: flex-start; }
-.hero-center .hero-cta-buttons { justify-content: center; }
 
+/* Isolla ruudulla napit vierekkäin etusivulla */
+@media (min-width: 768px) {
+  .hero-cta-buttons {
+    flex-direction: row;
+  }
+}
+
+/* --- HERO MOBIILI (YHTEINEN KAIKILLE) --- */
+@media (max-width: 768px) {
+  .hero, .hero-home {
+    text-align: center;
+  }
+  
+  .hero-home .hero-container-flex {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .hero-title, 
+  .hero-subtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .hero-cta-buttons {
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .hero-slogan {
+    margin-top: 0.5rem;
+    font-size: 1em;
+  }
+}
+
+/* --- PAINIKKEET (CTA) --- */
 .cta-button {
-  padding: 0.8rem 1.5rem;
+  padding: 0.9rem 1.8rem;
   border-radius: 8px;
+  font-size: 1.1rem;
   font-weight: 700;
   text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  transition: transform 0.2s;
+  transition: all 0.2s ease;
+  border: 2px solid transparent;
+  width: 100%;
+  max-width: 300px;
+  text-align: center;
 }
-.cta-button.primary { background: var(--accent); color: white; }
-.cta-button.whatsapp { background: var(--card); color: var(--whatsapp-green); border: 2px solid var(--whatsapp-green); }
-.cta-button.ghost { border: 2px solid var(--accent); color: var(--accent); }
-.cta-button:hover { transform: translateY(-2px); }
+
+.cta-button.primary {
+  background: var(--accent);
+  color: white;
+}
+
+.cta-button.primary:hover {
+  background: #0284c7;
+  transform: translateY(-2px);
+}
+
+.cta-button.whatsapp {
+  background: var(--card);
+  color: var(--whatsapp-green);
+  border-color: var(--whatsapp-green);
+}
+
+.cta-button.whatsapp:hover {
+  background: #f0fff4;
+  transform: translateY(-2px);
+}
+
+/* "Haamu-nappi" (soittopyyntö) */
+.cta-button.ghost {
+  background: transparent;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+}
+.cta-button.ghost:hover {
+  background: var(--explanation-bg);
+  transform: translateY(-2px);
+}
+
+.cta-button .fas,
+.cta-button .fab {
+  margin-right: 8px;
+}
+
+@media (min-width: 768px) {
+  .cta-button {
+    width: auto;
+    max-width: none;
+  }
+}
 
 /* =========================================
-   5. GRID-ELEMENTIT (Palvelut, Ohjeet)
+   5. ETUSIVUN SISÄLTÖ (Palvelut, Hinnat, UKK)
    ========================================= */
-.services-grid, .help-steps-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
+
+/* Toggle-komponentit (Hinta) */
+.price-toggle {
+  display: flex;
+  border: 1px solid var(--toggle-border);
+  border-radius: 8px;
+  overflow: hidden;
+  max-width: 400px;
+  margin: 1.5rem auto 0;
 }
 
-.service-card, .help-step {
-  background: var(--card);
-  border: 1px solid var(--border-light);
-  border-radius: 12px;
-  padding: 1.5rem;
-  text-align: center;
-  transition: transform 0.2s, box-shadow 0.2s;
+.price-toggle label {
+  flex: 1;
+  cursor: pointer;
   position: relative;
 }
-.service-card:hover, .help-step:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-}
-.service-link, .help-step-link-overlay {
-  text-decoration: none;
-  color: inherit;
-}
-.help-step-link-overlay {
-  position: absolute; inset: 0; z-index: 1;
+
+.price-toggle input {
+  position: absolute;
+  opacity: 0;
 }
 
-.service-card i, .help-step i {
+.price-toggle span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 8px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+  height: 100%;
+}
+
+/* Toggle värit */
+.price-toggle label:first-child span {
+  background: #f8fafc;
+  color: #475569;
+}
+
+.price-toggle label:last-child span {
+  background: #ecfdf5;
+  color: #166534;
+}
+
+/* Toggle Active State */
+.price-toggle input:checked + span {
+  background: var(--accent) !important;
+  color: white !important;
+  font-weight: 600;
+}
+
+#toggle-deducted:checked + span {
+  background: var(--success) !important;
+}
+
+/* Palvelut Grid */
+.service-intro-text {
+    text-align: center; 
+    max-width: 760px; 
+    margin: -2rem auto 2.5rem; 
+    font-weight: 500; 
+    color: var(--main);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 576px) {
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 992px) {
+  .services-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* Palvelukortit */
+.service-card {
+  background: var(--card);
+  border: 1px solid var(--border-light);
+  padding: 2rem;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.service-card .icon {
   font-size: 2.5rem;
   color: var(--accent);
   margin-bottom: 1rem;
 }
-.read-more {
-  display: block;
-  margin-top: 1rem;
-  color: var(--accent);
-  font-weight: 600;
+
+.service-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.75rem;
+  color: var(--main);
 }
 
-/* =========================================
-   6. LISTA-ELEMENTIT (Artikkelit)
-   ========================================= */
-.help-steps-list {
+.service-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  height: 100%;
+}
+
+.service-link .read-more {
+  display: block;
+  margin-top: 0.8rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+/* Erityistyylit etusivun palveluosiolle */
+#palvelut .service-card {
+  padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  max-width: 800px;
-  margin: 0 auto;
+  transition: none; 
+}
+#palvelut .service-card:hover {
+  transform: none;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+#palvelut .service-link {
+  padding: 2rem; 
+  transition: transform 0.2s, box-shadow 0.2s;
+  border-radius: 8px;
+}
+#palvelut .service-link:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  text-decoration: none;
 }
 
-.help-step-item {
-  display: flex;
-  background: var(--card);
-  border: 1px solid var(--border-light);
-  border-radius: 12px;
-  padding: 1.5rem;
-  align-items: flex-start;
-  text-align: left;
+.service-outro {
+    text-align: center; 
+    margin-top: 2.5rem;
+}
+.service-outro p {
+    margin-bottom: 1rem; 
+    color: var(--text-light);
 }
 
-.step-icon-wrapper {
-  flex-shrink: 0;
-  width: 60px;
-  height: 60px;
-  background: var(--explanation-bg);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 1.5rem;
-  color: var(--accent);
-  font-size: 1.5rem;
+.link-arrow {
+    font-weight: 600; 
+    color: var(--accent); 
+    text-decoration: none; 
+    border-bottom: 2px solid var(--accent);
 }
 
-.step-content h3 {
-  color: var(--main);
-  margin-bottom: 0.5rem;
-}
-.step-tip {
-  margin-top: 10px;
-  background: var(--explanation-bg);
-  padding: 10px;
-  border-radius: 6px;
-  border-left: 3px solid var(--accent);
-  font-size: 0.95rem;
-}
-
-/* =========================================
-   7. HINNASTO & MUUT KOMPONENTIT
-   ========================================= */
+/* Hinnasto */
 .price-card {
-  background: var(--card);
-  padding: 2rem;
-  border-radius: 16px;
   text-align: center;
-  max-width: 500px;
+  background: var(--card);
+  border-radius: 16px;
+  padding: 2rem; 
+  box-shadow: 0 8px 30px rgba(0,0,0,.07);
+  max-width: 600px;
   margin: 0 auto;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-}
-.price-display {
-  font-size: 3.5rem;
-  font-weight: 800;
-  color: var(--accent);
-}
-.price-toggle {
-  display: inline-flex;
-  border: 1px solid var(--toggle-border);
-  border-radius: 8px;
-  margin: 1rem 0;
-  overflow: hidden;
-}
-.price-toggle label {
-  padding: 10px 15px;
-  cursor: pointer;
-  background: var(--bg);
-}
-.price-toggle input { display: none; }
-.price-toggle input:checked + span {
-  background: var(--accent);
-  color: white;
-  padding: 10px 15px;
-  border-radius: 4px;
-}
-.explanation-box {
-  background: var(--explanation-bg);
-  padding: 1rem;
-  border-radius: 8px;
-  margin-top: 1rem;
-  text-align: left;
-  font-size: 0.95rem;
 }
 
-/* UKK / FAQ */
-.faq-item {
-  background: var(--card);
-  margin-bottom: 1rem;
-  border-radius: 8px;
-  overflow: hidden;
-  border: 1px solid var(--border-light);
+.min-price-label {
+    font-weight: 700; 
+    color: var(--main); 
+    margin-bottom: 0.5rem; 
+    font-size: 1.1rem;
 }
+.min-price-label span {
+    font-weight:400; 
+    font-size: 0.9rem; 
+    color: var(--text-light);
+}
+
+.price-display {
+  font-size: clamp(44px, 10vw, 64px); 
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  transition: color 0.3s ease;
+}
+.price-display.normal { color: var(--accent); }
+.price-display.deducted { color: var(--success); }
+
+.price-description {
+  font-size: 1.1rem; 
+  color: var(--text-light);
+  margin-bottom: 1rem;
+}
+
+.explanation-box {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background-color: var(--explanation-bg);
+    border: 1px solid var(--explanation-border);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+}
+
+/* UKK (FAQ) */
+.section-faq {
+    padding-top: 40px;
+}
+
+.faq {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.faq-item {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
 .faq-question {
-  padding: 1.2rem;
   cursor: pointer;
-  font-weight: 600;
+  padding: 1.2rem 1.6rem;
+  font-weight: 700;
+  font-size: 1.05rem;
+  background: var(--card);
+  color: var(--main);
   display: flex;
   justify-content: space-between;
-  list-style: none;
-}
-.faq-answer {
-  padding: 0 1.2rem 1.2rem;
-  color: var(--text-light);
+  align-items: center;
 }
 
-/* CTA Section (Alapalkki sisäsivuilla) */
-.cta-section {
-  background: var(--explanation-bg);
-  text-align: center;
-  padding: 60px 20px;
-  border-top: 1px solid var(--explanation-border);
+.faq-question:hover { background: var(--bg); }
+.faq-question::-webkit-details-marker { display: none; }
+
+.faq-icon {
+  color: var(--accent);
+  transition: transform 0.3s ease;
 }
+.faq-item[open] .faq-icon { transform: rotate(180deg); }
+
+.faq-answer {
+  background: var(--explanation-bg);
+  color: var(--text-dark);
+  font-size: 1rem;
+  line-height: 1.7;
+  padding: 0 1.6rem;
+  border-top: 1px solid var(--border-light);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s ease;
+}
+
+.faq-item[open] .faq-answer {
+  max-height: 400px;
+  padding: 1.3rem 1.6rem;
+}
+
+/* Asiakkaat */
+#luottamus { background: var(--card); }
+.trust-image {
+    max-width: 100%; 
+    height: auto; 
+    display: block; 
+    margin: 2rem auto;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+@media (min-width: 768px) {
+  .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.testimonial-card {
+  background: var(--bg);
+  border-left: 4px solid var(--accent);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+.testimonial-card.highlight {
+    border-left: 6px solid var(--accent); 
+    background-color: var(--explanation-bg);
+}
+.testimonial-card .text {
+  font-style: italic;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+}
+.testimonial-card .author {
+  font-weight: 700;
+  color: var(--text-light);
+  text-align: right;
+}
+.testimonial-card .author span {
+    display:block; 
+    font-size:0.8rem; 
+    font-weight:normal; 
+    opacity:0.8;
+}
+
+/* Yhteys */
+#yhteys { background: var(--card); }
+.contact-wrapper {
+  display: grid;
+  gap: 40px;
+  align-items: center;
+}
+@media (min-width: 992px) {
+  .contact-wrapper { grid-template-columns: 1fr 1.2fr; }
+  .contact-info { text-align: left; }
+}
+
+/* Yhteystietojen keskitys mobiilissa */
+.contact-info {
+    text-align: center;
+}
+@media (min-width: 992px) {
+    .contact-info { text-align: left; }
+}
+
+.contact-profile-img {
+    display: block;
+    margin: 0 auto 1.5rem auto;
+    max-width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+@media (min-width: 992px) {
+    .contact-profile-img { margin-left: 0; margin-right: 0; }
+}
+
+.contact-note {
+    margin-bottom: 1.5rem; 
+    font-weight: 500; 
+    color: var(--main); 
+    border-left: 4px solid var(--accent); 
+    padding-left: 1rem; 
+    display: inline-block; 
+    text-align: left;
+}
+
+.contact-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 0.8rem;
+}
+@media (min-width: 992px) {
+    .contact-row { justify-content: flex-start; } 
+}
+
+.contact-row .icon {
+    margin-right: 0 !important;
+    flex-shrink: 0;
+    color: var(--accent);
+}
+.contact-row a {
+    color: var(--accent); 
+    text-decoration: none;
+    font-weight: 700;
+}
+.contact-row a:hover {
+    text-decoration: underline;
+}
+
+.contact-form {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,.05);
+}
+
+.form-notice {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.form-group input, .form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: var(--bg);
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+}
+
+.btn-submit {
+  background: var(--accent);
+  color: white;
+  padding: 16px 34px;
+  border-radius: 8px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  font-size: 1.1rem;
+}
+.btn-submit:hover { background: #0284c7; }
+
+/* Payment Section */
+.payment-methods {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+.payment-methods > div { text-align: center; }
+.icon-home, .icon-invoice, .icon-mobilepay {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  display: block;
+  height: 60px;
+  line-height: 60px;
+  color: var(--text-dark);
+}
+.icon-invoice { color: var(--success); }
+.icon-mobilepay { color: #5a78ff; }
 
 /* =========================================
-   8. FOOTER & MOBIILI
+   6. FOOTER & MOBIILI NAVIGAATIO
    ========================================= */
 footer {
   background: var(--footer-bg);
   color: var(--footer-text);
   text-align: center;
-  padding: 40px 20px;
-  margin-bottom: 70px; /* Tilaa mobiilipalkille */
+  padding: 25px 20px;
+  font-size: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 80px; /* Space for sticky bar */
 }
-@media (min-width: 769px) { footer { margin-bottom: 0; } }
-
-footer a { color: #93c5fd; text-decoration: none; }
-
-/* Mobiili Sticky Bar */
-.mobile-sticky-cta {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: var(--header-bg);
-  padding: 12px;
-  display: flex;
-  gap: 10px;
-  box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
-  z-index: 1001;
-  display: none;
+@media (min-width: 769px) {
+    footer { margin-bottom: 0; }
 }
-.sticky-btn {
-  flex: 1;
-  text-align: center;
-  padding: 12px;
-  border-radius: 50px;
-  font-weight: 700;
-  color: white;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
-.sticky-btn.call { background: var(--accent); }
-.sticky-btn.whatsapp { background: var(--whatsapp-green); }
 
+footer a { color: #93c5fd; text-decoration: none; padding: 0 5px; }
+footer a:hover { color: #ffffff; text-decoration: underline; }
+
+/* Mobile Sticky CTA */
+.mobile-sticky-cta { 
+    display: none; 
+}
 @media (max-width: 768px) {
+  body { 
+      padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 80px) !important; 
+  }
+
   .nav-links {
     display: none;
     flex-direction: column;
+    width: 100%;
+    background: var(--header-bg);
     position: absolute;
     top: 70px;
     left: 0;
-    width: 100%;
-    background: var(--header-bg);
-    padding: 20px;
-    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    padding: 20px 0;
+    box-shadow: 0 8px 16px rgba(0,0,0,.05);
   }
   .nav-links.show { display: flex; }
   .nav-toggle { display: block; }
-  .mobile-sticky-cta { display: flex; }
   
-  /* Mobiili Hero */
-  .hero-home .hero-container-flex { flex-direction: column; text-align: center; }
-  .hero-home .hero-cta-buttons { justify-content: center; }
+  .mobile-sticky-cta {
+    display: flex !important;
+    position: fixed;
+    bottom: 0;
+    bottom: env(safe-area-inset-bottom, 0px);
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+    z-index: 1001;
+    padding: 12px 16px !important;
+    gap: 12px !important;
+    align-items: center;
+    border-top: 1px solid rgba(0,0,0,0.05);
+  }
   
-  /* Mobiili Listat */
-  .help-step-item { flex-direction: column; text-align: center; align-items: center; }
-  .step-icon-wrapper { margin-right: 0; margin-bottom: 1rem; }
+  /* Tumma teema tuki alapalkille */
+  html[data-theme="dark"] .mobile-sticky-cta {
+      background: rgba(17, 24, 39, 0.95);
+      border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  
+  .sticky-btn {
+    flex: 1;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px !important;
+    border-radius: 50px !important;
+    font-weight: 700 !important;
+    font-size: 1rem !important;
+    text-decoration: none !important;
+    color: white !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    text-align: center;
+  }
+  .sticky-btn.call { 
+      background-color: #0ea5e9 !important;
+      color: white !important;
+  }
+  .sticky-btn.whatsapp { 
+      background-color: #25D366 !important;
+      color: white !important;
+  }
 }
 
 /* Takaisin ylös -nappi */
@@ -535,13 +984,125 @@ footer a { color: #93c5fd; text-decoration: none; }
   position: fixed;
   bottom: 90px;
   right: 20px;
+  width: 46px;
+  height: 46px;
   background: var(--accent);
-  color: white;
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
+  color: #fff;
   border: none;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
   cursor: pointer;
   display: none;
+  align-items: center;
+  justify-content: center;
   z-index: 1002;
+  transition: background 0.3s, transform 0.2s;
+}
+#toTop:hover { transform: translateY(-2px); }
+@media (max-width: 768px) {
+  #toTop { bottom: calc(env(safe-area-inset-bottom, 0px) + 90px); }
+}
+
+/* =========================================
+   7. MUUT KOMPONENTIT
+   ========================================= */
+
+/* Näin homma toimii -boxit */
+.help-section { text-align: left; }
+.section-subtitle-small {
+    text-align: center; 
+    max-width: 600px; 
+    margin: 0 auto 2.5rem; 
+    color: var(--text-light); 
+    font-size: 1.05rem;
+}
+
+.help-steps-grid {
+  max-width: 900px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem auto 0 auto;
+}
+.help-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: var(--card);
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 1.4rem 1.6rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  position: relative;
+  transition: transform 0.2s;
+}
+.help-step:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+}
+.help-step i {
+  font-size: 1.7rem;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+.help-step-link-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 1;
+}
+
+/* Evästebanneri */
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--card);
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.15);
+  padding: 20px;
+  z-index: 9998;
+  display: none;
+  border-top: 1px solid var(--border-light);
+}
+.cookie-banner-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  text-align: center;
+}
+.cookie-banner-buttons { display: flex; gap: 15px; }
+.cookie-btn {
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+}
+.cookie-btn.accept { background: var(--accent); color: white; }
+.cookie-btn.deny { background: var(--bg); border: 1px solid var(--border-light); color: var(--text-dark); }
+@media (min-width: 768px) {
+  .cookie-banner-content { flex-direction: row; justify-content: space-between; text-align: left; }
+}
+
+/* Accessibility */
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;
+}
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+/* =========================================
+   SISÄSIVUJEN KESKITETTY HERO (UUSI)
+   ========================================= */
+.hero-center {
+  text-align: center;
+}
+
+.hero-center .hero-title,
+.hero-center .hero-subtitle {
+  margin-left: auto;
+  margin-right: auto;
 }
