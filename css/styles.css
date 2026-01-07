@@ -2032,3 +2032,37 @@ body.cookie-banner-is-visible .mobile-sticky-cta {
   margin-left: auto;
   margin-right: auto;
 }
+/* =========================================================
+   HERO-OSION KORJAUS (ILMAVAMPI OTSIKKO)
+   Lisää tämä styles.css-tiedoston loppuun.
+========================================================= */
+
+/* Annetaan tekstille vähän enemmän tilaa leveyssuunnassa */
+.hero-text-content {
+  max-width: 850px; /* Oli 720px - tämä estää turhaa rivittymistä */
+}
+
+/* Otsikon yleisasetukset: ilmavampi riviväli */
+.hero-title {
+  line-height: 1.3; 
+  font-weight: 800; /* Hieman lihavampi fontti näyttää paremmalta */
+}
+
+/* Sloganin muotoilu (alempi rivi) */
+.hero-slogan {
+  display: block; /* Pakottaa tekstin omalle rivilleen */
+  margin-top: 0.8rem; /* Lisää ilmaa kysymysten ja vastauksen väliin */
+  color: var(--accent); /* Korostetaan slogan brändivärillä (sininen) */
+  font-size: 1.1em; /* Hieman isompi fontti sloganille */
+}
+
+/* Mobiilissa pienennetään välejä hieman, ettei otsikko vie koko ruutua */
+@media (max-width: 768px) {
+  .hero-slogan {
+    margin-top: 0.5rem;
+    font-size: 1em;
+  }
+  .hero-title {
+    line-height: 1.25;
+  }
+}
