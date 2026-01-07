@@ -19,7 +19,7 @@
   <link rel="manifest" href="/site.webmanifest">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous">
 
-  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="styles.css"> 
 
   <script>
     (function() {
@@ -85,7 +85,7 @@
 
   <main id="main-content">
 
-    <section class="hero hero-center">
+    <section class="hero">
       <div class="container">
         <i class="fas fa-book-open icon" aria-hidden="true"></i>
         <h1 class="hero-title">Ohjeet ja vinkit</h1>
@@ -143,8 +143,8 @@
             <a href="sahkoposti-ei-laheta-vastaanota-ohje.html" class="help-step-link-overlay" aria-label="Lue ohje sähköpostiongelmiin"></a>
             <i class="fas fa-envelope-open-text" aria-hidden="true"></i>
             <div>
-              <h3>Sähköposti ei lähetä tai vastaanota?</h3>
-              <p>Mitä tehdä, kun sähköposti on jumissa. Yleisimmät syyt ja helpot korjaukset.</p>
+              <h3>Sähköposti jumissa?</h3>
+              <p>Mitä tehdä, kun sähköposti ei lähetä tai vastaanota. Yleisimmät syyt ja helpot korjaukset.</p>
             </div>
           </div>
 
@@ -162,7 +162,7 @@
             <i class="fas fa-save" aria-hidden="true"></i>
             <div>
               <h3>Miten varmuuskopioin tietokoneen?</h3>
-              <p>Helpot ohjeet kuvien ja tiedostojen turvaamiseen pilvipalveluun tai ulkoiselle kovalevylle.</p>
+              <p>Helpot ohjeet kuvien ja tiedostojen turvaamiseen pilvipalveluun tai ulkoiselle levylle.</p>
             </div>
           </div>
 
@@ -179,19 +179,22 @@
       </div>
     </section>
 
-    <section class="cta-section">
+    <section class="section" style="background-color: var(--explanation-bg); text-align: center;">
       <div class="container">
-        <h2>Etkö löytänyt vastausta tai tuntuuko vaikealta?</h2>
-        <p>Ymmärrän täysin. Joskus ongelmat ovat monimutkaisia, eikä valmis ohje auta.<br>Ota rohkeasti yhteyttä, niin hoidetaan ongelmasi kuntoon.</p>
+        <h2 class="section-title" style="font-size: 1.8rem;">Etkö löytänyt vastausta tai tuntuuko vaikealta?</h2>
+        <p class="hero-subtitle" style="margin-bottom: 2rem;">
+          Ymmärrän täysin. Joskus ongelmat ovat monimutkaisia, eikä valmis ohje auta.<br>
+          Ota rohkeasti yhteyttä, niin hoidetaan ongelmasi kuntoon.
+        </p>
         
-        <div class="price-box">
-          <p class="price-main">Varaa minulta aika <a href="index.html#hinnat">(60 €/h)</a></p>
-          <p class="price-sub">Järvenpään alueella ei ole matkakuluja.</p>
+        <div style="background: var(--card); padding: 1.5rem; border-radius: 12px; display: inline-block; margin-bottom: 2rem; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+          <p style="margin: 0; font-weight: 700; font-size: 1.2rem; color: var(--main);">Varaa minulta aika <a href="index.html#hinnat" style="color: var(--accent); text-decoration: none;">(60 €/h)</a></p>
+          <p style="margin: 0.5rem 0 0; color: var(--text-light); font-size: 0.95rem;">Järvenpään alueella ei ole matkakuluja.</p>
         </div>
         
-        <p class="free-consultation">Soittaminen ja tilanteen kartoitus on aina maksutonta.</p>
+        <p style="margin-bottom: 2rem; font-weight: 500;">Soittaminen ja tilanteen kartoitus on aina maksutonta.</p>
 
-        <div class="hero-cta-buttons">
+        <div class="hero-cta-buttons" style="justify-content: center;">
           <a href="tel:+358405724113" class="cta-button primary"><i class="fas fa-phone-alt" aria-hidden="true"></i> Soita 040 572 4113</a>
           <a href="https://wa.me/358405724113?text=Hei!%20Tarvitsen%20apua%20tietokoneongelmassa." target="_blank" rel="noopener" class="cta-button whatsapp"><i class="fab fa-whatsapp" aria-hidden="true"></i> Kysy WhatsAppilla</a>
         </div>
