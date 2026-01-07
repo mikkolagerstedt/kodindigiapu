@@ -296,7 +296,7 @@ header {
 
 .hero-home .hero-container-flex {
   display: flex;
-  align-items: center; /* KORJATTU: center pitää kuvan pystysuunnassa keskellä */
+  align-items: center;
   gap: 40px;
   text-align: left;
 }
@@ -314,7 +314,7 @@ header {
   object-fit: cover;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   flex-shrink: 0;
-  margin-top: 0; /* Poistettu margin-top, koska align-items: center hoitaa keskityksen */
+  margin-top: 0; 
 }
 
 .hero-home .hero-title,
@@ -322,6 +322,13 @@ header {
   margin-left: 0;
   margin-right: 0;
   text-align: left;
+}
+
+.hero-extra-text {
+    font-size: 0.95rem; 
+    color: var(--text-light); 
+    margin-top: 1rem; 
+    line-height: 1.6;
 }
 
 /* Slogan etusivulle (korostettu rivi) */
@@ -342,13 +349,6 @@ header {
   flex-wrap: wrap;
   margin-left: 0;
   margin-right: 0;
-}
-
-/* Lisätietotekstit herossa */
-.hero-home p + p {
-  margin-top: 1.5rem;
-  font-size: 0.95rem;
-  color: var(--text-light);
 }
 
 /* Isolla ruudulla napit vierekkäin etusivulla */
@@ -451,25 +451,8 @@ header {
    5. ETUSIVUN SISÄLTÖ (Palvelut, Hinnat, UKK)
    ========================================= */
 
-/* Ongelmalista (Checklist) */
-.problem-checklist {
-  margin: 1rem 0 2.5rem 0; 
-  max-width: 720px; 
-  text-align: left; 
-  display: flex; 
-  flex-direction: column; 
-  gap: 0.25rem; 
-}
-
-.problem-checklist p {
-  font-size: 1.05rem; 
-  color: var(--text-dark);
-  margin-bottom: 0; 
-  font-weight: 500;
-}
-
-/* Toggle-komponentit (Hinta & Asiakas) */
-.price-toggle, .client-toggle {
+/* Toggle-komponentit (Hinta) */
+.price-toggle {
   display: flex;
   border: 1px solid var(--toggle-border);
   border-radius: 8px;
@@ -478,19 +461,19 @@ header {
   margin: 1.5rem auto 0;
 }
 
-.price-toggle label, .client-toggle label {
+.price-toggle label {
   flex: 1;
   cursor: pointer;
   position: relative;
 }
 
-.price-toggle input, .client-toggle input {
+.price-toggle input {
   position: absolute;
   opacity: 0;
 }
 
-.price-toggle span, .client-toggle span {
-  display: flex; /* Tai block */
+.price-toggle span {
+  display: flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
@@ -503,22 +486,18 @@ header {
 }
 
 /* Toggle värit */
-.price-toggle label:first-child span,
-#client-home + span {
+.price-toggle label:first-child span {
   background: #f8fafc;
   color: #475569;
 }
 
-.price-toggle label:last-child span,
-#client-business + span {
+.price-toggle label:last-child span {
   background: #ecfdf5;
   color: #166534;
 }
 
 /* Toggle Active State */
-.price-toggle input:checked + span,
-#client-home:checked + span,
-#client-business:checked + span {
+.price-toggle input:checked + span {
   background: var(--accent) !important;
   color: white !important;
   font-weight: 600;
@@ -528,18 +507,15 @@ header {
   background: var(--success) !important;
 }
 
-/* Fade efektit */
-.fade-section {
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  display: none;
-}
-.fade-section.active {
-  opacity: 1;
-  display: block;
+/* Palvelut Grid */
+.service-intro-text {
+    text-align: center; 
+    max-width: 760px; 
+    margin: -2rem auto 2.5rem; 
+    font-weight: 500; 
+    color: var(--main);
 }
 
-/* Palvelut Grid */
 .services-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -618,6 +594,22 @@ header {
   text-decoration: none;
 }
 
+.service-outro {
+    text-align: center; 
+    margin-top: 2.5rem;
+}
+.service-outro p {
+    margin-bottom: 1rem; 
+    color: var(--text-light);
+}
+
+.link-arrow {
+    font-weight: 600; 
+    color: var(--accent); 
+    text-decoration: none; 
+    border-bottom: 2px solid var(--accent);
+}
+
 /* Hinnasto */
 .price-card {
   text-align: center;
@@ -627,6 +619,18 @@ header {
   box-shadow: 0 8px 30px rgba(0,0,0,.07);
   max-width: 600px;
   margin: 0 auto;
+}
+
+.min-price-label {
+    font-weight: 700; 
+    color: var(--main); 
+    margin-bottom: 0.5rem; 
+    font-size: 1.1rem;
+}
+.min-price-label span {
+    font-weight:400; 
+    font-size: 0.9rem; 
+    color: var(--text-light);
 }
 
 .price-display {
@@ -644,7 +648,21 @@ header {
   margin-bottom: 1rem;
 }
 
+.explanation-box {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background-color: var(--explanation-bg);
+    border: 1px solid var(--explanation-border);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+}
+
 /* UKK (FAQ) */
+.section-faq {
+    padding-top: 40px;
+}
+
 .faq {
   max-width: 900px;
   margin: 0 auto;
@@ -666,14 +684,14 @@ header {
   padding: 1.2rem 1.6rem;
   font-weight: 700;
   font-size: 1.05rem;
-  background: #ffffff;
-  color: #111827;
+  background: var(--card);
+  color: var(--main);
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.faq-question:hover { background: #f1f5f9; }
+.faq-question:hover { background: var(--bg); }
 .faq-question::-webkit-details-marker { display: none; }
 
 .faq-icon {
@@ -683,12 +701,12 @@ header {
 .faq-item[open] .faq-icon { transform: rotate(180deg); }
 
 .faq-answer {
-  background: #dbeafe;
-  color: #1e293b;
+  background: var(--explanation-bg);
+  color: var(--text-dark);
   font-size: 1rem;
   line-height: 1.7;
   padding: 0 1.6rem;
-  border-top: 1px solid #bfdbfe;
+  border-top: 1px solid var(--border-light);
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.4s ease, padding 0.3s ease;
@@ -701,6 +719,13 @@ header {
 
 /* Asiakkaat */
 #luottamus { background: var(--card); }
+.trust-image {
+    max-width: 100%; 
+    height: auto; 
+    display: block; 
+    margin: 2rem auto;
+}
+
 .testimonials-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -717,6 +742,10 @@ header {
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
+.testimonial-card.highlight {
+    border-left: 6px solid var(--accent); 
+    background-color: var(--explanation-bg);
+}
 .testimonial-card .text {
   font-style: italic;
   color: var(--text-dark);
@@ -726,6 +755,12 @@ header {
   font-weight: 700;
   color: var(--text-light);
   text-align: right;
+}
+.testimonial-card .author span {
+    display:block; 
+    font-size:0.8rem; 
+    font-weight:normal; 
+    opacity:0.8;
 }
 
 /* Yhteys */
@@ -740,13 +775,60 @@ header {
   .contact-info { text-align: left; }
 }
 
-.contact-info img {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 1rem;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+/* Yhteystietojen keskitys mobiilissa */
+.contact-info {
+    text-align: center;
+}
+@media (min-width: 992px) {
+    .contact-info { text-align: left; }
+}
+
+.contact-profile-img {
+    display: block;
+    margin: 0 auto 1.5rem auto;
+    max-width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+@media (min-width: 992px) {
+    .contact-profile-img { margin-left: 0; margin-right: 0; }
+}
+
+.contact-note {
+    margin-bottom: 1.5rem; 
+    font-weight: 500; 
+    color: var(--main); 
+    border-left: 4px solid var(--accent); 
+    padding-left: 1rem; 
+    display: inline-block; 
+    text-align: left;
+}
+
+.contact-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 0.8rem;
+}
+@media (min-width: 992px) {
+    .contact-row { justify-content: flex-start; } 
+}
+
+.contact-row .icon {
+    margin-right: 0 !important;
+    flex-shrink: 0;
+    color: var(--accent);
+}
+.contact-row a {
+    color: var(--accent); 
+    text-decoration: none;
+    font-weight: 700;
+}
+.contact-row a:hover {
+    text-decoration: underline;
 }
 
 .contact-form {
@@ -754,6 +836,13 @@ header {
   border-radius: 12px;
   padding: 2rem;
   box-shadow: 0 4px 16px rgba(0,0,0,.05);
+}
+
+.form-notice {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    line-height: 1.5;
 }
 
 .form-group input, .form-group textarea {
@@ -810,14 +899,24 @@ footer {
   padding: 25px 20px;
   font-size: 14px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 80px; /* Space for sticky bar */
 }
+@media (min-width: 769px) {
+    footer { margin-bottom: 0; }
+}
+
 footer a { color: #93c5fd; text-decoration: none; padding: 0 5px; }
 footer a:hover { color: #ffffff; text-decoration: underline; }
 
 /* Mobile Sticky CTA */
-.mobile-sticky-cta { display: none; }
+.mobile-sticky-cta { 
+    display: none; 
+}
 @media (max-width: 768px) {
-  body { padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 51px); }
+  body { 
+      padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 80px) !important; 
+  }
+
   .nav-links {
     display: none;
     flex-direction: column;
@@ -833,25 +932,51 @@ footer a:hover { color: #ffffff; text-decoration: underline; }
   .nav-toggle { display: block; }
   
   .mobile-sticky-cta {
-    display: flex;
+    display: flex !important;
     position: fixed;
+    bottom: 0;
     bottom: env(safe-area-inset-bottom, 0px);
     left: 0;
     width: 100%;
-    background: var(--header-bg);
-    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
     z-index: 1001;
+    padding: 12px 16px !important;
+    gap: 12px !important;
+    align-items: center;
+    border-top: 1px solid rgba(0,0,0,0.05);
   }
+  
+  /* Tumma teema tuki alapalkille */
+  html[data-theme="dark"] .mobile-sticky-cta {
+      background: rgba(17, 24, 39, 0.95);
+      border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  
   .sticky-btn {
     flex: 1;
-    padding: 15px 10px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px !important;
+    border-radius: 50px !important;
+    font-weight: 700 !important;
+    font-size: 1rem !important;
+    text-decoration: none !important;
+    color: white !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     text-align: center;
-    font-weight: 600;
-    color: var(--text-dark);
-    text-decoration: none;
   }
-  .sticky-btn.call { color: var(--accent); }
-  .sticky-btn.whatsapp { color: var(--whatsapp-green); }
+  .sticky-btn.call { 
+      background-color: #0ea5e9 !important;
+      color: white !important;
+  }
+  .sticky-btn.whatsapp { 
+      background-color: #25D366 !important;
+      color: white !important;
+  }
 }
 
 /* Takaisin ylös -nappi */
@@ -875,7 +1000,7 @@ footer a:hover { color: #ffffff; text-decoration: underline; }
 }
 #toTop:hover { transform: translateY(-2px); }
 @media (max-width: 768px) {
-  #toTop { bottom: calc(env(safe-area-inset-bottom, 0px) + 65px); }
+  #toTop { bottom: calc(env(safe-area-inset-bottom, 0px) + 90px); }
 }
 
 /* =========================================
@@ -884,6 +1009,14 @@ footer a:hover { color: #ffffff; text-decoration: underline; }
 
 /* Näin homma toimii -boxit */
 .help-section { text-align: left; }
+.section-subtitle-small {
+    text-align: center; 
+    max-width: 600px; 
+    margin: 0 auto 2.5rem; 
+    color: var(--text-light); 
+    font-size: 1.05rem;
+}
+
 .help-steps-grid {
   max-width: 900px;
   display: grid;
@@ -917,45 +1050,6 @@ footer a:hover { color: #ffffff; text-decoration: underline; }
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
   z-index: 1;
-}
-
-/* Sisäsivujen kortit (VST jne) */
-.service-page-landing .vst-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.6rem;
-  justify-items: center;
-}
-.service-page-landing .vst-card {
-  width: 100%;
-  max-width: 340px;
-  background: var(--card);
-  border: 1px solid var(--border-light);
-  border-radius: 14px;
-  padding: 1.6rem 1.4rem;
-  text-align: center;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
-}
-.service-page-landing .vst-card .vst-icon {
-  font-size: 2.1rem;
-  color: var(--accent);
-  margin-bottom: .75rem;
-}
-
-/* CTA Section */
-.cta-section {
-  background: var(--explanation-bg);
-  text-align: center;
-  padding: 80px 20px;
-  border-top: 1px solid var(--explanation-border);
-}
-.cta-section .cta-button.primary {
-  background: var(--accent);
-  color: white;
-}
-.cta-section .cta-button.whatsapp {
-  border: 2px solid var(--whatsapp-green);
-  color: var(--whatsapp-green);
 }
 
 /* Evästebanneri */
@@ -997,9 +1091,6 @@ footer a:hover { color: #ffffff; text-decoration: underline; }
 /* Accessibility */
 .visually-hidden {
   position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;
-}
-.visually-hidden-focusable:focus {
-  position: absolute; top: 1rem; left: 1rem; z-index: 9999; padding: 0.5rem 1rem; background: var(--card); border: 2px solid var(--accent); border-radius: 8px;
 }
 :focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
 
