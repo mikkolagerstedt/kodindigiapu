@@ -42,7 +42,7 @@
       --accent-light: #3b82f6;
       --success: #28a745;
       --whatsapp-green: #25D366;
-      --bg: #f1f5f9;
+      --bg: #f8fafc; /* Hieman raikkaampi vaalea tausta */
       --card: #ffffff;
       --text-dark: #333;
       --text-light: #555;
@@ -96,7 +96,7 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       background: var(--bg);
       color: var(--text-dark);
-      line-height: 1.8; /* PARANNETTU LUETTAVUUS */
+      line-height: 1.8;
       font-size: 18px; 
       padding-top: 76px;
       transition: all 0.3s ease; 
@@ -110,7 +110,7 @@
     }
 
     p {
-        margin-bottom: 1.5rem; /* SELKEÄ VÄLI KAPPALEISSA */
+        margin-bottom: 1.5rem;
     }
 
     h1, h2, h3 {
@@ -215,7 +215,6 @@
       color: var(--accent);
     }
 
-    /* Header CTA-painike (vain desktopilla) */
     .header-cta {
       display: none; 
       background: var(--accent);
@@ -241,7 +240,7 @@
     }
 
     /* =========================================
-       3. TEEMAKYTKIN (SVG)
+       3. TEEMAKYTKIN
        ========================================= */
     .theme-toggle {
       width: 42px;
@@ -280,7 +279,6 @@
       stroke: white;
     }
 
-    /* Ikonien näkyvyys teeman mukaan */
     .icon-sun { opacity: 0; }
     .icon-moon { opacity: 1; }
 
@@ -289,11 +287,10 @@
 
 
     /* =========================================
-       4. HERO-OSIOT (HOME vs DEFAULT)
+       4. HERO-OSIOT (MODERNISOITU)
        ========================================= */
 
-    /* --- A) DEFAULT HERO (Ohjeet, Palvelut ym.) --- 
-       Tämä on keskitetty oletuksena. */
+    /* Sisäsivujen perus-hero */
     .hero {
       background: var(--card);
       text-align: center;
@@ -307,7 +304,6 @@
       align-items: center;
     }
 
-    /* Ikonit sisäsivuilla (esim. ohjeet) */
     .hero .icon {
       font-size: 3rem;
       color: var(--accent);
@@ -319,47 +315,51 @@
       margin-left: auto;   
       margin-right: auto;
       font-size: clamp(30px, 5vw, 42px); 
-      line-height: 1.3;
+      line-height: 1.2; 
       font-weight: 800;
+      letter-spacing: -0.02em;
     }
 
     .hero-subtitle {
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       max-width: 720px;
-      margin: 0 auto 2.5rem;
+      margin: 1rem auto 2.5rem;
       color: var(--text-light);
-      line-height: 1.7;
+      line-height: 1.6;
     }
 
-    /* --- B) HERO HOME (VAIN ETUSIVULLE) --- 
-       Tämä on vasemmalle tasattu desktopilla. */
+    /* --- HERO HOME (ETUSIVU) --- */
     .hero-home {
       text-align: left; 
+      /* Moderni tausta gradientilla */
+      background: linear-gradient(135deg, var(--card) 0%, var(--explanation-bg) 100%);
+      padding: 80px 0;
     }
 
     .hero-home .hero-container-flex {
       display: flex;
-      align-items: flex-start; /* KORJATTU: Yläreunaan linjaus */
-      gap: 40px;
+      flex-direction: row; /* Pakotetaan riviksi isolla näytöllä */
+      align-items: center; /* Keskitetään pystysuunnassa */
+      justify-content: flex-start; 
+      gap: 50px;
       text-align: left;
     }
 
     .hero-home .hero-text-content {
       flex: 1;
       min-width: 0;
-      max-width: 850px; 
+      max-width: 700px; 
     }
 
     .hero-home .hero-profile-img {
-      width: 160px;
-      height: 160px;
+      width: 200px;
+      height: 200px;
       border-radius: 50%;
       object-fit: cover;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      /* Moderni varjo ja reunus */
+      box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+      border: 4px solid var(--card);
       flex-shrink: 0;
-      margin-top: 10px; /* Pieni säätö */
-      max-width: 100%; /* SKAALAUS KORJATTU */
-      height: auto;    /* SKAALAUS KORJATTU */
     }
 
     .hero-home .hero-title,
@@ -376,7 +376,6 @@
         line-height: 1.6;
     }
 
-    /* Slogan etusivulle (korostettu rivi) */
     .hero-slogan {
       display: block; 
       margin-top: 0.8rem; 
@@ -384,7 +383,6 @@
       font-size: 1.1em; 
     }
 
-    /* CTA-napit etusivulla */
     .hero-cta-buttons {
       display: flex;
       flex-direction: column;
@@ -396,23 +394,29 @@
       margin-right: 0;
     }
 
-    /* Isolla ruudulla napit vierekkäin etusivulla */
     @media (min-width: 768px) {
       .hero-cta-buttons {
         flex-direction: row;
       }
     }
 
-    /* --- HERO MOBIILI (YHTEINEN KAIKILLE) --- */
+    /* --- HERO MOBIILI --- */
     @media (max-width: 768px) {
       .hero, .hero-home {
         text-align: center;
+        padding: 50px 0;
       }
       
       .hero-home .hero-container-flex {
         flex-direction: column;
-        text-align: center;
         align-items: center;
+        gap: 30px;
+      }
+
+      .hero-home .hero-profile-img {
+        width: 150px;
+        height: 150px;
+        margin-bottom: 10px;
       }
 
       .hero-title, 
@@ -426,11 +430,6 @@
         align-items: center;
         margin-left: auto;
         margin-right: auto;
-      }
-      
-      .hero-slogan {
-        margin-top: 0.5rem;
-        font-size: 1em;
       }
     }
 
@@ -469,7 +468,6 @@
       transform: translateY(-2px);
     }
 
-    /* "Haamu-nappi" (soittopyyntö) */
     .cta-button.ghost {
       background: transparent;
       border: 2px solid var(--accent);
@@ -530,7 +528,6 @@
       height: 100%;
     }
 
-    /* Toggle värit */
     .price-toggle label:first-child span {
       background: #f8fafc;
       color: #475569;
@@ -541,7 +538,6 @@
       color: #166534;
     }
 
-    /* Toggle Active State */
     .price-toggle input:checked + span {
       background: var(--accent) !important;
       color: white !important;
@@ -574,20 +570,21 @@
       .services-grid { grid-template-columns: repeat(4, 1fr); }
     }
 
-    /* Palvelukortit */
+    /* Modernisoidut Palvelukortit */
     .service-card {
       background: var(--card);
-      border: 1px solid var(--border-light);
-      padding: 2rem;
-      border-radius: 8px;
+      border: none; /* Ei kovaa reunusta */
+      padding: 2.5rem 2rem;
+      border-radius: 16px; 
       text-align: center;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-      transition: transform 0.2s, box-shadow 0.2s;
+      /* Pehmeä varjo */
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .service-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     }
 
     .service-card .icon {
@@ -617,42 +614,9 @@
       color: var(--accent);
     }
 
-    /* Erityistyylit etusivun palveluosiolle */
-    #palvelut .service-card {
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      transition: none; 
-    }
-    #palvelut .service-card:hover {
-      transform: none;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    }
-    #palvelut .service-link {
-      padding: 2rem; 
-      transition: transform 0.2s, box-shadow 0.2s;
-      border-radius: 8px;
-    }
-    #palvelut .service-link:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      text-decoration: none;
-    }
-
     .service-outro {
         text-align: center; 
         margin-top: 2.5rem;
-    }
-    .service-outro p {
-        margin-bottom: 1rem; 
-        color: var(--text-light);
-    }
-
-    .link-arrow {
-        font-weight: 600; 
-        color: var(--accent); 
-        text-decoration: none; 
-        border-bottom: 2px solid var(--accent);
     }
 
     /* Hinnasto */
@@ -820,7 +784,6 @@
       .contact-info { text-align: left; }
     }
 
-    /* YHTEYSTIETOJEN KORJAUS (KESKITYS + LINKIT) */
     .contact-info {
         text-align: center;
     }
@@ -830,7 +793,7 @@
 
     .contact-profile-img {
         display: block;
-        margin: 0 auto 2rem auto; /* LISÄTTY TILAA */
+        margin: 0 auto 2rem auto; 
         max-width: 150px;
         height: 150px;
         border-radius: 50%;
@@ -854,9 +817,9 @@
     .contact-row {
         display: flex;
         align-items: center;
-        justify-content: center; /* KESKITETÄÄN */
-        gap: 15px; /* LISÄTTY VÄLIÄ */
-        margin-bottom: 1.2rem; /* LISÄTTY VÄLIÄ */
+        justify-content: center; 
+        gap: 15px; 
+        margin-bottom: 1.2rem;
         padding: 5px 0;
     }
     @media (min-width: 992px) {
@@ -870,7 +833,7 @@
         font-size: 1.3rem;
     }
     .contact-row a {
-        color: var(--accent); /* KORJATTU VÄRI */
+        color: var(--accent); 
         text-decoration: none;
         font-weight: 700;
         font-size: 1.1rem;
@@ -917,7 +880,19 @@
     }
     .btn-submit:hover { background: #0284c7; }
 
-    /* Payment Section */
+    /* --- Payment Section (KORJATTU KESKITYS) --- */
+    .payment-section {
+      text-align: center;
+      padding: 60px 0;
+      background: var(--bg);
+    }
+    .payment-section p {
+        max-width: 600px;
+        margin: 0 auto 2rem auto;
+        color: var(--text-light);
+        font-size: 1.1rem;
+    }
+    
     .payment-methods {
       display: flex;
       justify-content: center;
@@ -953,7 +928,7 @@
     footer a { color: #93c5fd; text-decoration: none; padding: 0 5px; }
     footer a:hover { color: #ffffff; text-decoration: underline; }
 
-    /* Mobile Sticky CTA - MODERNISOITU */
+    /* Mobile Sticky CTA */
     .mobile-sticky-cta { 
         display: none; 
     }
@@ -993,7 +968,6 @@
         border-top: 1px solid rgba(0,0,0,0.05);
       }
       
-      /* Tumma teema tuki alapalkille */
       html[data-theme="dark"] .mobile-sticky-cta {
           background: rgba(17, 24, 39, 0.98);
           border-top: 1px solid rgba(255,255,255,0.1);
@@ -1055,14 +1029,7 @@
 
     /* Näin homma toimii -boxit */
     .help-section { text-align: left; }
-    .section-subtitle-small {
-        text-align: center; 
-        max-width: 600px; 
-        margin: 0 auto 2.5rem; 
-        color: var(--text-light); 
-        font-size: 1.05rem;
-    }
-
+    
     .help-steps-grid {
       max-width: 900px;
       display: grid;
@@ -1134,7 +1101,6 @@
       .cookie-banner-content { flex-direction: row; justify-content: space-between; text-align: left; }
     }
 
-    /* Accessibility */
     .visually-hidden {
       position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;
     }
@@ -1217,7 +1183,7 @@
     <section class="hero hero-home">
       <div class="container hero-container-flex">
         
-        <img src="/images/mikko-digiapu.webp" alt="Mikko Lagerstedt" class="hero-profile-img" width="160" height="160">
+        <img src="/images/mikko-digiapu.webp" alt="Mikko Lagerstedt" class="hero-profile-img" width="200" height="200">
         
         <div class="hero-text-content">
             <h1 class="hero-title">
@@ -1432,7 +1398,7 @@
     <section id="luottamus" class="section">
       <div class="container">
         <h2 class="section-title">Asiakkaiden kokemuksia</h2>
-        <img src="/images/kodin-digiapu-auttamassa.webp" alt="Kodin Digiapu auttamassa senioria" class="trust-image" loading="lazy" style="max-width: 100%; height: auto; display: block; margin: 2rem auto;">
+        <img src="/images/kodin-digiapu-auttamassa.webp" alt="Kodin Digiapu auttamassa senioria" class="trust-image" loading="lazy">
         <div class="testimonials-grid">
           
           <div class="testimonial-card" style="border-left: 6px solid var(--accent); background-color: var(--explanation-bg);">
@@ -1506,19 +1472,20 @@
 
     <section class="section payment-section">
       <div class="container">
-        <p>Työ on kotitalousvähennyskelpoista.</p>
+        <h2 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--main);">Maksaminen ja kotitalousvähennys</h2>
+        <p>Työ on kotitalousvähennyskelpoista. Saat vähentää verotuksessa ison osan työn hinnasta.</p>
         <div class="payment-methods">
           <div>
             <i class="fas fa-home icon-home"></i>
-            <p>Kotitalousvähennys</p>
+            <p style="margin: 0; font-weight: 600;">Kotitalousvähennys</p>
           </div>
           <div>
             <i class="fas fa-file-invoice icon-invoice"></i>
-            <p>Lasku / Käteinen</p>
+            <p style="margin: 0; font-weight: 600;">Lasku / Käteinen</p>
           </div>
           <div>
             <i class="fas fa-mobile-screen-button icon-mobilepay"></i>
-            <p>MobilePay</p>
+            <p style="margin: 0; font-weight: 600;">MobilePay</p>
           </div>
         </div>
       </div>
