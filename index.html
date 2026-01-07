@@ -32,112 +32,6 @@
   
   <link rel="stylesheet" href="/css/styles.css">
   
-  <style>
-    /* 1. KUVAN KESKITYS JA SKAALAUS */
-    .contact-profile-img {
-        display: block;
-        margin: 0 auto 1.5rem auto; /* Keskittää kuvan */
-        max-width: 150px;
-        height: 150px;
-        border-radius: 50%;
-        object-fit: cover;
-    }
-
-    /* 2. YHTEYSTIETORIVIEN KESKITYS */
-    .contact-info {
-        text-align: center; /* Keskittää tekstin */
-    }
-
-    .contact-row {
-        display: flex;
-        align-items: center;
-        justify-content: center; /* Keskittää rivin sisällön (ikonin ja tekstin) */
-        gap: 10px;
-        margin-bottom: 0.8rem;
-    }
-    
-    .contact-row .icon {
-        margin-right: 0 !important;
-        flex-shrink: 0;
-        color: var(--accent); /* Varmistaa ikonin värin */
-    }
-
-    /* 3. LINKKIEN VÄRIKONTRASTIN KORJAUS (TÄRKEÄ!) */
-    /* Tämä korjaa sen, että puhelinnumero ei näy tummalla taustalla */
-    .contact-row a {
-        color: var(--accent); /* Käyttää kirkasta teemaväriä */
-        text-decoration: none;
-        font-weight: 700;
-    }
-    
-    .contact-row a:hover {
-        text-decoration: underline;
-    }
-
-    /* Desktop-korjaus: Siirretään vasemmalle vain isolla ruudulla */
-    @media (min-width: 992px) {
-        .contact-row { justify-content: flex-start; } 
-        .contact-info { text-align: left; }
-        .contact-profile-img { margin-left: 0; margin-right: 0; }
-    }
-
-    /* 4. MOBIILIN ALAPALKKI (Sticky CTA) */
-    @media (max-width: 768px) {
-        body {
-            padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 80px) !important;
-        }
-
-        .mobile-sticky-cta {
-            display: flex !important;
-            position: fixed;
-            bottom: 0;
-            bottom: env(safe-area-inset-bottom, 0px);
-            left: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.95) !important;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
-            z-index: 1001;
-            padding: 12px 16px !important;
-            gap: 12px !important;
-            align-items: center;
-            border-top: 1px solid rgba(0,0,0,0.05);
-        }
-        
-        .sticky-btn {
-            flex: 1;
-            display: flex !important;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            padding: 12px !important;
-            border-radius: 50px !important;
-            font-weight: 700 !important;
-            font-size: 1rem !important;
-            text-decoration: none !important;
-            color: white !important;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            text-align: center;
-        }
-
-        .sticky-btn.call {
-            background-color: #0ea5e9 !important;
-            color: white !important;
-        }
-
-        .sticky-btn.whatsapp {
-            background-color: #25D366 !important;
-            color: white !important;
-        }
-        
-        /* Tumma teema tuki alapalkille */
-        html[data-theme="dark"] .mobile-sticky-cta {
-            background: rgba(17, 24, 39, 0.95) !important;
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
-    }
-  </style>
-
   <script>
     (function() {
       const savedTheme = localStorage.getItem('theme') ||
@@ -165,13 +59,7 @@
     },
     "openingHoursSpecification": {
       "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday"
-      ],
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
       "opens": "10:00",
       "closes": "18:00"
     }
@@ -236,9 +124,9 @@
               </a>
             </div>
 
-            <p style="font-size: 0.95rem; color: var(--text-light); margin-top: 1rem; line-height: 1.6;">
+            <p class="hero-extra-text">
              Moni miettii, kehtaako pienestä asiasta ottaa yhteyttä. Kyllä kehtaa. Minulle tekniikka-ongelmien ratkaiseminen on arkipäivää, ja hoidan ne kuntoon nopeasti ja ystävällisesti. 
-             Riittää kun kerrot mikä ei toimi.<br>
+             Riittää kun kerrot mikä ei toimi.
             </p>
         </div>
       </div>
@@ -247,7 +135,7 @@
     <section class="section help-section">
       <div class="container">
         <h2 class="section-title">Näin homma toimii</h2>
-        <p style="text-align: center; max-width: 600px; margin: 0 auto 2.5rem; color: var(--text-light); font-size: 1.05rem;">
+        <p class="section-subtitle-small">
             Ei teknisiä termejä. Ei turhaa myyntiä. Vain selkeä apu.
         </p>
 
@@ -288,7 +176,7 @@
         <h2 class="section-title">Missä tarvitset apua?</h2>
         <p class="section-subtitle">Tässä ovat yleisimmät asiat, joiden takia minulle soitetaan.</p>
         
-        <p style="text-align: center; max-width: 760px; margin: -2rem auto 2.5rem; font-weight: 500; color: var(--main);">
+        <p class="service-intro-text">
             Kyse ei ole vain tietokoneista. Autan myös puhelimien ja tablettien käyttöönotossa, sovelluksissa, tunnuksissa, sähköpostissa ja nettiyhteyksissä.
         </p>
 
@@ -331,9 +219,9 @@
             </div>
         </div>
         
-        <div style="text-align: center; margin-top: 2.5rem;">
-            <p style="margin-bottom: 1rem; color: var(--text-light);">Eikö ongelmasi löytynyt listalta? Usein ihmiset eivät tiedä mikä laite tai asia on pielessä – se ei haittaa.</p>
-            <a href="#yhteys" style="font-weight: 600; color: var(--accent); text-decoration: none; border-bottom: 2px solid var(--accent);">
+        <div class="service-outro">
+            <p>Eikö ongelmasi löytynyt listalta? Usein ihmiset eivät tiedä mikä laite tai asia on pielessä – se ei haittaa.</p>
+            <a href="#yhteys" class="link-arrow">
                 Kysy muista palveluista (puhelimet, tabletit, opastus) →
             </a>
         </div>
@@ -345,8 +233,8 @@
         <h2 class="section-title">Hinnasto</h2>
         <div class="price-card">
           
-          <p style="font-weight: 700; color: var(--main); margin-bottom: 0.5rem; font-size: 1.1rem;">
-             Minimiveloitus 30€ <span style="font-weight:400; font-size: 0.9rem; color: var(--text-light);">(30 min)</span>
+          <p class="min-price-label">
+              Minimiveloitus 30€ <span>(30 min)</span>
           </p>
 
           <div id="price-display" class="price-display normal">60€</div>
@@ -369,7 +257,7 @@
       </div>
     </section>
 
-    <section id="ukk" class="section" style="padding-top: 40px;">
+    <section id="ukk" class="section section-faq">
       <div class="container">
         <h2 class="section-title">Usein kysyttyä</h2>
         <div class="faq">
@@ -429,12 +317,12 @@
     <section id="luottamus" class="section">
       <div class="container">
         <h2 class="section-title">Asiakkaiden kokemuksia</h2>
-        <img src="/images/kodin-digiapu-auttamassa.webp" alt="Kodin Digiapu auttamassa senioria" class="trust-image" loading="lazy" style="max-width: 100%; height: auto; display: block; margin: 2rem auto;">
+        <img src="/images/kodin-digiapu-auttamassa.webp" alt="Kodin Digiapu auttamassa senioria" class="trust-image" loading="lazy">
         <div class="testimonials-grid">
           
-          <div class="testimonial-card" style="border-left: 6px solid var(--accent); background-color: var(--explanation-bg);">
+          <div class="testimonial-card highlight">
             <p class="text">"Tietokoneeni oli täynnä viruksia, mutta sain apua nopeasti ja kone toimii taas. Suosittelen lämpimästi."</p>
-            <p class="author">– Helena, Järvenpää <span style="display:block; font-size:0.8rem; font-weight:normal; opacity:0.8;">(Haittaohjelmien poisto)</span></p>
+            <p class="author">– Helena, Järvenpää <span>(Haittaohjelmien poisto)</span></p>
           </div>
           
           <div class="testimonial-card">
@@ -462,7 +350,7 @@
             <h3>Soita tai lähetä viesti</h3>
             <p>Vastaan puhelimeen arkisin klo 10–18. Jos olen asiakaskäynnillä, soitan sinulle takaisin mahdollisimman pian.</p>
             
-            <p style="margin-bottom: 1.5rem; font-weight: 500; color: var(--main); border-left: 4px solid var(--accent); padding-left: 1rem; display: inline-block; text-align: left;">
+            <p class="contact-note">
                 Et häiritse. Yhteydenotto ei sido mihinkään. Jos asia ratkeaa nopeasti puhelimessa, kerron sen heti.
             </p>
             
