@@ -32,6 +32,137 @@
   
   <link rel="stylesheet" href="/css/styles.css">
   
+  <style>
+    /* 1. YLEINEN LUETTAVUUS */
+    body {
+        line-height: 1.8 !important; /* Ilmavampi riviväli */
+        color: #333; /* Hieman pehmeämpi musta */
+    }
+
+    p {
+        margin-bottom: 1.5rem !important; /* Selkeä väli kappaleiden välillä */
+    }
+
+    h1, h2, h3 {
+        line-height: 1.3 !important;
+        margin-bottom: 1.2rem !important; /* Enemmän tilaa otsikon alle */
+    }
+
+    .section {
+        padding: 80px 0 !important; /* Varmistetaan riittävä väli osioiden välillä */
+    }
+
+    /* 2. YHTEYSTIETORIVIEN VÄLJYYS JA KESKITYS */
+    .contact-info {
+        text-align: center; 
+    }
+
+    .contact-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px; /* Enemmän tilaa ikonin ja tekstin väliin */
+        margin-bottom: 1.2rem !important; /* Enemmän tilaa rivien väliin */
+        padding: 5px 0;
+    }
+    
+    .contact-row .icon {
+        margin-right: 0 !important;
+        flex-shrink: 0;
+        color: var(--accent);
+        font-size: 1.3rem;
+    }
+
+    /* Linkkien tyyli */
+    .contact-row a {
+        color: var(--accent); 
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 1.1rem;
+    }
+    .contact-row a:hover {
+        text-decoration: underline;
+    }
+
+    /* Profiilikuvan asettelu */
+    .contact-profile-img {
+        display: block;
+        margin: 0 auto 2rem auto; /* Reilusti tilaa kuvan alle */
+        max-width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+    
+    .hero-profile-img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Desktop-tarkennukset */
+    @media (min-width: 992px) {
+        .contact-row { justify-content: flex-start; } 
+        .contact-info { text-align: left; }
+        .contact-profile-img { margin-left: 0; margin-right: 0; }
+    }
+
+    /* 3. MOBIILIN ALAPALKKI (Sticky CTA) */
+    @media (max-width: 768px) {
+        body {
+            padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 90px) !important;
+        }
+
+        .mobile-sticky-cta {
+            display: flex !important;
+            position: fixed;
+            bottom: 0;
+            bottom: env(safe-area-inset-bottom, 0px);
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98) !important;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+            z-index: 1001;
+            padding: 15px 20px !important;
+            gap: 15px !important;
+            align-items: center;
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .sticky-btn {
+            flex: 1;
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px !important; /* Isompi nappi */
+            border-radius: 50px !important;
+            font-weight: 700 !important;
+            font-size: 1.05rem !important;
+            text-decoration: none !important;
+            color: white !important;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            text-align: center;
+            line-height: 1;
+        }
+
+        .sticky-btn.call {
+            background-color: #0ea5e9 !important;
+            color: white !important;
+        }
+
+        .sticky-btn.whatsapp {
+            background-color: #25D366 !important;
+            color: white !important;
+        }
+        
+        html[data-theme="dark"] .mobile-sticky-cta {
+            background: rgba(17, 24, 39, 0.98) !important;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+    }
+  </style>
+
   <script>
     (function() {
       const savedTheme = localStorage.getItem('theme') ||
@@ -59,7 +190,13 @@
     },
     "openingHoursSpecification": {
       "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
       "opens": "10:00",
       "closes": "18:00"
     }
@@ -124,9 +261,9 @@
               </a>
             </div>
 
-            <p class="hero-extra-text">
+            <p style="font-size: 1rem; color: var(--text-light); margin-top: 2rem;">
              Moni miettii, kehtaako pienestä asiasta ottaa yhteyttä. Kyllä kehtaa. Minulle tekniikka-ongelmien ratkaiseminen on arkipäivää, ja hoidan ne kuntoon nopeasti ja ystävällisesti. 
-             Riittää kun kerrot mikä ei toimi.
+             Riittää kun kerrot mikä ei toimi.<br>
             </p>
         </div>
       </div>
@@ -135,7 +272,7 @@
     <section class="section help-section">
       <div class="container">
         <h2 class="section-title">Näin homma toimii</h2>
-        <p class="section-subtitle-small">
+        <p style="text-align: center; max-width: 600px; margin: 0 auto 3rem; color: var(--text-light); font-size: 1.1rem;">
             Ei teknisiä termejä. Ei turhaa myyntiä. Vain selkeä apu.
         </p>
 
@@ -176,7 +313,7 @@
         <h2 class="section-title">Missä tarvitset apua?</h2>
         <p class="section-subtitle">Tässä ovat yleisimmät asiat, joiden takia minulle soitetaan.</p>
         
-        <p class="service-intro-text">
+        <p style="text-align: center; max-width: 760px; margin: -2rem auto 3rem; font-weight: 500; color: var(--main); font-size: 1.1rem;">
             Kyse ei ole vain tietokoneista. Autan myös puhelimien ja tablettien käyttöönotossa, sovelluksissa, tunnuksissa, sähköpostissa ja nettiyhteyksissä.
         </p>
 
@@ -219,9 +356,9 @@
             </div>
         </div>
         
-        <div class="service-outro">
-            <p>Eikö ongelmasi löytynyt listalta? Usein ihmiset eivät tiedä mikä laite tai asia on pielessä – se ei haittaa.</p>
-            <a href="#yhteys" class="link-arrow">
+        <div style="text-align: center; margin-top: 3rem;">
+            <p style="margin-bottom: 1.5rem; color: var(--text-light);">Eikö ongelmasi löytynyt listalta? Usein ihmiset eivät tiedä mikä laite tai asia on pielessä – se ei haittaa.</p>
+            <a href="#yhteys" style="font-weight: 600; color: var(--accent); text-decoration: none; border-bottom: 2px solid var(--accent); font-size: 1.1rem;">
                 Kysy muista palveluista (puhelimet, tabletit, opastus) →
             </a>
         </div>
@@ -233,8 +370,8 @@
         <h2 class="section-title">Hinnasto</h2>
         <div class="price-card">
           
-          <p class="min-price-label">
-              Minimiveloitus 30€ <span>(30 min)</span>
+          <p style="font-weight: 700; color: var(--main); margin-bottom: 0.5rem; font-size: 1.1rem;">
+             Minimiveloitus 30€ <span style="font-weight:400; font-size: 0.9rem; color: var(--text-light);">(30 min)</span>
           </p>
 
           <div id="price-display" class="price-display normal">60€</div>
@@ -257,7 +394,7 @@
       </div>
     </section>
 
-    <section id="ukk" class="section section-faq">
+    <section id="ukk" class="section" style="padding-top: 40px;">
       <div class="container">
         <h2 class="section-title">Usein kysyttyä</h2>
         <div class="faq">
@@ -317,12 +454,12 @@
     <section id="luottamus" class="section">
       <div class="container">
         <h2 class="section-title">Asiakkaiden kokemuksia</h2>
-        <img src="/images/kodin-digiapu-auttamassa.webp" alt="Kodin Digiapu auttamassa senioria" class="trust-image" loading="lazy">
+        <img src="/images/kodin-digiapu-auttamassa.webp" alt="Kodin Digiapu auttamassa senioria" class="trust-image" loading="lazy" style="max-width: 100%; height: auto; display: block; margin: 2rem auto;">
         <div class="testimonials-grid">
           
-          <div class="testimonial-card highlight">
+          <div class="testimonial-card" style="border-left: 6px solid var(--accent); background-color: var(--explanation-bg);">
             <p class="text">"Tietokoneeni oli täynnä viruksia, mutta sain apua nopeasti ja kone toimii taas. Suosittelen lämpimästi."</p>
-            <p class="author">– Helena, Järvenpää <span>(Haittaohjelmien poisto)</span></p>
+            <p class="author">– Helena, Järvenpää <span style="display:block; font-size:0.8rem; font-weight:normal; opacity:0.8;">(Haittaohjelmien poisto)</span></p>
           </div>
           
           <div class="testimonial-card">
@@ -350,8 +487,8 @@
             <h3>Soita tai lähetä viesti</h3>
             <p>Vastaan puhelimeen arkisin klo 10–18. Jos olen asiakaskäynnillä, soitan sinulle takaisin mahdollisimman pian.</p>
             
-            <p class="contact-note">
-                Et häiritse. Yhteydenotto ei sido mihinkään. Jos asia ratkeaa nopeasti puhelimessa, kerron sen heti.
+            <p style="margin-bottom: 2rem; padding: 1rem; background-color: var(--explanation-bg); border-radius: 8px; border-left: 4px solid var(--accent); display: inline-block; text-align: left;">
+                <strong style="color: var(--main);">Et häiritse.</strong> Yhteydenotto ei sido mihinkään. Jos asia ratkeaa nopeasti puhelimessa, kerron sen heti.
             </p>
             
             <div class="contact-row">
