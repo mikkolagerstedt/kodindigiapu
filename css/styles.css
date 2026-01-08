@@ -1651,3 +1651,28 @@ html[data-theme="light"] .step-tip {
     margin: 22px auto;
   }
 }
+/* =========================================
+   HOME HERO: subtitle brighter in dark mode + smaller support text
+   Lisää styles.css:n loppuun
+   ========================================= */
+
+/* 1) "Hei, olen Mikko" (hero-subtitle) vaaleammaksi dark-modessa */
+html[data-theme="dark"] .hero.hero-home .hero-subtitle {
+  color: rgba(255,255,255,0.84); /* vaaleampi kuin var(--text-light) */
+}
+
+/* 2) "Moni miettii..." (hero-support-text) pienemmäksi ja hieman hillitymmäksi */
+.hero.hero-home .hero-support-text {
+  font-size: 0.98rem;   /* hieman pienempi */
+  line-height: 1.70;    /* aavistuksen tiiviimpi */
+}
+
+/* Dark-modessa support vielä aavistuksen “hiljaisemmaksi” kuin subtitle */
+html[data-theme="dark"] .hero.hero-home .hero-support-text {
+  color: rgba(255,255,255,0.70);
+}
+
+/* Jos haluat samalla support-tekstille vähän vähemmän “blokkimainen” fiilis */
+.hero.hero-home .hero-support-text {
+  max-width: 68ch;      /* hieman tiukempi rivipituus (luettavuus) */
+}
