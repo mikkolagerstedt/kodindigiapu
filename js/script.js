@@ -2,6 +2,9 @@
  * Kodin Digiapu – script.js (PÄIVITETTY)
  * Teema, navigointi, ankkuriskrolli, hinta-toggle, takaisin ylös, evästebanneri,
  * ohjesivun platform-toggle, mobiili-CTA (VisualViewport fix)
+ *
+ * + GA4: consent update (analytics_storage)
+ * + GA4: lead events (phone / whatsapp / contact_form)
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -16,25 +19,28 @@ document.addEventListener('DOMContentLoaded', () => {
   // =========================================================
   const headerEl = $('header');
   const getHeaderOffset = () => {
-    // Jos headerin korkeus muuttuu, tämä pysyy mukana
     const h = headerEl ? headerEl.getBoundingClientRect().height : 0;
-    return Math.max(0, Math.round(h) + 12); // pieni lisätila
+    return Math.max(0, Math.round(h) + 12);
   };
 
   const safeCallGtagConsentUpdate = (state) => {
     // state: 'granted' | 'denied'
+    // Päivitetään vain analytics_storage (ei mainontasäätöjä)
     try {
       if (typeof gtag === 'function') {
-        gtag('consent', 'update', {
-          analytics_storage: state,
-          ad_storage: state,
-          ad_user_data: state,
-          ad_personalization: state
-        });
+        gtag('consent', 'update', { analytics_storage: state });
       }
-    } catch (e) {
-      // ei tehdä mitään jos gtag ei ole käytössä
-    }
+    } catch (e) {}
+  };
+
+  const fireLeadEvent = (method) => {
+    // method: 'phone' | 'whatsapp' | 'contact_form'
+    // gtag-event lähtee vain jos GA on käytössä ja consent sallii
+    try {
+      if (typeof gtag === 'function') {
+        gtag('event', 'generate_lead', { method });
+      }
+    } catch (e) {}
   };
 
   // =========================================================
@@ -54,7 +60,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Jos käyttäjä ei ole valinnut teemaa, seuraa järjestelmäteemaa
   const mql = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
   if (mql && typeof mql.addEventListener === 'function') {
     mql.addEventListener('change', (e) => {
@@ -75,7 +80,6 @@ document.addEventListener('DOMContentLoaded', () => {
     navLinks.classList.add('show');
     navToggle.setAttribute('aria-expanded', 'true');
     navToggle.innerHTML = '<i class="fas fa-times"></i>';
-    // Halutessasi: estä taustaskrolli kun menu auki
     body.style.overflow = 'hidden';
   };
 
@@ -90,7 +94,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const isMenuOpen = () => navLinks && navLinks.classList.contains('show');
 
   if (navToggle && navLinks) {
-    // lähtötila
     navToggle.setAttribute('aria-expanded', 'false');
 
     navToggle.addEventListener('click', () => {
@@ -98,12 +101,10 @@ document.addEventListener('DOMContentLoaded', () => {
       else openMenu();
     });
 
-    // Sulje kun klikataan linkkiä
     $$('.nav-links a').forEach((link) => {
       link.addEventListener('click', () => closeMenu());
     });
 
-    // Sulje kun klikataan valikon ulkopuolelle
     document.addEventListener('click', (e) => {
       if (!isMenuOpen()) return;
       const clickedInsideMenu = navLinks.contains(e.target);
@@ -111,7 +112,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!clickedInsideMenu && !clickedToggle) closeMenu();
     });
 
-    // Sulje ESC
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && isMenuOpen()) closeMenu();
     });
@@ -134,14 +134,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const y = window.scrollY + target.getBoundingClientRect().top - getHeaderOffset();
     window.scrollTo({ top: y, behavior: 'smooth' });
 
-    // jos mobiilimenu auki, sulje
     closeMenu();
   };
 
   $$('a[href^="#"]').forEach((a) => a.addEventListener('click', handleAnchorClick));
 
   // =========================================================
-  // 3. HINTA-TOGGLE (2026: ei väitetä “tarkkaa”, näytetään suuntaa-antava)
+  // 3. HINTA-TOGGLE
   // =========================================================
   const priceDisplay = $('#price-display');
   const priceDesc = $('#price-description');
@@ -149,8 +148,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const expNormal = $('#explanation-without-deduction');
   const expDeducted = $('#explanation-with-deduction');
 
-  // Voit halutessasi lisätä HTML:ään:
-  // <div id="price-display" data-normal="60" data-deducted="39" ...>
   const readPriceFromDataset = (key, fallback) => {
     if (!priceDisplay) return fallback;
     const v = priceDisplay.dataset ? priceDisplay.dataset[key] : null;
@@ -191,7 +188,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================
-  // 4. TAKAISIN YLÖS -PAINIKE (kevyempi scroll handler)
+  // 4. TAKAISIN YLÖS -PAINIKE
   // =========================================================
   const toTopBtn = $('#toTop');
   let ticking = false;
@@ -229,7 +226,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================
-  // 5. EVÄSTEBANNERI (gtag consent update molemmissa)
+  // 5. EVÄSTEBANNERI (consent + remember)
   // =========================================================
   const banner = $('#cookie-consent-banner');
   const acceptBtn = $('#btn-consent-accept');
@@ -255,7 +252,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!consentChoice) {
       showBanner();
     } else {
-      // varmistetaan että tila on ainakin järkevä
+      // Aseta tallennettu valinta myös GA:lle heti
+      if (consentChoice === 'granted') safeCallGtagConsentUpdate('granted');
+      if (consentChoice === 'denied') safeCallGtagConsentUpdate('denied');
+
       body.classList.remove('cookie-banner-is-visible');
       banner.style.display = 'none';
       updateToTopVisibility();
@@ -272,6 +272,25 @@ document.addEventListener('DOMContentLoaded', () => {
       localStorage.setItem('cookie_consent_choice', 'denied');
       hideBanner();
     });
+  }
+
+  // =========================================================
+  // 5b. GA4 LEAD EVENTS (phone / whatsapp / form)
+  // =========================================================
+  // Puheluklikit (myös header + hero + footer + sticky)
+  document.querySelectorAll('a[href^="tel:"]').forEach((link) => {
+    link.addEventListener('click', () => fireLeadEvent('phone'));
+  });
+
+  // WhatsApp-klikit
+  document.querySelectorAll('a[href*="wa.me"]').forEach((link) => {
+    link.addEventListener('click', () => fireLeadEvent('whatsapp'));
+  });
+
+  // Soittopyyntölomake
+  const contactForm = document.querySelector('.contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', () => fireLeadEvent('contact_form'));
   }
 
   // =========================================================
@@ -312,12 +331,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // =========================================================
   const mobileCta = $('.mobile-sticky-cta');
 
-  // Joillakin selaimilla offsetBottom ei ole luotettava, joten lasketaan itse
   const getViewportBottomInset = () => {
     if (!window.visualViewport) return 0;
     const vv = window.visualViewport;
-    // vv.height + vv.offsetTop = näkyvän viewportin "alareuna" suhteessa layout viewportiin
-    // window.innerHeight = layout viewportin korkeus
     const bottom = Math.max(0, Math.round(window.innerHeight - (vv.height + vv.offsetTop)));
     return bottom;
   };
