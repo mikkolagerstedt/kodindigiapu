@@ -1278,3 +1278,37 @@ body.service-page-landing main > section .container > ol {
   margin-left: auto;
   margin-right: auto;
 }
+/* =========================================================
+   SERVICE PAGE: help-steps stacked (parempi luettavuus)
+   - tekee 1-palstaisen layoutin (ei vierekkäisiä laatikoita)
+   - rajaa leveyden, jolloin teksti ei leviä liian pitkäksi
+   ========================================================= */
+
+body.service-page-landing .dark-section .help-steps {
+  grid-template-columns: 1fr !important; /* pakota 1 palsta */
+  max-width: 860px;                      /* “tekstialue” ei liian leveä */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* vähän lisää ilmaa korttien väliin */
+body.service-page-landing .dark-section .help-steps {
+  gap: 18px;
+}
+
+/* kortin sisäiset välit hieman ilmavammaksi */
+body.service-page-landing .dark-section .help-step {
+  padding: 22px 20px;
+}
+
+/* ikonille hieman parempi “ankkurointi” */
+body.service-page-landing .dark-section .help-step i {
+  width: 46px;
+  height: 46px;
+  flex: 0 0 46px;
+}
+
+/* jos haluat myös vaaleilla osuuksilla saman yhden palstan, lisää tämä: */
+body.service-page-landing .help-steps {
+  grid-template-columns: 1fr;
+}
