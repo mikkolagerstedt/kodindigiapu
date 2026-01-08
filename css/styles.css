@@ -1,16 +1,15 @@
-/* styles.css (Improved 2026)
-   Tavoite: selkeämpi rytmi ja ilmavampi luettavuus KAIKILLA sivuilla
-   - paremmat välistykset (p, otsikot, listat, kortit)
-   - paremmat "prose" tyylit ohje-/opassivuille
-   - service-page-landing yhtenäinen (virustorjunta + ohjeet + wifi)
-   - skip-link yhtenäinen (Siirry sisältöön)
+/* styles.css (Unified + Improved 2026)
+   Tavoite:
+   - Yhtenäinen typografia + ilmavampi rytmi kaikilla sivuilla
+   - Etusivun hero tasapainoon (kuva vs teksti) + leveämpi tekstialue
+   - Palvelusivut ja ohjesivut (body.service-page-landing) selkeiksi: kortit pinossa, CTA jäsennelty
+   - Poistetaan päällekkäiset/ristiriitaiset määrittelyt
 */
 
 /* =========================================
-   1. ROOT MUUTTUJAT JA PERUSASETUKSET
+   1. ROOT MUUTTUJAT + RESET
    ========================================= */
 
-/* VALOISA TEEMA */
 :root {
   --main: #1f2937;
   --accent: #0ea5e9;
@@ -35,33 +34,20 @@
 
   --toggle-border: rgba(15, 23, 42, 0.18);
 
-  --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
-  --shadow-md: 0 10px 30px rgba(0,0,0,0.08);
+  --shadow-sm: 0 2px 10px rgba(0,0,0,0.06);
+  --shadow-md: 0 14px 36px rgba(0,0,0,0.10);
 
   --radius-sm: 10px;
   --radius-md: 16px;
 
-  /* Typografia ja rytmi */
   --font-size-base: 18px;
-  --line-base: 1.9;
-  --line-tight: 1.25;
+  --line-base: 1.85;
 
-  /* Välistysasteikko */
-  --space-1: 6px;
-  --space-2: 10px;
-  --space-3: 14px;
-  --space-4: 18px;
-  --space-5: 24px;
-  --space-6: 32px;
-  --space-7: 44px;
-  --space-8: 60px;
-  --space-9: 84px;
-
-  /* Sisältöleveys ohjeille */
-  --prose-width: 74ch;
+  --content-max: 1180px;      /* hieman leveämpi kuin ennen */
+  --prose-width: 78ch;        /* ohjetekstien luettava rivilinja */
 }
 
-/* TUMMA TEEMA */
+/* Dark theme variables */
 html[data-theme="dark"] {
   --main: #f3f4f6;
   --accent: #38bdf8;
@@ -81,18 +67,17 @@ html[data-theme="dark"] {
   --footer-bg: #070d18;
   --footer-text: #e2e8f0;
 
-  --explanation-bg: #0b2553;
-  --explanation-border: rgba(56,189,248,0.25);
+  --explanation-bg: rgba(56,189,248,0.10);
+  --explanation-border: rgba(56,189,248,0.20);
 
   --toggle-border: rgba(255,255,255,0.18);
 
-  --shadow-sm: 0 2px 10px rgba(0,0,0,0.25);
-  --shadow-md: 0 14px 34px rgba(0,0,0,0.35);
+  --shadow-sm: 0 2px 14px rgba(0,0,0,0.30);
+  --shadow-md: 0 18px 44px rgba(0,0,0,0.40);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-
-html { scroll-behavior: smooth; height: 100%; }
+html { height: 100%; scroll-behavior: smooth; }
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -110,74 +95,53 @@ body {
 
 main { flex-grow: 1; }
 
-/* Luettavuus: sisältöelementtien perusrytmi */
-p { margin: 0 0 1.15rem 0; }
-
-h1, h2, h3 {
-  line-height: 1.35;
-  margin: 0 0 0.95rem 0;
-  color: var(--main);
-}
-
-h1 { letter-spacing: -0.02em; }
-h2 { letter-spacing: -0.015em; }
-h3 { letter-spacing: -0.01em; }
-
-/* Lisätään "flow" välistykset yleisesti sisältöön */
-main p + h2,
-main p + h3,
-main ul + h2,
-main ul + h3,
-main ol + h2,
-main ol + h3 {
-  margin-top: 1.8rem;
-}
-
+img { max-width: 100%; height: auto; display: block; }
 a { color: inherit; }
 
 :focus-visible {
   outline: 3px solid var(--accent);
   outline-offset: 3px;
-  border-radius: 8px;
+  border-radius: 10px;
 }
 
+/* Yleinen rytmi */
+p { margin: 0 0 1.15rem 0; }
+p + p { margin-top: 0.65rem; }
+
+h1, h2, h3 {
+  color: var(--main);
+  line-height: 1.25;
+  margin: 0 0 0.95rem 0;
+  letter-spacing: -0.01em;
+}
+
+ul, ol { padding-left: 1.15rem; margin: 0 0 1.15rem 0; }
+li { margin: 0.35rem 0; }
+
 .container {
-  max-width: 1100px;
+  max-width: var(--content-max);
   margin: 0 auto;
   padding: 0 20px;
 }
 
-/* Section välistys: hieman ilmavampi ja responsiivinen */
 .section {
-  padding: clamp(56px, 8vh, 92px) 0;
+  padding: clamp(56px, 8vh, 94px) 0;
 }
 
 .section-title {
-  font-size: clamp(28px, 4vw, 36px);
-  margin: 0 0 0.85rem 0;
+  font-size: clamp(28px, 3.8vw, 38px);
   text-align: center;
-  color: var(--main);
+  margin: 0 0 0.9rem 0;
 }
 
 .section-subtitle {
-  max-width: 720px;
+  max-width: 760px;
   margin: 0 auto 2.6rem auto;
   text-align: center;
   color: var(--text-light);
-  font-size: 1.06rem;
   line-height: 1.75;
+  font-size: 1.06rem;
 }
-
-/* Listat: lisää ilmaa */
-ul, ol {
-  padding-left: 1.1rem;
-  margin: 0 0 1.2rem 0;
-}
-
-li { margin: 0.35rem 0; }
-
-/* Kuvien perus */
-img { max-width: 100%; height: auto; display: block; }
 
 /* Reduce motion */
 @media (prefers-reduced-motion: reduce) {
@@ -187,6 +151,7 @@ img { max-width: 100%; height: auto; display: block; }
 /* =========================================
    2. HEADER & NAV
    ========================================= */
+
 header {
   background: var(--header-bg);
   position: fixed;
@@ -215,9 +180,9 @@ header {
 }
 
 .logo-icon {
-  height: 32px;
   width: 32px;
-  border-radius: 50%;
+  height: 32px;
+  border-radius: 999px;
 }
 
 .header-controls {
@@ -235,6 +200,7 @@ header {
   color: var(--main);
 }
 
+/* nav links */
 .nav-links {
   display: flex;
   gap: 22px;
@@ -245,7 +211,7 @@ header {
 .nav-links a {
   color: var(--text-dark);
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 650;
   transition: color 0.2s ease;
 }
 
@@ -255,9 +221,9 @@ header {
   display: none;
   background: var(--accent);
   color: #fff;
-  padding: 0.68rem 1.05rem;
-  border-radius: 10px;
-  font-weight: 800;
+  padding: 0.70rem 1.05rem;
+  border-radius: 12px;
+  font-weight: 850;
   text-decoration: none;
   font-size: 0.95rem;
   transition: background 0.2s ease, transform 0.2s ease;
@@ -265,9 +231,7 @@ header {
 
 .header-cta:hover { background: var(--accent-hover); transform: translateY(-1px); }
 
-@media (min-width: 992px) {
-  .header-cta { display: inline-block; }
-}
+@media (min-width: 992px) { .header-cta { display: inline-block; } }
 
 /* Theme toggle */
 .theme-toggle {
@@ -280,7 +244,7 @@ header {
   cursor: pointer;
   background: var(--card);
   box-shadow: var(--shadow-sm);
-  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+  transition: transform 0.2s ease, border-color 0.2s ease;
   position: relative;
 }
 
@@ -301,12 +265,13 @@ header {
 .icon-sun { opacity: 0; }
 .icon-moon { opacity: 1; }
 
-[data-theme="dark"] .icon-sun { opacity: 1; }
-[data-theme="dark"] .icon-moon { opacity: 0; }
+html[data-theme="dark"] .icon-sun { opacity: 1; }
+html[data-theme="dark"] .icon-moon { opacity: 0; }
 
 /* Mobile nav */
 @media (max-width: 768px) {
   .nav-toggle { display: inline-flex; }
+
   .nav-links {
     display: none;
     flex-direction: column;
@@ -315,9 +280,9 @@ header {
     position: absolute;
     top: 64px;
     right: 12px;
-    padding: 14px 14px;
+    padding: 14px;
     border: 1px solid var(--border-light);
-    border-radius: 14px;
+    border-radius: 16px;
     box-shadow: var(--shadow-md);
     gap: 10px;
   }
@@ -339,11 +304,14 @@ header {
 /* =========================================
    3. SKIP LINK (saavutettavuus)
    ========================================= */
-.skip-link {
+
+/* Tämä näkyy vain kun käyttäjä tabbaa */
+.skip-link,
+.visually-hidden-focusable {
   position: absolute;
   left: 12px;
   top: 10px;
-  transform: translateY(-200%);
+  transform: translateY(-220%);
   opacity: 0;
   pointer-events: none;
   z-index: 9999;
@@ -359,223 +327,44 @@ header {
 }
 
 .skip-link:focus,
-.skip-link:focus-visible {
+.skip-link:focus-visible,
+.visually-hidden-focusable:focus,
+.visually-hidden-focusable:focus-visible {
   transform: translateY(0);
   opacity: 1;
   pointer-events: auto;
-  outline: 3px solid var(--accent);
-  outline-offset: 3px;
+}
+
+/* Legacy helper */
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden; clip: rect(0, 0, 0, 0);
+  border: 0;
 }
 
 /* =========================================
-   4. HERO (yleinen)
+   4. BUTTONS (yleinen)
    ========================================= */
-.hero {
-  background: var(--card);
-  text-align: center;
-  padding: clamp(52px, 7vh, 80px) 0 clamp(34px, 5vh, 56px);
-}
 
-/* =========================================================
-   HOME HERO BALANCE FIX (image + text)
-   Target: <section class="hero hero-home"> on etusivu
-   ========================================================= */
-
-.hero-home {
-  padding: clamp(64px, 9vh, 110px) 0;
-}
-
-/* Vaihdetaan flex -> grid, jotta saadaan selkeä 2-palstainen rakenne */
-.hero-home .hero-container-flex {
-  display: grid;
-  grid-template-columns: 260px 1fr; /* vasen: kuva, oikea: sisältö */
-  gap: clamp(28px, 4vw, 56px);
-  align-items: center; /* pystytasapaino */
-}
-
-/* Kuva: vähän isompi ja “ankkuroitu” */
-.hero-home .hero-profile-img {
-  width: 240px;
-  height: 240px;
-  border-radius: 999px;
-  object-fit: cover;
-  border: 6px solid var(--card);
-  box-shadow: var(--shadow-md);
-  justify-self: center;
-}
-
-/* Tekstipylväs: rajataan rivipituus, jotta blokki ei leviä */
-.hero-home .hero-text-content {
-  max-width: 760px;
-}
-
-/* Otsikko: pidempi rivitys ja parempi rytmi */
-.hero-home .hero-title {
-  max-width: 22ch; /* tärkein: estää “liian leveän” otsikon */
-  line-height: 1.08;
-  margin-bottom: 14px;
-}
-
-/* Slogan: vähän tiiviimpi ja lähemmäs otsikkoa */
-.hero-home .hero-slogan {
-  margin-top: 0.55rem;
-  display: inline-block;
-}
-
-/* Leipäteksti: parempi luettavuus ja väli nappeihin */
-.hero-home .hero-subtitle {
-  max-width: 62ch;
-  margin-top: 0;
-  margin-bottom: 22px;
-  line-height: 1.7;
-}
-
-/* Nappirivi: tasakorkeus ja siistimpi wrap */
-.hero-home .hero-cta-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 14px;
-  align-items: stretch;
-}
-
-/* Napit: sama korkeus, ei liian leveät */
-.hero-home .cta-button {
-  max-width: none;
-  width: auto;
-  min-width: 220px;
-  padding: 14px 18px;
-  border-radius: 14px;
-}
-
-/* Kolmas nappi ei veny liian pitkäksi */
-.hero-home .cta-button.ghost {
-  min-width: 240px;
-}
-
-/* Hero support -teksti: lisää ilmaa alle */
-.hero-home .hero-support-text,
-.hero-home p[style*="margin-top: 2rem"] {
-  margin-top: 20px !important;
-  max-width: 70ch;
-}
-
-/* Tablet: pienempi kuva, edelleen 2 palstaa */
-@media (max-width: 980px) {
-  .hero-home .hero-container-flex {
-    grid-template-columns: 220px 1fr;
-  }
-  .hero-home .hero-profile-img {
-    width: 200px;
-    height: 200px;
-  }
-  .hero-home .hero-title {
-    max-width: 26ch;
-  }
-}
-
-/* Mobile: pinotaan ja keskitetään, mutta pidetään rytmi ilmavana */
-@media (max-width: 768px) {
-  .hero-home {
-    padding: 56px 0;
-    text-align: center;
-  }
-
-  .hero-home .hero-container-flex {
-    grid-template-columns: 1fr;
-    gap: 22px;
-  }
-
-  .hero-home .hero-profile-img {
-    width: 160px;
-    height: 160px;
-    border-width: 5px;
-  }
-
-  .hero-home .hero-text-content {
-    max-width: 680px;
-    margin: 0 auto;
-  }
-
-  .hero-home .hero-title {
-    max-width: 18ch;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .hero-home .hero-subtitle {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .hero-home .hero-cta-buttons {
-    justify-content: center;
-  }
-
-  .hero-home .cta-button {
-    width: 100%;
-    max-width: 360px;
-  }
-}
-
-
-.hero-title {
-  font-size: clamp(30px, 5vw, 44px);
-  line-height: 1.12;
-  font-weight: 900;
-  letter-spacing: -0.02em;
-  color: var(--main);
-  margin: 0;
-}
-
-.hero-slogan {
-  display: block;
-  margin-top: 0.7rem;
-  color: var(--accent);
-  font-size: 1.05em;
-  font-weight: 800;
-}
-
-.hero-subtitle {
-  font-size: 1.1rem;
-  max-width: 720px;
-  margin: 1rem auto 1.75rem auto;
-  color: var(--text-light);
-  line-height: 1.7;
-}
-
-.hero-support-text {
-  font-size: 1rem;
-  color: var(--text-light);
-  margin-top: 1.6rem;
-  max-width: 70ch;
-}
-
-.hero-cta-buttons {
-  display: flex;
-  flex-direction: column;
+.cta-button {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-top: 16px;
-}
+  gap: 10px;
 
-@media (min-width: 768px) {
-  .hero-cta-buttons { flex-direction: row; }
-}
-
-/* CTA Buttons */
-.cta-button {
-  padding: 0.92rem 1.35rem;
-  border-radius: 12px;
-  font-size: 1.06rem;
+  padding: 14px 18px;
+  border-radius: 14px;
+  font-size: 1.02rem;
   font-weight: 900;
   text-decoration: none;
-  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+
   border: 2px solid transparent;
-  width: 100%;
-  max-width: 340px;
+  transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
   text-align: center;
+
+  width: 100%;
+  max-width: 360px;
 }
 
 .cta-button.primary { background: var(--accent); color: #fff; }
@@ -584,7 +373,7 @@ header {
 .cta-button.whatsapp {
   background: var(--card);
   color: var(--whatsapp-green);
-  border-color: rgba(37,211,102,0.75);
+  border-color: rgba(37,211,102,0.70);
 }
 .cta-button.whatsapp:hover { background: rgba(37,211,102,0.08); transform: translateY(-1px); }
 
@@ -595,41 +384,197 @@ header {
 }
 .cta-button.ghost:hover { background: rgba(14,165,233,0.10); transform: translateY(-1px); }
 
-.cta-button .fas,
-.cta-button .fab { margin-right: 8px; }
-
 @media (min-width: 768px) {
   .cta-button { width: auto; max-width: none; }
 }
 
 /* =========================================
-   5. HELP STEPS (index / yleinen)
+   5. HERO (yleinen) + ETUSIVUN HERO (tasapaino)
    ========================================= */
-.help-section { text-align: left; }
 
-.help-steps-grid {
-  max-width: 900px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.25rem;
-  margin: 2.2rem auto 0 auto;
+.hero {
+  background: var(--card);
+  padding: clamp(56px, 7vh, 88px) 0 clamp(36px, 5vh, 58px);
+  text-align: center;
 }
 
-.help-step {
+.hero-title {
+  font-size: clamp(30px, 5vw, 46px);
+  line-height: 1.10;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.hero-slogan {
+  display: block;
+  margin-top: 0.65rem;
+  color: var(--accent);
+  font-size: 1.05em;
+  font-weight: 900;
+}
+
+.hero-subtitle {
+  font-size: 1.08rem;
+  max-width: 72ch;
+  margin: 1rem auto 1.6rem auto;
+  color: var(--text-light);
+  line-height: 1.75;
+}
+
+.hero-cta-buttons {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
-  background: var(--card);
-  border: 1px solid var(--border-light);
-  border-radius: 14px;
-  padding: 1.45rem 1.5rem;
-  box-shadow: var(--shadow-sm);
-  position: relative;
-  transition: transform 0.2s ease, border-color 0.2s ease;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 16px;
+  margin-bottom: 10px; /* tärkeä: lisää tilaa nappien jälkeen */
 }
 
-.help-step:hover { transform: translateY(-2px); border-color: rgba(14,165,233,0.35); }
+@media (min-width: 768px) {
+  .hero-cta-buttons { flex-direction: row; flex-wrap: wrap; }
+}
+
+.hero-support-text {
+  margin-top: 18px;
+  color: var(--text-light);
+  max-width: 72ch;
+}
+
+/* ========== ETUSIVU: HERO HOME ========== */
+
+.hero.hero-home {
+  text-align: left;
+  background:
+    radial-gradient(900px 380px at 30% -10%, rgba(14,165,233,0.10), transparent 60%),
+    radial-gradient(900px 380px at 75% -20%, rgba(99,102,241,0.08), transparent 55%),
+    var(--card);
+  padding: clamp(68px, 9vh, 118px) 0;
+}
+
+html[data-theme="dark"] .hero.hero-home {
+  background:
+    radial-gradient(900px 380px at 30% -10%, rgba(14,165,233,0.14), transparent 60%),
+    radial-gradient(900px 380px at 75% -20%, rgba(99,102,241,0.12), transparent 55%),
+    var(--card);
+}
+
+/* TÄRKEIN: selkeä 2-palstainen asettelu + leveämpi tekstialue */
+.hero-home .hero-container-flex {
+  display: grid;
+  grid-template-columns: 320px minmax(0, 1fr);
+  gap: clamp(28px, 4vw, 64px);
+  align-items: center;
+}
+
+.hero-home .hero-profile-img {
+  width: 260px;
+  height: 260px;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 6px solid rgba(255,255,255,0.8);
+  box-shadow: var(--shadow-md);
+  justify-self: center;
+}
+
+/* Levennetään tekstipylvästä (tämä korjaa “liian pieni tekstilaatikko”) */
+.hero-home .hero-text-content {
+  max-width: 920px;   /* ennen liian tiukka, nyt selvästi väljempi */
+}
+
+.hero-home .hero-title {
+  max-width: 32ch;    /* antaa hengittää, mutta pitää rivipituuden hallinnassa */
+}
+
+.hero-home .hero-subtitle {
+  margin-left: 0;
+  margin-right: 0;
+  max-width: 70ch;
+}
+
+.hero-home .hero-cta-buttons {
+  align-items: stretch;
+  justify-content: flex-start;
+  margin-bottom: 14px;
+}
+
+.hero-home .cta-button {
+  width: auto;
+  min-width: 220px;
+}
+
+.hero-home .hero-support-text {
+  max-width: 74ch;
+  margin-top: 18px;
+}
+
+/* Tablet */
+@media (max-width: 980px) {
+  .hero-home .hero-container-flex {
+    grid-template-columns: 260px minmax(0, 1fr);
+  }
+  .hero-home .hero-profile-img {
+    width: 220px;
+    height: 220px;
+  }
+  .hero-home .hero-text-content { max-width: 860px; }
+}
+
+/* Mobile: pinotaan, keskitetään ja pidetään ilmavana */
+@media (max-width: 768px) {
+  .hero.hero-home { text-align: center; padding: 58px 0; }
+
+  .hero-home .hero-container-flex {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .hero-home .hero-profile-img {
+    width: 170px;
+    height: 170px;
+    border-width: 5px;
+  }
+
+  .hero-home .hero-text-content { max-width: 720px; margin: 0 auto; }
+  .hero-home .hero-title { max-width: 18ch; margin: 0 auto; }
+  .hero-home .hero-subtitle { margin: 14px auto 18px; }
+
+  .hero-home .hero-cta-buttons { justify-content: center; }
+  .hero-home .cta-button { width: 100%; max-width: 420px; }
+  .hero-home .hero-support-text { margin-left: auto; margin-right: auto; }
+}
+
+/* =========================================
+   6. HELP STEPS (etusivu)
+   ========================================= */
+
+.help-section { text-align: left; }
+
+.help-steps-grid {
+  max-width: 980px;
+  margin: 2.2rem auto 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+
+.help-step {
+  background: var(--card);
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  padding: 1.55rem 1.55rem;
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+  position: relative;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.help-step:hover {
+  transform: translateY(-2px);
+  border-color: rgba(14,165,233,0.35);
+  box-shadow: var(--shadow-md);
+}
 
 .help-step i {
   font-size: 1.7rem;
@@ -637,21 +582,22 @@ header {
   margin-bottom: 12px;
 }
 
-.help-step h3 { margin-bottom: 0.6rem; }
-.help-step p { margin-bottom: 0; line-height: 1.75; color: var(--text-light); }
+.help-step h3 { margin: 0 0 0.6rem 0; }
+.help-step p { margin: 0; color: var(--text-light); line-height: 1.75; }
 
-.help-step-link-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 1; }
+.help-step-link-overlay { position: absolute; inset: 0; z-index: 1; }
 
 /* =========================================
-   6. SERVICES
+   7. SERVICES GRID
    ========================================= */
+
 .service-intro-text {
   text-align: center;
-  max-width: 820px;
+  max-width: 860px;
   margin: -0.6rem auto 2.6rem;
-  font-weight: 600;
+  font-weight: 650;
   color: var(--main);
-  line-height: 1.7;
+  line-height: 1.75;
 }
 
 .services-grid {
@@ -666,10 +612,10 @@ header {
 .service-card {
   background: var(--card);
   border: 1px solid var(--border-light);
-  padding: 2.25rem 1.65rem;
   border-radius: var(--radius-md);
-  text-align: center;
   box-shadow: var(--shadow-sm);
+  padding: 2.25rem 1.65rem;
+  text-align: center;
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
@@ -679,17 +625,16 @@ header {
   border-color: rgba(14,165,233,0.25);
 }
 
+.service-link { display: block; color: inherit; text-decoration: none; height: 100%; }
+
 .service-card .icon {
   font-size: 2.4rem;
   color: var(--accent);
   margin-bottom: 1rem;
 }
 
-.service-card h3 { font-size: 1.22rem; margin-bottom: 0.65rem; color: var(--main); }
-
-.service-card p { color: var(--text-light); line-height: 1.75; margin-bottom: 0; }
-
-.service-link { display: block; color: inherit; text-decoration: none; height: 100%; }
+.service-card h3 { font-size: 1.22rem; margin-bottom: 0.65rem; }
+.service-card p { margin: 0; color: var(--text-light); line-height: 1.75; }
 
 .read-more {
   display: inline-block;
@@ -711,21 +656,22 @@ header {
 }
 
 /* =========================================
-   7. PRICING
+   8. PRICING
    ========================================= */
+
 .price-card {
   text-align: center;
   background: var(--card);
   border: 1px solid var(--border-light);
   border-radius: var(--radius-md);
-  padding: 2.1rem;
+  padding: 2.15rem;
   box-shadow: var(--shadow-md);
-  max-width: 640px;
+  max-width: 680px;
   margin: 0 auto;
 }
 
-.min-price-label { font-weight: 900; color: var(--main); margin-bottom: 0.5rem; font-size: 1.08rem; }
-.min-price-label span { font-weight: 600; font-size: 0.92rem; color: var(--text-light); }
+.min-price-label { font-weight: 900; color: var(--main); margin-bottom: 0.55rem; font-size: 1.08rem; }
+.min-price-label span { font-weight: 650; font-size: 0.92rem; color: var(--text-light); }
 
 .price-display {
   font-size: clamp(44px, 10vw, 64px);
@@ -737,14 +683,14 @@ header {
 .price-display.deducted { color: var(--success); }
 
 .price-description { font-size: 1.08rem; color: var(--text-light); margin-bottom: 0.55rem; }
-.vat-info { font-size: 0.98rem; color: var(--text-light); margin-bottom: 1.1rem; }
+.vat-info { font-size: 0.98rem; color: var(--text-light); margin-bottom: 1.15rem; }
 
 .price-toggle {
   display: flex;
   border: 1px solid var(--toggle-border);
   border-radius: 12px;
   overflow: hidden;
-  max-width: 420px;
+  max-width: 460px;
   margin: 1.3rem auto 0;
   background: rgba(255,255,255,0.02);
 }
@@ -756,19 +702,14 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 11px 10px;
+  padding: 12px 10px;
   font-weight: 900;
   font-size: 0.95rem;
   transition: background 0.2s ease, color 0.2s ease;
-  height: 100%;
   color: var(--text-light);
 }
 
-.price-toggle input:checked + span {
-  background: var(--accent);
-  color: #fff;
-}
-
+.price-toggle input:checked + span { background: var(--accent); color: #fff; }
 #toggle-deducted:checked + span { background: var(--success); }
 
 .explanation-box {
@@ -776,7 +717,7 @@ header {
   padding: 1.1rem 1.1rem;
   background-color: var(--explanation-bg);
   border: 1px solid var(--explanation-border);
-  border-radius: 12px;
+  border-radius: 14px;
   font-size: 0.98rem;
   color: var(--text-dark);
   text-align: left;
@@ -784,12 +725,13 @@ header {
 }
 
 /* =========================================
-   8. FAQ (yleinen)
+   9. FAQ
    ========================================= */
+
 .section-faq { padding-top: 40px; }
 
 .faq {
-  max-width: 900px;
+  max-width: 940px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -797,10 +739,11 @@ header {
 }
 
 .faq-item {
-  border-radius: 14px;
+  border-radius: 16px;
   overflow: hidden;
   border: 1px solid var(--border-light);
   box-shadow: var(--shadow-sm);
+  background: var(--card);
 }
 
 .faq-question {
@@ -808,8 +751,6 @@ header {
   padding: 1.2rem 1.35rem;
   font-weight: 900;
   font-size: 1.02rem;
-  background: var(--card);
-  color: var(--main);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -830,20 +771,17 @@ header {
   border-top: 1px solid var(--border-light);
 }
 
-.faq-answer p { margin-bottom: 0; }
-.faq-answer p + p { margin-top: 0.85rem; }
+html[data-theme="dark"] .faq-answer { background: rgba(17,24,39,0.55); }
 
 /* =========================================
-   9. TRUST / TESTIMONIALS
+   10. TRUST / TESTIMONIALS
    ========================================= */
+
 #luottamus { background: var(--card); }
 
 .trust-image {
-  max-width: 100%;
-  height: auto;
-  display: block;
   margin: 2.2rem auto;
-  border-radius: 14px;
+  border-radius: 16px;
   box-shadow: var(--shadow-sm);
 }
 
@@ -859,30 +797,23 @@ header {
   background: rgba(248,250,252,0.65);
   border-left: 4px solid rgba(14,165,233,0.75);
   padding: 1.35rem 1.25rem;
-  border-radius: 14px;
+  border-radius: 16px;
   border: 1px solid var(--border-light);
   box-shadow: var(--shadow-sm);
 }
 
-html[data-theme="dark"] .testimonial-card { background: rgba(17,24,39,0.6); }
+html[data-theme="dark"] .testimonial-card { background: rgba(17,24,39,0.55); }
 
-.testimonial-card.highlight {
-  border-left-width: 6px;
-  background: var(--explanation-bg);
-}
+.testimonial-card.highlight { border-left-width: 6px; background: var(--explanation-bg); }
 
-.testimonial-card .text { font-style: italic; margin-bottom: 1rem; color: var(--text-dark); line-height: 1.75; }
-
-.testimonial-card .author {
-  font-weight: 900;
-  color: var(--text-light);
-  text-align: right;
-}
+.testimonial-card .text { font-style: italic; margin-bottom: 1rem; line-height: 1.75; }
+.testimonial-card .author { font-weight: 900; color: var(--text-light); text-align: right; }
 .testimonial-card .author span { display: block; font-size: 0.86rem; font-weight: 700; opacity: 0.85; }
 
 /* =========================================
-   10. CONTACT
+   11. CONTACT
    ========================================= */
+
 #yhteys { background: var(--card); }
 
 .contact-wrapper { display: grid; gap: 34px; align-items: start; }
@@ -892,7 +823,6 @@ html[data-theme="dark"] .testimonial-card { background: rgba(17,24,39,0.6); }
 @media (min-width: 992px) { .contact-info { text-align: left; } }
 
 .contact-profile-img {
-  display: block;
   margin: 0 auto 1.5rem auto;
   width: 150px;
   height: 150px;
@@ -910,7 +840,7 @@ html[data-theme="dark"] .testimonial-card { background: rgba(17,24,39,0.6); }
   padding: 0.8rem 0 0.8rem 1rem;
   display: inline-block;
   background: rgba(14,165,233,0.08);
-  border-radius: 12px;
+  border-radius: 14px;
   line-height: 1.7;
 }
 
@@ -929,8 +859,8 @@ html[data-theme="dark"] .testimonial-card { background: rgba(17,24,39,0.6); }
 
 .contact-form {
   background: var(--card);
-  border-radius: 16px;
-  padding: 1.85rem;
+  border-radius: 18px;
+  padding: 1.9rem;
   border: 1px solid var(--border-light);
   box-shadow: var(--shadow-md);
 }
@@ -942,7 +872,7 @@ html[data-theme="dark"] .testimonial-card { background: rgba(17,24,39,0.6); }
   width: 100%;
   padding: 13px 12px;
   border: 1px solid var(--border-light);
-  border-radius: 12px;
+  border-radius: 14px;
   font-size: 1rem;
   background: rgba(248,250,252,0.65);
   color: var(--text-dark);
@@ -975,10 +905,10 @@ html[data-theme="dark"] .form-group textarea { background: rgba(17,24,39,0.55); 
 .btn-submit:hover { background: var(--accent-hover); transform: translateY(-1px); }
 
 /* =========================================
-   11. PAYMENT
+   12. PAYMENT
    ========================================= */
-.payment-section { text-align: center; padding: 60px 0; background: var(--bg); }
 
+.payment-section { text-align: center; padding: 60px 0; background: var(--bg); }
 .payment-title { font-size: 1.5rem; margin-bottom: 0.9rem; }
 
 .payment-section p {
@@ -995,7 +925,6 @@ html[data-theme="dark"] .form-group textarea { background: rgba(17,24,39,0.55); 
 .icon-home, .icon-invoice, .icon-mobilepay {
   font-size: 3rem;
   margin-bottom: 10px;
-  display: block;
   height: 60px;
   line-height: 60px;
   color: var(--text-dark);
@@ -1004,8 +933,9 @@ html[data-theme="dark"] .form-group textarea { background: rgba(17,24,39,0.55); 
 .icon-mobilepay { color: #5a78ff; }
 
 /* =========================================
-   12. FOOTER
+   13. FOOTER
    ========================================= */
+
 footer {
   background: var(--footer-bg);
   color: var(--footer-text);
@@ -1014,15 +944,14 @@ footer {
   font-size: 14px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
-
 footer p { margin: 0; line-height: 1.7; }
-
 footer a { color: #93c5fd; text-decoration: none; padding: 0 5px; }
 footer a:hover { color: #ffffff; text-decoration: underline; }
 
 /* =========================================
-   13. MOBILE STICKY CTA + TO TOP
+   14. MOBILE STICKY CTA + TO TOP
    ========================================= */
+
 .mobile-sticky-cta { display: none; }
 
 @media (max-width: 768px) {
@@ -1091,8 +1020,9 @@ footer a:hover { color: #ffffff; text-decoration: underline; }
 @media (max-width: 768px) { #toTop { bottom: calc(env(safe-area-inset-bottom, 0px) + 96px); } }
 
 /* =========================================
-   14. COOKIE BANNER
+   15. COOKIE BANNER
    ========================================= */
+
 .cookie-banner {
   position: fixed;
   bottom: 0;
@@ -1107,7 +1037,7 @@ footer a:hover { color: #ffffff; text-decoration: underline; }
 }
 
 .cookie-banner-content {
-  max-width: 1100px;
+  max-width: var(--content-max);
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -1135,37 +1065,7 @@ footer a:hover { color: #ffffff; text-decoration: underline; }
   .cookie-banner-content { flex-direction: row; justify-content: space-between; text-align: left; }
 }
 
-/* =========================================
-   15. ACCESSIBILITY HELPERS
-   ========================================= */
-.visually-hidden {
-  position: absolute; width: 1px; height: 1px;
-  margin: -1px; padding: 0;
-  overflow: hidden; clip: rect(0, 0, 0, 0);
-  border: 0;
-}
-
-.visually-hidden-focusable {
-  position: absolute;
-  left: 12px;
-  top: 12px;
-  padding: 10px 12px;
-  background: var(--card);
-  color: var(--text-dark);
-  border: 1px solid var(--border-light);
-  border-radius: 12px;
-  box-shadow: var(--shadow-sm);
-  transform: translateY(-200%);
-  z-index: 2000;
-  text-decoration: none;
-  font-weight: 900;
-}
-
-.visually-hidden-focusable:focus {
-  transform: translateY(0);
-}
-
-/* Code helper (for guide pages) */
+/* Code helper */
 code {
   background: rgba(15,23,42,0.08);
   padding: 2px 6px;
@@ -1176,107 +1076,59 @@ code {
 html[data-theme="dark"] code { background: rgba(255,255,255,0.10); }
 
 /* =========================================
-   16. PROSE (Ohje-/opassivujen luettavuus)
-   Käyttö: lisää containerin sisään wrapper div class="prose"
-   Jos et halua muokata HTML:ää, alla on myös "automaattiset" säännöt service-page-landingille.
+   16. SERVICE PAGE LANDING (palvelut + ohjeet kun käytät tätä body-luokkaa)
    ========================================= */
-.prose {
-  max-width: var(--prose-width);
-  margin: 0 auto;
-}
 
-.prose p { margin-bottom: 1.15rem; }
-.prose p + p { margin-top: 0.65rem; }
-
-.prose h2, .prose h3 { margin-top: 2rem; }
-
-.prose ul, .prose ol { margin: 0.4rem 0 1.25rem 0; }
-.prose li { margin: 0.35rem 0; }
-
-.prose a {
-  color: var(--accent);
-  text-decoration: none;
-  border-bottom: 2px solid rgba(14,165,233,0.35);
-  padding-bottom: 1px;
-}
-.prose a:hover { border-bottom-color: rgba(14,165,233,0.65); }
-
-/* =========================================
-   17. SERVICE PAGE LANDING (virustorjunta.html, ohjeet, wifi, jne.)
-   Tavoite: yhtenäinen ilme + parempi välistys korteissa ja teksteissä
-   Käyttö: <body class="service-page-landing">
-   ========================================= */
 body.service-page-landing {
   background: var(--bg);
   color: var(--text-dark);
 }
 
-/* HERO (service pages) */
+/* Palvelu/ohje hero (yhtenäinen) */
 body.service-page-landing .hero {
-  padding: clamp(56px, 7.5vh, 92px) 0 38px 0;
+  padding: clamp(60px, 8vh, 96px) 0 42px 0;
   border-bottom: 1px solid var(--border-light);
   background:
     radial-gradient(900px 380px at 30% -10%, rgba(14,165,233,0.12), transparent 60%),
-    radial-gradient(800px 340px at 70% -20%, rgba(99,102,241,0.10), transparent 55%),
+    radial-gradient(900px 380px at 75% -20%, rgba(99,102,241,0.10), transparent 55%),
     var(--card);
 }
 
 html[data-theme="dark"] body.service-page-landing .hero {
   background:
     radial-gradient(900px 380px at 30% -10%, rgba(14,165,233,0.16), transparent 60%),
-    radial-gradient(800px 340px at 70% -20%, rgba(99,102,241,0.14), transparent 55%),
+    radial-gradient(900px 380px at 75% -20%, rgba(99,102,241,0.14), transparent 55%),
     var(--card);
 }
 
 body.service-page-landing .hero .icon {
-  display: inline-flex;
-  width: 48px;
-  height: 48px;
-  align-items: center;
-  justify-content: center;
+  width: 50px;
+  height: 50px;
   border-radius: 14px;
   margin: 0 auto 14px auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: rgba(14,165,233,0.14);
   color: var(--main);
   font-size: 1.25rem;
 }
 
 body.service-page-landing .hero-title {
-  margin: 0;
-  font-size: clamp(1.95rem, 3.4vw, 2.75rem);
-  line-height: 1.12;
-  letter-spacing: -0.02em;
+  font-size: clamp(1.95rem, 3.6vw, 2.85rem);
 }
 
 body.service-page-landing .hero-subtitle {
-  margin-top: 16px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 0;
-  font-size: 1.06rem;
-  line-height: 1.8;
-  color: var(--text-light);
-  max-width: 72ch;
+  max-width: var(--prose-width);
 }
 
-/* Service pages CTA buttons: keskitetään ja annetaan vähän ilmaa */
-body.service-page-landing .hero-cta-buttons {
-  align-items: center;
-  justify-content: center;
-  margin-top: 18px;
-}
-
-/* VST sections (cards) */
-body.service-page-landing .vst-section {
-  padding: 54px 0;
-}
+/* VST-cards */
+body.service-page-landing .vst-section { padding: 56px 0; }
 
 body.service-page-landing .vst-title {
-  margin: 0 0 22px 0;
-  font-size: clamp(1.4rem, 2.3vw, 1.75rem);
-  letter-spacing: -0.01em;
   text-align: center;
-  line-height: 1.25;
+  margin: 0 0 22px 0;
+  font-size: clamp(1.4rem, 2.3vw, 1.8rem);
 }
 
 body.service-page-landing .vst-cards {
@@ -1290,81 +1142,55 @@ body.service-page-landing .vst-cards {
 }
 
 body.service-page-landing .vst-card {
-  border: 1px solid var(--border-light);
   background: var(--card);
+  border: 1px solid var(--border-light);
   border-radius: 16px;
-  padding: 20px 18px;
   box-shadow: var(--shadow-sm);
+  padding: 22px 20px;
 }
-
-body.service-page-landing .vst-card h3 {
-  margin: 12px 0 8px 0;
-  font-size: 1.08rem;
-  line-height: 1.25;
-  color: var(--main);
-}
-
-body.service-page-landing .vst-card p {
-  margin: 0;
-  color: var(--text-light);
-  line-height: 1.75;
-}
-
-body.service-page-landing .vst-card p + p { margin-top: 0.85rem; }
-
-body.service-page-landing .vst-card ul {
-  margin: 10px 0 0 0;
-  padding-left: 1.05rem;
-  line-height: 1.75;
-  color: var(--text-light);
-}
-body.service-page-landing .vst-card li { margin: 0.3rem 0; }
 
 body.service-page-landing .vst-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
   display: inline-flex;
-  width: 42px;
-  height: 42px;
-  border-radius: 12px;
   align-items: center;
   justify-content: center;
   background: rgba(14,165,233,0.12);
   color: var(--main);
 }
 
-body.service-page-landing .vst-card.is-warning .vst-icon { background: rgba(245,158,11,0.16); }
-body.service-page-landing .vst-card.is-caution .vst-icon { background: rgba(239,68,68,0.12); }
-body.service-page-landing .vst-card.is-safe .vst-icon { background: rgba(16,185,129,0.14); }
+body.service-page-landing .vst-card h3 { margin: 12px 0 10px 0; }
+body.service-page-landing .vst-card p { margin: 0; color: var(--text-light); line-height: 1.75; }
+body.service-page-landing .vst-card p + p { margin-top: 0.9rem; }
 
-/* Dark section help-section (service pages) */
+/* TÄRKEÄ: ohje- ja palvelusivujen “askeleet” selkeästi PINOSSA */
 body.service-page-landing .dark-section {
   background: var(--footer-bg);
   color: var(--footer-text);
 }
 
-body.service-page-landing .dark-section .section-title {
-  color: var(--footer-text);
-}
-
-body.service-page-landing .dark-section .section-subtitle {
-  color: rgba(241,245,249,0.85);
-}
+body.service-page-landing .dark-section .section-title { color: var(--footer-text); }
+body.service-page-landing .dark-section .section-subtitle { color: rgba(241,245,249,0.85); }
 
 body.service-page-landing .help-steps {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
   margin-top: 22px;
-}
-
-@media (max-width: 900px) {
-  body.service-page-landing .help-steps { grid-template-columns: 1fr; }
-}
-
-body.service-page-landing .help-step {
   display: flex;
-  gap: 14px;
-  align-items: flex-start;
-  padding: 20px 18px;
+  flex-direction: column;  /* <- pinotaan päällekkäin */
+  gap: 16px;
+  max-width: 980px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Step card: ikonialue + sisältö */
+body.service-page-landing .help-step {
+  display: grid;
+  grid-template-columns: 54px 1fr;
+  gap: 16px;
+  align-items: start;
+
+  padding: 22px 20px;
   border-radius: 16px;
   border: 1px solid rgba(255,255,255,0.14);
   background: rgba(255,255,255,0.06);
@@ -1373,72 +1199,45 @@ body.service-page-landing .help-step {
 }
 
 body.service-page-landing .help-step i {
-  width: 44px;
-  height: 44px;
-  border-radius: 14px;
+  width: 54px;
+  height: 54px;
+  border-radius: 16px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   background: rgba(56,189,248,0.16);
   color: var(--footer-text);
-  flex: 0 0 44px;
-  margin-bottom: 0;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
 }
 
 body.service-page-landing .help-step h3 {
-  margin: 0 0 8px 0;
-  font-size: 1.06rem;
+  margin: 2px 0 10px 0;
   color: var(--footer-text);
-  line-height: 1.25;
 }
 
 body.service-page-landing .help-step p {
   margin: 0;
-  color: rgba(241,245,249,0.90);
+  color: rgba(241,245,249,0.92);
   line-height: 1.75;
 }
+body.service-page-landing .help-step p + p { margin-top: 0.9rem; }
 
-body.service-page-landing .help-step p + p { margin-top: 0.85rem; }
-
-/* FAQ (service pages) */
-body.service-page-landing #ukk.section { padding-top: 56px; padding-bottom: 56px; }
-
-body.service-page-landing .faq {
-  max-width: 900px;
-  margin: 16px auto 0 auto;
+/* Mobile: hieman tiiviimpi mutta edelleen ilmava */
+@media (max-width: 640px) {
+  body.service-page-landing .help-step {
+    grid-template-columns: 46px 1fr;
+    padding: 18px 16px;
+  }
+  body.service-page-landing .help-step i {
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+  }
 }
 
-body.service-page-landing .faq-item {
-  border-radius: 14px;
-  overflow: hidden;
-  border: 1px solid var(--border-light);
-  box-shadow: var(--shadow-sm);
-  background: var(--card);
-}
-
-body.service-page-landing .faq-question {
-  padding: 1.1rem 1.25rem;
-  font-weight: 900;
-  font-size: 1.02rem;
-  background: var(--card);
-  color: var(--main);
-}
-
-body.service-page-landing .faq-answer {
-  background: rgba(240,249,255,0.55);
-  color: var(--text-dark);
-  padding: 0.25rem 1.25rem 1.15rem 1.25rem;
-  border-top: 1px solid var(--border-light);
-}
-
-html[data-theme="dark"] body.service-page-landing .faq-answer {
-  background: rgba(17,24,39,0.55);
-}
-
-/* CTA section (service pages) */
+/* CTA section: jäsennelty, enemmän tilaa nappien jälkeen */
 body.service-page-landing .cta-section {
-  padding: 62px 0;
+  padding: clamp(62px, 8vh, 98px) 0;
   border-top: 1px solid var(--border-light);
   background:
     radial-gradient(900px 380px at 50% 120%, rgba(14,165,233,0.10), transparent 60%),
@@ -1452,526 +1251,30 @@ html[data-theme="dark"] body.service-page-landing .cta-section {
     var(--card);
 }
 
-body.service-page-landing .cta-section h2 {
-  margin: 0 0 12px 0;
-  font-size: clamp(1.65rem, 2.9vw, 2.05rem);
-  letter-spacing: -0.015em;
-  color: var(--main);
-  line-height: 1.2;
+body.service-page-landing .cta-section .container {
+  max-width: 980px;
 }
 
-body.service-page-landing .cta-section p {
-  margin: 10px 0;
-  color: var(--text-light);
-  line-height: 1.8;
+body.service-page-landing .price-main { font-size: 1.38rem; color: var(--main); }
+body.service-page-landing .price-sub { display: inline-block; margin-top: 8px; color: var(--text-light); }
+body.service-page-landing .price-note { font-size: 0.95rem; opacity: 0.95; line-height: 1.7; }
+
+/* Lisää selkeä tila CTA-nappien jälkeen */
+body.service-page-landing .cta-section .hero-cta-buttons {
+  margin-top: 18px;
+  margin-bottom: 18px;
 }
 
-body.service-page-landing .price-main {
-  font-size: 1.38rem;
-  color: var(--main);
+/* CTA napit: desktopilla vierekkäin, mobiilissa pinossa */
+body.service-page-landing .cta-section .hero-cta-buttons {
+  justify-content: center;
 }
 
-body.service-page-landing .price-sub {
-  display: inline-block;
-  margin-top: 6px;
-  color: var(--text-light);
-}
-
-body.service-page-landing .price-note {
-  font-size: 0.95rem;
-  opacity: 0.95;
-  line-height: 1.7;
-}
-
-/* =========================================
-   18. Pienet yleiset parannukset tiiviyteen
-   (koska ongelma oli "tekstit liian lähekkäin" kautta sivuston)
-   ========================================= */
-
-/* Jos jossain on <br> käytetty, se voi näyttää tiiviiltä.
-   Nostetaan hieman riviväliä pienissä teksteissä. */
-small, .small { line-height: 1.8; }
-
-/* Varmistetaan ettei "korttien sisällä" tekstit painu yhteen */
-.service-card p + p,
-.testimonial-card p + p,
-.price-card p + p {
-  margin-top: 0.85rem;
-}
-
-/* Details/summary spacing */
-details { margin: 0; }
-details[open] summary { margin-bottom: 8px; }
-
-/* =========================================
-   19. SAFE DEFAULTS (jos jokin sivu on "ohje" ilman erillisiä luokkia)
-   ========================================= */
+/* Safe default: jos osion containerissa suoraan pitkiä p/ul/ol, rajaa rivipituus */
 body.service-page-landing main > section .container > p,
 body.service-page-landing main > section .container > ul,
 body.service-page-landing main > section .container > ol {
   max-width: var(--prose-width);
   margin-left: auto;
   margin-right: auto;
-}
-/* =========================================================
-   GUIDE PAGES (ohjeet / artikkelit)
-   Käyttö: <body class="guide-page">
-   Tavoite: selkeämpi rytmi, enemmän ilmaa, ei "palveluländärin" raskautta.
-   ========================================================= */
-
-body.guide-page {
-  background: var(--bg);
-  color: var(--text-dark);
-}
-
-/* Parempi tekstirytmi ohjesivuille */
-body.guide-page p {
-  margin-bottom: 1.2rem;
-}
-
-body.guide-page .section {
-  padding: clamp(54px, 7vh, 84px) 0;
-}
-
-.content-narrow {
-  max-width: 760px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Hero ohjesivulle: kevyempi kuin service-page-landing */
-body.guide-page .guide-hero {
-  padding: clamp(52px, 7vh, 92px) 0 34px;
-  border-bottom: 1px solid var(--border-light);
-  background:
-    radial-gradient(900px 380px at 30% -10%, rgba(14,165,233,0.10), transparent 60%),
-    radial-gradient(800px 340px at 70% -20%, rgba(99,102,241,0.08), transparent 55%),
-    var(--card);
-}
-
-html[data-theme="dark"] body.guide-page .guide-hero {
-  background:
-    radial-gradient(900px 380px at 30% -10%, rgba(14,165,233,0.14), transparent 60%),
-    radial-gradient(800px 340px at 70% -20%, rgba(99,102,241,0.12), transparent 55%),
-    var(--card);
-}
-
-body.guide-page .guide-eyebrow {
-  display: inline-block;
-  font-weight: 900;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  font-size: 0.82rem;
-  color: var(--accent);
-  margin-bottom: 10px;
-}
-
-/* Ohjesivun CTA-napit: keskelle */
-body.guide-page .guide-cta {
-  align-items: center;
-  justify-content: center;
-}
-
-/* Kortit ohjesivulle */
-body.guide-page .guide-cards {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
-  margin-top: 26px;
-}
-
-@media (max-width: 980px) {
-  body.guide-page .guide-cards {
-    grid-template-columns: 1fr;
-  }
-}
-
-body.guide-page .guide-card {
-  background: var(--card);
-  border: 1px solid var(--border-light);
-  border-radius: 16px;
-  box-shadow: var(--shadow-sm);
-  padding: 20px 18px;
-}
-
-body.guide-page .guide-card h3 {
-  margin: 10px 0 8px 0;
-  color: var(--main);
-  font-size: 1.12rem;
-}
-
-body.guide-page .guide-card p {
-  color: var(--text-light);
-  line-height: 1.7;
-  margin-bottom: 0.95rem;
-}
-
-body.guide-page .guide-card-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: 14px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(14,165,233,0.12);
-  color: var(--main);
-}
-
-body.guide-page .guide-card-icon i {
-  font-size: 1.15rem;
-}
-
-body.guide-page .guide-card-highlight {
-  border-color: rgba(14,165,233,0.35);
-  box-shadow: var(--shadow-md);
-}
-
-/* Listat ohjesivulle */
-body.guide-page .guide-list {
-  margin: 12px 0 0 18px;
-  padding: 0;
-  color: var(--text-light);
-  line-height: 1.75;
-}
-
-body.guide-page .guide-list li {
-  margin-bottom: 8px;
-}
-
-/* CTA-osio ohjesivulla: selkeä, ei liian “myyntiländäri” */
-body.guide-page .guide-cta-section {
-  border-top: 1px solid var(--border-light);
-  background:
-    radial-gradient(900px 380px at 50% 120%, rgba(14,165,233,0.10), transparent 60%),
-    var(--card);
-}
-
-html[data-theme="dark"] body.guide-page .guide-cta-section {
-  background:
-    radial-gradient(900px 380px at 50% 120%, rgba(14,165,233,0.16), transparent 60%),
-    var(--card);
-}
-/* =========================================================
-   GUIDE PAGE IMPROVEMENTS: stacked steps + better CTA layout
-   ========================================================= */
-
-body.guide-page .guide-content .section-title,
-body.guide-page .guide-content .section-subtitle {
-  text-align: center;
-}
-
-body.guide-page .guide-steps {
-  margin-top: 26px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-/* Step card: icon left, content right */
-body.guide-page .guide-step {
-  display: grid;
-  grid-template-columns: 54px 1fr;
-  gap: 14px;
-  align-items: start;
-  background: var(--card);
-  border: 1px solid var(--border-light);
-  border-radius: 16px;
-  padding: 18px 18px;
-  box-shadow: var(--shadow-sm);
-}
-
-body.guide-page .guide-step:hover {
-  border-color: rgba(14,165,233,0.30);
-  box-shadow: var(--shadow-md);
-}
-
-body.guide-page .guide-step-icon {
-  width: 54px;
-  height: 54px;
-  border-radius: 16px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(14,165,233,0.12);
-  color: var(--main);
-}
-
-body.guide-page .guide-step-icon i {
-  font-size: 1.2rem;
-}
-
-body.guide-page .guide-step-title {
-  margin: 2px 0 8px 0;
-  font-size: 1.18rem;
-  line-height: 1.25;
-  color: var(--main);
-}
-
-body.guide-page .guide-step-text {
-  margin: 0 0 10px 0;
-  color: var(--text-light);
-  line-height: 1.7;
-}
-
-body.guide-page .guide-step-points p {
-  margin: 0 0 8px 0;
-  color: var(--text-light);
-  line-height: 1.7;
-}
-
-body.guide-page .guide-step-highlight {
-  border-color: rgba(14,165,233,0.38);
-  background:
-    radial-gradient(900px 360px at 70% -30%, rgba(14,165,233,0.10), transparent 60%),
-    var(--card);
-}
-
-/* Mobile: tighter layout */
-@media (max-width: 640px) {
-  body.guide-page .guide-step {
-    grid-template-columns: 46px 1fr;
-    padding: 16px 16px;
-  }
-  body.guide-page .guide-step-icon {
-    width: 46px;
-    height: 46px;
-    border-radius: 14px;
-  }
-}
-
-/* CTA section: clearly structured card */
-body.guide-page .guide-cta-section {
-  padding: clamp(56px, 7vh, 92px) 0;
-  border-top: 1px solid var(--border-light);
-  background:
-    radial-gradient(900px 380px at 50% 120%, rgba(14,165,233,0.10), transparent 60%),
-    var(--bg);
-}
-
-html[data-theme="dark"] body.guide-page .guide-cta-section {
-  background:
-    radial-gradient(900px 380px at 50% 120%, rgba(14,165,233,0.16), transparent 60%),
-    var(--bg);
-}
-
-body.guide-page .cta-box {
-  background: var(--card);
-  border: 1px solid var(--border-light);
-  border-radius: 18px;
-  box-shadow: var(--shadow-md);
-  padding: 22px 20px;
-}
-
-body.guide-page .cta-title {
-  margin: 0 0 10px 0;
-  font-size: clamp(1.55rem, 2.6vw, 2.0rem);
-  letter-spacing: -0.015em;
-  color: var(--main);
-  text-align: left;
-}
-
-body.guide-page .cta-lead {
-  margin: 0 0 16px 0;
-  color: var(--text-light);
-  line-height: 1.75;
-}
-
-body.guide-page .cta-what {
-  margin-top: 14px;
-  padding-top: 14px;
-  border-top: 1px solid var(--border-light);
-}
-
-body.guide-page .cta-subtitle {
-  margin: 0 0 10px 0;
-  font-size: 1.05rem;
-  color: var(--main);
-}
-
-body.guide-page .cta-list {
-  margin: 0 0 0 18px;
-  padding: 0;
-  color: var(--text-light);
-  line-height: 1.7;
-}
-
-body.guide-page .cta-list li {
-  margin-bottom: 8px;
-}
-
-body.guide-page .cta-price {
-  margin-top: 16px;
-  padding-top: 14px;
-  border-top: 1px solid var(--border-light);
-}
-
-body.guide-page .cta-price-main {
-  margin: 0;
-  font-size: 1.35rem;
-  color: var(--main);
-}
-
-body.guide-page .cta-price-sub {
-  margin: 6px 0 0 0;
-  color: var(--text-light);
-}
-
-/* Buttons: more space after, better gaps */
-body.guide-page .cta-actions {
-  margin-top: 18px;
-  display: flex;
-  gap: 14px;
-  align-items: stretch;
-}
-
-body.guide-page .cta-actions .cta-button {
-  max-width: none;
-  width: 100%;
-}
-
-@media (max-width: 768px) {
-  body.guide-page .cta-actions {
-    flex-direction: column;
-    gap: 12px;
-  }
-}
-
-body.guide-page .cta-footnote {
-  margin-top: 16px;
-  color: var(--text-light);
-  font-size: 0.98rem;
-}
-/* =========================================================
-   HERO HOME: align + spacing final polish
-   Lisää tämä styles.css LOPPUUN
-   ========================================================= */
-
-/* Desktop: vasemmalle tasattu teksti ja napit */
-@media (min-width: 769px) {
-  .hero.hero-home {
-    text-align: left; /* tärkein korjaus */
-  }
-
-  .hero-home .hero-text-content {
-    text-align: left;
-  }
-
-  .hero-home .hero-title,
-  .hero-home .hero-subtitle,
-  .hero-home .hero-support-text {
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  .hero-home .hero-cta-buttons {
-    justify-content: flex-start;
-    align-items: stretch;
-  }
-}
-
-/* Pieni lisärytmitys: väli nappien jälkeen ja support-tekstille */
-.hero-home .hero-cta-buttons {
-  margin-top: 18px;
-  margin-bottom: 18px;
-}
-
-.hero-home .hero-support-text {
-  margin-top: 0;              /* koska napit hoitaa välin */
-  padding-top: 6px;           /* pieni hengitys */
-  max-width: 68ch;
-}
-
-/* Kuva + teksti: hienosäätö ettei kuva tunnu “irtaimelta” */
-.hero-home .hero-container-flex {
-  align-items: center;
-}
-
-.hero-home .hero-profile-img {
-  align-self: center;
-}
-
-/* Mobile: pidetään keskitys */
-@media (max-width: 768px) {
-  .hero.hero-home {
-    text-align: center;
-  }
-
-  .hero-home .hero-text-content {
-    text-align: center;
-  }
-
-  .hero-home .hero-cta-buttons {
-    justify-content: center;
-  }
-}
-/* =========================================================
-   HERO HOME: wider text column + better proportions
-   Lisää styles.css LOPPUUN
-   ========================================================= */
-
-/* 1) Levennetään koko hero-alueen "sisäistä" layoutia */
-.hero-home .hero-container-flex {
-  /* vasen: kuva, oikea: teksti */
-  grid-template-columns: 240px minmax(520px, 1fr);
-  column-gap: clamp(28px, 4vw, 64px);
-}
-
-/* 2) Tekstipylväs saa kasvaa enemmän */
-.hero-home .hero-text-content {
-  max-width: 920px; /* oli liian tiukka */
-}
-
-/* 3) Otsikko: ei liian kapea (mutta edelleen hallittu) */
-.hero-home .hero-title {
-  max-width: 30ch; /* oli esim 22ch -> liian "laatikko" */
-}
-
-/* 4) Leipäteksti: pidetään luettavana mutta leveämpänä */
-.hero-home .hero-subtitle {
-  max-width: 72ch; /* vähän leveämpi */
-}
-
-/* 5) Support-teksti: leveämpi ja parempi rytmi */
-.hero-home .hero-support-text {
-  max-width: 78ch;
-  margin-top: 18px;
-}
-
-/* 6) Napit: anna hengittää, ettei näytä “puristetulta” */
-.hero-home .hero-cta-buttons {
-  gap: 16px;
-  margin-top: 22px;
-  margin-bottom: 18px;
-}
-
-/* 7) Kuva hieman pienemmäksi suhteessa tekstiin (valinnainen) */
-.hero-home .hero-profile-img {
-  width: 220px;
-  height: 220px;
-}
-
-/* Tablet: pidä mittasuhteet järkevinä */
-@media (max-width: 980px) {
-  .hero-home .hero-container-flex {
-    grid-template-columns: 200px minmax(0, 1fr);
-  }
-  .hero-home .hero-text-content {
-    max-width: 820px;
-  }
-  .hero-home .hero-title {
-    max-width: 34ch;
-  }
-}
-
-/* Mobile: ennallaan keskitys ja täysleveät napit */
-@media (max-width: 768px) {
-  .hero-home .hero-container-flex {
-    grid-template-columns: 1fr;
-  }
-  .hero-home .hero-text-content {
-    max-width: 680px;
-  }
-  .hero-home .hero-title {
-    max-width: 18ch;
-  }
 }
