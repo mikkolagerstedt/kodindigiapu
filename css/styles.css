@@ -489,7 +489,7 @@ html[data-theme="dark"] .hero.hero-home {
 
 .hero-home .hero-subtitle {
   margin-left: 0;
-  text-color: fff;
+  color: fff;
   margin-right: 0;
   max-width: 70ch;
 }
