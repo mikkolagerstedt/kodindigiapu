@@ -1428,3 +1428,226 @@ html[data-theme="light"] .platform-option input:checked + span {
     margin: 22px auto;
   }
 }
+/* =========================================================
+   FIX: service-page-landing dark-section + platform UI
+   Makes "dark-section" theme-aware (works in light mode too)
+   Lisää styles.css:n ihan loppuun
+   ========================================================= */
+
+/* 1) Dark-section: oletus tumma vain jos dark theme */
+html[data-theme="dark"] body.service-page-landing .dark-section {
+  background: var(--footer-bg);
+  color: var(--footer-text);
+}
+
+html[data-theme="dark"] body.service-page-landing .dark-section .section-title {
+  color: var(--footer-text);
+}
+
+html[data-theme="dark"] body.service-page-landing .dark-section .section-subtitle {
+  color: rgba(241,245,249,0.85);
+}
+
+/* 2) Light mode: dark-section muuttuu vaaleaksi */
+html[data-theme="light"] body.service-page-landing .dark-section {
+  background: var(--bg);
+  color: var(--text-dark);
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+}
+
+html[data-theme="light"] body.service-page-landing .dark-section .section-title {
+  color: var(--main);
+}
+
+html[data-theme="light"] body.service-page-landing .dark-section .section-subtitle {
+  color: var(--text-light);
+}
+
+/* 3) Help-step kortit: tummassa tumma, vaaleassa vaalea */
+html[data-theme="dark"] body.service-page-landing .dark-section .help-step {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.14);
+}
+
+html[data-theme="dark"] body.service-page-landing .dark-section .help-step h3 {
+  color: var(--footer-text);
+}
+
+html[data-theme="dark"] body.service-page-landing .dark-section .help-step p {
+  color: rgba(241,245,249,0.90);
+}
+
+html[data-theme="dark"] body.service-page-landing .dark-section .help-step i {
+  background: rgba(56,189,248,0.16);
+  color: var(--footer-text);
+}
+
+html[data-theme="light"] body.service-page-landing .dark-section .help-step {
+  background: var(--card);
+  border-color: var(--border-light);
+  box-shadow: var(--shadow-sm);
+}
+
+html[data-theme="light"] body.service-page-landing .dark-section .help-step h3 {
+  color: var(--main);
+}
+
+html[data-theme="light"] body.service-page-landing .dark-section .help-step p {
+  color: var(--text-light);
+}
+
+html[data-theme="light"] body.service-page-landing .dark-section .help-step i {
+  background: rgba(14,165,233,0.12);
+  color: var(--main);
+}
+
+/* 4) Platform toggle: värit oikein molemmissa teemoissa */
+.platform-toggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin: 18px auto 0 auto;
+  flex-wrap: wrap;
+}
+
+.platform-option {
+  position: relative;
+}
+
+.platform-option input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Dark */
+html[data-theme="dark"] .platform-option span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.06);
+  color: rgba(241,245,249,0.92);
+  font-weight: 900;
+  cursor: pointer;
+  transition: transform 160ms ease, background 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+}
+
+html[data-theme="dark"] .platform-option input:checked + span {
+  background: rgba(56,189,248,0.18);
+  border-color: rgba(56,189,248,0.45);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.22);
+}
+
+/* Light */
+html[data-theme="light"] .platform-option span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: 999px;
+  border: 1px solid var(--border-light);
+  background: rgba(255,255,255,0.92);
+  color: var(--text-dark);
+  font-weight: 900;
+  cursor: pointer;
+  transition: transform 160ms ease, background 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+}
+
+html[data-theme="light"] .platform-option input:checked + span {
+  background: rgba(14,165,233,0.14);
+  border-color: rgba(14,165,233,0.32);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+}
+
+/* Hover molemmissa */
+.platform-option span:hover {
+  transform: translateY(-1px);
+}
+
+/* 5) Ohje-otsikot ja lead teksti: teeman mukaan */
+.platform-content {
+  margin-top: 22px;
+}
+
+html[data-theme="dark"] .platform-title {
+  text-align: center;
+  color: var(--footer-text);
+  font-size: clamp(1.35rem, 2.6vw, 1.7rem);
+  margin: 0 0 10px 0;
+  line-height: 1.2;
+}
+
+html[data-theme="dark"] .platform-lead {
+  text-align: center;
+  color: rgba(241,245,249,0.82);
+  margin: 0 auto 22px auto;
+  max-width: 70ch;
+  line-height: 1.75;
+}
+
+html[data-theme="light"] .platform-title {
+  text-align: center;
+  color: var(--main);
+  font-size: clamp(1.35rem, 2.6vw, 1.7rem);
+  margin: 0 0 10px 0;
+  line-height: 1.2;
+}
+
+html[data-theme="light"] .platform-lead {
+  text-align: center;
+  color: var(--text-light);
+  margin: 0 auto 22px auto;
+  max-width: 70ch;
+  line-height: 1.75;
+}
+
+/* 6) Divider: teeman mukaan */
+.help-divider {
+  border: 0;
+  height: 1px;
+  margin: 26px auto;
+  max-width: 900px;
+}
+
+html[data-theme="dark"] .help-divider {
+  background: rgba(255,255,255,0.14);
+}
+
+html[data-theme="light"] .help-divider {
+  background: var(--border-light);
+}
+
+/* 7) Pakota ohjeet 1-palstaiseksi luettavuuden takia */
+.help-steps--stacked {
+  grid-template-columns: 1fr !important;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 8) Step-tip värit */
+html[data-theme="dark"] .step-tip {
+  color: rgba(241,245,249,0.90);
+}
+
+html[data-theme="light"] .step-tip {
+  color: var(--text-light);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .platform-option span {
+    width: 100%;
+    max-width: 360px;
+  }
+  .help-divider {
+    margin: 22px auto;
+  }
+}
