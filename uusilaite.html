@@ -52,7 +52,20 @@
       'wait_for_update': 500
     });
   </script>
-
+ <!-- Google tag (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YX5QL9CJHV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    // EU-consent: oletuksena estetty
+    gtag('consent', 'default', {
+      analytics_storage: 'denied'
+    });
+  
+    gtag('config', 'G-YX5QL9CJHV');
+  </script>
   <!-- Google Tag Manager -->
   <script>
     (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
