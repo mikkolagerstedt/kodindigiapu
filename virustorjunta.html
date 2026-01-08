@@ -32,7 +32,20 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link rel="preload" as="image" href="/images/kodin-digiapu-virus.webp" imagesrcset="/images/kodin-digiapu-virus.webp" fetchpriority="high">
-
+   <!-- Google tag (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YX5QL9CJHV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    // EU-consent: oletuksena estetty
+    gtag('consent', 'default', {
+      analytics_storage: 'denied'
+    });
+  
+    gtag('config', 'G-YX5QL9CJHV');
+  </script>
   <script>
     (function() {
       const savedTheme = localStorage.getItem('theme') ||
