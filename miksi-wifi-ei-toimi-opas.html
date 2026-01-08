@@ -30,7 +30,6 @@
 
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
   <link rel="preload" as="image" href="/images/kodin-digiapu-yritys.webp" fetchpriority="high">
 
   <script>
@@ -48,6 +47,7 @@
 
   <link rel="stylesheet" href="/css/styles.css">
 
+  <!-- Google consent default -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -62,6 +62,7 @@
     });
   </script>
 
+  <!-- Google Tag Manager -->
   <script>
     (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -70,6 +71,7 @@
     })(window,document,'script','dataLayer','GTM-THJ4NB54');
   </script>
 
+  <!-- Structured data: Article -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -90,6 +92,7 @@
   }
   </script>
 
+  <!-- Structured data: Breadcrumb -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -101,7 +104,6 @@
     ]
   }
   </script>
-
 </head>
 
 <body class="guide-page">
@@ -121,7 +123,7 @@
       </a>
 
       <div class="header-controls">
-        <button class="theme-toggle" id="themeToggle" aria-label="Vaihda tumma tai vaalea teema">
+        <button class="theme-toggle" id="themeToggle" aria-label="Vaihda tumma tai vaalea teema" type="button">
           <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
             <circle cx="12" cy="12" r="5" />
             <line x1="12" y1="1" x2="12" y2="3" />
@@ -140,7 +142,7 @@
 
         <a href="tel:+358405724113" class="header-cta">Soita 040 572 4113</a>
 
-        <button class="nav-toggle" aria-label="Avaa valikko" aria-expanded="false" aria-controls="primaryNav">
+        <button class="nav-toggle" aria-label="Avaa valikko" aria-expanded="false" aria-controls="primaryNav" type="button">
           <i class="fas fa-bars" aria-hidden="true"></i>
         </button>
       </div>
@@ -168,15 +170,16 @@
 
         <p class="hero-subtitle">
           Tuntuuko netti hitaalta tai katkeileeko yhteys jatkuvasti?
-          Tässä 5 käytännön vinkkiä, joista suurin osa ratkaisee ongelman heti.
+          Kokeile nämä 5 käytännön vinkkiä. Usein ongelma ratkeaa jo ensimmäisellä.
         </p>
 
         <div class="hero-cta-buttons guide-cta">
           <a href="#vinkit" class="cta-button primary">
             <i class="fas fa-bolt" aria-hidden="true"></i> Näytä vinkit
           </a>
-          <a href="#apu" class="cta-button whatsapp">
-            <i class="fab fa-whatsapp" aria-hidden="true"></i> Kysy apua nopeasti
+          <a href="https://wa.me/358405724113?text=Hei!%20Wi-Fi%20tai%20internet%20p%C3%A4tkii.%20Voitteko%20auttaa%3F"
+             target="_blank" rel="noopener" class="cta-button whatsapp">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i> Kysy WhatsAppissa
           </a>
         </div>
 
@@ -186,25 +189,33 @@
       </div>
     </section>
 
+    <section class="section guide-content">
+      <div class="container">
+        <div class="content-narrow">
+          <p style="text-align:center; margin-bottom: 0;">
+            <a href="#vinkit" style="color: var(--accent); text-decoration: none; font-weight: 900;">Siirry vinkkeihin</a>
+            <span style="opacity:0.55;"> · </span>
+            <a href="#apu" style="color: var(--accent); text-decoration: none; font-weight: 900;">Tarvitsetko apua?</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
     <section id="vinkit" class="section guide-content">
       <div class="container">
         <div class="content-narrow">
           <h2 class="section-title">5 helppoa vinkkiä pätkivään nettiin</h2>
           <p class="section-subtitle">
-            Kokeile nämä järjestyksessä. Useimmiten ongelma ratkeaa jo ensimmäisellä tai toisella kohdalla.
+            Kokeile nämä järjestyksessä. Jos jokin kohta auttaa, ongelma on todennäköisesti siinä.
           </p>
         </div>
 
         <div class="guide-steps">
           <article class="guide-step">
-            <div class="guide-step-icon" aria-hidden="true">
-              <i class="fas fa-power-off"></i>
-            </div>
+            <div class="guide-step-icon" aria-hidden="true"><i class="fas fa-power-off"></i></div>
             <div class="guide-step-body">
               <h3 class="guide-step-title">1) Käynnistä modeemi uudelleen (tärkein)</h3>
-              <p class="guide-step-text">
-                Modeemi on pieni tietokone ja voi mennä jumiin kuten muutkin laitteet.
-              </p>
+              <p class="guide-step-text">Modeemi on pieni tietokone ja voi mennä jumiin kuten muutkin laitteet.</p>
               <div class="guide-step-points">
                 <p><strong>Tee näin:</strong> irrota virtajohto, odota 30 sekuntia, kytke takaisin ja odota 2–5 minuuttia että valot vakiintuvat.</p>
               </div>
@@ -212,29 +223,21 @@
           </article>
 
           <article class="guide-step">
-            <div class="guide-step-icon" aria-hidden="true">
-              <i class="fas fa-laptop-house"></i>
-            </div>
+            <div class="guide-step-icon" aria-hidden="true"><i class="fas fa-laptop-house"></i></div>
             <div class="guide-step-body">
               <h3 class="guide-step-title">2) Onko vika yhdessä vai kaikissa laitteissa?</h3>
-              <p class="guide-step-text">
-                Jos yhteys toimii muilla laitteilla, vika on yleensä siinä yhdessä laitteessa eikä itse netissä.
-              </p>
+              <p class="guide-step-text">Jos yhteys toimii muilla laitteilla, vika on yleensä siinä yhdessä laitteessa eikä itse netissä.</p>
               <div class="guide-step-points">
-                <p><strong>Vinkki:</strong> käynnistä uudelleen se laite, jossa netti pätkii, ja kokeile yhdistää Wi-Fiin uudestaan.</p>
+                <p><strong>Vinkki:</strong> käynnistä uudelleen se laite, jossa netti pätkii, ja yhdistä Wi-Fiin uudelleen.</p>
               </div>
             </div>
           </article>
 
           <article class="guide-step">
-            <div class="guide-step-icon" aria-hidden="true">
-              <i class="fas fa-signal"></i>
-            </div>
+            <div class="guide-step-icon" aria-hidden="true"><i class="fas fa-signal"></i></div>
             <div class="guide-step-body">
               <h3 class="guide-step-title">3) Oletko liian kaukana modeemista?</h3>
-              <p class="guide-step-text">
-                Seinät, ovet ja huonekalut heikentävät signaalia. Heikko signaali näkyy usein pätkimisenä ja hitautena.
-              </p>
+              <p class="guide-step-text">Seinät, ovet ja huonekalut heikentävät signaalia. Heikko signaali näkyy pätkimisenä ja hitautena.</p>
               <div class="guide-step-points">
                 <p><strong>Testi:</strong> mene hetkeksi lähemmäs modeemia. Jos yhteys paranee, ongelma on kantamassa.</p>
               </div>
@@ -242,14 +245,10 @@
           </article>
 
           <article class="guide-step">
-            <div class="guide-step-icon" aria-hidden="true">
-              <i class="fas fa-broadcast-tower"></i>
-            </div>
+            <div class="guide-step-icon" aria-hidden="true"><i class="fas fa-broadcast-tower"></i></div>
             <div class="guide-step-body">
               <h3 class="guide-step-title">4) Onko operaattorilla häiriö?</h3>
-              <p class="guide-step-text">
-                Joskus vika on operaattorin verkossa (Elisa, Telia, DNA), ei sinun laitteissa.
-              </p>
+              <p class="guide-step-text">Joskus vika on operaattorin verkossa (Elisa, Telia, DNA), ei sinun laitteissa.</p>
               <div class="guide-step-points">
                 <p><strong>Tee näin:</strong> tarkista operaattorin häiriötiedotteet mobiilidatalla, jos se toimii.</p>
               </div>
@@ -257,21 +256,16 @@
           </article>
 
           <article class="guide-step guide-step-highlight">
-            <div class="guide-step-icon" aria-hidden="true">
-              <i class="fas fa-route"></i>
-            </div>
+            <div class="guide-step-icon" aria-hidden="true"><i class="fas fa-route"></i></div>
             <div class="guide-step-body">
               <h3 class="guide-step-title">5) Modeemin paikka ja taajuus (2.4 GHz / 5 GHz)</h3>
-              <p class="guide-step-text">
-                Modeemi kaapissa tai lattialla heikentää signaalia. Lisäksi väärä taajuus voi aiheuttaa pätkimistä.
-              </p>
+              <p class="guide-step-text">Modeemi kaapissa tai lattialla heikentää signaalia. Lisäksi väärä taajuus voi pätkiä.</p>
               <div class="guide-step-points">
-                <p><strong>Vinkki:</strong> nosta modeemi näkyvälle paikalle. Kokeile myös vaihtaa toiseen verkkoon (2.4 GHz kantaa paremmin, 5 GHz on usein nopeampi lähellä).</p>
+                <p><strong>Vinkki:</strong> nosta modeemi näkyvälle paikalle. Kokeile myös toista verkkoa: 2.4 GHz kantaa paremmin, 5 GHz on usein nopeampi lähellä.</p>
               </div>
             </div>
           </article>
         </div>
-
       </div>
     </section>
 
@@ -279,17 +273,17 @@
       <div class="container">
         <div class="content-narrow">
           <div class="cta-box">
-            <h2 class="cta-title">Eikö netti vieläkään toimi kunnolla?</h2>
+            <h2 class="cta-title">Haluatko, että teen verkosta vakaamman?</h2>
             <p class="cta-lead">
-              Ongelma voi johtua laitteesta, sijoittelusta, ruuhkaisesta kanavasta tai asetuksista.
-              Voin tulla paikan päälle ja tehdä verkosta vakaamman niin, että se toimii arjessa ilman ärsyttävää pätkimistä.
+              Jos Wi-Fi pätkii edelleen, syy on usein sijoittelussa, ruuhkaisessa kanavassa, asetuksissa tai vanhassa laitteessa.
+              Voin tulla paikan päälle ja laittaa yhteyden kuntoon niin, että se toimii arjessa ilman ärsyttävää katkeilua.
             </p>
 
             <div class="cta-what">
               <h3 class="cta-subtitle">Mitä teen käytännössä</h3>
               <ul class="cta-list">
-                <li>Tarkistan modeemin ja Wi-Fi-asetukset sekä päivitykset</li>
-                <li>Mittaa ja arvioin kantaman sekä häiriöt (sijoittelu, kanavat, taajuus)</li>
+                <li>Tarkistan modeemin, asetukset ja päivitykset</li>
+                <li>Arvioin kantaman ja häiriöt (sijoittelu, kanavat, taajuus)</li>
                 <li>Parannan verkkoa: sijoittelu tai tarvittaessa lisätukiasema</li>
               </ul>
             </div>
@@ -340,7 +334,7 @@
     </a>
   </div>
 
-  <button id="toTop" aria-label="Takaisin ylös">
+  <button id="toTop" aria-label="Takaisin ylös" type="button">
     <i class="fas fa-chevron-up" aria-hidden="true"></i>
   </button>
 
