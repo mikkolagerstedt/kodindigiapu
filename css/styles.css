@@ -602,15 +602,6 @@ header {
   .cta-button { width: auto; max-width: none; }
 }
 
-/* HERO Mobile */
-@media (max-width: 768px) {
-  .hero-home { text-align: center; }
-  .hero-home .hero-container-flex { flex-direction: column; align-items: center; gap: 26px; }
-  .hero-home .hero-profile-img { width: 150px; height: 150px; }
-  .hero-subtitle { margin-left: auto; margin-right: auto; }
-  .hero-support-text { margin-left: auto; margin-right: auto; }
-}
-
 /* =========================================
    5. HELP STEPS (index / yleinen)
    ========================================= */
@@ -1849,4 +1840,67 @@ body.guide-page .cta-footnote {
   margin-top: 16px;
   color: var(--text-light);
   font-size: 0.98rem;
+}
+/* =========================================================
+   HERO HOME: align + spacing final polish
+   Lisää tämä styles.css LOPPUUN
+   ========================================================= */
+
+/* Desktop: vasemmalle tasattu teksti ja napit */
+@media (min-width: 769px) {
+  .hero.hero-home {
+    text-align: left; /* tärkein korjaus */
+  }
+
+  .hero-home .hero-text-content {
+    text-align: left;
+  }
+
+  .hero-home .hero-title,
+  .hero-home .hero-subtitle,
+  .hero-home .hero-support-text {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .hero-home .hero-cta-buttons {
+    justify-content: flex-start;
+    align-items: stretch;
+  }
+}
+
+/* Pieni lisärytmitys: väli nappien jälkeen ja support-tekstille */
+.hero-home .hero-cta-buttons {
+  margin-top: 18px;
+  margin-bottom: 18px;
+}
+
+.hero-home .hero-support-text {
+  margin-top: 0;              /* koska napit hoitaa välin */
+  padding-top: 6px;           /* pieni hengitys */
+  max-width: 68ch;
+}
+
+/* Kuva + teksti: hienosäätö ettei kuva tunnu “irtaimelta” */
+.hero-home .hero-container-flex {
+  align-items: center;
+}
+
+.hero-home .hero-profile-img {
+  align-self: center;
+}
+
+/* Mobile: pidetään keskitys */
+@media (max-width: 768px) {
+  .hero.hero-home {
+    text-align: center;
+  }
+
+  .hero-home .hero-text-content {
+    text-align: center;
+  }
+
+  .hero-home .hero-cta-buttons {
+    justify-content: center;
+  }
 }
