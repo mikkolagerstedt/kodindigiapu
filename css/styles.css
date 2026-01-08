@@ -1676,3 +1676,12 @@ html[data-theme="dark"] .hero.hero-home .hero-support-text {
 .hero.hero-home .hero-support-text {
   max-width: 68ch;      /* hieman tiukempi rivipituus (luettavuus) */
 }
+/* Varmista että input + textarea näyttävät täysin samalta */
+.contact-form input,
+.contact-form textarea,
+.form-group input,
+.form-group textarea {
+  font-family: inherit;
+  font-size: 1rem;
+}
+
