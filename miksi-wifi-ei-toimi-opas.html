@@ -32,6 +32,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="image" href="/images/kodin-digiapu-yritys.webp" fetchpriority="high">
 
+  <!-- Theme init (before paint) -->
   <script>
     (function() {
       const savedTheme = localStorage.getItem('theme') ||
@@ -107,52 +108,39 @@
 </head>
 
 <body class="guide-page">
-
   <noscript>
     <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THJ4NB54"
       height="0" width="0" style="display:none;visibility:hidden"></iframe>
   </noscript>
 
-  <a class="skip-link" href="#main">Siirry sisältöön</a>
+  <a class="skip-link" href="#main-content">Siirry sisältöön</a>
 
   <header>
     <div class="container nav">
       <a href="/" class="logo" aria-label="Kodin Digiapu etusivu">
-        <img src="/favicon-96x96.png" alt="Kodin Digiapu logo" class="logo-icon" width="96" height="96">
+        <img src="/favicon-96x96.png" alt="Kodin Digiapu logo" class="logo-icon" width="32" height="32">
         <span>Kodin Digiapu</span>
       </a>
 
       <div class="header-controls">
-        <button class="theme-toggle" id="themeToggle" aria-label="Vaihda tumma tai vaalea teema" type="button">
-          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
-            <circle cx="12" cy="12" r="5" />
-            <line x1="12" y1="1" x2="12" y2="3" />
-            <line x1="12" y1="21" x2="12" y2="23" />
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-            <line x1="1" y1="12" x2="3" y2="12" />
-            <line x1="21" y1="12" x2="23" y2="12" />
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
-          </svg>
-          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M21 12.79A9 9 0 0 1 11.21 3 9 9 0 1 0 21 12.79z"></path>
-          </svg>
+        <button class="theme-toggle" id="themeToggle" aria-label="Vaihda teema" type="button">
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5" /><line x1="12" y1="1" x2="12" y2="3" /><line x1="12" y1="21" x2="12" y2="23" /><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" /><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" /><line x1="1" y1="12" x2="3" y2="12" /><line x1="21" y1="12" x2="23" y2="12" /><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" /><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" /></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 0 1 11.21 3 9 9 0 1 0 21 12.79z"></path></svg>
         </button>
 
         <a href="tel:+358405724113" class="header-cta">Soita 040 572 4113</a>
 
-        <button class="nav-toggle" aria-label="Avaa valikko" aria-expanded="false" aria-controls="primaryNav" type="button">
+        <button class="nav-toggle" id="navToggle" aria-label="Avaa valikko" aria-expanded="false" aria-controls="siteNav" type="button">
           <i class="fas fa-bars" aria-hidden="true"></i>
         </button>
       </div>
 
-      <nav aria-label="Päävalikko">
-        <ul class="nav-links" id="primaryNav">
+      <nav id="siteNav" aria-label="Päävalikko">
+        <ul class="nav-links" id="navLinks">
           <li><a href="/#palvelut">Palvelut</a></li>
           <li><a href="/#hinnat">Hinnat</a></li>
-          <li><a href="/#luottamus">Asiakkaat</a></li>
           <li><a href="/#ukk">Usein kysyttyä</a></li>
+          <li><a href="/#luottamus">Asiakkaat</a></li>
           <li><a href="/ohjeet.html">Ohjeet</a></li>
           <li><a href="/#yhteys">Yhteys</a></li>
         </ul>
@@ -160,7 +148,7 @@
     </div>
   </header>
 
-  <main id="main">
+  <main id="main-content">
 
     <section class="hero guide-hero">
       <div class="container">
@@ -186,18 +174,6 @@
         <p class="free-consultation" style="margin-top: 14px;">
           Yhteydenotto ja tilanteen kartoitus on aina maksutonta.
         </p>
-      </div>
-    </section>
-
-    <section class="section guide-content">
-      <div class="container">
-        <div class="content-narrow">
-          <p style="text-align:center; margin-bottom: 0;">
-            <a href="#vinkit" style="color: var(--accent); text-decoration: none; font-weight: 900;">Siirry vinkkeihin</a>
-            <span style="opacity:0.55;"> · </span>
-            <a href="#apu" style="color: var(--accent); text-decoration: none; font-weight: 900;">Tarvitsetko apua?</a>
-          </p>
-        </div>
       </div>
     </section>
 
@@ -324,14 +300,9 @@
     </div>
   </footer>
 
-  <div class="mobile-sticky-cta">
-    <a href="tel:+358405724113" class="sticky-btn call">
-      <i class="fas fa-phone-alt" aria-hidden="true"></i> Soita
-    </a>
-    <a href="https://wa.me/358405724113" target="_blank" rel="noopener"
-       class="sticky-btn whatsapp" aria-label="Lähetä viesti WhatsAppilla">
-      <i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp
-    </a>
+  <div class="mobile-sticky-cta" aria-label="Pikayhteys">
+    <a href="tel:+358405724113" class="sticky-btn call"><i class="fas fa-phone-alt" aria-hidden="true"></i> Soita</a>
+    <a href="https://wa.me/358405724113" target="_blank" rel="noopener" class="sticky-btn whatsapp"><i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp</a>
   </div>
 
   <button id="toTop" aria-label="Takaisin ylös" type="button">
