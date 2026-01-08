@@ -32,6 +32,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="image" href="/images/kodin-digiapu-opastus.webp" fetchpriority="high">
 
+  <!-- Theme init (before paint) -->
   <script>
     (function() {
       const savedTheme = localStorage.getItem('theme') ||
@@ -47,6 +48,7 @@
 
   <link rel="stylesheet" href="/css/styles.css">
 
+  <!-- Google consent default -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -61,6 +63,7 @@
     });
   </script>
 
+  <!-- Google Tag Manager -->
   <script>
     (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -69,6 +72,7 @@
     })(window,document,'script','dataLayer','GTM-THJ4NB54');
   </script>
 
+  <!-- Structured data: Article -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -89,6 +93,7 @@
   }
   </script>
 
+  <!-- Structured data: Breadcrumb -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -100,27 +105,25 @@
     ]
   }
   </script>
-
 </head>
 
-<body class="guide-page">
-
+<body class="service-page-landing">
   <noscript>
     <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THJ4NB54"
       height="0" width="0" style="display:none;visibility:hidden"></iframe>
   </noscript>
 
-  <a class="skip-link" href="#main">Siirry sisältöön</a>
+  <a class="skip-link" href="#main-content">Siirry sisältöön</a>
 
   <header>
     <div class="container nav">
       <a href="/" class="logo" aria-label="Kodin Digiapu etusivu">
-        <img src="/favicon-96x96.png" alt="Kodin Digiapu logo" class="logo-icon" width="96" height="96">
+        <img src="/favicon-96x96.png" alt="Kodin Digiapu logo" class="logo-icon" width="32" height="32">
         <span>Kodin Digiapu</span>
       </a>
 
       <div class="header-controls">
-        <button class="theme-toggle" id="themeToggle" aria-label="Vaihda tumma tai vaalea teema">
+        <button class="theme-toggle" id="themeToggle" aria-label="Vaihda tumma tai vaalea teema" type="button">
           <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
             <circle cx="12" cy="12" r="5" />
             <line x1="12" y1="1" x2="12" y2="3" />
@@ -139,17 +142,17 @@
 
         <a href="tel:+358405724113" class="header-cta">Soita 040 572 4113</a>
 
-        <button class="nav-toggle" aria-label="Avaa valikko" aria-expanded="false" aria-controls="primaryNav">
+        <button class="nav-toggle" id="navToggle" aria-label="Avaa valikko" aria-expanded="false" aria-controls="siteNav" type="button">
           <i class="fas fa-bars" aria-hidden="true"></i>
         </button>
       </div>
 
-      <nav aria-label="Päävalikko">
-        <ul class="nav-links" id="primaryNav">
+      <nav id="siteNav" aria-label="Päävalikko">
+        <ul class="nav-links" id="navLinks">
           <li><a href="/#palvelut">Palvelut</a></li>
           <li><a href="/#hinnat">Hinnat</a></li>
-          <li><a href="/#luottamus">Asiakkaat</a></li>
           <li><a href="/#ukk">Usein kysyttyä</a></li>
+          <li><a href="/#luottamus">Asiakkaat</a></li>
           <li><a href="/ohjeet.html">Ohjeet</a></li>
           <li><a href="/#yhteys">Yhteys</a></li>
         </ul>
@@ -157,20 +160,18 @@
     </div>
   </header>
 
-  <main id="main">
+  <main id="main-content">
 
-    <section class="hero guide-hero">
+    <section class="hero">
       <div class="container">
-        <p class="guide-eyebrow">Ohje</p>
-
+        <i class="fas fa-save icon" aria-hidden="true"></i>
         <h1 class="hero-title">Miten varmuuskopioin tietokoneen?</h1>
-
         <p class="hero-subtitle">
           Jos tietokone rikkoutuu tai katoaa, tärkeintä on että kuvat ja tiedostot ovat tallessa.
           Tässä kaksi helppoa tapaa ja suositus, jolla saat oikeasti mielenrauhan.
         </p>
 
-        <div class="hero-cta-buttons guide-cta">
+        <div class="hero-cta-buttons">
           <a href="#tavat" class="cta-button primary">
             <i class="fas fa-bolt" aria-hidden="true"></i> Näytä helpot tavat
           </a>
@@ -185,92 +186,63 @@
       </div>
     </section>
 
-    <section id="tavat" class="section guide-content">
-  <div class="container">
-    <div class="content-narrow">
-      <h2 class="section-title">Kaksi helppoa tapaa pitää tiedostot turvassa</h2>
-      <p class="section-subtitle">
-        Hyvä nyrkkisääntö: tärkeistä tiedostoista on kolme kopiota. Yksi koneella, yksi paikallisesti (ulkoinen levy) ja yksi etänä (pilvipalvelu).
-      </p>
-    </div>
+    <!-- TAVAT: tumma-osio + kortit allekkain -->
+    <section id="tavat" class="section dark-section help-section">
+      <div class="container">
+        <h2 class="section-title">Kaksi helppoa tapaa pitää tiedostot turvassa</h2>
+        <p class="section-subtitle">
+          Hyvä nyrkkisääntö: tärkeistä tiedostoista on kolme kopiota.
+          Yksi koneella, yksi paikallisesti (ulkoinen levy) ja yksi etänä (pilvipalvelu).
+        </p>
 
-    <div class="guide-steps">
-      <article class="guide-step">
-        <div class="guide-step-icon" aria-hidden="true">
-          <i class="fas fa-cloud"></i>
-        </div>
-        <div class="guide-step-body">
-          <h3 class="guide-step-title">Tapa 1: Automaattinen pilvipalvelu (helpoin)</h3>
-          <p class="guide-step-text">
-            OneDrive (Windows) tai Google Drive (Gmail) voivat varmuuskopioida valitut kansiot automaattisesti. Useimmille tämä on paras aloitus.
-          </p>
+        <div class="help-steps">
+          <div class="help-step">
+            <i class="fas fa-cloud" aria-hidden="true"></i>
+            <div>
+              <h3>Tapa 1: Automaattinen pilvipalvelu (helpoin)</h3>
+              <p>OneDrive (Windows) tai Google Drive (Gmail) voivat varmuuskopioida valitut kansiot automaattisesti. Useimmille tämä on paras aloitus.</p>
+              <p><strong>Hyödyt:</strong> toimii taustalla ja suojaa myös laitteen rikkoutuessa tai varkaudessa.</p>
+              <p><strong>Huomio:</strong> jos kuvia ja tiedostoja on paljon, lisätila voi olla maksullista.</p>
+            </div>
+          </div>
 
-          <div class="guide-step-points">
-            <p><strong>Hyödyt:</strong> automaattinen, toimii taustalla, tiedostot turvassa myös laitteen rikkoutuessa tai varkaudessa.</p>
-            <p><strong>Huomio:</strong> jos kuvia ja tiedostoja on paljon, lisätila voi olla maksullista.</p>
+          <div class="help-step">
+            <i class="fas fa-hdd" aria-hidden="true"></i>
+            <div>
+              <h3>Tapa 2: Ulkoinen kovalevy (perinteinen)</h3>
+              <p>Kytket ulkoisen levyn USB:llä ja kopioit tärkeät kansiot (esim. Kuvat ja Asiakirjat) sinne vaikka kerran kuussa.</p>
+              <p><strong>Hyödyt:</strong> ei kuukausimaksua ja fyysinen kopio omassa hallinnassa.</p>
+              <p><strong>Huomio:</strong> kopiointi pitää muistaa tehdä itse, eikä levy suojaa tulipalon tai varkauden varalta.</p>
+            </div>
+          </div>
+
+          <div class="help-step">
+            <i class="fas fa-check-double" aria-hidden="true"></i>
+            <div>
+              <h3>Paras käytäntö: yhdistä molemmat</h3>
+              <p>Pilvipalvelu päivittäiseen käyttöön ja ulkoinen levy lisävarmistukseksi pari kertaa vuodessa.</p>
+              <p>Näin saat yleensä parhaan suojan pienimmällä vaivalla.</p>
+            </div>
           </div>
         </div>
-      </article>
+      </div>
+    </section>
 
-      <article class="guide-step">
-        <div class="guide-step-icon" aria-hidden="true">
-          <i class="fas fa-hdd"></i>
-        </div>
-        <div class="guide-step-body">
-          <h3 class="guide-step-title">Tapa 2: Ulkoinen kovalevy (perinteinen)</h3>
-          <p class="guide-step-text">
-            Kytket ulkoisen levyn USB:llä ja kopioit tärkeät kansiot (esim. Kuvat ja Asiakirjat) sinne vaikka kerran kuussa.
-          </p>
-
-          <div class="guide-step-points">
-            <p><strong>Hyödyt:</strong> ei kuukausimaksua, fyysinen kopio omassa hallinnassa.</p>
-            <p><strong>Huomio:</strong> kopiointi pitää muistaa tehdä itse, eikä levy suojaa tulipalon tai varkauden varalta.</p>
-          </div>
-        </div>
-      </article>
-
-      <article class="guide-step guide-step-highlight">
-        <div class="guide-step-icon" aria-hidden="true">
-          <i class="fas fa-check-double"></i>
-        </div>
-        <div class="guide-step-body">
-          <h3 class="guide-step-title">Paras käytäntö: yhdistä molemmat</h3>
-          <p class="guide-step-text">
-            Pilvipalvelu päivittäiseen käyttöön ja ulkoinen levy lisävarmistukseksi pari kertaa vuodessa.
-            Näin saat yleensä parhaan suojan pienimmällä vaivalla.
-          </p>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-
-    <section id="apu" class="section guide-cta-section">
-  <div class="container">
-    <div class="content-narrow">
-      <div class="cta-box">
-        <h2 class="cta-title">Haluatko mielenrauhan?</h2>
-        <p class="cta-lead">
+    <!-- CTA -->
+    <section id="apu" class="cta-section">
+      <div class="container">
+        <h2>Haluatko mielenrauhan?</h2>
+        <p>
           Varmuuskopiointi siirtyy helposti huomiseen. Jos haluat, laitan sinulle varmuuskopioinnin kuntoon niin,
           että se toimii automaattisesti ja tiedät mitä on suojattu.
         </p>
 
-        <div class="cta-what">
-          <h3 class="cta-subtitle">Mitä teen käytännössä</h3>
-          <ul class="cta-list">
-            <li>Valitaan sopiva tapa: pilvipalvelu, ulkoinen levy tai molemmat</li>
-            <li>Asennan ja testaan varmuuskopioinnin, sekä varmistan että se oikeasti tallentaa</li>
-            <li>Jätän selkeät ohjeet: mitä varmuuskopioidaan ja miten tarkistat tilanteen jatkossa</li>
-          </ul>
-        </div>
+        <p style="margin-top: 1.4rem;">
+          <strong class="price-main">60 € / h</strong><br>
+          <span class="price-sub">Usein tämä saadaan kuntoon yhdellä käynnillä.</span>
+        </p>
 
-        <div class="cta-price">
-          <p class="cta-price-main"><strong>60 € / h</strong></p>
-          <p class="cta-price-sub">Usein tämä saadaan kuntoon yhdellä käynnillä.</p>
-        </div>
-
-        <div class="cta-actions" aria-label="Yhteydenotto">
+        <div class="hero-cta-buttons" style="margin-top: 18px;">
           <a href="tel:+358405724113" class="cta-button primary">
             <i class="fas fa-phone-alt" aria-hidden="true"></i> Soita 040 572 4113
           </a>
@@ -281,12 +253,11 @@
           </a>
         </div>
 
-        <p class="cta-footnote">Yhteydenotto ja tilanteen kartoitus on aina maksutonta.</p>
+        <p class="free-consultation" style="margin-top: 16px;">
+          Yhteydenotto ja tilanteen kartoitus on aina maksutonta.
+        </p>
       </div>
-    </div>
-  </div>
-</section>
-
+    </section>
 
   </main>
 
@@ -303,21 +274,15 @@
     </div>
   </footer>
 
-  <div class="mobile-sticky-cta">
-    <a href="tel:+358405724113" class="sticky-btn call">
-      <i class="fas fa-phone-alt" aria-hidden="true"></i> Soita
-    </a>
-    <a href="https://wa.me/358405724113" target="_blank" rel="noopener"
-       class="sticky-btn whatsapp" aria-label="Lähetä viesti WhatsAppilla">
-      <i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp
-    </a>
+  <div class="mobile-sticky-cta" aria-label="Pikayhteys">
+    <a href="tel:+358405724113" class="sticky-btn call"><i class="fas fa-phone-alt" aria-hidden="true"></i> Soita</a>
+    <a href="https://wa.me/358405724113" target="_blank" rel="noopener" class="sticky-btn whatsapp"><i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp</a>
   </div>
 
-  <button id="toTop" aria-label="Takaisin ylös">
+  <button id="toTop" aria-label="Takaisin ylös" type="button">
     <i class="fas fa-chevron-up" aria-hidden="true"></i>
   </button>
 
   <script defer src="/js/script.js"></script>
-
 </body>
 </html>
