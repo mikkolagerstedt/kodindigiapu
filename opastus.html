@@ -27,7 +27,20 @@
     })();
   </script>
   <link rel="stylesheet" href="/css/styles.css">
-
+   <!-- Google tag (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YX5QL9CJHV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  
+    // EU-consent: oletuksena estetty
+    gtag('consent', 'default', {
+      analytics_storage: 'denied'
+    });
+  
+    gtag('config', 'G-YX5QL9CJHV');
+  </script>
   <script>
 	window.dataLayer = window.dataLayer || [];
 	function gtag(){dataLayer.push(arguments);}
