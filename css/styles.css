@@ -1669,7 +1669,7 @@ html[data-theme="dark"] .hero.hero-home .hero-subtitle {
 
 /* Dark-modessa support vielä aavistuksen “hiljaisemmaksi” kuin subtitle */
 html[data-theme="dark"] .hero.hero-home .hero-support-text {
-  color: rgba(255,255,255,0.70);
+  color: rgba(255,255,255,0.80);
 }
 
 /* Jos haluat samalla support-tekstille vähän vähemmän “blokkimainen” fiilis */
