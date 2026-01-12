@@ -21,20 +21,32 @@
   <meta property="og:url" content="https://www.kodindigiapu.fi/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fi_FI">
-  <!-- Google tag (GA4) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YX5QL9CJHV"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
   
-    // EU-consent: oletuksena estetty
+    // 1) Lue aiempi valinta heti (ennen configia)
+    var savedConsent = null;
+    try {
+      savedConsent = localStorage.getItem('cookie_consent_choice'); // 'granted' | 'denied' | null
+    } catch (e) {}
+  
+    // 2) Aseta default sen mukaan
     gtag('consent', 'default', {
-      analytics_storage: 'denied'
+      analytics_storage: savedConsent === 'granted' ? 'granted' : 'denied'
     });
   
-    gtag('config', 'G-YX5QL9CJHV');
+    // 3) Tärkeä: estä automaattinen page_view tässä
+    gtag('config', 'G-YX5QL9CJHV', { send_page_view: false });
+  
+    // 4) Lähetä page_view heti, jos lupa on jo annettu
+    if (savedConsent === 'granted') {
+      gtag('event', 'page_view');
+    }
   </script>
+
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
