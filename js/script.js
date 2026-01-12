@@ -264,8 +264,17 @@ document.addEventListener('DOMContentLoaded', () => {
     acceptBtn.addEventListener('click', () => {
       safeCallGtagConsentUpdate('granted');
       localStorage.setItem('cookie_consent_choice', 'granted');
+    
+      // Lähetä page_view heti kun lupa annetaan
+      try {
+        if (typeof gtag === 'function') {
+          gtag('event', 'page_view');
+        }
+      } catch (e) {}
+    
       hideBanner();
     });
+
 
     denyBtn.addEventListener('click', () => {
       safeCallGtagConsentUpdate('denied');
