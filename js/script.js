@@ -25,7 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const safeCallGtagConsentUpdate = (state) => {
     // state: 'granted' | 'denied'
-    // Päivitetään vain analytics_storage (ei mainontasäätöjä)
     try {
       if (typeof gtag === 'function') {
         gtag('consent', 'update', { analytics_storage: state });
@@ -35,7 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const fireLeadEvent = (method) => {
     // method: 'phone' | 'whatsapp' | 'contact_form'
-    // gtag-event lähtee vain jos GA on käytössä ja consent sallii
     try {
       if (typeof gtag === 'function') {
         gtag('event', 'generate_lead', { method });
@@ -247,7 +245,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   if (banner && acceptBtn && denyBtn) {
-    const consentChoice = localStorage.getItem('cookie_consent_choice');
+    const consentChoice = localStorage.getItem('cookie_consent_choice'); // 'granted' | 'denied' | null
 
     if (!consentChoice) {
       showBanner();
@@ -256,25 +254,24 @@ document.addEventListener('DOMContentLoaded', () => {
       if (consentChoice === 'granted') safeCallGtagConsentUpdate('granted');
       if (consentChoice === 'denied') safeCallGtagConsentUpdate('denied');
 
-      body.classList.remove('cookie-banner-is-visible');
       banner.style.display = 'none';
+      body.classList.remove('cookie-banner-is-visible');
       updateToTopVisibility();
     }
 
     acceptBtn.addEventListener('click', () => {
       safeCallGtagConsentUpdate('granted');
       localStorage.setItem('cookie_consent_choice', 'granted');
-    
+
       // Lähetä page_view heti kun lupa annetaan
       try {
         if (typeof gtag === 'function') {
           gtag('event', 'page_view');
         }
       } catch (e) {}
-    
+
       hideBanner();
     });
-
 
     denyBtn.addEventListener('click', () => {
       safeCallGtagConsentUpdate('denied');
@@ -286,17 +283,14 @@ document.addEventListener('DOMContentLoaded', () => {
   // =========================================================
   // 5b. GA4 LEAD EVENTS (phone / whatsapp / form)
   // =========================================================
-  // Puheluklikit (myös header + hero + footer + sticky)
   document.querySelectorAll('a[href^="tel:"]').forEach((link) => {
     link.addEventListener('click', () => fireLeadEvent('phone'));
   });
 
-  // WhatsApp-klikit
   document.querySelectorAll('a[href*="wa.me"]').forEach((link) => {
     link.addEventListener('click', () => fireLeadEvent('whatsapp'));
   });
 
-  // Soittopyyntölomake
   const contactForm = document.querySelector('.contact-form');
   if (contactForm) {
     contactForm.addEventListener('submit', () => fireLeadEvent('contact_form'));
@@ -343,8 +337,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const getViewportBottomInset = () => {
     if (!window.visualViewport) return 0;
     const vv = window.visualViewport;
-    const bottom = Math.max(0, Math.round(window.innerHeight - (vv.height + vv.offsetTop)));
-    return bottom;
+    return Math.max(0, Math.round(window.innerHeight - (vv.height + vv.offsetTop)));
   };
 
   const updateCtaPosition = () => {
