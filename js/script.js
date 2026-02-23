@@ -94,7 +94,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (navToggle && navLinks) {
     navToggle.setAttribute('aria-expanded', 'false');
 
-    navToggle.addEventListener('click', () => {
+    navToggle.addEventListener('click', (e) => {
+      e.stopPropagation(); // TÄMÄ RIVI ON KORJAUS
       if (isMenuOpen()) closeMenu();
       else openMenu();
     });
