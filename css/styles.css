@@ -1685,3 +1685,52 @@ html[data-theme="dark"] .hero.hero-home .hero-support-text {
   font-size: 1rem;
 }
 
+/* =========================================
+   17. KORJAUKSET: Aukioloajat, Logo & Hyppivä palkki
+   ========================================= */
+
+/* 1. Aukioloajat-merkki Hero-osioon */
+.hero-opening-hours {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(14, 165, 233, 0.1);
+  color: var(--accent);
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+  border: 1px solid rgba(14, 165, 233, 0.2);
+}
+
+.hero-opening-hours i {
+  font-size: 1.1rem;
+}
+
+/* Tumman teeman korostus aukioloajoille */
+html[data-theme="dark"] .hero-opening-hours {
+  background: rgba(56, 189, 248, 0.15);
+  border-color: rgba(56, 189, 248, 0.25);
+  color: var(--accent);
+}
+
+/* 2. Estetään alapalkin hyppiminen (kumoaa JS-laskennan) */
+.mobile-sticky-cta {
+  bottom: env(safe-area-inset-bottom, 0px) !important;
+}
+
+/* 3. Mobiilinäkymän hienosäädöt */
+@media (max-width: 768px) {
+  /* Keskitetään aukioloajat mobiilissa */
+  .hero-opening-hours {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 16px;
+  }
+  
+  /* Työnnetään logoa hieman irti vasemmasta reunasta */
+  .logo {
+    margin-left: 8px;
+  }
+}
