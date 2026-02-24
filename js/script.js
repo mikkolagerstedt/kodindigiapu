@@ -1,7 +1,7 @@
 /**
  * Kodin Digiapu – script.js (PÄIVITETTY)
  * Teema, navigointi, ankkuriskrolli, hinta-toggle, takaisin ylös, evästebanneri,
- * ohjesivun platform-toggle, mobiili-CTA (VisualViewport fix)
+ * ohjesivun platform-toggle, mobiili-CTA (VisualViewport fix poistettu, hoidetaan CSS:llä)
  *
  * + GA4: consent update (analytics_storage)
  * + GA4: lead events (phone / whatsapp / contact_form)
@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
     navToggle.setAttribute('aria-expanded', 'false');
 
     navToggle.addEventListener('click', (e) => {
-      e.stopPropagation(); // TÄMÄ RIVI ON KORJAUS
+      e.stopPropagation(); // TÄMÄ RIVI KORJAA MOBIILIVALIKON AUKIAMISEN
       if (isMenuOpen()) closeMenu();
       else openMenu();
     });
@@ -330,26 +330,4 @@ document.addEventListener('DOMContentLoaded', () => {
     updatePlatformContent();
   }
 
-  // =========================================================
-  // 7. MOBIILI-CTA-PALKIN KELLUMISEN KORJAUS (VisualViewport)
-  // =========================================================
-  const mobileCta = $('.mobile-sticky-cta');
-
-  const getViewportBottomInset = () => {
-    if (!window.visualViewport) return 0;
-    const vv = window.visualViewport;
-    return Math.max(0, Math.round(window.innerHeight - (vv.height + vv.offsetTop)));
-  };
-
-  const updateCtaPosition = () => {
-    if (!mobileCta) return;
-    const inset = getViewportBottomInset();
-    mobileCta.style.bottom = `${inset}px`;
-  };
-
-  if (mobileCta && window.visualViewport) {
-    window.visualViewport.addEventListener('resize', updateCtaPosition);
-    window.visualViewport.addEventListener('scroll', updateCtaPosition);
-    updateCtaPosition();
-  }
 });
