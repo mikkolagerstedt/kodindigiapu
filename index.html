@@ -5,46 +5,42 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
 
-  <title>Tietokone- ja puhelinapu kotikäynnillä Järvenpää, Kerava & Tuusula | Kodin Digiapu</title>
-  <meta name="description" content="Ystävällistä apua tietokoneille, puhelimille ja nettiyhteyksille kotiisi Järvenpää, Kerava, Tuusula. Usein jo samana tai seuraavana arkipäivänä.">
+  <title>Tietokone- ja puhelinapu kotikäynnillä Järvenpää, Kerava, Tuusula ja lähialueet | Kodin Digiapu</title>
+  <meta name="description" content="Ystävällistä apua tietokoneille, puhelimille ja nettiyhteyksille kotiisi Järvenpäässä, Keravalla, Tuusulassa ja lähialueilla. Usein jo samana tai seuraavana arkipäivänä.">
   <meta name="theme-color" content="#0ea5e9">
   <meta name="author" content="Mikko Lagerstedt">
   <link rel="canonical" href="https://www.kodindigiapu.fi/">
 
-  <meta property="og:title" content="Kodin Digiapu – Tietokoneapu kotikäynnillä Järvenpää, Tuusula, Kerava">
-  <meta property="og:description" content="Ystävällistä ja luotettavaa apua tietokoneiden, puhelimien ja laitteiden kanssa. Kotikäynnit ja etätuki – Järvenpää, Tuusula, Kerava.">
+  <meta property="og:title" content="Kodin Digiapu – Tietokone- ja puhelinapu kotikäynnillä Järvenpää, Kerava, Tuusula ja lähialueet">
+  <meta property="og:description" content="Ystävällistä ja luotettavaa apua tietokoneiden, puhelimien ja laitteiden kanssa. Kotikäynnit Järvenpäässä, Keravalla, Tuusulassa ja lähialueilla.">
   <meta property="og:image" content="https://www.kodindigiapu.fi/images/mikko-digiapu.webp">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:url" content="https://www.kodindigiapu.fi/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fi_FI">
+
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YX5QL9CJHV"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-  
-    // 1) Lue aiempi valinta heti (ennen configia)
+
     var savedConsent = null;
     try {
       savedConsent = localStorage.getItem('cookie_consent_choice'); // 'granted' | 'denied' | null
     } catch (e) {}
-  
-    // 2) Aseta default sen mukaan
+
     gtag('consent', 'default', {
       analytics_storage: savedConsent === 'granted' ? 'granted' : 'denied'
     });
-  
-    // 3) Tärkeä: estä automaattinen page_view tässä
+
     gtag('config', 'G-YX5QL9CJHV', { send_page_view: false });
-  
-    // 4) Lähetä page_view heti, jos lupa on jo annettu
+
     if (savedConsent === 'granted') {
       gtag('event', 'page_view');
     }
   </script>
-
 
   <meta name="twitter:card" content="summary_large_image">
 
@@ -78,19 +74,27 @@
     "telephone": "+358405724113",
     "email": "mikko@kodindigiapu.fi",
     "priceRange": "€",
-    "areaServed": ["Järvenpää", "Tuusula", "Kerava"],
+    "areaServed": ["Järvenpää", "Kerava", "Tuusula", "Pornainen"],
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Järvenpää",
       "postalCode": "04400",
       "addressCountry": "FI"
     },
-    "openingHoursSpecification": [{
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-      "opens": "10:00",
-      "closes": "18:00"
-    }]
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+        "opens": "10:00",
+        "closes": "18:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Saturday"],
+        "opens": "10:00",
+        "closes": "14:00"
+      }
+    ]
   }
   </script>
 </head>
@@ -152,11 +156,11 @@
 
           <p class="hero-subtitle">
             Hei, olen Mikko. Autan sinua kotonasi kännykän, tietokoneen ja muiden laitteiden käytössä ja ongelmien ratkomisessa.
-            Tulen paikan päälle Järvenpäässä, Keravalla ja Tuusulassa.
+            Autan Järvenpäässä, Keravalla, Tuusulassa ja lähialueilla.
           </p>
 
           <div class="hero-opening-hours">
-            <i class="fas fa-clock" aria-hidden="true"></i> Arkisin 10–18 | La 10–14 (muina aikoina kysy rohkeasti!)
+            <i class="fas fa-clock" aria-hidden="true"></i> Arkisin 10–18 | La 10–14 (su ja pyhät päivystys)
           </div>
 
           <div class="hero-cta-buttons">
@@ -181,7 +185,6 @@
     <section class="section help-section">
       <div class="container">
         <h2 class="section-title">Näin homma toimii</h2>
-        
 
         <div class="help-steps-grid">
           <div class="help-step is-linkable">
@@ -279,6 +282,16 @@
           <p id="price-description" class="price-description">/ tunti</p>
           <p id="vat-info-text" class="vat-info">sis. alv 25,5%</p>
 
+          <div class="explanation-box" style="margin-top:14px;">
+            <p style="margin:0;"><strong>Normaalihinta:</strong> ma–pe 10–18 ja la 10–14</p>
+            <p style="margin:6px 0 0 0;">Minimiveloitus 40€ (30 min) · 60€/h</p>
+          </div>
+
+          <div class="explanation-box" style="margin-top:12px;">
+            <p style="margin:0;"><strong>Päivystys:</strong> su ja pyhät</p>
+            <p style="margin:6px 0 0 0;"><strong>Minimiveloitus 100€ (1 h)</strong> · 100€/h</p>
+          </div>
+
           <div class="price-toggle" role="radiogroup" aria-label="Hintanäkymä">
             <label>
               <input type="radio" name="price-option" id="toggle-normal" value="normal" checked>
@@ -291,7 +304,10 @@
           </div>
 
           <div id="explanation-without-deduction" class="explanation-box">
-            <p>Minimiveloitus on 40€ (puoli tuntia), joka riittää pienten vikojen selvittämiseen. Järvenpään alueella ei ole matkakuluja.</p>
+            <p>
+              Järvenpään alueella ei ole matkakuluja. Muualle lähialueille lisätään matkakulut.
+              Päivystys hinnoitellaan erikseen (minimiveloitus 100€).
+            </p>
           </div>
 
           <div id="explanation-with-deduction" class="explanation-box" hidden>
@@ -322,7 +338,7 @@
               <i class="fas fa-chevron-down faq-icon" aria-hidden="true"></i>
             </summary>
             <div class="faq-answer">
-              <p>Minimiveloitus on 40€, joka kattaa vian selvityksen. Jos totean, että laitetta ei kannata korjata, kerron sen rehellisesti etkä maksa turhasta työstä enempää.</p>
+              <p>Minimiveloitus on 40€, joka kattaa vian selvityksen normaalihinnalla. Jos totean, että laitetta ei kannata korjata, kerron sen rehellisesti etkä maksa turhasta työstä enempää.</p>
             </div>
           </details>
 
@@ -342,7 +358,8 @@
               <i class="fas fa-chevron-down faq-icon" aria-hidden="true"></i>
             </summary>
             <div class="faq-answer">
-              <p>Voit maksaa laskulla, käteisellä tai MobilePaylla. Laskun voin lähettää sähköpostiin tai paperisena.</p>
+              <p>Maksu hoituu yleensä käynnin päätteeksi MobilePaylla tai käteisellä. Lasku onnistuu pyydettäessä (eräpäivä 7 päivää).</p>
+              <p><strong>Päivystys (su ja pyhät):</strong> minimiveloitus on 100€ (1 h).</p>
             </div>
           </details>
 
@@ -459,6 +476,8 @@
       <div class="container">
         <h2 class="payment-title">Maksaminen ja kotitalousvähennys</h2>
         <p>Työ on kotitalousvähennyskelpoista. Saat vähentää verotuksessa ison osan työn hinnasta.</p>
+        <p><strong>Maksu hoituu käynnin päätteeksi</strong> MobilePaylla tai käteisellä. Lasku onnistuu pyydettäessä.</p>
+        <p><strong>Päivystys (su ja pyhät):</strong> 100€/h, minimiveloitus 100€ (1 h).</p>
 
         <div class="payment-methods" aria-label="Maksutavat ja kotitalousvähennys">
           <div>
@@ -467,11 +486,11 @@
           </div>
           <div>
             <i class="fas fa-file-invoice icon-invoice" aria-hidden="true"></i>
-            <p class="payment-label">Lasku / Käteinen</p>
+            <p class="payment-label">Lasku (pyydettäessä)</p>
           </div>
           <div>
             <i class="fas fa-mobile-screen-button icon-mobilepay" aria-hidden="true"></i>
-            <p class="payment-label">MobilePay</p>
+            <p class="payment-label">MobilePay / käteinen</p>
           </div>
         </div>
       </div>
@@ -480,7 +499,7 @@
 
   <footer>
     <div class="container">
-      <p><strong>Kodin Digiapu</strong> – Järvenpää, Tuusula, Kerava</p>
+      <p><strong>Kodin Digiapu</strong> – Järvenpää, Kerava, Tuusula ja lähialueet</p>
       <p>Puhelin: <a href="tel:+358405724113">040 572 4113</a> · Sähköposti: <a href="mailto:mikko@kodindigiapu.fi">mikko@kodindigiapu.fi</a></p>
       <p>Aukiolo: ma–pe 10–18, la 10–14 · Y-tunnus 2272247-7</p>
       <p>
