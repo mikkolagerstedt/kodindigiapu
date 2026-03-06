@@ -28,7 +28,7 @@
 
     var savedConsent = null;
     try {
-      savedConsent = localStorage.getItem('cookie_consent_choice'); // 'granted' | 'denied' | null
+      savedConsent = localStorage.getItem('cookie_consent_choice');
     } catch (e) {}
 
     gtag('consent', 'default', {
@@ -264,6 +264,7 @@
             </a>
           </div>
         </div>
+
         <div class="service-outro">
           <p>Eikö ongelmasi löytynyt listalta? Usein ihmiset eivät tiedä mikä laite tai asia on pielessä. Se ei haittaa.</p>
           <a href="#yhteys" class="service-outro-link">Kysy muista palveluista (puhelimet, tabletit, opastus) →</a>
@@ -415,78 +416,100 @@
         </div>
       </div>
     </section>
-   <section id="esimerkit" class="section">
-  <div class="container">
-    <h2 class="section-title">Esimerkkejä töistä, joissa olen auttanut</h2>
-    <p class="section-subtitle">Tässä muutamia tavallisia tilanteita, joissa olen auttanut asiakkaita kotikäynnillä.</p>
 
-    <div class="services-grid">
-      <div class="service-card">
-        <div class="service-link">
-          <i class="fas fa-shield-virus icon" aria-hidden="true"></i>
-          <h3>Haittaohjelmien ja virusten tarkistus</h3>
-          <p>Laitteen tarkistus, epäilyttävien ohjelmien läpikäynti ja tilanteen rauhallinen selvittäminen.</p>
+    <section id="esimerkit" class="section">
+      <div class="container">
+        <h2 class="section-title">Esimerkkejä töistä, joissa olen auttanut</h2>
+        <p class="section-subtitle">Tässä muutamia tavallisia tilanteita, joissa olen auttanut asiakkaita kotikäynnillä.</p>
+
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-link">
+              <i class="fas fa-shield-virus icon" aria-hidden="true"></i>
+              <h3>Haittaohjelmien ja virusten tarkistus</h3>
+              <p>Laitteen tarkistus, epäilyttävien ohjelmien läpikäynti ja tilanteen rauhallinen selvittäminen.</p>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-link">
+              <i class="fas fa-key icon" aria-hidden="true"></i>
+              <h3>Salasanojen ja tilien tarkistus</h3>
+              <p>Apua käyttäjätunnusten, salasanojen, kirjautumisten ja tilien turvallisuuden kanssa.</p>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-link">
+              <i class="fas fa-cloud-upload-alt icon" aria-hidden="true"></i>
+              <h3>Varmuuskopiointi</h3>
+              <p>Kuvien, tiedostojen ja tärkeiden tietojen siirto turvaan pilveen tai ulkoiselle levylle.</p>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-link">
+              <i class="fab fa-whatsapp icon" aria-hidden="true"></i>
+              <h3>WhatsApp-tilin palautus</h3>
+              <p>Apua tilanteissa, joissa WhatsApp-tili on kadonnut, kaapattu tai siihen ei enää pääse kirjautumaan.</p>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-link">
+              <i class="fas fa-print icon" aria-hidden="true"></i>
+              <h3>Tulostimen asennus</h3>
+              <p>Uuden tulostimen käyttöönotto, yhdistäminen laitteisiin ja tulostuksen toiminnan varmistaminen.</p>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-link">
+              <i class="fas fa-file-alt icon" aria-hidden="true"></i>
+              <h3>Skannerin asennus</h3>
+              <p>Skannerin käyttöönotto, asetusten tarkistus ja toiminnan varmistaminen käytännössä.</p>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-link">
+              <i class="fas fa-graduation-cap icon" aria-hidden="true"></i>
+              <h3>Opastus laitteiden käyttöön</h3>
+              <p>Rauhallista ja selkeää apua puhelimen, tabletin ja tietokoneen käyttöön omassa tahdissasi.</p>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <div class="service-link">
+              <i class="fas fa-user-shield icon" aria-hidden="true"></i>
+              <h3>Tilien ja laitteiden turvallisuuden tarkistus</h3>
+              <p>Tarkistus esimerkiksi sähköpostin, käyttäjätilien ja laitteen perusasetusten turvallisuuteen.</p>
+            </div>
+          </div>
         </div>
       </div>
+    </section>
 
-      <div class="service-card">
-        <div class="service-link">
-          <i class="fas fa-key icon" aria-hidden="true"></i>
-          <h3>Salasanojen ja tilien tarkistus</h3>
-          <p>Apua käyttäjätunnusten, salasanojen, kirjautumisten ja tilien turvallisuuden kanssa.</p>
+    <section id="tietoturva" class="section">
+      <div class="container">
+        <h2 class="section-title">Tietoturva ja luottamus</h2>
+        <p class="section-subtitle">Käsittelen laitteita, tilejä ja asetuksia aina huolellisesti ja luottamuksellisesti.</p>
+
+        <div class="service-outro">
+          <p>
+            Jos käynnin aikana täytyy kirjautua sähköpostiin, tarkistaa tilejä, vaihtaa asetuksia tai asentaa ohjelmia,
+            teen sen vain asiakkaan luvalla ja vain kyseisen työn hoitamiseksi.
+          </p>
+          <p>
+            Salasanoja ei tallenneta eikä henkilökohtaisia tietoja kopioida tai käytetä työn jälkeen.
+          </p>
+          <p>
+            Tarvittaessa käytän myös erillistä tietoturva- ja tilien käsittelylomaketta, jotta kaikki on asiakkaalle selkeää ja läpinäkyvää.
+          </p>
         </div>
       </div>
+    </section>
 
-      <div class="service-card">
-        <div class="service-link">
-          <i class="fas fa-cloud-upload-alt icon" aria-hidden="true"></i>
-          <h3>Varmuuskopiointi</h3>
-          <p>Kuvien, tiedostojen ja tärkeiden tietojen siirto turvaan pilveen tai ulkoiselle levylle.</p>
-        </div>
-      </div>
-
-      <div class="service-card">
-        <div class="service-link">
-          <i class="fab fa-whatsapp icon" aria-hidden="true"></i>
-          <h3>WhatsApp-tilin palautus</h3>
-          <p>Apua tilanteissa, joissa WhatsApp-tili on kadonnut, kaapattu tai siihen ei enää pääse kirjautumaan.</p>
-        </div>
-      </div>
-
-      <div class="service-card">
-        <div class="service-link">
-          <i class="fas fa-print icon" aria-hidden="true"></i>
-          <h3>Tulostimen asennus</h3>
-          <p>Uuden tulostimen käyttöönotto, yhdistäminen laitteisiin ja tulostuksen toiminnan varmistaminen.</p>
-        </div>
-      </div>
-
-      <div class="service-card">
-        <div class="service-link">
-          <i class="fas fa-scanner icon" aria-hidden="true"></i>
-          <h3>Skannerin asennus</h3>
-          <p>Skannerin käyttöönotto, asetusten tarkistus ja toiminnan varmistaminen käytännössä.</p>
-        </div>
-      </div>
-
-      <div class="service-card">
-        <div class="service-link">
-          <i class="fas fa-graduation-cap icon" aria-hidden="true"></i>
-          <h3>Opastus laitteiden käyttöön</h3>
-          <p>Rauhallista ja selkeää apua puhelimen, tabletin ja tietokoneen käyttöön omassa tahdissasi.</p>
-        </div>
-      </div>
-
-      <div class="service-card">
-        <div class="service-link">
-          <i class="fas fa-user-shield icon" aria-hidden="true"></i>
-          <h3>Tilien ja laitteiden turvallisuuden tarkistus</h3>
-          <p>Tarkistus esimerkiksi sähköpostin, käyttäjätilien ja laitteen perusasetusten turvallisuuteen.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
     <section id="yhteys" class="section">
       <div class="container">
         <h2 class="section-title">Ota yhteyttä</h2><br>
