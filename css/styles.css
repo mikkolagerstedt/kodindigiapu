@@ -420,16 +420,16 @@ html[data-theme="dark"] .icon-moon { opacity: 0; }
 
 .hero-cta-buttons {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 14px;
-  margin-top: 16px;
-  margin-bottom: 10px; /* tärkeä: lisää tilaa nappien jälkeen */
+  gap: 16px;
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
 
-@media (min-width: 768px) {
-  .hero-cta-buttons { flex-direction: row; flex-wrap: wrap; }
+.hero-cta-buttons .cta-button {
+  min-width: 240px;
 }
 
 .hero-support-text {
@@ -536,8 +536,14 @@ html[data-theme="dark"] .hero.hero-home {
   .hero-home .hero-title { max-width: 18ch; margin: 0 auto; }
   .hero-home .hero-subtitle { margin: 14px auto 18px; }
 
-  .hero-home .hero-cta-buttons { justify-content: center; }
-  .hero-home .cta-button { width: 100%; max-width: 420px; }
+  .hero-home .hero-cta-buttons {
+    flex-direction: column;
+  }
+  .hero-home .hero-cta-buttons .cta-button {
+    width: 100%;
+    min-width: 0;
+    max-width: 420px;
+  }
   .hero-home .hero-support-text { margin-left: auto; margin-right: auto; }
 }
 
@@ -584,7 +590,7 @@ html[data-theme="dark"] .hero.hero-home {
 .help-step-link-overlay { position: absolute; inset: 0; z-index: 1; }
 
 /* =========================================
-   7. SERVICES GRID
+   7. SERVICES GRID & CALLBACK BOX
    ========================================= */
 
 .service-intro-text {
@@ -649,6 +655,58 @@ html[data-theme="dark"] .hero.hero-home {
   text-decoration: none;
   border-bottom: 2px solid rgba(14,165,233,0.55);
   padding-bottom: 2px;
+}
+
+/* Callback box under services */
+.callback-prompt-box {
+  margin-top: 28px;
+  padding: 28px 24px;
+  border: 1px solid var(--border-light);
+  border-radius: 20px;
+  background: var(--explanation-bg);
+  text-align: center;
+}
+
+.callback-prompt-box h3 {
+  margin: 0 0 10px;
+  font-size: 1.35rem;
+  line-height: 1.2;
+  color: var(--main);
+}
+
+.callback-prompt-box p {
+  margin: 0 auto 18px;
+  max-width: 640px;
+  color: var(--text-light);
+  line-height: 1.65;
+}
+
+.callback-prompt-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 22px;
+  border-radius: 14px;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  background: transparent;
+  font-weight: 900;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.callback-prompt-button:hover,
+.callback-prompt-button:focus {
+  background: var(--accent);
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .callback-prompt-box {
+    padding: 22px 18px;
+    border-radius: 16px;
+  }
 }
 
 /* =========================================
@@ -1774,7 +1832,7 @@ html[data-theme="dark"] .hero-opening-hours {
 }
 
 /* =========================================
-   18. TRUST-SECTION (Tietoturva & Luottamus)
+   18. TRUST-SECTION (Tietoturva & Luottamus) - Versio 2 (siniset bulletit)
    ========================================= */
 
 .trust-section .section-subtitle {
@@ -1871,5 +1929,60 @@ html[data-theme="dark"] .hero-opening-hours {
     left: -22px; /* Vastaa mobiilin sisennystä */
     width: 7px;
     height: 7px;
+  }
+}
+
+/* =========================================
+   21. CALLBACK PROMPT BOX (Soittopyyntö)
+   ========================================= */
+
+.callback-prompt-box {
+  margin-top: 28px;
+  padding: 28px 24px;
+  border: 1px solid var(--border-light);
+  border-radius: 20px;
+  background: var(--explanation-bg);
+  text-align: center;
+}
+
+.callback-prompt-box h3 {
+  margin: 0 0 10px;
+  font-size: 1.35rem;
+  line-height: 1.2;
+  color: var(--main);
+}
+
+.callback-prompt-box p {
+  margin: 0 auto 18px;
+  max-width: 640px;
+  color: var(--text-light);
+  line-height: 1.65;
+}
+
+.callback-prompt-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 22px;
+  border-radius: 14px;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  background: transparent;
+  font-weight: 900;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.callback-prompt-button:hover,
+.callback-prompt-button:focus {
+  background: var(--accent);
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .callback-prompt-box {
+    padding: 22px 18px;
+    border-radius: 16px;
   }
 }
