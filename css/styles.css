@@ -704,7 +704,7 @@ html[data-theme="dark"] .hero.hero-home {
 
 .price-benefit-highlight {
   display: inline-block;
-  margin: 0 auto 1.5rem auto;
+  margin: 0 auto 1.25rem auto;
   padding: 0.8rem 1.2rem;
   border-radius: 999px;
   background: rgba(14, 165, 233, 0.14);
@@ -732,7 +732,7 @@ html[data-theme="dark"] .price-info-list {
 .price-info-list p {
   margin: 0;
   color: var(--text-dark);
-  line-height: 1.6;
+  line-height: 1.7;
   font-size: 1rem;
 }
 
@@ -952,7 +952,13 @@ html[data-theme="dark"] .form-group textarea { background: rgba(17,24,39,0.55); 
   line-height: 1.75;
 }
 
-.payment-methods { display: flex; justify-content: center; align-items: flex-start; gap: 37px; flex-wrap: wrap; }
+.payment-methods {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 28px;
+  flex-wrap: wrap;
+}
 .payment-label { margin: 0; font-weight: 900; color: var(--text-dark); }
 
 .icon-home, .icon-invoice, .icon-mobilepay {
@@ -1768,7 +1774,7 @@ html[data-theme="dark"] .hero-opening-hours {
 }
 
 /* =========================================
-   18. TRUST-SECTION (Tietoturva & Luottamus)
+   18. TRUST-SECTION (Tietoturva & Luottamus) - Versio 2 (siniset bulletit)
    ========================================= */
 
 .trust-section .section-subtitle {
@@ -1788,20 +1794,42 @@ html[data-theme="dark"] .hero-opening-hours {
 }
 
 .trust-points {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 22px;
 }
 
 .trust-point {
   text-align: left;
-  max-width: 760px;
-  margin: 0 auto;
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.trust-point:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
 }
 
 .trust-point h3 {
-  font-size: 1.08rem;
+  position: relative;
+  font-size: 1.05rem;
+  font-weight: 800;
   margin: 0 0 8px 0;
   color: var(--main);
+  line-height: 1.3;
+  padding-left: 18px;
+}
+
+.trust-point h3::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.52em;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--accent);
+  transform: translateY(-50%);
 }
 
 .trust-point p {
@@ -1809,6 +1837,8 @@ html[data-theme="dark"] .hero-opening-hours {
   font-size: 1rem;
   line-height: 1.75;
   color: var(--text-dark);
+  max-width: 64ch;
+  padding-left: 18px;
 }
 
 @media (max-width: 768px) {
@@ -1821,13 +1851,24 @@ html[data-theme="dark"] .hero-opening-hours {
     gap: 18px;
   }
 
+  .trust-point {
+    padding-bottom: 18px;
+  }
+
   .trust-point h3 {
     font-size: 1rem;
     margin-bottom: 6px;
+    padding-left: 16px;
   }
 
   .trust-point p {
     font-size: 0.98rem;
     line-height: 1.7;
+    padding-left: 16px;
+  }
+
+  .trust-point h3::before {
+    width: 7px;
+    height: 7px;
   }
 }
