@@ -1314,7 +1314,6 @@ body.service-page-landing .help-steps {
 }
 /* =========================================================
    CONTACT TRANSFER PAGE: platform toggle + content styling
-   Lisää styles.css:n loppuun
    ========================================================= */
 
 /* Toggle pillit */
@@ -1431,7 +1430,6 @@ html[data-theme="light"] .platform-option input:checked + span {
 /* =========================================================
    FIX: service-page-landing dark-section + platform UI
    Makes "dark-section" theme-aware (works in light mode too)
-   Lisää styles.css:n ihan loppuun
    ========================================================= */
 
 /* 1) Dark-section: oletus tumma vain jos dark theme */
@@ -1651,9 +1649,9 @@ html[data-theme="light"] .step-tip {
     margin: 22px auto;
   }
 }
+
 /* =========================================
    HOME HERO: subtitle brighter in dark mode + smaller support text
-   Lisää styles.css:n loppuun
    ========================================= */
 
 /* 1) "Hei, olen Mikko" (hero-subtitle) vaaleammaksi dark-modessa */
@@ -1676,6 +1674,7 @@ html[data-theme="dark"] .hero.hero-home .hero-support-text {
 .hero.hero-home .hero-support-text {
   max-width: 68ch;      /* hieman tiukempi rivipituus (luettavuus) */
 }
+
 /* Varmista että input + textarea näyttävät täysin samalta */
 .contact-form input,
 .contact-form textarea,
@@ -1798,4 +1797,56 @@ html[data-theme="dark"] .hero-opening-hours {
     font-size: 0.98rem;
     line-height: 1.7;
   }
+}
+
+/* =========================================
+   19. HINNASTON LISÄLAATIKOT
+   ========================================= */
+
+.price-main-box {
+  margin-top: 1.4rem;
+  padding: 1.1rem 1.2rem;
+  background: var(--explanation-bg);
+  border: 1px solid var(--explanation-border);
+  border-radius: 14px;
+  text-align: left;
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.price-main-box p {
+  margin: 0;
+  color: var(--text-dark);
+  line-height: 1.7;
+}
+
+.price-main-box p + p {
+  margin-top: 0.45rem;
+}
+
+.price-note-box {
+  margin-top: 1rem;
+  padding: 1rem 1.2rem;
+  background: rgba(15, 23, 42, 0.04);
+  border: 1px solid var(--border-light);
+  border-radius: 14px;
+  text-align: left;
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.price-note-box p {
+  margin: 0;
+  color: var(--text-dark);
+  line-height: 1.7;
+}
+
+.price-note-box p + p {
+  margin-top: 0.4rem;
+}
+
+html[data-theme="dark"] .price-note-box {
+  background: rgba(255, 255, 255, 0.04);
 }
