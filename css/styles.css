@@ -1774,7 +1774,7 @@ html[data-theme="dark"] .hero-opening-hours {
 }
 
 /* =========================================
-   18. TRUST-SECTION (Tietoturva & Luottamus) - Versio 2 (siniset bulletit)
+   18. TRUST-SECTION (Tietoturva & Luottamus)
    ========================================= */
 
 .trust-section .section-subtitle {
@@ -1803,6 +1803,8 @@ html[data-theme="dark"] .hero-opening-hours {
   text-align: left;
   padding-bottom: 22px;
   border-bottom: 1px solid var(--border-light);
+  /* Koko sisältö sisennetään kerralla (otsikko + teksti) */
+  padding-left: 28px;
 }
 
 .trust-point:last-child {
@@ -1817,13 +1819,13 @@ html[data-theme="dark"] .hero-opening-hours {
   margin: 0 0 8px 0;
   color: var(--main);
   line-height: 1.3;
-  padding-left: 18px;
 }
 
+/* Pallo vedetään ulos sisennyksestä vasemmalle */
 .trust-point h3::before {
   content: "";
   position: absolute;
-  left: 0;
+  left: -28px; /* Vedetään täsmälleen saman verran ulos kuin laatikkoa sisennettiin */
   top: 0.52em;
   width: 8px;
   height: 8px;
@@ -1838,7 +1840,6 @@ html[data-theme="dark"] .hero-opening-hours {
   line-height: 1.75;
   color: var(--text-dark);
   max-width: 64ch;
-  padding-left: 18px;
 }
 
 @media (max-width: 768px) {
@@ -1853,21 +1854,21 @@ html[data-theme="dark"] .hero-opening-hours {
 
   .trust-point {
     padding-bottom: 18px;
+    padding-left: 22px; /* Mobiilissa vähän kapeampi sisennys */
   }
 
   .trust-point h3 {
     font-size: 1rem;
     margin-bottom: 6px;
-    padding-left: 16px;
   }
 
   .trust-point p {
     font-size: 0.98rem;
     line-height: 1.7;
-    padding-left: 16px;
   }
 
   .trust-point h3::before {
+    left: -22px; /* Vastaa mobiilin sisennystä */
     width: 7px;
     height: 7px;
   }
