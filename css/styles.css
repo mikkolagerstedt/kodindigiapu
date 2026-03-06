@@ -1746,25 +1746,37 @@ html[data-theme="dark"] .hero-opening-hours {
 }
 
 .trust-box {
-  max-width: 900px;
+  max-width: 920px;
   margin: 0 auto;
-  padding: 28px 28px;
+  padding: 30px 28px;
   background: var(--card);
   border: 1px solid var(--border-light);
   border-radius: 18px;
   box-shadow: var(--shadow-sm);
-  text-align: center;
 }
 
-.trust-box p {
-  margin: 0 0 16px 0;
-  font-size: 1.04rem;
+.trust-points {
+  display: grid;
+  gap: 22px;
+}
+
+.trust-point {
+  text-align: left;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.trust-point h3 {
+  font-size: 1.08rem;
+  margin: 0 0 8px 0;
+  color: var(--main);
+}
+
+.trust-point p {
+  margin: 0;
+  font-size: 1rem;
   line-height: 1.75;
   color: var(--text-dark);
-}
-
-.trust-box p:last-child {
-  margin-bottom: 0;
 }
 
 @media (max-width: 768px) {
@@ -1773,8 +1785,17 @@ html[data-theme="dark"] .hero-opening-hours {
     border-radius: 14px;
   }
 
-  .trust-box p {
+  .trust-points {
+    gap: 18px;
+  }
+
+  .trust-point h3 {
     font-size: 1rem;
+    margin-bottom: 6px;
+  }
+
+  .trust-point p {
+    font-size: 0.98rem;
     line-height: 1.7;
   }
 }
