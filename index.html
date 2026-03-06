@@ -275,24 +275,20 @@
     <section id="hinnat" class="section">
       <div class="container">
         <h2 class="section-title">Hinnasto</h2>
-
+        <p class="section-subtitle">Selkeä hinnoittelu ilman yllätyksiä. Järvenpään alueella ei matkakuluja.</p>
+    
         <div class="price-card">
           <p class="min-price-label">Minimiveloitus 40€ <span>(30 min)</span></p>
-
+    
           <div id="price-display" class="price-display normal">60€</div>
           <p id="price-description" class="price-description">/ tunti</p>
           <p id="vat-info-text" class="vat-info">sis. alv 25,5%</p>
-
-          <div class="explanation-box" style="margin-top:14px;">
-            <p style="margin:0;"><strong>Normaalihinta:</strong> ma–pe 10–18 ja la 10–14</p>
-            <p style="margin:6px 0 0 0;">Minimiveloitus 40€ (30 min) · 60€/h</p>
+    
+          <div class="price-main-box">
+            <p><strong>Normaalihinta:</strong> ma–pe 10–18 ja la 10–14</p>
+            <p>Minimiveloitus 40€ (30 min) · 60€/h</p>
           </div>
-
-          <div class="explanation-box" style="margin-top:12px;">
-            <p style="margin:0;"><strong>Päivystys:</strong> su ja pyhät</p>
-            <p style="margin:6px 0 0 0;"><strong>Minimiveloitus 100€ (1 h)</strong> · 100€/h</p>
-          </div>
-
+    
           <div class="price-toggle" role="radiogroup" aria-label="Hintanäkymä">
             <label>
               <input type="radio" name="price-option" id="toggle-normal" value="normal" checked>
@@ -303,16 +299,18 @@
               <span>Kotitalousvähennys</span>
             </label>
           </div>
-
+    
           <div id="explanation-without-deduction" class="explanation-box">
-            <p>
-              Järvenpään alueella ei ole matkakuluja. Muualle lähialueille lisätään matkakulut.
-              Päivystys hinnoitellaan erikseen (minimiveloitus 100€).
-            </p>
+            <p>Järvenpään alueella ei ole matkakuluja. Muualle lähialueille lisätään matkakulut.</p>
           </div>
-
+    
           <div id="explanation-with-deduction" class="explanation-box" hidden>
             <p>Voit hyödyntää kotitalousvähennyksen. Hyöty riippuu mm. omavastuun (150€/hlö/vuosi) täyttymisestä ja vuoden muista vähennyksistä. Erittelen työn osuuden laskulle valmiiksi.</p>
+          </div>
+    
+          <div class="price-note-box">
+            <p><strong>Päivystys:</strong> su ja pyhät erikseen sovittaessa</p>
+            <p>Minimiveloitus 100€ (1 h) · 100€/h</p>
           </div>
         </div>
       </div>
@@ -360,7 +358,7 @@
             </summary>
             <div class="faq-answer">
               <p>Maksu hoituu yleensä käynnin päätteeksi MobilePaylla tai käteisellä. Lasku onnistuu pyydettäessä (eräpäivä 7 päivää).</p>
-              <p><strong>Päivystys (su ja pyhät):</strong> minimiveloitus on 100€ (1 h).</p>
+              <p><strong>Päivystys:</strong> onnistuu erikseen sovittaessa sunnuntaisin ja pyhinä. Minimiveloitus on 100€ (1 h).</p>
             </div>
           </details>
 
@@ -491,28 +489,41 @@
     </section>
 
     <section id="tietoturva" class="section trust-section">
-    <div class="container">
-      <h2 class="section-title">Tietoturva ja luottamus</h2>
-      <p class="section-subtitle">Käsittelen laitteita, tilejä ja asetuksia aina huolellisesti ja luottamuksellisesti.</p>
-  
-      <div class="trust-box">
-        <p>
-          Jos käynnin aikana täytyy kirjautua sähköpostiin, tarkistaa tilejä, vaihtaa asetuksia tai asentaa ohjelmia,
-          teen sen vain asiakkaan luvalla ja vain kyseisen työn hoitamiseksi.
-        </p>
-        <p>
-          Salasanoja ei tallenneta eikä henkilökohtaisia tietoja kopioida tai käytetä työn jälkeen.
-        </p>
-        <p>
-          Tarvittaessa käytän myös erillistä tietoturva- ja tilien käsittelylomaketta, jotta kaikki on asiakkaalle selkeää ja läpinäkyvää.
-        </p>
+      <div class="container">
+        <h2 class="section-title">Tietoturva ja luottamus</h2>
+        <p class="section-subtitle">Käsittelen laitteita, tilejä ja asetuksia aina huolellisesti ja luottamuksellisesti.</p>
+    
+        <div class="trust-box">
+          <div class="trust-points">
+            <div class="trust-point">
+              <h3>Asiakkaan luvalla</h3>
+              <p>
+                Jos käynnin aikana täytyy kirjautua sähköpostiin, tarkistaa tilejä, vaihtaa asetuksia tai asentaa ohjelmia,
+                teen sen vain asiakkaan luvalla ja vain kyseisen työn hoitamiseksi.
+              </p>
+            </div>
+    
+            <div class="trust-point">
+              <h3>Tiedot pysyvät suojassa</h3>
+              <p>
+                Salasanoja ei tallenneta eikä henkilökohtaisia tietoja kopioida tai käytetä työn jälkeen.
+              </p>
+            </div>
+    
+            <div class="trust-point">
+              <h3>Tarvittaessa myös erillinen lomake</h3>
+              <p>
+                Tarvittaessa käytän myös erillistä tietoturva- ja tilien käsittelylomaketta, jotta kaikki on asiakkaalle selkeää ja läpinäkyvää.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
     <section id="yhteys" class="section">
       <div class="container">
-        <h2 class="section-title">Ota yhteyttä</h2><br>
+        <h2 class="section-title">Ota yhteyttä</h2>
 
         <div class="contact-wrapper">
           <div class="contact-info">
@@ -576,7 +587,7 @@
         <h2 class="payment-title">Maksaminen ja kotitalousvähennys</h2>
         <p>Työ on kotitalousvähennyskelpoista. Saat vähentää verotuksessa ison osan työn hinnasta.</p>
         <p><strong>Maksu hoituu käynnin päätteeksi</strong> MobilePaylla tai käteisellä. Lasku onnistuu pyydettäessä.</p>
-        <p><strong>Päivystys (su ja pyhät):</strong> 100€/h, minimiveloitus 100€ (1 h).</p>
+        <p>Päivystys onnistuu erikseen sovittaessa myös sunnuntaisin ja pyhinä.</p>
 
         <div class="payment-methods" aria-label="Maksutavat ja kotitalousvähennys">
           <div>
