@@ -704,44 +704,40 @@ html[data-theme="dark"] .hero.hero-home {
 
 .price-benefit-highlight {
   display: inline-block;
-  margin: 0 auto 1.25rem auto;
-  padding: 0.75rem 1.1rem;
+  margin: 0 auto 1.5rem auto;
+  padding: 0.8rem 1.2rem;
   border-radius: 999px;
-  background: rgba(14, 165, 233, 0.12);
-  border: 1px solid rgba(14, 165, 233, 0.22);
+  background: rgba(14, 165, 233, 0.14);
+  border: 1px solid rgba(14, 165, 233, 0.28);
   color: var(--accent);
   font-weight: 900;
-  font-size: 1.05rem;
+  font-size: 1.08rem;
+  line-height: 1.2;
 }
 
 .price-info-list {
   max-width: 560px;
   margin: 0 auto;
   text-align: left;
-  background: var(--explanation-bg);
-  border: 1px solid var(--explanation-border);
+  background: rgba(15, 23, 42, 0.03);
+  border: 1px solid var(--border-light);
   border-radius: 16px;
   padding: 1.15rem 1.15rem;
+}
+
+html[data-theme="dark"] .price-info-list {
+  background: rgba(255,255,255,0.04);
 }
 
 .price-info-list p {
   margin: 0;
   color: var(--text-dark);
-  line-height: 1.7;
+  line-height: 1.6;
   font-size: 1rem;
 }
 
 .price-info-list p + p {
   margin-top: 0.55rem;
-}
-
-.pricing-note-soft {
-  margin: 1rem auto 0 auto;
-  max-width: 720px;
-  text-align: center;
-  color: var(--text-light);
-  font-size: 0.95rem;
-  line-height: 1.6;
 }
 
 @media (max-width: 768px) {
@@ -758,10 +754,6 @@ html[data-theme="dark"] .hero.hero-home {
   .price-info-list {
     max-width: 100%;
     padding: 1rem;
-  }
-
-  .pricing-note-soft {
-    font-size: 0.92rem;
   }
 }
 
@@ -960,7 +952,7 @@ html[data-theme="dark"] .form-group textarea { background: rgba(17,24,39,0.55); 
   line-height: 1.75;
 }
 
-.payment-methods { display: flex; justify-content: center; align-items: flex-start; gap: 46px; flex-wrap: wrap; }
+.payment-methods { display: flex; justify-content: center; align-items: flex-start; gap: 37px; flex-wrap: wrap; }
 .payment-label { margin: 0; font-weight: 900; color: var(--text-dark); }
 
 .icon-home, .icon-invoice, .icon-mobilepay {
