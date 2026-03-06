@@ -652,7 +652,7 @@ html[data-theme="dark"] .hero.hero-home {
 }
 
 /* =========================================
-   8. PRICING - yksinkertaisempi versio
+   8. PRICING - selkeämpi ja myyvempi versio
    ========================================= */
 
 .price-card {
@@ -699,41 +699,40 @@ html[data-theme="dark"] .hero.hero-home {
 .vat-info {
   font-size: 0.98rem;
   color: var(--text-light);
-  margin-bottom: 1.3rem;
+  margin-bottom: 1rem;
 }
 
-.price-main-box,
-.price-benefit-box {
+.price-benefit-highlight {
+  display: inline-block;
+  margin: 0 auto 1.25rem auto;
+  padding: 0.75rem 1.1rem;
+  border-radius: 999px;
+  background: rgba(14, 165, 233, 0.12);
+  border: 1px solid rgba(14, 165, 233, 0.22);
+  color: var(--accent);
+  font-weight: 900;
+  font-size: 1.05rem;
+}
+
+.price-info-list {
   max-width: 560px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 1.15rem 1.15rem;
-  border-radius: 16px;
+  margin: 0 auto;
   text-align: left;
-}
-
-.price-main-box {
   background: var(--explanation-bg);
   border: 1px solid var(--explanation-border);
+  border-radius: 16px;
+  padding: 1.15rem 1.15rem;
 }
 
-.price-benefit-box {
-  margin-top: 0.9rem;
-  background: rgba(14, 165, 233, 0.12);
-  border: 1px solid rgba(14, 165, 233, 0.24);
-}
-
-.price-main-box p,
-.price-benefit-box p {
+.price-info-list p {
   margin: 0;
   color: var(--text-dark);
   line-height: 1.7;
   font-size: 1rem;
 }
 
-.price-main-box p + p,
-.price-benefit-box p + p {
-  margin-top: 0.45rem;
+.price-info-list p + p {
+  margin-top: 0.55rem;
 }
 
 .pricing-note-soft {
@@ -751,8 +750,12 @@ html[data-theme="dark"] .hero.hero-home {
     border-radius: 16px;
   }
 
-  .price-main-box,
-  .price-benefit-box {
+  .price-benefit-highlight {
+    font-size: 1rem;
+    padding: 0.7rem 1rem;
+  }
+
+  .price-info-list {
     max-width: 100%;
     padding: 1rem;
   }
