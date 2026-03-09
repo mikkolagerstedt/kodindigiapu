@@ -2,23 +2,36 @@
 <html lang="fi">
 <head>
   <meta charset="utf-8">
+  <meta name="theme-color" content="#f8fafc" id="theme-color-meta">
   <script>
-(function () {
-  try {
-    var savedTheme = localStorage.getItem('theme');
-    var theme = savedTheme || ((window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light');
+  (function () {
+    var theme = 'light';
+    try {
+      var rawTheme = localStorage.getItem('theme');
+      if (rawTheme === 'light' || rawTheme === 'dark') {
+        theme = rawTheme;
+      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        theme = 'dark';
+      }
+    } catch (e) {
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        theme = 'dark';
+      }
+    }
+
     document.documentElement.setAttribute('data-theme', theme);
-  } catch (e) {}
-})();
-</script>
-<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    var themeColorMeta = document.getElementById('theme-color-meta');
+    if (themeColorMeta) {
+      themeColorMeta.setAttribute('content', theme === 'dark' ? '#0b1220' : '#f8fafc');
+    }
+  })();
+  </script><meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
 
   <title>Tietokone- ja puhelinapu kotikäynnillä Järvenpää, Kerava, Tuusula ja lähialueet | Kodin Digiapu</title>
   <meta name="description" content="Ystävällistä apua tietokoneille, puhelimille ja nettiyhteyksille kotiisi Järvenpäässä, Keravalla, Tuusulassa ja lähialueilla. Usein jo samana tai seuraavana arkipäivänä.">
-  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f8fafc">
-  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b1220">
-  <meta name="author" content="Mikko Lagerstedt">
+<meta name="author" content="Mikko Lagerstedt">
   <link rel="canonical" href="https://www.kodindigiapu.fi/">
   <script type="application/ld+json">
   {

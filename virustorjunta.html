@@ -2,22 +2,35 @@
 <html lang="fi">
 <head>
   <meta charset="utf-8">
+  <meta name="theme-color" content="#f8fafc" id="theme-color-meta">
   <script>
-(function () {
-  try {
-    var savedTheme = localStorage.getItem('theme');
-    var theme = savedTheme || ((window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light');
+  (function () {
+    var theme = 'light';
+    try {
+      var rawTheme = localStorage.getItem('theme');
+      if (rawTheme === 'light' || rawTheme === 'dark') {
+        theme = rawTheme;
+      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        theme = 'dark';
+      }
+    } catch (e) {
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        theme = 'dark';
+      }
+    }
+
     document.documentElement.setAttribute('data-theme', theme);
-  } catch (e) {}
-})();
-</script>
-<title>Viruksen poisto Järvenpää | Virustorjunta ja haittaohjelmien poisto | Kodin Digiapu</title>
+
+    var themeColorMeta = document.getElementById('theme-color-meta');
+    if (themeColorMeta) {
+      themeColorMeta.setAttribute('content', theme === 'dark' ? '#0b1220' : '#f8fafc');
+    }
+  })();
+  </script><title>Viruksen poisto Järvenpää | Virustorjunta ja haittaohjelmien poisto | Kodin Digiapu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <meta name="description" content="Viruksen poisto ja haittaohjelmien puhdistus Järvenpäässä, Tuusulassa ja Keravalla. Minimiveloitus 40 € (sis. enintään 30 min). Pidemmät työt 60 € / tunti. Kotitalousvähennyksellä n. 39 €/h. Järvenpäässä ei matkakuluja." />
-  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f8fafc">
-  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b1220">
-  <meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="robots" content="index,follow,max-image-preview:large">
 
   <link rel="canonical" href="https://www.kodindigiapu.fi/virustorjunta.html">
 

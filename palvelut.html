@@ -2,12 +2,34 @@
 <html lang="fi">
 <head>
   <meta charset="utf-8">
-<title>Palvelut | Kodin Digiapu</title>
+  <meta name="theme-color" content="#f8fafc" id="theme-color-meta">
+  <script>
+  (function () {
+    var theme = 'light';
+    try {
+      var rawTheme = localStorage.getItem('theme');
+      if (rawTheme === 'light' || rawTheme === 'dark') {
+        theme = rawTheme;
+      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        theme = 'dark';
+      }
+    } catch (e) {
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        theme = 'dark';
+      }
+    }
+
+    document.documentElement.setAttribute('data-theme', theme);
+
+    var themeColorMeta = document.getElementById('theme-color-meta');
+    if (themeColorMeta) {
+      themeColorMeta.setAttribute('content', theme === 'dark' ? '#0b1220' : '#f8fafc');
+    }
+  })();
+  </script><title>Palvelut | Kodin Digiapu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
   <meta name="description" content="Kodin Digiapu auttaa kotona tavallisissa digiongelmissa: tietokoneet, puhelimet, sähköposti, tulostimet, Wi-Fi, varmuuskopiointi ja tietoturva.">
-  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f8fafc">
-  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b1220">
-  <meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="robots" content="index,follow,max-image-preview:large">
   <link rel="canonical" href="https://www.kodindigiapu.fi/palvelut.html">
 
   <meta property="og:locale" content="fi_FI">
@@ -29,16 +51,6 @@
 
   <link rel="preconnect" href="https://cdnjs.cloudflare.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <script>
-(function () {
-  try {
-    var savedTheme = localStorage.getItem('theme');
-    var theme = savedTheme || ((window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light');
-    document.documentElement.setAttribute('data-theme', theme);
-  } catch (e) {}
-})();
-</script>
 
   <!-- Google tag (GA4) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YX5QL9CJHV"></script>

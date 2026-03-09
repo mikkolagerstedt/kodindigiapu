@@ -346,6 +346,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // =========================================================
   const themeToggle = $('#themeToggle');
   const mql = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
+  const themeColorMeta = $('#theme-color-meta');
+  const syncThemeColorMeta = (theme) => {
+    if (!themeColorMeta) return;
+    themeColorMeta.setAttribute('content', theme === 'dark' ? '#0b1220' : '#f8fafc');
+  };
   let savedTheme = null;
   try {
     const rawTheme = localStorage.getItem('theme');
@@ -361,10 +366,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const prefersDark = mql ? mql.matches : false;
     htmlEl.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
   }
+  syncThemeColorMeta(htmlEl.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
 
   const setTheme = (theme) => {
     const safeTheme = theme === 'dark' ? 'dark' : 'light';
     htmlEl.setAttribute('data-theme', safeTheme);
+    syncThemeColorMeta(safeTheme);
     try {
       localStorage.setItem('theme', safeTheme);
     } catch (e) {}
@@ -386,7 +393,9 @@ document.addEventListener('DOMContentLoaded', () => {
       } catch (err) {}
 
       if (!hasUserTheme) {
-        htmlEl.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+        const nextTheme = e.matches ? 'dark' : 'light';
+        htmlEl.setAttribute('data-theme', nextTheme);
+        syncThemeColorMeta(nextTheme);
       }
     });
   }

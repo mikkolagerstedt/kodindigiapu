@@ -2,16 +2,31 @@
 <html lang="fi">
 <head>
   <meta charset="utf-8">
+  <meta name="theme-color" content="#f8fafc" id="theme-color-meta">
   <script>
-(function () {
-  try {
-    var savedTheme = localStorage.getItem('theme');
-    var theme = savedTheme || ((window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light');
+  (function () {
+    var theme = 'light';
+    try {
+      var rawTheme = localStorage.getItem('theme');
+      if (rawTheme === 'light' || rawTheme === 'dark') {
+        theme = rawTheme;
+      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        theme = 'dark';
+      }
+    } catch (e) {
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        theme = 'dark';
+      }
+    }
+
     document.documentElement.setAttribute('data-theme', theme);
-  } catch (e) {}
-})();
-</script>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+
+    var themeColorMeta = document.getElementById('theme-color-meta');
+    if (themeColorMeta) {
+      themeColorMeta.setAttribute('content', theme === 'dark' ? '#0b1220' : '#f8fafc');
+    }
+  })();
+  </script><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
   <title>Sivua ei löytynyt | Kodin Digiapu</title>
   <meta name="description" content="Sivua ei löytynyt. Palaa etusivulle tai ota yhteyttä, niin autan nopeasti." />
   <meta name="robots" content="noindex" />
@@ -32,9 +47,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
   <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
   <link rel="manifest" href="/site.webmanifest" />
-  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f8fafc">
-  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b1220">
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <link rel="stylesheet" href="/css/styles.css" />
 

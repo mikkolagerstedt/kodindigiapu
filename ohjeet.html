@@ -2,21 +2,34 @@
 <html lang="fi">
 <head>
   <meta charset="utf-8">
+  <meta name="theme-color" content="#f8fafc" id="theme-color-meta">
   <script>
-(function () {
-  try {
-    var savedTheme = localStorage.getItem('theme');
-    var theme = savedTheme || ((window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light');
+  (function () {
+    var theme = 'light';
+    try {
+      var rawTheme = localStorage.getItem('theme');
+      if (rawTheme === 'light' || rawTheme === 'dark') {
+        theme = rawTheme;
+      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        theme = 'dark';
+      }
+    } catch (e) {
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        theme = 'dark';
+      }
+    }
+
     document.documentElement.setAttribute('data-theme', theme);
-  } catch (e) {}
-})();
-</script>
-<title>Ilmaiset digiohjeet ja vinkit | Kodin Digiapu</title>
+
+    var themeColorMeta = document.getElementById('theme-color-meta');
+    if (themeColorMeta) {
+      themeColorMeta.setAttribute('content', theme === 'dark' ? '#0b1220' : '#f8fafc');
+    }
+  })();
+  </script><title>Ilmaiset digiohjeet ja vinkit | Kodin Digiapu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
   <meta name="description" content="Löydä selkeät ohjeet yleisimpiin ongelmiin: hidas tietokone, huijausviesti, tulostin ei toimi, yhteystietojen siirto ja muut.">
-  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f8fafc">
-  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b1220">
-  <link rel="canonical" href="https://www.kodindigiapu.fi/ohjeet.html">
+<link rel="canonical" href="https://www.kodindigiapu.fi/ohjeet.html">
 
   <meta property="og:title" content="Ilmaiset digiohjeet ja vinkit | Kodin Digiapu">
   <meta property="og:description" content="Selkeitä, suomenkielisiä ohjeita yleisimpiin digipulmiin. Ilmaista neuvontaa sinulle.">
