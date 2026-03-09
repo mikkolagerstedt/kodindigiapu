@@ -1,10 +1,13 @@
 ﻿/**
- * Kodin Digiapu â€“ script.js (PÃ„IVITETTY)
- * Teema, navigointi, ankkuriskrolli, hinta-toggle, takaisin ylÃ¶s, evÃ¤stebanneri,
- * ohjesivun platform-toggle, mobiili-CTA (VisualViewport fix poistettu, hoidetaan CSS:llÃ¤)
+ * Kodin Digiapu – script.js (PÄIVITETTY & OPTIMOITU)
+ * Teema, navigointi, ankkuriskrolli, hinta-toggle, takaisin ylös, evästebanneri,
+ * ohjesivun platform-toggle, mobiili-CTA.
  *
- * + GA4: consent update (analytics_storage)
+ * + GA4: consent update (analytics_storage) turvallisesti
  * + GA4: lead events (phone / whatsapp / contact_form)
+ * + aria-invalid siistitty (poistetaan kokonaan validissa tilassa)
+ * + localStorage luku/kirjoitus suojattu try/catchilla
+ * + Yhteystietokenttien ristiinnollaus simple-contact-formissa
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -41,16 +44,17 @@ document.addEventListener('DOMContentLoaded', () => {
     } catch (e) {}
   };
 
+  // Pääyhteyslomakkeen validointi
   const setupFinnishFormValidation = (form) => {
     if (!form) return;
 
     const text = {
-      required: 'T\u00e4yt\u00e4 t\u00e4m\u00e4 kentt\u00e4.',
-      messageRequired: 'Kirjoita viesti ennen l\u00e4hett\u00e4mist\u00e4.',
-      contactRequired: 'Anna puhelinnumero tai s\u00e4hk\u00f6postiosoite.',
+      required: 'Täytä tämä kenttä.',
+      messageRequired: 'Kirjoita viesti ennen lähettämistä.',
+      contactRequired: 'Anna puhelinnumero tai sähköpostiosoite.',
       phoneInvalid: 'Anna toimiva puhelinnumero.',
-      emailInvalid: 'Anna toimiva s\u00e4hk\u00f6postiosoite.',
-      submitError: 'L\u00e4hetys ei onnistunut. Kokeile hetken kuluttua uudelleen.'
+      emailInvalid: 'Anna toimiva sähköpostiosoite.',
+      submitError: 'Lähetys ei onnistunut. Kokeile hetken kuluttua uudelleen.'
     };
 
     const fields = {
@@ -71,7 +75,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const setError = (field, errorEl, message) => {
       if (!field || !errorEl) return;
-      field.setAttribute('aria-invalid', message ? 'true' : 'false');
+      if (message) {
+        field.setAttribute('aria-invalid', 'true');
+      } else {
+        field.removeAttribute('aria-invalid');
+      }
       errorEl.textContent = message || '';
     };
 
@@ -150,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const originalBtnText = submitBtn ? submitBtn.textContent : '';
       if (submitBtn) {
         submitBtn.disabled = true;
-        submitBtn.textContent = 'L\u00e4hetet\u00e4\u00e4n...';
+        submitBtn.textContent = 'Lähetetään...';
       }
 
       try {
@@ -169,12 +177,13 @@ document.addEventListener('DOMContentLoaded', () => {
       } finally {
         if (submitBtn) {
           submitBtn.disabled = false;
-          submitBtn.textContent = originalBtnText || 'L\u00e4het\u00e4 viesti';
+          submitBtn.textContent = originalBtnText || 'Lähetä viesti';
         }
       }
     });
   };
 
+  // Kompakti yhteyslomake (alasivut)
   const setupSimpleContactForm = (form) => {
     if (!form) return;
 
@@ -211,7 +220,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const isEmailValid = (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 
     const setError = (field, errorEl, message) => {
-      if (field) field.setAttribute('aria-invalid', message ? 'true' : 'false');
+      if (field) {
+        if (message) {
+          field.setAttribute('aria-invalid', 'true');
+        } else {
+          field.removeAttribute('aria-invalid');
+        }
+      }
       if (errorEl) errorEl.textContent = message || '';
     };
 
@@ -295,22 +310,37 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
+    // UX-hionta: Yhteystietokenttien ristiinnollaus
     [fields.name, fields.phone, fields.email, fields.message].forEach((field) => {
       if (!field) return;
       field.addEventListener('input', () => {
         if (field === fields.name) setError(fields.name, errors.name, '');
+        
         if (field === fields.phone) {
           setError(fields.phone, errors.phone, '');
-          if (errors.contact && (fields.phone?.value || '').trim()) errors.contact.textContent = '';
+          if (errors.contact && (fields.phone?.value || '').trim()) {
+            errors.contact.textContent = '';
+            if (fields.email && (!errors.email || !errors.email.textContent)) {
+              setError(fields.email, errors.email, ''); 
+            }
+          }
         }
+        
         if (field === fields.email) {
           setError(fields.email, errors.email, '');
-          if (errors.contact && (fields.email?.value || '').trim()) errors.contact.textContent = '';
+          if (errors.contact && (fields.email?.value || '').trim()) {
+            errors.contact.textContent = '';
+            if (fields.phone && (!errors.phone || !errors.phone.textContent)) {
+              setError(fields.phone, errors.phone, '');
+            }
+          }
         }
+        
         if (field === fields.message) setError(fields.message, errors.message, '');
       });
     });
   };
+
   // =========================================================
   // 1. TUMMA/VALOISA TEEMA
   // =========================================================
@@ -389,7 +419,7 @@ document.addEventListener('DOMContentLoaded', () => {
     navToggle.setAttribute('aria-expanded', 'false');
 
     navToggle.addEventListener('click', (e) => {
-      e.stopPropagation(); // TÃ„MÃ„ RIVI KORJAA MOBIILIVALIKON AUKIAMISEN
+      e.stopPropagation();
       if (isMenuOpen()) closeMenu();
       else openMenu();
     });
@@ -411,7 +441,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================
-  // 2b. ANKKURILINKKIEN SMOOTH SCROLL (fixed header huomioiden)
+  // 2b. ANKKURILINKKIEN SMOOTH SCROLL
   // =========================================================
   const handleAnchorClick = (e) => {
     const a = e.currentTarget;
@@ -458,14 +488,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const isDeducted = deductedRadio.checked;
 
     if (isDeducted) {
-      priceDisplay.textContent = `${DEDUCTED_HOURLY}â‚¬`;
+      priceDisplay.textContent = `${DEDUCTED_HOURLY}€`;
       priceDisplay.className = 'price-display deducted';
-      priceDesc.textContent = '/ tunti kotitalousvÃ¤hennyksellÃ¤ (suuntaa-antava)';
+      priceDesc.textContent = '/ tunti kotitalousvähennyksellä (suuntaa-antava)';
       if (expNormal) expNormal.style.display = 'none';
       if (expDeducted) expDeducted.style.display = 'block';
       if (vatInfo) vatInfo.style.display = 'none';
     } else {
-      priceDisplay.textContent = `${NORMAL_HOURLY}â‚¬`;
+      priceDisplay.textContent = `${NORMAL_HOURLY}€`;
       priceDisplay.className = 'price-display normal';
       priceDesc.textContent = '/ tunti';
       if (expNormal) expNormal.style.display = 'block';
@@ -481,7 +511,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================
-  // 4. TAKAISIN YLÃ–S -PAINIKE
+  // 4. TAKAISIN YLÖS -PAINIKE
   // =========================================================
   const toTopBtn = $('#toTop');
   let ticking = false;
@@ -519,7 +549,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // =========================================================
-  // 5. EVÃ„STEBANNERI (consent + remember)
+  // 5. EVÄSTEBANNERI (consent + remember)
   // =========================================================
   const banner = $('#cookie-consent-banner');
   const acceptBtn = $('#btn-consent-accept');
@@ -540,15 +570,20 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   if (banner && acceptBtn && denyBtn) {
-    const consentChoice = localStorage.getItem('cookie_consent_choice'); // 'granted' | 'denied' | null
+    let consentChoice = null;
+
+    try {
+      const rawChoice = localStorage.getItem('cookie_consent_choice');
+      if (rawChoice === 'granted' || rawChoice === 'denied') {
+        consentChoice = rawChoice;
+      }
+    } catch (e) {}
 
     if (!consentChoice) {
       showBanner();
     } else {
-      // Aseta tallennettu valinta myÃ¶s GA:lle heti
-      if (consentChoice === 'granted') safeCallGtagConsentUpdate('granted');
-      if (consentChoice === 'denied') safeCallGtagConsentUpdate('denied');
-
+      // Varmistetaan tila, vaikka tämä ajetaankin myös HTML:n <head>-osiossa
+      safeCallGtagConsentUpdate(consentChoice);
       banner.style.display = 'none';
       body.classList.remove('cookie-banner-is-visible');
       updateToTopVisibility();
@@ -556,9 +591,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     acceptBtn.addEventListener('click', () => {
       safeCallGtagConsentUpdate('granted');
-      localStorage.setItem('cookie_consent_choice', 'granted');
+      try { localStorage.setItem('cookie_consent_choice', 'granted'); } catch (e) {}
 
-      // LÃ¤hetÃ¤ page_view heti kun lupa annetaan
+      // Lähetä page_view heti kun lupa annetaan
       try {
         if (typeof gtag === 'function') {
           gtag('event', 'page_view');
@@ -570,7 +605,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     denyBtn.addEventListener('click', () => {
       safeCallGtagConsentUpdate('denied');
-      localStorage.setItem('cookie_consent_choice', 'denied');
+      try { localStorage.setItem('cookie_consent_choice', 'denied'); } catch (e) {}
       hideBanner();
     });
   }
@@ -629,5 +664,3 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 });
-
-

@@ -181,6 +181,25 @@ html[data-theme="dark"] .icon-moon { opacity: 0; }
   }
 }
 
+/* Homepage anchor targets: keep sections visible below fixed header */
+#palvelut,
+#hinnat,
+#ukk,
+#luottamus,
+#yhteys {
+  scroll-margin-top: 102px;
+}
+
+@media (max-width: 768px) {
+  #palvelut,
+  #hinnat,
+  #ukk,
+  #luottamus,
+  #yhteys {
+    scroll-margin-top: 92px;
+  }
+}
+
 /* =========================================
    3. SKIP LINK (saavutettavuus)
    ========================================= */
