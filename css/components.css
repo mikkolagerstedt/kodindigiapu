@@ -309,16 +309,16 @@ html[data-theme="dark"] .icon-moon { opacity: 0; }
   .mobile-sticky-cta {
     display: flex !important;
     position: fixed;
-    bottom: env(safe-area-inset-bottom, 0px) !important;
+    bottom: 0 !important;
     left: 0;
     width: 100%;
     background: rgba(255, 255, 255, 0.96);
-    backdrop-filter: blur(10px);
+    backdrop-filter: none;
     box-shadow: 0 -4px 20px rgba(0,0,0,0.10);
     z-index: 1001;
-    padding: 14px 16px;
-    gap: 12px;
-    align-items: center;
+    padding: 12px 14px calc(12px + env(safe-area-inset-bottom, 0px));
+    gap: 10px;
+    align-items: stretch;
     border-top: 1px solid rgba(0,0,0,0.06);
   }
 
@@ -328,23 +328,29 @@ html[data-theme="dark"] .icon-moon { opacity: 0; }
   }
 
   .sticky-btn {
-    flex: 1;
+    flex: 1 1 0;
+    min-width: 0;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    padding: 14px;
+    gap: 8px;
+    padding: 10px 10px;
+    min-height: 52px;
     border-radius: 999px;
     font-weight: 900;
-    font-size: 1.05rem;
+    font-size: 0.94rem;
     text-decoration: none;
     color: white;
     box-shadow: 0 6px 16px rgba(0,0,0,0.16);
-    line-height: 1;
+    line-height: 1.15;
+    text-align: center;
   }
 
   .sticky-btn.call { background-color: var(--accent); }
-  .sticky-btn.whatsapp { background-color: var(--whatsapp-green); }
+  .sticky-btn.whatsapp {
+    background-color: var(--whatsapp-green);
+    font-size: 0.90rem;
+  }
 }
 
 #toTop {
