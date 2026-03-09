@@ -1,0 +1,4 @@
+/* TEAM */
+Developer: Mikko Lagerstedt
+Contact: mikko@kodindigiapu.fi
+Website: https://www.kodindigiapu.fi/

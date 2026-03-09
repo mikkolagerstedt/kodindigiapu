@@ -1,0 +1,7 @@
+# Jekyllin konfiguraatio – GitHub Pages
+title: Kodin Digiapu
+description: Tietokoneapu, tekninen apu ja IT-tuki Järvenpäässä, Tuusulassa ja Keravalla.
+baseurl: "/kodindigiapu"  # <-- TÄRKEIN RIVI: repo-nimi
+url: ""                   # Tyhjä = GitHub hoitaa
+
+# Ei tarvita muita asetuksia

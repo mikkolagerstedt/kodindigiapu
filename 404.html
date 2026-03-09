@@ -1,0 +1,183 @@
+﻿<!DOCTYPE html>
+<html lang="fi">
+<head>
+  <script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('theme');
+    var theme = savedTheme || ((window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', theme);
+  } catch (e) {}
+})();
+</script>
+<meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+  <title>Sivua ei löytynyt | Kodin Digiapu</title>
+  <meta name="description" content="Sivua ei löytynyt. Palaa etusivulle tai ota yhteyttä, niin autan nopeasti." />
+  <meta name="robots" content="noindex" />
+  <link rel="canonical" href="https://www.kodindigiapu.fi/404.html" />
+  
+
+  <meta property="og:title" content="Sivua ei löytynyt | Kodin Digiapu" />
+  <meta property="og:description" content="Hakemaasi sivua ei löytynyt. Palaa etusivulle tai ota yhteyttä, niin autan eteenpäin." />
+  <meta property="og:url" content="https://www.kodindigiapu.fi/404.html" />
+  <meta property="og:image" content="https://www.kodindigiapu.fi/images/mikko-digiapu.webp" />
+  <meta property="og:type" content="website" />
+
+  
+  <meta name="twitter:title" content="Sivua ei löytynyt | Kodin Digiapu">
+  <meta name="twitter:description" content="Sivua ei löytynyt. Palaa etusivulle tai ota yhteyttä, niin autan nopeasti.">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#ffffff" />
+
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="/css/styles.css" />
+
+  <!-- TÄRKEÄ: Tämä style-blokki on index.html:ssä, ei styles.css:ssä. Ilman tätä 404 näyttää rikkinäiseltä. -->
+</head>
+
+<body>
+  <a class="skip-link" href="#main-content">Hyppää sisältöön</a>
+
+  <header class="site-header">
+  <div class="container nav">
+    <a href="/" class="logo" aria-label="Kodin Digiapu etusivu">
+      <img src="/favicon-96x96.png" alt="Kodin Digiapu logo" class="logo-icon" width="96" height="96">
+      <span>Kodin Digiapu</span>
+    </a>
+
+    <div class="header-controls">
+      <button class="theme-toggle" id="themeToggle" aria-label="Vaihda tumma tai vaalea teema" type="button"><svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5" /><line x1="12" y1="1" x2="12" y2="3" /><line x1="12" y1="21" x2="12" y2="23" /><line x1="4.22" y1="4.22" x2="5.64" y2="5.64" /><line x1="18.36" y1="18.36" x2="19.78" y2="19.78" /><line x1="1" y1="12" x2="3" y2="12" /><line x1="21" y1="12" x2="23" y2="12" /><line x1="4.22" y1="19.78" x2="5.64" y2="18.36" /><line x1="18.36" y1="5.64" x2="19.78" y2="4.22" /></svg><svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.79A9 9 0 0 1 11.21 3 9 9 0 1 0 21 12.79z"></path></svg></button>
+      <button class="nav-toggle" aria-label="Avaa valikko" aria-expanded="false" type="button">
+        <i class="fas fa-bars" aria-hidden="true"></i>
+      </button>
+    </div>
+
+    <nav aria-label="Päävalikko">
+      <ul class="nav-links">
+        <li><a href="/">Etusivu</a></li>
+        <li><a href="/#palvelut">Palvelut</a></li>
+        <li><a href="/#hinnat">Hinnat</a></li>
+        <li><a href="/#ukk">Usein kysyttyä</a></li>
+        <li><a href="/#luottamus">Kokemuksia</a></li>
+        <li><a href="/ohjeet.html">Ohjeet</a></li>
+        <li><a href="/#yhteys">Yhteys</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+  <main id="main-content">
+
+    <section class="hero">
+      <div class="container hero-container-flex">
+        <img src="/images/mikko-digiapu.webp" alt="Mikko Lagerstedt" class="hero-profile-img">
+
+        <div class="hero-text-content">
+          <h1 class="hero-title">Sivua ei löytynyt</h1>
+
+          <p class="hero-subtitle">
+            Osoite on voinut muuttua tai linkissä on kirjoitusvirhe.
+            <br><br>
+            Voit palata etusivulle tai avata ohjeet. Jos haluat, voit myös soittaa tai laittaa WhatsApp-viestin, niin katsotaan asia kuntoon.
+          </p>
+
+          <div class="hero-cta-buttons">
+            <a href="/" class="cta-button primary"><i class="fas fa-home"></i> Etusivulle</a>
+
+            <a href="/ohjeet.html" class="cta-button secondary">
+              <i class="fas fa-book"></i> Ohjeet
+            </a>
+
+            <!-- VAIHDA numero jos etusivulla on eri -->
+            <a href="tel:+358405724113" class="cta-button secondary"><i class="fas fa-phone-alt"></i> Soita</a>
+
+            <a href="https://wa.me/358405724113" target="_blank" rel="noopener" class="cta-button whatsapp"><i class="fab fa-whatsapp"></i> Lähetä WhatsApp-viesti</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="services">
+      <div class="container">
+        <div class="services-grid">
+
+          <div class="service-card">
+            <h3>Tarvitsetko apua heti?</h3>
+            <p>Soita tai laita WhatsApp. Kerro lyhyesti mitä tapahtui ja millä laitteella.</p>
+            <div class="service-actions">
+              <a class="service-link" href="tel:+358405724113"><i class="fas fa-phone-alt"></i> Soita</a>
+              <a class="service-link" target="_blank" rel="noopener" href="https://wa.me/358405724113"><i class="fab fa-whatsapp"></i> Lähetä WhatsApp-viesti</a>
+            </div>
+          </div>
+
+          <div class="service-card">
+            <h3>Etsitkö ohjetta?</h3>
+            <p>Ohjeet ja vinkit löytyvät omalta sivultaan. Useimmat ongelmat ratkeavat nopeasti.</p>
+            <a class="service-link" href="/ohjeet.html"><i class="fas fa-book"></i> Avaa ohjeet</a>
+          </div>
+
+          <div class="service-card">
+            <h3>Palvelualue</h3>
+            <p>Järvenpää, Tuusula, Kerava. Kotikäynnit ja etätuki sovitusti.</p>
+            <a class="service-link" href="/"><i class="fas fa-house"></i> Takaisin etusivulle</a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+    <footer class="site-footer">
+    <div class="container">
+      <p><strong>Kodin Digiapu</strong> – Järvenpää, Kerava, Tuusula ja lähialueet</p>
+      <p>
+        Puhelin: <a href="tel:+358405724113">040 572 4113</a> ·
+        WhatsApp: <a href="https://wa.me/358405724113" target="_blank" rel="noopener">Lähetä WhatsApp-viesti</a> ·
+        Sähköposti: <a href="mailto:mikko@kodindigiapu.fi">mikko@kodindigiapu.fi</a>
+      </p>
+      <p>Aukiolo: ma–pe 10–18, la 10–14 · Y-tunnus 2272247-7</p>
+      <p>
+        <a href="/sitemap.xml">Sivukartta</a> ·
+        <a href="/tietosuoja.html">Tietosuoja</a> ·
+        <a href="/evasteet.html">Evästeet</a>
+      </p>
+    </div>
+  </footer>
+
+  <div class="mobile-sticky-cta">
+    <a class="sticky-btn call" href="tel:+358405724113"><i class="fas fa-phone-alt"></i> Soita</a>
+    <a class="sticky-btn whatsapp" href="https://wa.me/358405724113" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Lähetä WhatsApp-viesti</a>
+  </div>
+
+  <button id="toTop" aria-label="Takaisin ylös">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+<div class="cookie-banner" id="cookie-consent-banner">
+    <div class="cookie-banner-content">
+      <p>Käytämme evästeitä parantaaksemme sivustoa. <a class="cookie-link" href="/evasteet.html">Lue lisää</a></p>
+      <div class="cookie-banner-buttons">
+        <button class="cookie-btn deny" id="btn-consent-deny">Hylkää</button>
+        <button class="cookie-btn accept" id="btn-consent-accept">Hyväksy</button>
+      </div>
+    </div>
+  </div>
+
+<script src="/js/script.js" defer></script></body>
+</html>
+
+
+
+
+
+
+
+
+
+
