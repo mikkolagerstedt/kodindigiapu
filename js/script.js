@@ -316,17 +316,28 @@ document.addEventListener('DOMContentLoaded', () => {
   // =========================================================
   const themeToggle = $('#themeToggle');
   const mql = window.matchMedia ? window.matchMedia('(prefers-color-scheme: dark)') : null;
-  const savedTheme = localStorage.getItem('theme');
-  if (savedTheme === 'light' || savedTheme === 'dark') {
+  let savedTheme = null;
+  try {
+    const rawTheme = localStorage.getItem('theme');
+    if (rawTheme === 'light' || rawTheme === 'dark') savedTheme = rawTheme;
+  } catch (e) {}
+
+  const currentTheme = htmlEl.getAttribute('data-theme');
+  const hasValidCurrentTheme = currentTheme === 'light' || currentTheme === 'dark';
+
+  if (savedTheme) {
     htmlEl.setAttribute('data-theme', savedTheme);
-  } else if (!htmlEl.getAttribute('data-theme')) {
+  } else if (!hasValidCurrentTheme) {
     const prefersDark = mql ? mql.matches : false;
     htmlEl.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
   }
 
   const setTheme = (theme) => {
-    htmlEl.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
+    const safeTheme = theme === 'dark' ? 'dark' : 'light';
+    htmlEl.setAttribute('data-theme', safeTheme);
+    try {
+      localStorage.setItem('theme', safeTheme);
+    } catch (e) {}
   };
 
   if (themeToggle) {
@@ -338,7 +349,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (mql && typeof mql.addEventListener === 'function') {
     mql.addEventListener('change', (e) => {
-      if (!localStorage.getItem('theme')) {
+      let hasUserTheme = false;
+      try {
+        const rawTheme = localStorage.getItem('theme');
+        hasUserTheme = rawTheme === 'light' || rawTheme === 'dark';
+      } catch (err) {}
+
+      if (!hasUserTheme) {
         htmlEl.setAttribute('data-theme', e.matches ? 'dark' : 'light');
       }
     });

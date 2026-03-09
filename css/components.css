@@ -347,6 +347,7 @@ html[data-theme="dark"] .icon-moon { opacity: 0; }
   }
 
   .sticky-btn.call { background-color: var(--accent); }
+  html[data-theme="dark"] .sticky-btn.call { background-color: #0369a1; }
   .sticky-btn.whatsapp {
     background-color: var(--whatsapp-green);
     font-size: 0.90rem;
@@ -1167,6 +1168,10 @@ html[data-theme="dark"] .form-group textarea { background: rgba(17,24,39,0.55); 
   font-size: 0.9rem;
   color: #b91c1c;
   line-height: 1.4;
+}
+
+html[data-theme="dark"] .form-error {
+  color: #fecaca;
 }
 
 .form-error:empty {

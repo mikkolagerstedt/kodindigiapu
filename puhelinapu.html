@@ -1,33 +1,36 @@
-ï»¿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fi">
 <head>
   <meta charset="utf-8">
-  <title>Puhelinapu JÃ¤rvenpÃ¤Ã¤ - Uuden puhelimen kÃ¤yttÃ¶Ã¶notto | Kodin Digiapu</title>
+  <title>Puhelinapu Järvenpää - Uuden puhelimen käyttöönotto | Kodin Digiapu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-  <meta name="description" content="SelkeÃ¤Ã¤ apua uuden Ã¤lypuhelimen tai tabletin kÃ¤yttÃ¶Ã¶nottoon JÃ¤rvenpÃ¤Ã¤ssÃ¤. SiirrÃ¤n tiedot ja opastan kÃ¤ytÃ¶ssÃ¤ rauhallisesti.">
-  <meta name="theme-color" content="#0ea5e9">
+  <meta name="description" content="Selkeää apua uuden älypuhelimen tai tabletin käyttöönottoon Järvenpäässä. Siirrän tiedot ja opastan käytössä rauhallisesti.">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f8fafc">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b1220">
   <link rel="canonical" href="https://www.kodindigiapu.fi/puhelinapu.html">
 
-  <meta property="og:title" content="Puhelinapu ja tablettiopastus â€“ Kodin Digiapu">
-  <meta property="og:description" content="Autan sinua uuden puhelimen tai tabletin asentamisessa, tietojen siirrossa ja kÃ¤ytÃ¶n opastuksessa selkeÃ¤sti ja rauhallisesti.">
+  <meta property="og:title" content="Puhelinapu ja tablettiopastus – Kodin Digiapu">
+  <meta property="og:description" content="Autan sinua uuden puhelimen tai tabletin asentamisessa, tietojen siirrossa ja käytön opastuksessa selkeästi ja rauhallisesti.">
   <meta property="og:image" content="https://www.kodindigiapu.fi/images/Kodin-Digiapu-Link.webp">
   <meta property="og:url" content="https://www.kodindigiapu.fi/puhelinapu.html">
   <meta name="twitter:card" content="summary_large_image">
 
-    <meta name="twitter:title" content="Puhelinapu JÃ¤rvenpÃ¤Ã¤ - Uuden puhelimen kÃ¤yttÃ¶Ã¶notto | Kodin Digiapu">
-  <meta name="twitter:description" content="SelkeÃ¤Ã¤ apua uuden Ã¤lypuhelimen tai tabletin kÃ¤yttÃ¶Ã¶nottoon JÃ¤rvenpÃ¤Ã¤ssÃ¤. SiirrÃ¤n tiedot ja opastan kÃ¤ytÃ¶ssÃ¤ rauhallisesti.">
+    <meta name="twitter:title" content="Puhelinapu Järvenpää - Uuden puhelimen käyttöönotto | Kodin Digiapu">
+  <meta name="twitter:description" content="Selkeää apua uuden älypuhelimen tai tabletin käyttöönottoon Järvenpäässä. Siirrän tiedot ja opastan käytössä rauhallisesti.">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="manifest" href="/site.webmanifest">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous">
 
   <script>
-    (function() {
-      const savedTheme = localStorage.getItem('theme') ||
-        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-      document.documentElement.setAttribute('data-theme', savedTheme);
-    })();
-  </script>
+(function () {
+  try {
+    var savedTheme = localStorage.getItem('theme');
+    var theme = savedTheme || ((window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', theme);
+  } catch (e) {}
+})();
+</script>
   <link rel="stylesheet" href="/css/styles.css">
  <!-- Google tag (GA4) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YX5QL9CJHV"></script>
@@ -62,7 +65,7 @@
     "@context": "https://schema.org",
     "@type": "Service",
     "serviceType": "Puhelinapu ja tablettiopastus",
-    "description": "SelkeÃ¤Ã¤ ja rauhallista apua puhelimen ja tabletin kÃ¤yttÃ¶Ã¶n JÃ¤rvenpÃ¤Ã¤ssÃ¤ ja lÃ¤hialueilla. Autan kÃ¤yttÃ¶Ã¶notossa, sovelluksissa, sÃ¤hkÃ¶postissa ja varmuuskopioinnissa.",
+    "description": "Selkeää ja rauhallista apua puhelimen ja tabletin käyttöön Järvenpäässä ja lähialueilla. Autan käyttöönotossa, sovelluksissa, sähköpostissa ja varmuuskopioinnissa.",
     "provider": {
       "@type": "LocalBusiness",
       "name": "Kodin Digiapu",
@@ -70,7 +73,7 @@
       "url": "https://www.kodindigiapu.fi/"
     },
     "areaServed": [
-      {"@type": "City", "name": "JÃ¤rvenpÃ¤Ã¤"},
+      {"@type": "City", "name": "Järvenpää"},
       {"@type": "City", "name": "Tuusula"},
       {"@type": "City", "name": "Kerava"}
     ],
@@ -87,7 +90,7 @@
   
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-THJ4NB54"
 	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-	<a class="skip-link" href="#main-content">HyppÃ¤Ã¤ sisÃ¤ltÃ¶Ã¶n</a>
+	<a class="skip-link" href="#main-content">Hyppää sisältöön</a>
 
   <header class="site-header">
   <div class="container nav">
@@ -118,12 +121,12 @@
       </button>
     </div>
 
-    <nav aria-label="PÃ¤Ã¤valikko">
+    <nav aria-label="Päävalikko">
       <ul class="nav-links">
         <li><a href="/">Etusivu</a></li>
         <li><a href="/#palvelut">Palvelut</a></li>
         <li><a href="/#hinnat">Hinnat</a></li>
-        <li><a href="/#ukk">Usein kysyttyÃ¤</a></li>
+        <li><a href="/#ukk">Usein kysyttyä</a></li>
         <li><a href="/#luottamus">Kokemuksia</a></li>
         <li><a href="/ohjeet.html">Ohjeet</a></li>
         <li><a href="/#yhteys">Yhteys</a></li>
@@ -139,20 +142,20 @@
         <i class="fas fa-mobile-alt icon" aria-hidden="true"></i>
         <h1 class="hero-title">Apua puhelimen ja tabletin kanssa</h1>
         <p class="hero-subtitle">
-          Onko sinulla uusi puhelin tai tabletti, mutta et tiedÃ¤ mistÃ¤ aloittaa? <br>Tai tarvitsetko apua sovellusten, sÃ¤hkÃ¶postin tai varmuuskopioinnin kanssa?<br><br>
-          <strong>Saat minulta selkeÃ¤Ã¤ ja rauhallista opastusta ilman kiirettÃ¤.</strong>
+          Onko sinulla uusi puhelin tai tabletti, mutta et tiedä mistä aloittaa? <br>Tai tarvitsetko apua sovellusten, sähköpostin tai varmuuskopioinnin kanssa?<br><br>
+          <strong>Saat minulta selkeää ja rauhallista opastusta ilman kiirettä.</strong>
         </p>
       </div>
     </section>
 
     <section class="vst-section">
       <div class="container">
-        <h2 class="vst-title">YleisimmÃ¤t pulmatilanteet</h2>
+        <h2 class="vst-title">Yleisimmät pulmatilanteet</h2>
         <div class="vst-cards">
           <div class="vst-card">
             <i class="fas fa-box-open vst-icon" aria-hidden="true"></i>
             <h3>Uusi laite paketissa</h3>
-            <p>Uuden puhelimen tai tabletin kÃ¤yttÃ¶Ã¶notto tuntuu monimutkaiselta.</p>
+            <p>Uuden puhelimen tai tabletin käyttöönotto tuntuu monimutkaiselta.</p>
           </div>
           <div class="vst-card">
             <i class="fas fa-sync-alt vst-icon" aria-hidden="true"></i>
@@ -161,8 +164,8 @@
           </div>
           <div class="vst-card">
             <i class="fas fa-question-circle vst-icon" aria-hidden="true"></i>
-            <h3>KÃ¤yttÃ¶ epÃ¤varmaa</h3>
-            <p>Tarvitset apua sÃ¤hkÃ¶postin, WhatsAppin tai muiden sovellusten kanssa.</p>
+            <h3>Käyttö epävarmaa</h3>
+            <p>Tarvitset apua sähköpostin, WhatsAppin tai muiden sovellusten kanssa.</p>
           </div>
         </div>
       </div>
@@ -170,12 +173,12 @@
 
     <section class="vst-section">
       <div class="container">
-        <h2 class="vst-title">Miksi pyytÃ¤Ã¤ ammattilaisen apua?</h2>
+        <h2 class="vst-title">Miksi pyytää ammattilaisen apua?</h2>
         <div class="vst-cards">
           <div class="vst-card is-warning">
             <i class="fas fa-database vst-icon" aria-hidden="true"></i>
             <h3>Tiedot voivat kadota</h3>
-            <p>Tietojen siirrossa voi menettÃ¤Ã¤ tÃ¤rkeitÃ¤ kuvia tai yhteystietoja.</p>
+            <p>Tietojen siirrossa voi menettää tärkeitä kuvia tai yhteystietoja.</p>
           </div>
           <div class="vst-card is-caution">
             <i class="fas fa-cloud-upload-alt vst-icon" aria-hidden="true"></i>
@@ -185,7 +188,7 @@
           <div class="vst-card is-safe">
             <i class="fas fa-check-circle vst-icon" aria-hidden="true"></i>
             <h3>Kaikki toimii heti</h3>
-            <p>Hoidan kaiken kerralla kuntoon, sÃ¤Ã¤stÃ¤t aikaa ja hermojasi.</p>
+            <p>Hoidan kaiken kerralla kuntoon, säästät aikaa ja hermojasi.</p>
           </div>
         </div>
       </div>
@@ -193,28 +196,28 @@
 
     <section class="section dark-section help-section">
       <div class="container">
-        <h2 class="section-title">NÃ¤in autan sinua</h2>
+        <h2 class="section-title">Näin autan sinua</h2>
         <div class="help-steps">
           <div class="help-step">
             <i class="fas fa-mobile-alt" aria-hidden="true"></i>
-            <div><h3>KÃ¤yttÃ¶Ã¶notto</h3><p>Teen uuden laitteen perusasetukset ja pÃ¤ivitykset puolestasi.</p></div>
+            <div><h3>Käyttöönotto</h3><p>Teen uuden laitteen perusasetukset ja päivitykset puolestasi.</p></div>
           </div>
           <div class="help-step">
             <i class="fas fa-sync-alt" aria-hidden="true"></i>
-            <div><h3>Tietojen siirto</h3><p>SiirrÃ¤n yhteystiedot, kuvat ja viestit turvallisesti vanhasta laitteesta.</p></div>
+            <div><h3>Tietojen siirto</h3><p>Siirrän yhteystiedot, kuvat ja viestit turvallisesti vanhasta laitteesta.</p></div>
           </div>
           <div class="help-step">
             <i class="fas fa-envelope" aria-hidden="true"></i>
-            <div><h3>SÃ¤hkÃ¶posti ja sovellukset</h3><p>Asennan tarvitsemasi sovellukset ja laitan sÃ¤hkÃ¶postit toimimaan.</p></div>
+            <div><h3>Sähköposti ja sovellukset</h3><p>Asennan tarvitsemasi sovellukset ja laitan sähköpostit toimimaan.</p></div>
           </div>
           <div class="help-step">
             <i class="fas fa-chalkboard-teacher" aria-hidden="true"></i>
-            <div><h3>Opastus ja varmuuskopiointi</h3><p>Opastan kÃ¤ytÃ¶ssÃ¤ ja varmistan, ettÃ¤ tietosi ovat turvassa pilvessÃ¤.</p></div>
+            <div><h3>Opastus ja varmuuskopiointi</h3><p>Opastan käytössä ja varmistan, että tietosi ovat turvassa pilvessä.</p></div>
           </div>
         </div>
         <p class="related-service-link">
-          Tarvitsetko laajempaa opastusta tietokoneen tai ohjelmistojen kÃ¤yttÃ¶Ã¶n? 
-          <a href="opastus.html">Lue lisÃ¤Ã¤ henkilÃ¶kohtaisesta opastuksesta</a>.
+          Tarvitsetko laajempaa opastusta tietokoneen tai ohjelmistojen käyttöön? 
+          <a href="opastus.html">Lue lisää henkilökohtaisesta opastuksesta</a>.
         </p>
       </div>
     </section>
@@ -222,14 +225,14 @@
     <section class="cta-section">
       <div class="container">
         <h2>Puhelin- ja tablettiasiat kuntoon</h2>
-        <p>TyÃ¶ veloitetaan normaalin hinnaston mukaan.</p>
+        <p>Työ veloitetaan normaalin hinnaston mukaan.</p>
         <div class="hero-cta-buttons">
           <a href="tel:+358405724113" class="cta-button primary"><i class="fas fa-phone-alt" aria-hidden="true"></i> Soita 040 572 4113</a>
-          <a href="https://wa.me/358405724113?text=Hei!%20Tarvitsisin%20apua%20puhelimen%20tai%20tabletin%20k%C3%A4yt%C3%B6ss%C3%A4." target="_blank" rel="noopener" class="cta-button whatsapp"><i class="fab fa-whatsapp" aria-hidden="true"></i> LÃ¤hetÃ¤ WhatsApp-viesti</a>
+          <a href="https://wa.me/358405724113?text=Hei!%20Tarvitsisin%20apua%20puhelimen%20tai%20tabletin%20k%C3%A4yt%C3%B6ss%C3%A4." target="_blank" rel="noopener" class="cta-button whatsapp"><i class="fab fa-whatsapp" aria-hidden="true"></i> Lähetä WhatsApp-viesti</a>
         </div>
         
-        <div class="cta-price-compact"><p class="cta-price-main">60 â‚¬ / tunti</p><p class="cta-price-benefit">KotitalousvÃ¤hennyksellÃ¤ n. 39 â‚¬ / tunti</p><p class="cta-price-meta">JÃ¤rvenpÃ¤Ã¤ssÃ¤ ei matkakuluja.</p></div>
-        <p class="free-consultation">Yhteydenotto ja tilanteen kartoitus on aina maksutonta.</p><div class="cta-inline-form-wrap"><form action="https://formspree.io/f/mnngjdyr" method="POST" class="contact-form-compact cta-contact-form js-simple-contact-form" novalidate><input type="hidden" name="_next" value="https://www.kodindigiapu.fi/kiitos.html"><div class="form-group"><label class="form-label">Nimi</label><input type="text" name="name" placeholder="Nimesi" autocomplete="name" required aria-label="Nimi"><p class="form-error" data-error-for="name" aria-live="polite"></p></div><div class="form-group"><label class="form-label">Puhelinnumero</label><input type="tel" name="phone" placeholder="Puhelinnumerosi" autocomplete="tel" inputmode="tel" aria-label="Puhelinnumero"><p class="form-error" data-error-for="phone" aria-live="polite"></p></div><div class="form-group"><label class="form-label">SÃ¤hkÃ¶postiosoite</label><input type="email" name="email" placeholder="SÃ¤hkÃ¶postiosoitteesi" autocomplete="email" inputmode="email" aria-label="SÃ¤hkÃ¶postiosoite"><p class="form-error" data-error-for="email" aria-live="polite"></p></div><p class="form-error form-contact-error" data-error-for="contact" aria-live="polite"></p><div class="form-group"><label class="form-label">Viestisi</label><textarea name="message" rows="3" placeholder="Kerro lyhyesti ongelmasta" required aria-label="Viestisi"></textarea><p class="form-error" data-error-for="message" aria-live="polite"></p></div><p class="form-error form-submit-error" aria-live="polite"></p><button type="submit" class="btn-submit">LÃ¤hetÃ¤ viesti</button></form></div>
+        <div class="cta-price-compact"><p class="cta-price-main">60 € / tunti</p><p class="cta-price-benefit">Kotitalousvähennyksellä n. 39 € / tunti</p><p class="cta-price-meta">Järvenpäässä ei matkakuluja.</p></div>
+        <p class="free-consultation">Yhteydenotto ja tilanteen kartoitus on aina maksutonta.</p><div class="cta-inline-form-wrap"><form action="https://formspree.io/f/mnngjdyr" method="POST" class="contact-form-compact cta-contact-form js-simple-contact-form" novalidate><input type="hidden" name="_next" value="https://www.kodindigiapu.fi/kiitos.html"><div class="form-group"><label class="form-label">Nimi</label><input type="text" name="name" placeholder="Nimesi" autocomplete="name" required aria-label="Nimi"><p class="form-error" data-error-for="name" aria-live="polite"></p></div><div class="form-group"><label class="form-label">Puhelinnumero</label><input type="tel" name="phone" placeholder="Puhelinnumerosi" autocomplete="tel" inputmode="tel" aria-label="Puhelinnumero"><p class="form-error" data-error-for="phone" aria-live="polite"></p></div><div class="form-group"><label class="form-label">Sähköpostiosoite</label><input type="email" name="email" placeholder="Sähköpostiosoitteesi" autocomplete="email" inputmode="email" aria-label="Sähköpostiosoite"><p class="form-error" data-error-for="email" aria-live="polite"></p></div><p class="form-error form-contact-error" data-error-for="contact" aria-live="polite"></p><div class="form-group"><label class="form-label">Viestisi</label><textarea name="message" rows="3" placeholder="Kerro lyhyesti ongelmasta" required aria-label="Viestisi"></textarea><p class="form-error" data-error-for="message" aria-live="polite"></p></div><p class="form-error form-submit-error" aria-live="polite"></p><button type="submit" class="btn-submit">Lähetä viesti</button></form></div>
 
         
       </div>
@@ -239,26 +242,26 @@
 
     <footer class="site-footer">
     <div class="container">
-      <p><strong>Kodin Digiapu</strong> â€“ JÃ¤rvenpÃ¤Ã¤, Kerava, Tuusula ja lÃ¤hialueet</p>
+      <p><strong>Kodin Digiapu</strong> – Järvenpää, Kerava, Tuusula ja lähialueet</p>
       <p>
-        Puhelin: <a href="tel:+358405724113">040 572 4113</a> Â·
-        WhatsApp: <a href="https://wa.me/358405724113" target="_blank" rel="noopener">LÃ¤hetÃ¤ WhatsApp-viesti</a> Â·
-        SÃ¤hkÃ¶posti: <a href="mailto:mikko@kodindigiapu.fi">mikko@kodindigiapu.fi</a>
+        Puhelin: <a href="tel:+358405724113">040 572 4113</a> ·
+        WhatsApp: <a href="https://wa.me/358405724113" target="_blank" rel="noopener">Lähetä WhatsApp-viesti</a> ·
+        Sähköposti: <a href="mailto:mikko@kodindigiapu.fi">mikko@kodindigiapu.fi</a>
       </p>
-      <p>Aukiolo: maâ€“pe 10â€“18, la 10â€“14 Â· Y-tunnus 2272247-7</p>
+      <p>Aukiolo: ma–pe 10–18, la 10–14 · Y-tunnus 2272247-7</p>
       <p>
-        <a href="/sitemap.xml">Sivukartta</a> Â·
-        <a href="/tietosuoja.html">Tietosuoja</a> Â·
-        <a href="/evasteet.html">EvÃ¤steet</a>
+        <a href="/sitemap.xml">Sivukartta</a> ·
+        <a href="/tietosuoja.html">Tietosuoja</a> ·
+        <a href="/evasteet.html">Evästeet</a>
       </p>
     </div>
   </footer>
 
   <div class="mobile-sticky-cta">
     <a href="tel:+358405724113" class="sticky-btn call"><i class="fas fa-phone-alt" aria-hidden="true"></i> Soita</a>
-    <a href="https://wa.me/358405724113" target="_blank" rel="noopener" class="sticky-btn whatsapp" aria-label="LÃ¤hetÃ¤ viesti WhatsAppilla"><i class="fab fa-whatsapp" aria-hidden="true"></i> LÃ¤hetÃ¤ WhatsApp-viesti</a>
+    <a href="https://wa.me/358405724113" target="_blank" rel="noopener" class="sticky-btn whatsapp" aria-label="Lähetä viesti WhatsAppilla"><i class="fab fa-whatsapp" aria-hidden="true"></i> Lähetä WhatsApp-viesti</a>
   </div>
-  <button id="toTop" aria-label="Takaisin ylÃ¶s"><i class="fas fa-chevron-up"></i></button>
+  <button id="toTop" aria-label="Takaisin ylös"><i class="fas fa-chevron-up"></i></button>
 
   <script defer src="/js/script.js"></script>
 </body>

@@ -99,12 +99,14 @@ body.service-page-landing .vst-card p + p { margin-top: 0.9rem; }
 
 /* TÃ„RKEÃ„: ohje- ja palvelusivujen â€œaskeleetâ€ selkeÃ¤sti PINOSSA */
 body.service-page-landing .dark-section {
-  background: var(--footer-bg);
-  color: var(--footer-text);
+  background: var(--bg);
+  color: var(--text-dark);
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
 }
 
-body.service-page-landing .dark-section .section-title { color: var(--footer-text); }
-body.service-page-landing .dark-section .section-subtitle { color: rgba(241,245,249,0.85); }
+body.service-page-landing .dark-section .section-title { color: var(--main); }
+body.service-page-landing .dark-section .section-subtitle { color: var(--text-light); }
 
 body.service-page-landing .help-steps {
   margin-top: 20px;
