@@ -1,4 +1,4 @@
-/* Design tokens */
+
 :root {
   --main: #1f2937;
   --accent: #0ea5e9;
@@ -30,11 +30,10 @@
   --font-size-base: 18px;
   --line-base: 1.85;
 
-  --content-max: 1180px;      /* hieman leveämpi kuin ennen */
-  --prose-width: 78ch;        /* ohjetekstien luettava rivilinja */
+  --content-max: 1180px;
+  --prose-width: 78ch;
 }
 
-/* Dark theme variables */
 html[data-theme="dark"] {
   --main: #f3f4f6;
   --accent: #38bdf8;
