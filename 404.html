@@ -55,7 +55,7 @@
   <!-- TÄRKEÄ: Tämä style-blokki on index.html:ssä, ei styles.css:ssä. Ilman tätä 404 näyttää rikkinäiseltä. -->
 </head>
 
-<body>
+<body class="page-404">
   <a class="skip-link" href="#main-content">Hyppää sisältöön</a>
 
   <header class="site-header">
@@ -89,59 +89,55 @@
   <main id="main-content">
 
     <section class="hero">
-      <div class="container hero-container-flex">
-        <img src="/images/mikko-digiapu.webp" alt="Mikko Lagerstedt" class="hero-profile-img">
+      <div class="container">
+        <h1 class="hero-title">Sivua ei löytynyt</h1>
 
-        <div class="hero-text-content">
-          <h1 class="hero-title">Sivua ei löytynyt</h1>
+        <p class="hero-subtitle">
+          Osoite on voinut muuttua tai linkissä on kirjoitusvirhe.
+        </p>
+        <p class="hero-support-text">
+          Voit palata etusivulle tai avata ohjeet. Jos haluat, voit myös soittaa tai laittaa WhatsApp-viestin, niin katsotaan asia kuntoon.
+        </p>
 
-          <p class="hero-subtitle">
-            Osoite on voinut muuttua tai linkissä on kirjoitusvirhe.
-            <br><br>
-            Voit palata etusivulle tai avata ohjeet. Jos haluat, voit myös soittaa tai laittaa WhatsApp-viestin, niin katsotaan asia kuntoon.
-          </p>
+        <div class="hero-cta-buttons">
+          <a href="/" class="cta-button primary page-404-home-icon" aria-label="Etusivulle" title="Etusivulle"><i class="fas fa-home"></i></a>
 
-          <div class="hero-cta-buttons">
-            <a href="/" class="cta-button primary"><i class="fas fa-home"></i> Etusivulle</a>
+          <a href="tel:+358405724113" class="cta-button ghost"><i class="fas fa-phone-alt"></i> Soita</a>
 
-            <a href="/ohjeet.html" class="cta-button secondary">
-              <i class="fas fa-book"></i> Ohjeet
-            </a>
-
-            <!-- VAIHDA numero jos etusivulla on eri -->
-            <a href="tel:+358405724113" class="cta-button secondary"><i class="fas fa-phone-alt"></i> Soita</a>
-
-            <a href="https://wa.me/358405724113" target="_blank" rel="noopener" class="cta-button whatsapp"><i class="fab fa-whatsapp"></i> Lähetä WhatsApp-viesti</a>
-          </div>
+          <a href="https://wa.me/358405724113" target="_blank" rel="noopener" class="cta-button whatsapp"><i class="fab fa-whatsapp"></i> Lähetä WhatsApp-viesti</a>
         </div>
       </div>
     </section>
 
-    <section class="services">
+    <section class="services help-section">
       <div class="container">
-        <div class="services-grid">
-
-          <div class="service-card">
-            <h3>Tarvitsetko apua heti?</h3>
-            <p>Soita tai laita WhatsApp. Kerro lyhyesti mitä tapahtui ja millä laitteella.</p>
-            <div class="service-actions">
-              <a class="service-link" href="tel:+358405724113"><i class="fas fa-phone-alt"></i> Soita</a>
-              <a class="service-link" target="_blank" rel="noopener" href="https://wa.me/358405724113"><i class="fab fa-whatsapp"></i> Lähetä WhatsApp-viesti</a>
+        <div class="help-steps-grid page-404-help-grid">
+          <a class="help-step page-404-help-step" href="/#yhteys">
+            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+            <div>
+              <h3>Ota yhteyttä</h3>
+              <p>Jos tarvitset apua heti, siirry yhteydenottoon ja kerro lyhyesti mitä tapahtui.</p>
+              <p class="page-404-card-cta">Siirry yhteydenottoon</p>
             </div>
-          </div>
+          </a>
 
-          <div class="service-card">
-            <h3>Etsitkö ohjetta?</h3>
-            <p>Ohjeet ja vinkit löytyvät omalta sivultaan. Useimmat ongelmat ratkeavat nopeasti.</p>
-            <a class="service-link" href="/ohjeet.html"><i class="fas fa-book"></i> Avaa ohjeet</a>
-          </div>
+          <a class="help-step page-404-help-step" href="/ohjeet.html">
+            <i class="fas fa-book" aria-hidden="true"></i>
+            <div>
+              <h3>Etsitkö ohjetta?</h3>
+              <p>Ohjeet ja vinkit löytyvät omalta sivultaan. Useimmat ongelmat ratkeavat nopeasti.</p>
+              <p class="page-404-card-cta">Avaa ohjeet</p>
+            </div>
+          </a>
 
-          <div class="service-card">
-            <h3>Palvelualue</h3>
-            <p>Järvenpää, Tuusula, Kerava. Kotikäynnit ja etätuki sovitusti.</p>
-            <a class="service-link" href="/"><i class="fas fa-house"></i> Takaisin etusivulle</a>
-          </div>
-
+          <a class="help-step page-404-help-step" href="/">
+            <i class="fas fa-home" aria-hidden="true"></i>
+            <div>
+              <h3>Palaa etusivulle</h3>
+              <p>Etusivulta löydät palvelut, hinnat ja yhteystiedot yhdestä paikasta.</p>
+              <p class="page-404-card-cta">Takaisin kotisivulle</p>
+            </div>
+          </a>
         </div>
       </div>
     </section>
