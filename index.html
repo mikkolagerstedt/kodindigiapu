@@ -84,11 +84,72 @@
   <link rel="preload" as="image" href="/images/mikko-digiapu.webp" fetchpriority="high">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous">
-  <link rel="stylesheet" href="/css/styles.css">
+    <!-- Google tag (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YX5QL9CJHV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'denied',
+      functionality_storage: 'granted',
+      security_storage: 'granted',
+      wait_for_update: 500
+    });
+
+    gtag('config', 'G-YX5QL9CJHV');
+  </script>
+
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id=GTM-THJ4NB54'+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-THJ4NB54');
+  </script>
+<link rel="stylesheet" href="/css/styles.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Kuinka nopeasti pääset paikalle?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Useimmiten samana tai seuraavana arkipäivänä. Kiireellisissä tilanteissa kannattaa soittaa, niin katsotaan nopein tapa auttaa."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Mitä jos vikaa ei saada korjattua?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Kaikkia ongelmia ei aina saada ratkaistua heti yhdellä käynnillä, mutta selvitän tilanteen rehellisesti ja kerron mitä kannattaa tehdä seuraavaksi."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Kehtaanko soittaa tai laittaa viestin, jos en osaa selittää vikaa?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Totta kai. Sinun ei tarvitse osata selittää tai käyttää oikeita termejä. Riittää kun kerrot omin sanoin mikä ei toimi tai tuntuu oudolta."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
-  <a class="skip-link" href="#main-content">Hyppää sisältöön</a>
+    <a class="skip-link" href="#main-content">Hyppää sisältöön</a>
 
   <header class="site-header">
     <div class="container nav">
@@ -159,6 +220,7 @@
           <div class="hero-opening-hours">
             <i class="fas fa-clock" aria-hidden="true"></i> Arkisin 10–18 | la 10–14 (kysy myös muita aikoja)
           </div>
+          <p class="hero-availability">Apua useimmiten jo samana päivänä.</p>
 
           <div class="hero-cta-buttons">
             <a href="tel:+358405724113" class="cta-button primary">
@@ -174,7 +236,7 @@
             Moni miettii, kehtaako pienestä asiasta ottaa yhteyttä. Kyllä kehtaa.
             Sinun ei tarvitse tietää mikä on vialla tai osata selittää sitä teknisesti.
             Riittää, että kerrot omin sanoin mikä ei toimi.
-          </p>
+          </p> 
         </div>
       </div>
     </section>
@@ -513,26 +575,27 @@
 
           <form id="contact-form" action="https://formspree.io/f/mnngjdyr" method="POST" class="contact-form" novalidate>
             <input type="hidden" name="_next" value="https://kodindigiapu.fi/kiitos.html">
+            <input type="hidden" name="page_source" value="index.html">
             <h3>Lähetä viesti</h3>
 
             <p class="form-notice">
-              Sinun ei tarvitse osata selittää ongelmaa tarkasti. Riittää, että kerrot omin sanoin, mikä ei toimi. Yhteydenotto on maksutonta.
+              Kerro vain omin sanoin, mikä ei toimi. Autan siitä eteenpäin. Yhteydenotto on maksutonta.
             </p>
 
             <div class="form-group">
-              <label for="name" class="visually-hidden">Nimesi</label>
+              <label for="name">Nimesi</label>
               <input type="text" id="name" name="name" placeholder="Nimesi" autocomplete="name" aria-describedby="name-error" required>
               <p id="name-error" class="form-error" aria-live="polite"></p>
             </div>
 
             <div class="form-group">
-              <label for="phone" class="visually-hidden">Puhelinnumerosi</label>
+              <label for="phone">Puhelinnumerosi</label>
               <input type="tel" id="phone" name="phone" placeholder="Puhelinnumerosi" autocomplete="tel" inputmode="tel" pattern="^[0-9+()\\-\\s]{6,}$" aria-describedby="phone-error contact-error">
               <p id="phone-error" class="form-error" aria-live="polite"></p>
             </div>
 
             <div class="form-group">
-              <label for="email" class="visually-hidden">Sähköpostiosoitteesi</label>
+              <label for="email">Sähköpostiosoitteesi</label>
               <input type="email" id="email" name="email" placeholder="Sähköpostiosoitteesi" autocomplete="email" inputmode="email" aria-describedby="email-error contact-error">
               <p id="email-error" class="form-error" aria-live="polite"></p>
             </div>
@@ -540,7 +603,7 @@
             <p id="contact-error" class="form-error" aria-live="polite"></p>
 
             <div class="form-group">
-              <label for="message" class="visually-hidden">Viestisi</label>
+              <label for="message">Viestisi</label>
               <textarea id="message" name="message" rows="4" placeholder="Kerro lyhyesti ongelmasta" aria-describedby="message-error" required></textarea>
               <p id="message-error" class="form-error" aria-live="polite"></p>
             </div>
@@ -548,6 +611,7 @@
             <p id="submit-error" class="form-error" aria-live="polite"></p>
 
             <button type="submit" class="btn-submit">Lähetä viesti</button>
+            <p class="form-response-time">vastaan yleensä saman päivän aikana.</p>
           </form>
         </div>
       </div>

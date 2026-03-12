@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fi">
 <head>
   <meta charset="utf-8">
@@ -53,10 +53,39 @@
   <link rel="stylesheet" href="/css/styles.css" />
 
   <!-- TÄRKEÄ: Tämä style-blokki on index.html:ssä, ei styles.css:ssä. Ilman tätä 404 näyttää rikkinäiseltä. -->
+
+  <!-- Google tag (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YX5QL9CJHV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'denied',
+      functionality_storage: 'granted',
+      security_storage: 'granted',
+      wait_for_update: 500
+    });
+
+    gtag('config', 'G-YX5QL9CJHV');
+  </script>
+
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id=GTM-THJ4NB54'+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-THJ4NB54');
+  </script>
 </head>
 
 <body class="page-404">
-  <a class="skip-link" href="#main-content">Hyppää sisältöön</a>
+    <a class="skip-link" href="#main-content">Hyppää sisältöön</a>
 
   <header class="site-header">
   <div class="container nav">
@@ -166,15 +195,15 @@
     <a class="sticky-btn whatsapp" href="https://wa.me/358405724113" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Lähetä WhatsApp-viesti</a>
   </div>
 
-  <button id="toTop" aria-label="Takaisin ylös">
+  <button id="toTop" aria-label="Takaisin ylös" type="button">
     <i class="fas fa-chevron-up"></i>
   </button>
 <div class="cookie-banner" id="cookie-consent-banner">
     <div class="cookie-banner-content">
       <p>Käytämme evästeitä parantaaksemme sivustoa. <a class="cookie-link" href="/evasteet.html">Lue lisää</a></p>
       <div class="cookie-banner-buttons">
-        <button class="cookie-btn deny" id="btn-consent-deny">Hylkää</button>
-        <button class="cookie-btn accept" id="btn-consent-accept">Hyväksy</button>
+        <button class="cookie-btn deny" id="btn-consent-deny" type="button">Hylkää</button>
+        <button class="cookie-btn accept" id="btn-consent-accept" type="button">Hyväksy</button>
       </div>
     </div>
   </div>

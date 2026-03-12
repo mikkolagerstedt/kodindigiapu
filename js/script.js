@@ -1,7 +1,7 @@
 ﻿/**
  * Kodin Digiapu – script.js (PÄIVITETTY & OPTIMOITU)
  * Teema, navigointi, ankkuriskrolli, hinta-toggle, takaisin ylös, evästebanneri,
- * ohjesivun platform-toggle, mobiili-CTA.
+ * mobiili-CTA.
  *
  * + GA4: consent update (analytics_storage) turvallisesti
  * + GA4: lead events (phone / whatsapp / contact_form)
@@ -638,38 +638,5 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.js-simple-contact-form').forEach((form) => {
     setupSimpleContactForm(form);
   });
-
-  // =========================================================
-  // 6. OHJESIVUN VAIHTOPAINIKKEET (ANDROID/IPHONE)
-  // =========================================================
-  const platformToggleInputs = $$('input[name="platform-option"]');
-  const androidContent = $('#android-instructions');
-  const iphoneContent = $('#iphone-instructions');
-
-  const updatePlatformContent = () => {
-    if (!androidContent || !iphoneContent) return;
-
-    const checked = $('input[name="platform-option"]:checked');
-    if (!checked) return;
-
-    const selected = checked.value;
-
-    if (selected === 'android') {
-      androidContent.style.display = 'block';
-      iphoneContent.style.display = 'none';
-      androidContent.classList.add('active');
-      iphoneContent.classList.remove('active');
-    } else {
-      iphoneContent.style.display = 'block';
-      androidContent.style.display = 'none';
-      iphoneContent.classList.add('active');
-      androidContent.classList.remove('active');
-    }
-  };
-
-  if (platformToggleInputs.length > 0) {
-    platformToggleInputs.forEach((input) => input.addEventListener('change', updatePlatformContent));
-    updatePlatformContent();
-  }
 
 });

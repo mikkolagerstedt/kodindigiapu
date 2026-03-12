@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fi">
 <head>
   <meta charset="utf-8">
@@ -26,7 +26,8 @@
       themeColorMeta.setAttribute('content', theme === 'dark' ? '#0b1220' : '#f8fafc');
     }
   })();
-  </script><title>Tietosuojaseloste – Kodin Digiapu</title>
+  </script>
+  <title>Tietosuojaseloste – Kodin Digiapu</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
   <meta name="robots" content="noindex, nofollow">
   
@@ -49,14 +50,42 @@
   <link rel="manifest" href="/site.webmanifest">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous">
   
-  <link rel="stylesheet" href="/css/styles.css">
+    <!-- Google tag (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YX5QL9CJHV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'denied',
+      functionality_storage: 'granted',
+      security_storage: 'granted',
+      wait_for_update: 500
+    });
+
+    gtag('config', 'G-YX5QL9CJHV');
+  </script>
+
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id=GTM-THJ4NB54'+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-THJ4NB54');
+  </script>
+<link rel="stylesheet" href="/css/styles.css">
 <!-- Google tag (GA4) -->
 
 </head>
 
 <body class="service-page-landing" data-theme="light">
   
-  <a class="skip-link" href="#main-content">Hyppää sisältöön</a>
+    <a class="skip-link" href="#main-content">Hyppää sisältöön</a>
 
   <header class="site-header">
   <div class="container nav">
@@ -163,9 +192,18 @@
     <a href="tel:+358405724113" class="sticky-btn call"><i class="fas fa-phone-alt"></i> Soita</a>
     <a href="https://wa.me/358405724113" target="_blank" rel="noopener" class="sticky-btn whatsapp" aria-label="Lähetä viesti WhatsAppilla"><i class="fab fa-whatsapp"></i> Lähetä WhatsApp-viesti</a>
   </div>
-  <button id="toTop" aria-label="Takaisin ylös"><i class="fas fa-chevron-up"></i></button>
+  <button id="toTop" aria-label="Takaisin ylös" type="button"><i class="fas fa-chevron-up"></i></button>
 
-  <script src="/js/script.js" defer></script></body>
+    <div id="cookie-consent-banner" class="cookie-banner" role="dialog" aria-label="Evästeasetukset" aria-modal="true">
+    <div class="cookie-banner-content">
+      <p>Käytämme evästeitä parantaaksemme sivustoa. <a href="evasteet.html" class="cookie-link">Lue lisää</a></p>
+      <div class="cookie-banner-buttons">
+        <button id="btn-consent-deny" class="cookie-btn deny" type="button">Hylkää</button>
+        <button id="btn-consent-accept" class="cookie-btn accept" type="button">Hyväksy</button>
+      </div>
+    </div>
+  </div>
+<script src="/js/script.js" defer></script></body>
 </html>
 
 

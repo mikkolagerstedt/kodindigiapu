@@ -524,6 +524,21 @@ html[data-theme="dark"] code { background: rgba(255,255,255,0.10); }
   max-width: 72ch;
 }
 
+.hero-availability {
+  margin-top: 12px;
+  margin-bottom: 0;
+  font-weight: 800;
+  color: var(--main);
+}
+
+.hero-proof {
+  margin-top: 10px;
+  margin-bottom: 0;
+  max-width: 64ch;
+  color: var(--text-light);
+  font-style: italic;
+}
+
 .hero.hero-home {
   text-align: left;
   background:
@@ -585,6 +600,12 @@ html[data-theme="dark"] .hero.hero-home {
 .hero-home .hero-support-text {
   max-width: 74ch;
   margin-top: 18px;
+}
+
+.hero-home .hero-availability,
+.hero-home .hero-proof {
+  margin-left: 0;
+  margin-right: 0;
 }
 
 @media (max-width: 980px) {
@@ -1187,53 +1208,11 @@ html[data-theme="dark"] .form-error {
 }
 .btn-submit:hover { background: var(--accent-hover); transform: translateY(-1px); }
 
-.cta-trust-box {
-  margin: 0.62rem auto 0.96rem;
-  max-width: 620px;
-  padding: 0.78rem 0.92rem;
-  border-radius: 14px;
-  border: 1px solid var(--border-light);
-  background: var(--explanation-bg);
-  text-align: left;
-}
-
-.cta-trust-title {
-  margin: 0 0 0.34rem 0;
-  font-size: 0.98rem;
-  font-weight: 800;
-  color: var(--main);
-  line-height: 1.35;
-}
-
-.cta-trust-item {
-  margin: 0.2rem 0 0;
+.form-response-time {
+  margin-top: 0.35rem;
+  margin-bottom: 0;
   font-size: 0.92rem;
-  line-height: 1.48;
   color: var(--text-light);
-}
-
-.cta-trust-text {
-  margin: 0;
-  font-size: 0.95rem;
-  line-height: 1.52;
-  color: var(--text-dark);
-}
-
-html[data-theme="dark"] .cta-trust-box {
-  background: rgba(56, 189, 248, 0.1);
-  border-color: rgba(255, 255, 255, 0.14);
-}
-
-html[data-theme="dark"] .cta-trust-title {
-  color: rgba(241, 245, 249, 0.96);
-}
-
-html[data-theme="dark"] .cta-trust-item {
-  color: rgba(241, 245, 249, 0.86);
-}
-
-html[data-theme="dark"] .cta-trust-text {
-  color: rgba(241, 245, 249, 0.9);
 }
 
 .cta-price-compact {
@@ -1440,20 +1419,6 @@ html[data-theme="dark"] .cta-section .guide-next-steps-links a:hover {
 }
 
 @media (max-width: 640px) {
-  .cta-trust-box {
-    padding: 0.7rem 0.74rem;
-    border-radius: 13px;
-  }
-
-  .cta-trust-title {
-    font-size: 0.94rem;
-  }
-
-  .cta-trust-item {
-    font-size: 0.89rem;
-    line-height: 1.44;
-  }
-
   .service-area-note {
     font-size: 0.86rem;
     line-height: 1.42;
