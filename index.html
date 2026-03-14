@@ -80,7 +80,7 @@
   <link rel="manifest" href="/site.webmanifest">
 
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-  <link rel="preload" as="image" href="/images/mikko-digiapu.webp" fetchpriority="high">
+  <link rel="preload" as="image" href="/images/mikko-digiapu.webp" imagesrcset="/images/mikko-digiapu-340.webp 340w, /images/mikko-digiapu.webp 500w" imagesizes="(max-width: 768px) 170px, (max-width: 980px) 220px, 260px" fetchpriority="high">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous">
     <!-- Google tag (GA4) -->
@@ -103,15 +103,33 @@
     gtag('config', 'G-YX5QL9CJHV');
   </script>
 
-  <!-- Google Tag Manager -->
+  <!-- Google Tag Manager (deferred) -->
   <script>
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id=GTM-THJ4NB54'+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-THJ4NB54');
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js' });
+
+      function loadGTM() {
+        if (w.__kdaGtmLoaded) return;
+        w.__kdaGtmLoaded = true;
+        var f = d.getElementsByTagName(s)[0];
+        var j = d.createElement(s);
+        var dl = l !== 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      }
+
+      w.addEventListener('load', function () {
+        if ('requestIdleCallback' in w) {
+          w.requestIdleCallback(loadGTM, { timeout: 2000 });
+        } else {
+          w.setTimeout(loadGTM, 1200);
+        }
+      });
+    })(window, document, 'script', 'dataLayer', 'GTM-THJ4NB54');
   </script>
-<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="/css/style.css">
 
   <script type="application/ld+json">
   {
@@ -198,6 +216,8 @@
       <div class="container hero-container-flex">
         <img
           src="/images/mikko-digiapu.webp"
+          srcset="/images/mikko-digiapu-340.webp 340w, /images/mikko-digiapu.webp 500w"
+          sizes="(max-width: 768px) 170px, (max-width: 980px) 220px, 260px"
           alt="Mikko Lagerstedt, Kodin Digiapu"
           class="hero-profile-img"
           width="200"
@@ -373,7 +393,7 @@
           </div>
         </div>
 
-        <img src="/images/kodin-digiapu-tietokone.webp" alt="Kodin Digiapu auttaa tietokoneen kanssa" class="trust-image" loading="lazy" decoding="async" width="2048" height="1152">
+        <img src="/images/kodin-digiapu-tietokone.webp" srcset="/images/kodin-digiapu-tietokone-768.webp 768w, /images/kodin-digiapu-tietokone-1280.webp 1280w, /images/kodin-digiapu-tietokone.webp 2048w" sizes="(max-width: 1200px) 100vw, 1180px" alt="Kodin Digiapu auttaa tietokoneen kanssa" class="trust-image" loading="lazy" decoding="async" width="2048" height="1152">
       </div>
     </section>
 
@@ -468,7 +488,7 @@
       <div class="container">
         <h2 class="section-title">Asiakkaiden kokemuksia</h2>
 
-        <img src="/images/kodin-digiapu-auttamassa.webp" alt="Kodin Digiapu auttamassa senioria" class="trust-image" loading="lazy" decoding="async" width="1200" height="800">
+        <img src="/images/kodin-digiapu-auttamassa.webp" srcset="/images/kodin-digiapu-auttamassa-640.webp 640w, /images/kodin-digiapu-auttamassa-960.webp 960w, /images/kodin-digiapu-auttamassa.webp 1200w" sizes="(max-width: 1200px) 100vw, 1180px" alt="Kodin Digiapu auttamassa senioria" class="trust-image" loading="lazy" decoding="async" width="1200" height="800">
 
         <div class="testimonials-grid">
           <div class="testimonial-card highlight">
@@ -540,7 +560,7 @@
 
         <div class="contact-wrapper">
           <div class="contact-info">
-            <img src="/images/mikko-digiapu.webp" alt="Mikko Lagerstedt, Kodin Digiapu" class="contact-profile-img" width="150" height="150" loading="lazy" decoding="async">
+            <img src="/images/mikko-digiapu.webp" srcset="/images/mikko-digiapu-340.webp 340w, /images/mikko-digiapu.webp 500w" sizes="150px" alt="Mikko Lagerstedt, Kodin Digiapu" class="contact-profile-img" width="150" height="150" loading="lazy" decoding="async">
 
             <h3>Tarvitsetko apua tässä asiassa?</h3>
             <p>Jos et ole varma, mistä ongelma johtuu, ei haittaa. Kerro lyhyesti, mitä tapahtuu.</p>
@@ -672,3 +692,4 @@
   <script src="/js/script.js" defer></script>
 </body>
 </html>
+

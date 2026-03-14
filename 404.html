@@ -50,7 +50,7 @@
   <link rel="manifest" href="/site.webmanifest" />
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="stylesheet" href="/css/style.css" />
 
   <!-- TÄRKEÄ: Tämä style-blokki on index.html:ssä, ei styles.css:ssä. Ilman tätä 404 näyttää rikkinäiseltä. -->
 
@@ -74,13 +74,31 @@
     gtag('config', 'G-YX5QL9CJHV');
   </script>
 
-  <!-- Google Tag Manager -->
+  <!-- Google Tag Manager (deferred) -->
   <script>
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id=GTM-THJ4NB54'+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-THJ4NB54');
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({'gtm.start': new Date().getTime(), event: 'gtm.js' });
+
+      function loadGTM() {
+        if (w.__kdaGtmLoaded) return;
+        w.__kdaGtmLoaded = true;
+        var f = d.getElementsByTagName(s)[0];
+        var j = d.createElement(s);
+        var dl = l !== 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      }
+
+      w.addEventListener('load', function () {
+        if ('requestIdleCallback' in w) {
+          w.requestIdleCallback(loadGTM, { timeout: 2000 });
+        } else {
+          w.setTimeout(loadGTM, 1200);
+        }
+      });
+    })(window, document, 'script', 'dataLayer', 'GTM-THJ4NB54');
   </script>
 </head>
 
@@ -210,6 +228,7 @@
 
 <script src="/js/script.js" defer></script></body>
 </html>
+
 
 
 
