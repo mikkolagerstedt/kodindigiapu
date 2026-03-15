@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Kodin Digiapu – script.js (PÄIVITETTY & OPTIMOITU)
  * Teema, navigointi, ankkuriskrolli, hinta-toggle, takaisin ylös, evästebanneri,
  * mobiili-CTA.
@@ -405,12 +405,14 @@ document.addEventListener('DOMContentLoaded', () => {
   // =========================================================
   const navToggle = $('.nav-toggle');
   const navLinks = $('.nav-links');
+  const navIconMenu = '<svg class="icon-svg" viewBox="0 0 448 512" aria-hidden="true"><use href="/icons/icons.svg#icon-bars"></use></svg>';
+  const navIconClose = '<svg class="icon-svg" viewBox="0 0 384 512" aria-hidden="true"><use href="/icons/icons.svg#icon-xmark"></use></svg>';
 
   const openMenu = () => {
     if (!navLinks || !navToggle) return;
     navLinks.classList.add('show');
     navToggle.setAttribute('aria-expanded', 'true');
-    navToggle.innerHTML = '<i class="fas fa-times"></i>';
+    navToggle.innerHTML = navIconClose;
     body.style.overflow = 'hidden';
   };
 
@@ -418,7 +420,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!navLinks || !navToggle) return;
     navLinks.classList.remove('show');
     navToggle.setAttribute('aria-expanded', 'false');
-    navToggle.innerHTML = '<i class="fas fa-bars"></i>';
+    navToggle.innerHTML = navIconMenu;
     body.style.overflow = '';
   };
 

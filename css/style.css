@@ -197,6 +197,12 @@ li { margin: 0.35rem 0; }
   color: var(--main);
 }
 
+.nav-toggle .icon-svg {
+  width: 1em;
+  height: 1em;
+  vertical-align: 0;
+}
+
 .nav-links {
   display: flex;
   gap: 22px;
@@ -212,6 +218,33 @@ li { margin: 0.35rem 0; }
 }
 
 .nav-links a:hover { color: var(--accent); }
+
+/* Inline SVG icon system */
+.icon-svg {
+  display: inline-block;
+  width: 1em;
+  min-width: 1em;
+  height: 1em;
+  line-height: 1;
+  vertical-align: -0.125em;
+  flex-shrink: 0;
+  shape-rendering: geometricPrecision;
+  fill: currentColor;
+}
+
+.icon-svg use {
+  fill: currentColor;
+}
+
+.icon-svg path,
+.icon-svg line,
+.icon-svg polyline,
+.icon-svg circle,
+.icon-svg rect {
+  vector-effect: non-scaling-stroke;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
 
 .theme-toggle {
   width: 42px;
@@ -375,6 +408,12 @@ html[data-theme="dark"] .icon-moon { opacity: 0; }
   max-width: 360px;
 }
 
+.cta-button .icon-svg {
+  width: 1.04em;
+  height: 1.04em;
+  vertical-align: -0.12em;
+}
+
 .cta-button.primary { background: var(--accent); color: #fff; }
 .cta-button.primary:hover { background: var(--accent-hover); transform: translateY(-1px); }
 
@@ -466,6 +505,12 @@ html[data-theme="dark"] .icon-moon { opacity: 0; }
     text-align: center;
   }
 
+  .sticky-btn .icon-svg {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.1em;
+  }
+
   .sticky-btn.call { background-color: var(--accent); }
   html[data-theme="dark"] .sticky-btn.call { background-color: #0369a1; }
   .sticky-btn.whatsapp {
@@ -492,6 +537,13 @@ html[data-theme="dark"] .icon-moon { opacity: 0; }
   z-index: 1002;
   transition: transform 0.2s ease, background 0.2s ease;
 }
+
+#toTop .icon-svg {
+  width: 1.08rem;
+  height: 1.08rem;
+  vertical-align: 0;
+}
+
 #toTop:hover { transform: translateY(-1px); background: var(--accent-hover); }
 @media (max-width: 768px) { #toTop { bottom: calc(env(safe-area-inset-bottom, 0px) + 96px); } }
 
@@ -802,10 +854,13 @@ html[data-theme="dark"] .hero.hero-home {
   box-shadow: var(--shadow-md);
 }
 
-.help-step i {
-  font-size: 1.7rem;
+.help-step > .icon-svg {
+  display: block;
+  width: 1.7rem;
+  height: 1.7rem;
   color: var(--accent);
-  margin-bottom: 12px;
+  margin: 0 auto 12px;
+  vertical-align: 0;
 }
 
 .help-step h3 { margin: 0 0 0.6rem 0; }
@@ -850,9 +905,12 @@ html[data-theme="dark"] .hero.hero-home {
 .service-link { display: block; color: inherit; text-decoration: none; height: 100%; }
 
 .service-card .icon {
-  font-size: 2.4rem;
+  display: block;
+  width: 2.4rem;
+  height: 2.4rem;
   color: var(--accent);
-  margin-bottom: 1rem;
+  margin: 0 auto 1rem;
+  vertical-align: 0;
 }
 
 .service-card h3 { font-size: 1.22rem; margin-bottom: 0.65rem; }
@@ -1111,7 +1169,14 @@ html[data-theme="dark"] .hero.hero-home {
 
 .faq-question::-webkit-details-marker { display: none; }
 
-.faq-icon { color: var(--accent); transition: transform 0.2s ease; }
+.faq-icon {
+  width: 1rem;
+  height: 1rem;
+  margin-left: 0.75rem;
+  flex-shrink: 0;
+  color: var(--accent);
+  transition: transform 0.2s ease;
+}
 .faq-item[open] .faq-icon { transform: rotate(180deg); }
 
 .faq-answer {
@@ -1600,10 +1665,10 @@ html[data-theme="dark"] .cta-section .guide-next-steps-links a:hover {
 .payment-label { margin: 0; font-weight: 900; color: var(--text-dark); }
 
 .icon-home, .icon-invoice, .icon-mobilepay {
-  font-size: 3rem;
-  margin-bottom: 10px;
-  height: 60px;
-  line-height: 60px;
+  display: block;
+  width: 3rem;
+  height: 3rem;
+  margin: 0 auto 10px;
   color: var(--text-dark);
 }
 .icon-invoice { color: var(--success); }
@@ -1693,10 +1758,11 @@ body.service-page-landing .vst-card {
 body.service-page-landing .vst-icon {
   width: 44px;
   height: 44px;
+  padding: 10px;
+  box-sizing: border-box;
   border-radius: 14px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: inline-block;
+  vertical-align: middle;
   background: rgba(14,165,233,0.12);
   color: var(--main);
 }
@@ -1739,16 +1805,17 @@ body.service-page-landing .help-step {
   text-align: left;
 }
 
-body.service-page-landing .help-step i {
+body.service-page-landing .help-step > .icon-svg {
   width: 54px;
   height: 54px;
+  margin: 0;
+  padding: 14px;
+  box-sizing: border-box;
   border-radius: 16px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: inline-block;
   background: rgba(14,165,233,0.12);
   color: var(--main);
-  font-size: 1.15rem;
+  vertical-align: 0;
 }
 
 body.service-page-landing .help-step h3 {
@@ -1777,9 +1844,10 @@ body.service-page-landing .help-step p + p { margin-top: 0.9rem; }
     grid-template-columns: 46px 1fr;
     padding: 18px 16px;
   }
-  body.service-page-landing .help-step i {
+  body.service-page-landing .help-step > .icon-svg {
     width: 46px;
     height: 46px;
+    padding: 11px;
     border-radius: 14px;
   }
 
@@ -1958,7 +2026,7 @@ html[data-theme="dark"] body.service-page-landing .dark-section .help-step p {
   color: rgba(241,245,249,0.90);
 }
 
-html[data-theme="dark"] body.service-page-landing .dark-section .help-step i {
+html[data-theme="dark"] body.service-page-landing .dark-section .help-step > .icon-svg {
   background: rgba(56,189,248,0.16);
   color: var(--footer-text);
 }
@@ -1977,7 +2045,7 @@ html[data-theme="light"] body.service-page-landing .dark-section .help-step p {
   color: var(--text-light);
 }
 
-html[data-theme="light"] body.service-page-landing .dark-section .help-step i {
+html[data-theme="light"] body.service-page-landing .dark-section .help-step > .icon-svg {
   background: rgba(14,165,233,0.12);
   color: var(--main);
 }
@@ -2061,8 +2129,10 @@ html[data-theme="dark"] .hero.hero-home .hero-support-text {
   border: 1px solid rgba(14, 165, 233, 0.2);
 }
 
-.hero-opening-hours i {
-  font-size: 1.1rem;
+.hero-opening-hours .icon-svg {
+  width: 1.05em;
+  height: 1.05em;
+  vertical-align: -0.1em;
 }
 
 html[data-theme="dark"] .hero-opening-hours {
@@ -2354,8 +2424,11 @@ html[data-theme="dark"] .related-service-link {
   justify-content: center;
 }
 
-.page-404 .hero-cta-buttons .page-404-home-icon i {
+.page-404 .hero-cta-buttons .page-404-home-icon .icon-svg {
+  width: 1.1rem;
+  height: 1.1rem;
   margin: 0;
+  vertical-align: 0;
 }
 
 .page-404 .services {
@@ -2378,7 +2451,7 @@ html[data-theme="dark"] .related-service-link {
   border-radius: 14px;
 }
 
-.page-404 .page-404-help-step i {
+.page-404 .page-404-help-step > .icon-svg {
   margin-bottom: 10px;
 }
 
